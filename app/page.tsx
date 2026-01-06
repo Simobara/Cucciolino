@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LunchDinnerSection from "./components/ lunch-dinner/LunchDinnerSection";
+import BreakfastBrunchSection from "./components/breakfast-brunch/BreakfastBrunchSection";
+import BookingCtaBar from "./components/cta/ BookingCtaBar";
+import FloatingHomeButton from "./components/floating/FloatingHomeButton";
+import FunctionsGroupsSection from "./components/functions-groups/  FunctionsGroupsSection";
+import SocialsSection from "./components/socials/ SocialsSection";
+import WhatsOnSection from "./components/whatson/WhatsOnSection";
 
 export const metadata: Metadata = {
   title: "Cucciolino Pizza & Gelato",
@@ -11,6 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      <FloatingHomeButton />
       {/* HERO */}
       <section className="relative min-h-[90vh]">
         <Image
@@ -102,6 +110,41 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <WhatsOnSection />
+      <BreakfastBrunchSection />
+      <LunchDinnerSection />
+      <BookingCtaBar />
+      <FunctionsGroupsSection />
+      <SocialsSection
+        instagramHandle="@cucciolinopizza"
+        instagramUrl="https://www.instagram.com/cucciolinopizza/"
+        items={[
+          {
+            type: "video",
+            imageSrc: "/social-1.jpg",
+            imageAlt: "Reel",
+            href: "https://www.instagram.com/cucciolinopizza/",
+          },
+          {
+            type: "image",
+            imageSrc: "/social-2.jpg",
+            imageAlt: "Dish",
+            href: "https://www.instagram.com/cucciolinopizza/",
+          },
+          {
+            type: "image",
+            imageSrc: "/social-3.jpg",
+            imageAlt: "Hummus",
+            href: "https://www.instagram.com/cucciolinopizza/",
+          },
+          {
+            type: "image",
+            imageSrc: "/social-4.jpg",
+            imageAlt: "Flatbread",
+            href: "https://www.instagram.com/cucciolinopizza/",
+          },
+        ]}
+      />
     </main>
   );
 }

@@ -1,51 +1,91 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-200 mt-24">
-      <div className="mx-auto max-w-5xl px-6 py-16 grid gap-12 md:grid-cols-3">
-        {/* INFO */}
+    <footer className="bg-[#0F5B63] text-[#F6E6D4] mt-32">
+      {/* MAIN FOOTER */}
+      <div className="mx-auto max-w-6xl px-6 py-20 grid gap-14 md:grid-cols-4">
+        {/* BRAND */}
         <div>
-          <h3 className="font-semibold mb-3">Cucciolino Pizza & Gelato</h3>
-          <p className="text-sm text-zinc-600">
-            Authentic Italian pizza and artisan gelato, made fresh every day.
+          <h3 className="text-2xl font-semibold tracking-tight">
+            Cucciolino <br /> Pizza & Gelato
+          </h3>
+        </div>
+
+        {/* LOCATION */}
+        <div>
+          <h4 className="mb-4 font-semibold tracking-wide">LOCATION</h4>
+          <p className="text-sm leading-relaxed">
+            608 Hampton Street <br />
+            Brighton VIC 3186 <br />
+            Australia
           </p>
+        </div>
+
+        {/* SITELINKS */}
+        <div>
+          <h4 className="mb-4 font-semibold tracking-wide">SITELINKS</h4>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="/#whats-on" className="hover:underline">
+                What’s On
+              </Link>
+            </li>
+            <li>
+              <Link href="/menu" className="hover:underline">
+                Food & Drinks
+              </Link>
+            </li>
+            <li>
+              <Link href="/functions" className="hover:underline">
+                Functions
+              </Link>
+            </li>
+            <li>
+              <Link href="/order" className="hover:underline">
+                Order Online
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:underline">
+                Contact
+              </Link>
+            </li>
+          </ul>
         </div>
 
         {/* HOURS */}
         <div>
-          <h4 className="font-semibold mb-3">Opening Hours</h4>
-          <ul className="text-sm text-zinc-600 space-y-1">
+          <h4 className="mb-4 font-semibold tracking-wide">TRADING HOURS</h4>
+          <ul className="text-sm space-y-1">
             <li>Mon – Thu: 5:00 pm – 9:30 pm</li>
             <li>Fri – Sat: 5:00 pm – 10:00 pm</li>
             <li>Sunday: 5:00 pm – 9:00 pm</li>
           </ul>
         </div>
+      </div>
 
-        {/* CONTACT */}
-        <div>
-          <h4 className="font-semibold mb-3">Contact</h4>
-          <p className="text-sm text-zinc-600">
-            608 Hampton Street
-            <br />
-            Brighton VIC 3186
-            <br />
-            Australia
+      {/* LEGAL BAR */}
+      <div className="border-t border-white/20">
+        <div className="mx-auto max-w-6xl px-6 py-8 text-center text-sm space-y-3">
+          <Link href="/privacy-policy" className="underline underline-offset-4">
+            Privacy Policy
+          </Link>
+
+          <p>© {new Date().getFullYear()} Cucciolino Pizza & Gelato</p>
+
+          <p className="text-white/80">
+            Restaurant Marketing by{" "}
+            <a
+              href="https://simobaraofficial.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              #SimoBaraWeb
+            </a>
           </p>
         </div>
-      </div>
-
-      {/* MAP */}
-      <div className="w-full h-[320px]">
-        <iframe
-          title="Google Map"
-          src="https://www.google.com/maps?q=608%20Hampton%20Street%20Brighton%20VIC%203186&output=embed"
-          className="w-full h-full border-0"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
-
-      <div className="text-center text-xs text-zinc-500 py-6">
-        © {new Date().getFullYear()} Cucciolino Pizza & Gelato
       </div>
     </footer>
   );
