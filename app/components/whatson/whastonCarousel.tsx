@@ -14,7 +14,7 @@ export type WhatsOnItem = {
 
 export default function WhatsOnCarousel({
   items,
-  revealGapMs = 1500,
+  revealGapMs = 800,
   initialDelayMs = 200,
 }: {
   items: WhatsOnItem[];
@@ -33,8 +33,8 @@ export default function WhatsOnCarousel({
     if (!scrollerRef.current) return;
 
     const cardWidth =
-      scrollerRef.current.querySelector<HTMLElement>("[data-card]")?.offsetWidth ??
-      320;
+      scrollerRef.current.querySelector<HTMLElement>("[data-card]")
+        ?.offsetWidth ?? 320;
 
     scrollerRef.current.scrollBy({
       left: direction === "left" ? -cardWidth : cardWidth,
@@ -153,7 +153,9 @@ export default function WhatsOnCarousel({
                 md:min-w-[320px]
               "
             >
-              <div className={["reveal", isShown ? "is-visible" : ""].join(" ")}>
+              <div
+                className={["reveal", isShown ? "is-visible" : ""].join(" ")}
+              >
                 <WhatsOnCard {...item} />
               </div>
             </div>
