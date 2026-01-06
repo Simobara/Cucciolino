@@ -31,11 +31,11 @@ export default function LunchDinnerSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 120);
+        }, 350); // ✅ ritardo reale (cinematic)
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.45, // ✅ deve essere ben dentro lo schermo
+        rootMargin: "0px 0px -35% 0px", // ✅ trigger più tardi
       }
     );
 
@@ -68,7 +68,7 @@ export default function LunchDinnerSection() {
               }}
             >
               <Image
-                src="/lunch-dinner.jpg"
+                src="/img/lunch.png"
                 alt="Lunch & Dinner"
                 fill
                 className="object-cover"
@@ -82,7 +82,7 @@ export default function LunchDinnerSection() {
               "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
               visible ? "is-visible" : "",
             ].join(" ")}
-            style={{ transitionDelay: "220ms" }}
+            style={{ transitionDelay: "340ms" }}
           >
             <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               LUNCH <br /> &amp; DINNER

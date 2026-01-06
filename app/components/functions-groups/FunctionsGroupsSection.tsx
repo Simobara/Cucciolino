@@ -31,11 +31,11 @@ export default function FunctionsGroupsSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 140);
+        }, 350); // ✅ ritardo vero (500–900 è un buon range)
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.45, // ✅ serve più sezione visibile prima di partire
+        rootMargin: "0px 0px -35% 0px", // ✅ scatta più tardi mentre scrolli
       }
     );
 
@@ -115,7 +115,7 @@ export default function FunctionsGroupsSection() {
               }}
             >
               <Image
-                src="/functions.jpg"
+                src="/img/functions.png"
                 alt="Functions and Groups"
                 fill
                 className="object-cover"

@@ -1,13 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type MapEmbedProps = {
   title?: string;
   src: string;
   height?: number; // default 420
-  addressLines?: string[]; // es: ["608 Hampton Street", "Brighton VIC 3186", "Australia"]
-  directionsUrl?: string; // link a Google Maps (normale), opzionale
+  addressLines?: string[];
+  directionsUrl?: string;
+  fallbackImageSrc?: string; // default "/map.png"
+  fallbackTimeoutMs?: number; // default 3500
 };
 
 export default function MapEmbed({
@@ -16,9 +19,14 @@ export default function MapEmbed({
   height = 420,
   addressLines = ["608 Hampton Street", "Brighton VIC 3186", "Australia"],
   directionsUrl = "https://www.google.com/maps?q=608+Hampton+Street+Brighton+VIC+3186",
+  fallbackImageSrc = "/map.png",
+  fallbackTimeoutMs = 3500,
 }: MapEmbedProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [showFallback, setShowFallback] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
@@ -45,6 +53,33 @@ export default function MapEmbed({
       if (t) window.clearTimeout(t);
     };
   }, []);
+
+  // Se l'iframe non "carica" in tempo, lasciamo il fallback.
+  useEffect(() => {
+    // se non c'è src, fallback fisso
+    if (!src) {
+      setShowFallback(true);
+      setIframeLoaded(false);
+      return;
+    }
+
+    setIframeLoaded(false);
+    setShowFallback(true);
+
+    const id = window.setTimeout(() => {
+      // Se entro X ms non è stato segnato loaded, resta fallback
+      if (!iframeLoaded) setShowFallback(true);
+    }, fallbackTimeoutMs);
+
+    return () => window.clearTimeout(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [src, fallbackTimeoutMs]);
+
+  function handleIframeLoad() {
+    setIframeLoaded(true);
+    // nascondi fallback con micro-delay (evita flash)
+    window.setTimeout(() => setShowFallback(false), 120);
+  }
 
   return (
     <section
@@ -98,12 +133,12 @@ export default function MapEmbed({
       {/* MAP */}
       <div className="relative w-full" style={{ height }}>
         {/* Subtle overlay gradient for polish */}
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent z-[3]" />
 
         {/* Floating hint badge */}
         <div
           className={[
-            "pointer-events-none absolute left-5 top-5 sm:left-6 sm:top-6",
+            "pointer-events-none absolute left-5 top-5 sm:left-6 sm:top-6 z-[4]",
             "rounded-full px-4 py-2 text-xs font-semibold tracking-wide",
             "bg-white/85 backdrop-blur border border-white/60 text-zinc-800",
             "shadow-sm",
@@ -120,19 +155,9 @@ export default function MapEmbed({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open Google Maps directions"
-          className="
-            group absolute inset-0 z-2
-            hidden md:block
-          "
+          className="group absolute inset-0 z-[5] hidden md:block"
         >
-          <div
-            className="
-              absolute inset-0
-              opacity-0 group-hover:opacity-100
-              transition
-              bg-black/15
-            "
-          />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/15" />
           <div
             className="
               absolute right-6 bottom-6
@@ -150,6 +175,22 @@ export default function MapEmbed({
           </div>
         </a>
 
+        {/* ✅ FALLBACK IMAGE (map.png) */}
+        {showFallback && (
+          <div className="absolute inset-0 z-[2]">
+            <Image
+              src={fallbackImageSrc}
+              alt="Map preview"
+              fill
+              className="object-cover"
+              priority={false}
+              sizes="100vw"
+            />
+            {/* overlay leggero per coerenza */}
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+        )}
+
         {/* IFRAME */}
         <iframe
           title="Google Map"
@@ -160,7 +201,12 @@ export default function MapEmbed({
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          className="relative z-1"
+          onLoad={handleIframeLoad}
+          className={[
+            "relative z-[1]",
+            // se fallback visibile, mantieni iframe sotto (così se carica lo vedi appena togli fallback)
+            showFallback ? "opacity-100" : "opacity-100",
+          ].join(" ")}
         />
       </div>
     </section>

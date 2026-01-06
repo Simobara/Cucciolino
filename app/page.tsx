@@ -23,7 +23,7 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
         <div className="w-70 sm:w-105 md:w-130 opacity-[0.06]">
           <Image
-            src="/cucciolino-logo.png"
+            src="/logocucciolino.png"
             alt="Cucciolino"
             width={900}
             height={900}

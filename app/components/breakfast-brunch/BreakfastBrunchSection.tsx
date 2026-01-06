@@ -28,14 +28,19 @@ export default function BreakfastBrunchSection() {
       ([entry]) => {
         if (!entry.isIntersecting) return;
 
+        // ✅ ritardo più lungo dopo che la sezione è davvero entrata
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 140);
+        }, 350); // <-- aumenta/diminuisci qui (es: 500–900)
       },
       {
-        threshold: 0.2,
-        rootMargin: "0px 0px -10% 0px",
+        // ✅ trigger più tardi: serve più porzione visibile
+        threshold: 0.45,
+
+        // ✅ trigger più tardi: considera "intersecting" solo quando è più dentro
+        // (valori più negativi = ancora più tardi)
+        rootMargin: "0px 0px -35% 0px",
       }
     );
 
@@ -57,7 +62,7 @@ export default function BreakfastBrunchSection() {
               "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
               visible ? "is-visible" : "",
             ].join(" ")}
-            style={{ transitionDelay: "220ms" }}
+            style={{ transitionDelay: "340ms" }}
           >
             <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               BREAKFAST <br /> &amp; BRUNCH
@@ -102,7 +107,7 @@ export default function BreakfastBrunchSection() {
               }}
             >
               <Image
-                src="/brunch.jpg"
+                src="/img/breakfast.png"
                 alt="Breakfast & Brunch"
                 fill
                 className="object-cover"

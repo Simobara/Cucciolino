@@ -1,13 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0F5B63] text-[#F6E6D4] mt-32">
       {/* MAIN FOOTER */}
-      <div className="mx-auto max-w-6xl px-6 py-20 grid gap-14 md:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-6 py-10 grid gap-14 md:grid-cols-4">
         {/* BRAND */}
-        <div>
-          <h3 className="text-2xl font-semibold tracking-tight">
+        <div className="flex flex-col gap-4">
+          {/* LOGO */}
+          <Image
+            src="/logocucciolino.png"
+            alt="Cucciolino Pizza & Gelato logo"
+            width={140}
+            height={140}
+            className="object-contain"
+            priority
+          />
+
+          {/* BRAND NAME */}
+          <h3 className="text-2xl font-semibold tracking-tight leading-tight">
             Cucciolino <br /> Pizza & Gelato
           </h3>
         </div>

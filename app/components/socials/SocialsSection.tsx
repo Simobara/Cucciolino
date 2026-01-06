@@ -9,7 +9,7 @@ type SocialItem =
   | { type: "image"; imageSrc: string; imageAlt: string; href: string };
 
 export default function SocialsSection({
-  title = "SOCIALS",
+  title = "Follow us ",
   instagramHandle = "@cucciolinopizza",
   instagramUrl = "https://www.instagram.com/",
   items = [
@@ -138,7 +138,7 @@ export default function SocialsSection({
           {title}
         </h2>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {firstFour.map((item, i) => (
             <Link
               key={i}
@@ -153,6 +153,8 @@ export default function SocialsSection({
               onMouseLeave={() => onLeave(i)}
               className={[
                 "reveal social-card group relative block overflow-hidden",
+                "mx-auto w-full max-w-30 sm:max-w-35 md:max-w-40",
+                "rounded-2xl", // se vuoi più “card”
                 visible ? "is-visible" : "",
                 visible ? "float-on" : "",
               ].join(" ")}
@@ -176,13 +178,13 @@ export default function SocialsSection({
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div
                     className="
-                      h-16 w-16 rounded-full
-                      bg-white/25 backdrop-blur-sm
-                      flex items-center justify-center
-                      ring-1 ring-white/30
-                      transition duration-300
-                      group-hover:bg-white/30
-                    "
+    h-12 w-12 sm:h-14 sm:w-14 rounded-full
+    bg-white/25 backdrop-blur-sm
+    flex items-center justify-center
+    ring-1 ring-white/30
+    transition duration-300
+    group-hover:bg-white/30
+  "
                   >
                     <div
                       className="
