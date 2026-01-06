@@ -1,13 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function BreakfastBrunchSection() {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let t: number | null = null;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        t = window.setTimeout(() => {
+          setVisible(true);
+          io.disconnect();
+        }, 140); // morbido
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    io.observe(el);
+
+    return () => {
+      io.disconnect();
+      if (t) window.clearTimeout(t);
+    };
+  }, []);
+
   return (
-    <section className="bg-[#F6E6D4]">
+    <section ref={ref} className="bg-[#F6E6D4]">
       <div className="mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2">
-          {/* LEFT */}
-          <div className="px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center">
+          {/* LEFT: TEXT (second reveal) */}
+          <div
+            className={[
+              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
+              visible ? "is-visible" : "",
+            ].join(" ")}
+            style={{ transitionDelay: "220ms" }}
+          >
             <h2 className="text-[#0F5B63] font-semibold tracking-tight leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               BREAKFAST <br /> &amp; BRUNCH
             </h2>
@@ -48,8 +86,14 @@ export default function BreakfastBrunchSection() {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative min-h-95 md:min-h-160">
+          {/* RIGHT: IMAGE (first reveal) */}
+          <div
+            className={[
+              "reveal relative min-h-[380px] md:min-h-[640px]",
+              visible ? "is-visible" : "",
+            ].join(" ")}
+            style={{ transitionDelay: "0ms" }}
+          >
             <Image
               src="/brunch.jpg"
               alt="Breakfast & Brunch"
