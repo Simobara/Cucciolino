@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function FloatingHomeButton({
   href = "/",
   label = "HOME",
-  showAfter = 500, // px di scroll
+  showAfter = 500,
 }: {
   href?: string;
   label?: string;
@@ -24,7 +24,7 @@ export default function FloatingHomeButton({
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // check iniziale
+    onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);
   }, [showAfter]);
@@ -44,17 +44,31 @@ export default function FloatingHomeButton({
         onClick={onClickIfHome}
         aria-label="Go to home"
         className="
-          group
+          group relative
           inline-flex items-center justify-center
           h-12 w-12 sm:h-14 sm:w-14
           rounded-full
-          bg-[#0F5B63] text-[#F6E6D4]
-          shadow-lg ring-1 ring-white/15
-          hover:brightness-110 active:scale-95 transition
+
+          /* DEFAULT: trasparente ma visibile */
+          bg-white/10 backdrop-blur
+          text-[#0F5B63]
+          ring-1 ring-[#0F5B63]/40
+
+          /* TRANSITIONS */
+          transition-all duration-300 ease-out
+
+          /* HOVER: pieno + shadow */
+          hover:bg-[#0F5B63]
+          hover:text-[#F6E6D4]
+          hover:ring-transparent
+          hover:shadow-[0_12px_30px_rgba(15,91,99,0.35)]
+
+          /* ACTIVE */
+          active:scale-95
         "
       >
         {/* freccia su */}
-        <span className="text-xl leading-none">↑</span>
+        <span className="text-xl leading-none translate-y-px">↑</span>
 
         {/* tooltip */}
         <span

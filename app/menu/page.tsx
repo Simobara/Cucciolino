@@ -61,7 +61,7 @@ const MENU: MenuSection[] = [
 
 export default function MenuPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 pt-28 pb-16">
+    <main id="/menu" className="mx-auto max-w-5xl px-6 pt-28 pb-16">
       <header className="mb-12">
         <h1 className="text-4xl font-bold">Menu</h1>
         <p className="mt-3 text-zinc-600">

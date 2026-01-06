@@ -30,14 +30,17 @@ export default function WhatsOnCarousel({
   const total = items.length;
 
   const scrollByAmount = (direction: "left" | "right") => {
-    if (!scrollerRef.current) return;
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
 
     const cardWidth =
-      scrollerRef.current.querySelector<HTMLElement>("[data-card]")
-        ?.offsetWidth ?? 320;
+      scroller.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 320;
 
-    scrollerRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
+    // un po' di gap extra per rendere lo scroll più “naturale”
+    const gap = 24;
+
+    scroller.scrollBy({
+      left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
       behavior: "smooth",
     });
   };
@@ -68,7 +71,6 @@ export default function WhatsOnCarousel({
     let t0: number | null = null;
     let intervalId: number | null = null;
 
-    // parte dalla prima card
     t0 = window.setTimeout(() => {
       setVisibleCount(1);
 
@@ -92,43 +94,43 @@ export default function WhatsOnCarousel({
 
   return (
     <div ref={sectionRef} className="relative">
-      {/* LEFT ARROW */}
+      {/* LEFT ARROW (fuori dall'area delle card) */}
       <button
         onClick={() => scrollByAmount("left")}
         aria-label="Scroll left"
         className="
-          hidden md:flex
-          absolute left-0 top-1/2 -translate-y-1/2 z-10
-          h-12 w-12 rounded-full
-          bg-[#0F5B63] text-white
-          items-center justify-center
-          shadow-md
-          hover:scale-105 transition
-        "
+    hidden md:flex
+    absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
+    h-12 w-12 rounded-full
+    bg-[#0F5B63] text-white
+    items-center justify-center
+    shadow-md ring-1 ring-black/5
+    hover:brightness-110 active:scale-95 transition
+  "
       >
         ←
       </button>
 
-      {/* RIGHT ARROW */}
+      {/* RIGHT ARROW (fuori dall'area delle card) */}
       <button
         onClick={() => scrollByAmount("right")}
         aria-label="Scroll right"
         className="
-          hidden md:flex
-          absolute right-0 top-1/2 -translate-y-1/2 z-10
-          h-12 w-12 rounded-full
-          bg-[#0F5B63] text-white
-          items-center justify-center
-          shadow-md
-          hover:scale-105 transition
-        "
+    hidden md:flex
+    absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 z-10
+    h-12 w-12 rounded-full
+    bg-[#0F5B63] text-white
+    items-center justify-center
+    shadow-md ring-1 ring-black/5
+    hover:brightness-110 active:scale-95 transition
+  "
       >
         →
       </button>
 
-      {/* fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-[#F6E6D4] to-transparent hidden md:block" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-[#F6E6D4] to-transparent hidden md:block" />
+      {/* fade edges (trasparente -> bianco, NON beige) */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-white to-transparent hidden md:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-white to-transparent hidden md:block" />
 
       {/* SCROLLER */}
       <div
@@ -137,6 +139,7 @@ export default function WhatsOnCarousel({
           flex gap-6 overflow-x-auto pb-4
           snap-x snap-mandatory scroll-smooth
           scrollbar-hide
+          pr-2
         "
       >
         {items.map((item, i) => {
@@ -149,8 +152,8 @@ export default function WhatsOnCarousel({
               className="
                 snap-start
                 min-w-[78%]
-                sm:min-w-90
-                md:min-w-[320px]
+                sm:min-w-105
+                md:min-w-85
               "
             >
               <div
@@ -162,6 +165,7 @@ export default function WhatsOnCarousel({
           );
         })}
 
+        {/* spacer finale per respiro */}
         <div className="min-w-1px" />
       </div>
     </div>

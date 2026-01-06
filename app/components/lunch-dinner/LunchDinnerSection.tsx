@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "../hooks/useParallax";
 
-export default function BreakfastBrunchSection() {
+export default function LunchDinnerSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -31,7 +31,7 @@ export default function BreakfastBrunchSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 140);
+        }, 120);
       },
       {
         threshold: 0.2,
@@ -51,40 +51,6 @@ export default function BreakfastBrunchSection() {
     <section ref={sectionRef} className="bg-[#F6E6D4]">
       <div className="mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2">
-          {/* TEXT */}
-          <div
-            className={[
-              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
-              visible ? "is-visible" : "",
-            ].join(" ")}
-            style={{ transitionDelay: "220ms" }}
-          >
-            <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
-              BREAKFAST <br /> &amp; BRUNCH
-            </h2>
-
-            <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
-              Transport yourself to the sun-kissed shores of the Mediterranean
-              as you embark on a brunch journey at Cucciolino.
-            </p>
-
-            <div className="mt-12 flex flex-col gap-5 max-w-xs">
-              <Link
-                href="/menu#brunch"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
-              >
-                BRUNCH MENU
-              </Link>
-
-              <Link
-                href="/menu#drinks"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
-              >
-                DRINK MENU
-              </Link>
-            </div>
-          </div>
-
           {/* IMAGE PARALLAX */}
           <div
             ref={parallaxRef}
@@ -102,11 +68,38 @@ export default function BreakfastBrunchSection() {
               }}
             >
               <Image
-                src="/brunch.jpg"
-                alt="Breakfast & Brunch"
+                src="/lunch-dinner.jpg"
+                alt="Lunch & Dinner"
                 fill
                 className="object-cover"
               />
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <div
+            className={[
+              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
+              visible ? "is-visible" : "",
+            ].join(" ")}
+            style={{ transitionDelay: "220ms" }}
+          >
+            <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+              LUNCH <br /> &amp; DINNER
+            </h2>
+
+            <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+              From stone-baked pizzas to handcrafted cocktails, our menu is
+              designed to impress any time of day.
+            </p>
+
+            <div className="mt-12">
+              <Link
+                href="/menu"
+                className="bg-[#0F5B63] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
+              >
+                FOOD MENU
+              </Link>
             </div>
           </div>
         </div>

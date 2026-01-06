@@ -15,11 +15,26 @@ export default function Footer() {
         {/* LOCATION */}
         <div>
           <h4 className="mb-4 font-semibold tracking-wide">LOCATION</h4>
-          <p className="text-sm leading-relaxed">
+
+          <p className="text-sm leading-relaxed mb-4">
             608 Hampton Street <br />
             Brighton VIC 3186 <br />
             Australia
           </p>
+
+          {/* GOOGLE MAP
+          <div className="w-full h-55 rounded-xl overflow-hidden border border-white/20">
+            <iframe
+              title="Cucciolino Pizza & Gelato Location"
+              src="INCOLLA_QUI_IL_SRC_GOOGLE_MAPS"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div> */}
         </div>
 
         {/* SITELINKS */}
@@ -36,11 +51,11 @@ export default function Footer() {
                 Food & Drinks
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/functions" className="hover:underline">
                 Functions
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/order" className="hover:underline">
                 Order Online

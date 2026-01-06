@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "../hooks/useParallax";
 
-export default function BreakfastBrunchSection() {
+export default function FunctionsGroupsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -47,41 +47,54 @@ export default function BreakfastBrunchSection() {
     };
   }, []);
 
+  const titleWords = ["FUNCTIONS", "&", "GROUPS"];
+
   return (
     <section ref={sectionRef} className="bg-[#F6E6D4]">
       <div className="mx-auto max-w-6xl">
         <div className="grid md:grid-cols-2">
           {/* TEXT */}
-          <div
-            className={[
-              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
-              visible ? "is-visible" : "",
-            ].join(" ")}
-            style={{ transitionDelay: "220ms" }}
-          >
+          <div className="px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center">
             <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
-              BREAKFAST <br /> &amp; BRUNCH
+              {titleWords.map((word, i) => (
+                <span
+                  key={i}
+                  className={[
+                    "inline-block reveal",
+                    visible ? "is-visible" : "",
+                  ].join(" ")}
+                  style={{ transitionDelay: `${i * 120}ms` }}
+                >
+                  {word}
+                  {word !== "&" && <br />}
+                </span>
+              ))}
             </h2>
 
-            <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
-              Transport yourself to the sun-kissed shores of the Mediterranean
-              as you embark on a brunch journey at Cucciolino.
-            </p>
+            <div
+              className={["reveal", visible ? "is-visible" : ""].join(" ")}
+              style={{ transitionDelay: "420ms" }}
+            >
+              <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+                From private celebrations to corporate events, our venue adapts
+                perfectly to groups of any size.
+              </p>
 
-            <div className="mt-12 flex flex-col gap-5 max-w-xs">
-              <Link
-                href="/menu#brunch"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
-              >
-                BRUNCH MENU
-              </Link>
+              <div className="mt-12 flex flex-col gap-5 max-w-xs">
+                <Link
+                  href="/functions"
+                  className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                >
+                  LEARN MORE
+                </Link>
 
-              <Link
-                href="/menu#drinks"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
-              >
-                DRINK MENU
-              </Link>
+                <Link
+                  href="/contact"
+                  className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                >
+                  ENQUIRIES
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -102,8 +115,8 @@ export default function BreakfastBrunchSection() {
               }}
             >
               <Image
-                src="/brunch.jpg"
-                alt="Breakfast & Brunch"
+                src="/functions.jpg"
+                alt="Functions and Groups"
                 fill
                 className="object-cover"
               />
