@@ -19,7 +19,7 @@ export default function MapEmbed({
   height = 420,
   addressLines = ["608 Hampton Street", "Brighton VIC 3186", "Australia"],
   directionsUrl = "https://www.google.com/maps?q=608+Hampton+Street+Brighton+VIC+3186",
-  fallbackImageSrc = "/map.png",
+  fallbackImageSrc = "/image/map.png",
   fallbackTimeoutMs = 3500,
 }: MapEmbedProps) {
   const ref = useRef<HTMLElement | null>(null);

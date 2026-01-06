@@ -53,7 +53,7 @@ export default function Home() {
           {/* content */}
           <div className="relative mx-auto max-w-5xl px-6 pt-32 pb-20 min-h-[90vh] flex flex-col justify-center">
             <p className="text-white/80 text-xs tracking-[0.25em] uppercase">
-              Brighton · Victoria
+              608 Hampton Street · Brighton · Victoria
             </p>
 
             <h1 className="mt-5 text-white font-bold leading-[0.9] tracking-tight text-5xl sm:text-6xl md:text-7xl">

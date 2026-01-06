@@ -47,7 +47,7 @@ export default function WhatsOnSection() {
 
             // extra items per test carousel
             {
-              imageSrc: "/promo-4.jpg",
+              imageSrc: "/iconss/iconsfood1.png",
               imageAlt: "Weekend brunch",
               title: "WEEKEND\nBRUNCH\nSPECIAL",
               subtitle: "Saturday & Sunday",
@@ -55,21 +55,21 @@ export default function WhatsOnSection() {
               href: "/menu#brunch",
             },
             {
-              imageSrc: "/promo-5.jpg",
+              imageSrc: "/iconss/iconsfood2.png",
               imageAlt: "Cocktail night",
               title: "$14\nCOCKTAIL\nNIGHT",
               subtitle: "Every Friday",
               meta: "From 5pm",
               href: "/menu#drinks",
             },
-            {
-              imageSrc: "/promo-6.jpg",
-              imageAlt: "Family pizza",
-              title: "FAMILY\nPIZZA\nDEAL",
-              subtitle: "All Week",
-              meta: "Dine In Only",
-              href: "/menu",
-            },
+            // {
+            //   imageSrc: "/promo-6.jpg",
+            //   imageAlt: "Family pizza",
+            //   title: "FAMILY\nPIZZA\nDEAL",
+            //   subtitle: "All Week",
+            //   meta: "Dine In Only",
+            //   href: "/menu",
+            // },
           ]}
         />
       </div>

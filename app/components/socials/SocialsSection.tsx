@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 type SocialItem =
   | { type: "video"; imageSrc: string; imageAlt: string; href: string }
@@ -48,6 +48,9 @@ export default function SocialsSection({
   const [visible, setVisible] = useState(false);
   const firstFour = useMemo(() => items.slice(0, 4), [items]);
 
+  // ✅ NEW: hovered background
+  const [hoveredSrc, setHoveredSrc] = useState<string | null>(null);
+
   // refs per trasformazioni 3D
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const rafIds = useRef<number[]>([]);
@@ -74,7 +77,6 @@ export default function SocialsSection({
     return () => {
       io.disconnect();
       if (timeoutId) window.clearTimeout(timeoutId);
-      // cleanup raf
       rafIds.current.forEach((id) => cancelAnimationFrame(id));
       rafIds.current = [];
     };
@@ -94,16 +96,15 @@ export default function SocialsSection({
     if (!card) return;
 
     const rect = card.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width; // 0..1
-    const py = (e.clientY - rect.top) / rect.height; // 0..1
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
 
-    const rotateY = (px - 0.5) * 16; // gradi
+    const rotateY = (px - 0.5) * 16;
     const rotateX = -(py - 0.5) * 16;
 
     const glareX = px * 100;
     const glareY = py * 100;
 
-    // RAF per smooth
     const id = requestAnimationFrame(() => {
       card.style.setProperty("--rx", `${rotateX.toFixed(2)}deg`);
       card.style.setProperty("--ry", `${rotateY.toFixed(2)}deg`);
@@ -127,8 +128,31 @@ export default function SocialsSection({
   }
 
   return (
-    <section ref={ref} className="bg-[#0F5B63]">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <section
+      ref={ref}
+      className="bg-[#0F5B63] relative overflow-hidden"
+      // ✅ CSS variable con l’immagine hovered
+      style={
+        hoveredSrc
+          ? ({
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              "--bg": `url(${hoveredSrc})`,
+            } as React.CSSProperties)
+          : undefined
+      }
+    >
+      {/* ✅ Background “hover” */}
+      <div
+        aria-hidden="true"
+        className={[
+          "socials-hover-bg pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300",
+          hoveredSrc ? "opacity-100" : "",
+        ].join(" ")}
+      />
+
+      {/* contenuto sopra */}
+      <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <h2
           className={[
             "reveal text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-5xl sm:text-6xl md:text-7xl",
@@ -149,18 +173,24 @@ export default function SocialsSection({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open social item ${i + 1}`}
+              onMouseEnter={() => {
+                if (!isFinePointer()) return;
+                setHoveredSrc(item.imageSrc);
+              }}
               onMouseMove={(e) => onMove(i, e)}
-              onMouseLeave={() => onLeave(i)}
+              onMouseLeave={() => {
+                onLeave(i);
+                setHoveredSrc(null);
+              }}
               className={[
                 "reveal social-card group relative block overflow-hidden",
                 "mx-auto w-full max-w-30 sm:max-w-35 md:max-w-40",
-                "rounded-2xl", // se vuoi più “card”
+                "rounded-2xl",
                 visible ? "is-visible" : "",
                 visible ? "float-on" : "",
               ].join(" ")}
               style={{ transitionDelay: `${160 + i * 140}ms` }}
             >
-              {/* media */}
               <div className="relative aspect-square social-card__media">
                 <Image
                   src={item.imageSrc}
@@ -171,30 +201,12 @@ export default function SocialsSection({
                 />
               </div>
 
-              {/* glare layer */}
               <div className="social-card__glare" aria-hidden="true" />
 
               {item.type === "video" && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="
-    h-12 w-12 sm:h-14 sm:w-14 rounded-full
-    bg-white/25 backdrop-blur-sm
-    flex items-center justify-center
-    ring-1 ring-white/30
-    transition duration-300
-    group-hover:bg-white/30
-  "
-                  >
-                    <div
-                      className="
-                        w-0 h-0
-                        border-t-10px border-t-transparent
-                        border-b-10px border-b-transparent
-                        border-l-16px border-l-white/95
-                        translate-x-0.5
-                      "
-                    />
+                  <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30 transition duration-300 group-hover:bg-white/30">
+                    <div className="w-0 h-0 border-t-10px border-t-transparent border-b-10px border-b-transparent border-l-16px border-l-white/95 translate-x-0.5" />
                   </div>
                 </div>
               )}

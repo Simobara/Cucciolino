@@ -31,11 +31,11 @@ export default function FunctionsGroupsSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 350); // ✅ ritardo vero (500–900 è un buon range)
+        }, 150); // ✅ ritardo vero (500–900 è un buon range)
       },
       {
-        threshold: 0.45, // ✅ serve più sezione visibile prima di partire
-        rootMargin: "0px 0px -35% 0px", // ✅ scatta più tardi mentre scrolli
+        threshold: 0.25, // ✅ serve più sezione visibile prima di partire
+        rootMargin: "0px 0px -15% 0px", // ✅ scatta più tardi mentre scrolli
       }
     );
 

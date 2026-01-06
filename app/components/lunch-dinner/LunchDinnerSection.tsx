@@ -31,11 +31,11 @@ export default function LunchDinnerSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 350); // ✅ ritardo reale (cinematic)
+        }, 150); // ✅ ritardo reale (cinematic)
       },
       {
-        threshold: 0.45, // ✅ deve essere ben dentro lo schermo
-        rootMargin: "0px 0px -35% 0px", // ✅ trigger più tardi
+        threshold: 0.25, // ✅ deve essere ben dentro lo schermo
+        rootMargin: "0px 0px -15% 0px", // ✅ trigger più tardi
       }
     );
 

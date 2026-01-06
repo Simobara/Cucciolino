@@ -27,20 +27,42 @@ export default function WhatsOnCarousel({
   const [started, setStarted] = useState(false);
   const [visibleCount, setVisibleCount] = useState(0);
 
+  // NEW: active index per dots/line
+  const [active, setActive] = useState(0);
+
   const total = items.length;
+
+  const getCardWidth = () => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return 320;
+    return (
+      scroller.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 320
+    );
+  };
 
   const scrollByAmount = (direction: "left" | "right") => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    const cardWidth =
-      scroller.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 320;
-
-    // un po' di gap extra per rendere lo scroll più “naturale”
+    const cardWidth = getCardWidth();
     const gap = 24;
 
     scroller.scrollBy({
       left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
+      behavior: "smooth",
+    });
+  };
+
+  // NEW: scroll to index (click dots)
+  const goTo = (index: number) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    const cardWidth = getCardWidth();
+    const gap = 24;
+
+    scroller.scrollTo({
+      left: index * (cardWidth + gap),
       behavior: "smooth",
     });
   };
@@ -92,6 +114,39 @@ export default function WhatsOnCarousel({
     };
   }, [started, total, revealGapMs, initialDelayMs]);
 
+  // NEW: aggiorna active mentre scrolli (perf)
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    let raf = 0;
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = scrollerRef.current;
+        if (!el) return;
+
+        const cardWidth = getCardWidth();
+        const gap = 24;
+        const step = cardWidth + gap;
+
+        const idx = step > 0 ? Math.round(el.scrollLeft / step) : 0;
+        const clamped = Math.max(0, Math.min(total - 1, idx));
+        setActive(clamped);
+      });
+    };
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    // sync iniziale
+    onScroll();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      scroller.removeEventListener("scroll", onScroll);
+    };
+  }, [total]);
+
   return (
     <div ref={sectionRef} className="relative">
       {/* LEFT ARROW (fuori dall'area delle card) */}
@@ -99,14 +154,14 @@ export default function WhatsOnCarousel({
         onClick={() => scrollByAmount("left")}
         aria-label="Scroll left"
         className="
-    hidden md:flex
-    absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
-    h-12 w-12 rounded-full
-    bg-[#0F5B63] text-white
-    items-center justify-center
-    shadow-md ring-1 ring-black/5
-    hover:brightness-110 active:scale-95 transition
-  "
+          hidden md:flex
+          absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
+          h-12 w-12 rounded-full
+          bg-[#0F5B63] text-white
+          items-center justify-center
+          shadow-md ring-1 ring-black/5
+          hover:brightness-110 active:scale-95 transition
+        "
       >
         ←
       </button>
@@ -116,14 +171,14 @@ export default function WhatsOnCarousel({
         onClick={() => scrollByAmount("right")}
         aria-label="Scroll right"
         className="
-    hidden md:flex
-    absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 z-10
-    h-12 w-12 rounded-full
-    bg-[#0F5B63] text-white
-    items-center justify-center
-    shadow-md ring-1 ring-black/5
-    hover:brightness-110 active:scale-95 transition
-  "
+          hidden md:flex
+          absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 z-10
+          h-12 w-12 rounded-full
+          bg-[#0F5B63] text-white
+          items-center justify-center
+          shadow-md ring-1 ring-black/5
+          hover:brightness-110 active:scale-95 transition
+        "
       >
         →
       </button>
@@ -167,6 +222,33 @@ export default function WhatsOnCarousel({
 
         {/* spacer finale per respiro */}
         <div className="min-w-1px" />
+      </div>
+
+      {/* NEW: DOTS -> LINE pagination */}
+      <div className="mt-3 flex items-center justify-center gap-2">
+        {items.map((_, i) => {
+          const isActive = i === active;
+
+          return (
+            <button
+              key={`pager-${i}`}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={isActive ? "true" : "false"}
+              className="p-2"
+            >
+              <span
+                className={[
+                  "block transition-all duration-300",
+                  isActive
+                    ? "h-1 w-10 rounded-full bg-black"
+                    : "h-2 w-2 rounded-full bg-zinc-300 hover:bg-zinc-400",
+                ].join(" ")}
+              />
+            </button>
+          );
+        })}
       </div>
     </div>
   );

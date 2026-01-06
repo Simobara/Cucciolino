@@ -190,3 +190,26 @@ h6 {
     animation: none;
   }
 }
+
+/* Background dinamico quando hoveri una card */
+.socials-hover-bg {
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px); /* ⬅️ prima era 18px */
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* overlay molto più leggero */
+.socials-hover-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      60% 60% at 50% 40%,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.22)
+    ),
+    rgba(15, 91, 99, 0.35); /* ⬅️ prima 0.55 */
+}

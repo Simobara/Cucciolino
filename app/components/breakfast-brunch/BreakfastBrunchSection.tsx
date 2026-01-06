@@ -32,15 +32,15 @@ export default function BreakfastBrunchSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 350); // <-- aumenta/diminuisci qui (es: 500–900)
+        }, 150); // <-- aumenta/diminuisci qui (es: 500–900)
       },
       {
         // ✅ trigger più tardi: serve più porzione visibile
-        threshold: 0.45,
+        threshold: 0.25,
 
         // ✅ trigger più tardi: considera "intersecting" solo quando è più dentro
         // (valori più negativi = ancora più tardi)
-        rootMargin: "0px 0px -35% 0px",
+        rootMargin: "0px 0px -15% 0px",
       }
     );
 
