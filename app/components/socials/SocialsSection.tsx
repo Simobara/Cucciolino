@@ -143,19 +143,19 @@ export default function SocialsSection({
     },
     {
       mobileWrap: "left-[35%] top-[10%] w-[62px] rotate-[7deg]",
-      desktopWrap: "sm:left-[32%] sm:top-[14%] sm:w-[84px] sm:rotate-[7deg]",
+      desktopWrap: "sm:left-[32%] sm:top-[24%] sm:w-[84px] sm:rotate-[7deg]",
       mobileMedia: "aspect-[1/1.18]",
       desktopMedia: "aspect-square",
     },
     {
       mobileWrap: "left-[10%] top-[22%] w-[66px] rotate-[5deg]",
-      desktopWrap: "sm:left-[58%] sm:top-[4%] sm:w-[88px] sm:rotate-[5deg]",
+      desktopWrap: "sm:left-[58%] sm:top-[-54%] sm:w-[88px] sm:rotate-[5deg]",
       mobileMedia: "aspect-[1/1.12]",
       desktopMedia: "aspect-square",
     },
     {
       mobileWrap: "right-[-26%] top-[28%] w-[78px] rotate-[-4deg]",
-      desktopWrap: "sm:left-[82%] sm:top-[16%] sm:w-[102px] sm:rotate-[-4deg]",
+      desktopWrap: "sm:left-[82%] sm:top-[-64%] sm:w-[102px] sm:rotate-[-4deg]",
       mobileMedia: "aspect-square",
       desktopMedia: "aspect-square",
     },
