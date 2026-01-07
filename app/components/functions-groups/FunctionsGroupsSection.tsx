@@ -8,6 +8,7 @@ import { useParallax } from "../hooks/useParallax";
 export default function FunctionsGroupsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [buttonsIn, setButtonsIn] = useState(false);
 
   const {
     ref: parallaxRef,
@@ -31,11 +32,11 @@ export default function FunctionsGroupsSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 150); // ✅ ritardo vero (500–900 è un buon range)
+        }, 150);
       },
       {
-        threshold: 0.25, // ✅ serve più sezione visibile prima di partire
-        rootMargin: "0px 0px -15% 0px", // ✅ scatta più tardi mentre scrolli
+        threshold: 0.25,
+        rootMargin: "0px 0px -15% 0px",
       }
     );
 
@@ -46,6 +47,17 @@ export default function FunctionsGroupsSection() {
       if (timeout) window.clearTimeout(timeout);
     };
   }, []);
+
+  // ✅ dopo che la sezione è visibile, aspetta 2s e fai entrare i bottoni
+  useEffect(() => {
+    if (!visible) return;
+
+    const t = window.setTimeout(() => {
+      setButtonsIn(true);
+    }, 2000);
+
+    return () => window.clearTimeout(t);
+  }, [visible]);
 
   const titleWords = ["FUNCTIONS", "&", "GROUPS"];
 
@@ -83,14 +95,22 @@ export default function FunctionsGroupsSection() {
               <div className="mt-12 flex flex-col gap-5 max-w-xs">
                 <Link
                   href="/functions"
-                  className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                  className={[
+                    "bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
+                    "btn-parallax btn-from-left",
+                    buttonsIn ? "is-in" : "",
+                  ].join(" ")}
                 >
                   LEARN MORE
                 </Link>
 
                 <Link
                   href="/contact"
-                  className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                  className={[
+                    "bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
+                    "btn-parallax btn-from-right",
+                    buttonsIn ? "is-in" : "",
+                  ].join(" ")}
                 >
                   ENQUIRIES
                 </Link>

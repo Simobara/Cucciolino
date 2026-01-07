@@ -157,6 +157,7 @@ export default function WhatsOnCarousel({
           hidden md:flex
           absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
           h-12 w-12 rounded-full
+          
           bg-[#0F5B63] text-white
           items-center justify-center
           shadow-md ring-1 ring-black/5
@@ -191,11 +192,14 @@ export default function WhatsOnCarousel({
       <div
         ref={scrollerRef}
         className="
-          flex gap-6 overflow-x-auto pb-4
-          snap-x snap-mandatory scroll-smooth
-          scrollbar-hide
-          pr-2
-        "
+    flex gap-6 overflow-x-auto pb-4
+    snap-x snap-mandatory scroll-smooth
+    pr-2
+
+    [-ms-overflow-style:none]
+    [scrollbar-width:none]
+    [&::-webkit-scrollbar]:hidden
+  "
       >
         {items.map((item, i) => {
           const isShown = i < visibleCount;

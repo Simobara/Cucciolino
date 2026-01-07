@@ -133,12 +133,12 @@ export default function MapEmbed({
       {/* MAP */}
       <div className="relative w-full" style={{ height }}>
         {/* Subtle overlay gradient for polish */}
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent z-[3]" />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent z-3" />
 
         {/* Floating hint badge */}
         <div
           className={[
-            "pointer-events-none absolute left-5 top-5 sm:left-6 sm:top-6 z-[4]",
+            "pointer-events-none absolute left-5 top-5 sm:left-6 sm:top-6 z-4",
             "rounded-full px-4 py-2 text-xs font-semibold tracking-wide",
             "bg-white/85 backdrop-blur border border-white/60 text-zinc-800",
             "shadow-sm",
@@ -155,7 +155,7 @@ export default function MapEmbed({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open Google Maps directions"
-          className="group absolute inset-0 z-[5] hidden md:block"
+          className="group absolute inset-0 z-5 hidden md:block"
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/15" />
           <div
@@ -177,7 +177,7 @@ export default function MapEmbed({
 
         {/* ✅ FALLBACK IMAGE (map.png) */}
         {showFallback && (
-          <div className="absolute inset-0 z-[2]">
+          <div className="absolute inset-0 z-2">
             <Image
               src={fallbackImageSrc}
               alt="Map preview"
@@ -203,7 +203,7 @@ export default function MapEmbed({
           referrerPolicy="no-referrer-when-downgrade"
           onLoad={handleIframeLoad}
           className={[
-            "relative z-[1]",
+            "relative z-1",
             // se fallback visibile, mantieni iframe sotto (così se carica lo vedi appena togli fallback)
             showFallback ? "opacity-100" : "opacity-100",
           ].join(" ")}

@@ -9,6 +9,7 @@ export default function LunchDinnerSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
+  // IMAGE parallax (base)
   const {
     ref: parallaxRef,
     y,
@@ -17,6 +18,12 @@ export default function LunchDinnerSection() {
     strength: 70,
     max: 90,
   });
+
+  // ✅ TEXT parallax: più “rapido” = stessa y ma moltiplicata (e con clamp)
+  const TEXT_MULT = -5.5; // aumenta se vuoi più veloce (es: 1.8 / 2.0)
+  const TEXT_MAX = 140; // limite per evitare che voli via troppo
+  const yTextRaw = y * TEXT_MULT;
+  const yText = Math.max(-TEXT_MAX, Math.min(TEXT_MAX, yTextRaw));
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -31,11 +38,11 @@ export default function LunchDinnerSection() {
         timeout = window.setTimeout(() => {
           setVisible(true);
           observer.disconnect();
-        }, 150); // ✅ ritardo reale (cinematic)
+        }, 150);
       },
       {
-        threshold: 0.25, // ✅ deve essere ben dentro lo schermo
-        rootMargin: "0px 0px -15% 0px", // ✅ trigger più tardi
+        threshold: 0.25,
+        rootMargin: "0px 0px -15% 0px",
       }
     );
 
@@ -55,7 +62,7 @@ export default function LunchDinnerSection() {
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative min-h-95 md:min-h-160 overflow-hidden",
+              "reveal cinematic-mask relative min-h-95 md:min-h-160 overflow-hidden",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -68,10 +75,12 @@ export default function LunchDinnerSection() {
               }}
             >
               <Image
-                src="/img/lunch.png"
+                src="/img/lunch1.png"
                 alt="Lunch & Dinner"
                 fill
+                priority={false}
                 className="object-cover"
+                sizes="(min-width: 768px) 50vw, 80vw"
               />
             </div>
           </div>
@@ -84,22 +93,32 @@ export default function LunchDinnerSection() {
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
           >
-            <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
-              LUNCH <br /> &amp; DINNER
-            </h2>
+            {/* ✅ wrapper parallax del testo (così padding/layout restano stabili) */}
+            <div
+              className="will-change-transform"
+              style={{
+                transform: prefersReducedMotion
+                  ? "translate3d(0,0,0)"
+                  : `translate3d(0, ${yText}px, 0)`,
+              }}
+            >
+              <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+                LUNCH <br /> &amp; DINNER
+              </h2>
 
-            <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
-              From stone-baked pizzas to handcrafted cocktails, our menu is
-              designed to impress any time of day.
-            </p>
+              <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+                From stone-baked pizzas to handcrafted cocktails, our menu is
+                designed to impress any time of day.
+              </p>
 
-            <div className="mt-12">
-              <Link
-                href="/menu"
-                className="bg-[#0F5B63] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
-              >
-                FOOD MENU
-              </Link>
+              <div className="mt-12">
+                <Link
+                  href="/menu"
+                  className="bg-[#0F5B63] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
+                >
+                  FOOD MENU
+                </Link>
+              </div>
             </div>
           </div>
         </div>

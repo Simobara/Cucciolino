@@ -14,7 +14,7 @@ export default function Footer() {
             alt="Cucciolino Pizza & Gelato logo"
             width={140}
             height={140}
-            className="object-contain"
+            className="object-contain h-auto"
             priority
           />
 

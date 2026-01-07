@@ -8,6 +8,25 @@ import { useParallax } from "../hooks/useParallax";
 export default function BreakfastBrunchSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const images = [
+    "/img/breakfast.png",
+    "/img/breakfast1.png",
+    "/img/breakfast2.png",
+    "/img/breakfast3.png",
+  ];
+
+  const [activeImg, setActiveImg] = useState(0);
+
+  useEffect(() => {
+    // parte solo quando la sezione è visibile (così non sprechi risorse)
+    if (!visible) return;
+
+    const id = window.setInterval(() => {
+      setActiveImg((i) => (i + 1) % images.length);
+    }, 800); // durata prima del cambio (ms)
+
+    return () => window.clearInterval(id);
+  }, [visible, images.length]);
 
   const {
     ref: parallaxRef,
@@ -90,7 +109,7 @@ export default function BreakfastBrunchSection() {
             </div>
           </div>
 
-          {/* IMAGE PARALLAX */}
+          {/* IMAGE PARALLAX + FADE SLIDESHOW */}
           <div
             ref={parallaxRef}
             className={[
@@ -106,12 +125,25 @@ export default function BreakfastBrunchSection() {
                   : `translate3d(0, ${y}px, 0) scale(1.08)`,
               }}
             >
-              <Image
-                src="/img/breakfast.png"
-                alt="Breakfast & Brunch"
-                fill
-                className="object-cover"
-              />
+              {/* immagini sovrapposte */}
+              {images.map((src, idx) => {
+                const isActive = idx === activeImg;
+
+                return (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt="Breakfast & Brunch"
+                    fill
+                    priority={idx === 0}
+                    className={[
+                      "object-cover absolute inset-0",
+                      "transition-opacity duration-1000 ease-in-out",
+                      isActive ? "opacity-100" : "opacity-0",
+                    ].join(" ")}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

@@ -213,3 +213,83 @@ h6 {
     ),
     rgba(15, 91, 99, 0.35); /* ⬅️ prima 0.55 */
 }
+
+/* --- Animated border that rotates slowly around the card --- */
+.animated-border {
+  position: relative;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* spessore del bordo animato */
+  pointer-events: none;
+  z-index: 50;
+
+  /* bordo “che gira” */
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0) 0deg,
+    rgba(255, 255, 255, 0) 260deg,
+    rgba(15, 91, 99, 0.95) 300deg,
+    rgba(246, 230, 212, 0.9) 330deg,
+    rgba(255, 255, 255, 0) 360deg
+  );
+
+  /* mostra solo l’anello (taglia il centro) */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* animazione lenta */
+  animation: border-rotate 6.5s linear infinite;
+  opacity: 0; /* di default invisibile */
+  transition: opacity 300ms ease;
+}
+
+/* attivo solo su hover/focus (desktop + tastiera) */
+.group:hover .animated-border::before,
+.group:focus-within .animated-border::before {
+  opacity: 1;
+}
+
+@keyframes border-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* stato iniziale: fuori + invisibile */
+/* base: invisibile + transizione */
+.btn-parallax {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  transition: transform 700ms ease, opacity 700ms ease;
+}
+
+/* direzioni */
+.btn-from-left {
+  transform: translate3d(-40px, 0, 0);
+}
+
+.btn-from-right {
+  transform: translate3d(40px, 0, 0);
+}
+
+/* stato finale */
+.btn-parallax.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* opzionale: accessibilità */
+@media (prefers-reduced-motion: reduce) {
+  .btn-parallax {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
