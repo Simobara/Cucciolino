@@ -136,28 +136,26 @@ export default function SocialsSection({
    */
   const positions = [
     {
-      mobileWrap: "left-[4%] top-[4%] w-[74px] rotate-[-6deg]",
-      desktopWrap: "left-[6%] top-[12%] w-[96px] rotate-[-6deg]",
+      mobileWrap: "left-[4%] top-[2%] w-[74px] rotate-[-6deg]",
+      desktopWrap: "sm:left-[6%] sm:top-[6%] sm:w-[96px] sm:rotate-[-6deg]",
       mobileMedia: "aspect-square",
       desktopMedia: "aspect-square",
     },
     {
-      mobileWrap: "right-[6%] top-[30%] w-[62px] rotate-[7deg]",
-      desktopWrap: "left-[32%] top-[22%] w-[84px] rotate-[7deg]",
+      mobileWrap: "left-[35%] top-[10%] w-[62px] rotate-[7deg]",
+      desktopWrap: "sm:left-[32%] sm:top-[14%] sm:w-[84px] sm:rotate-[7deg]",
       mobileMedia: "aspect-[1/1.18]",
       desktopMedia: "aspect-square",
     },
     {
-      mobileWrap: "left-[10%] top-[58%] w-[66px] rotate-[5deg]",
-      desktopWrap: "left-[58%] top-[10%] w-[88px] rotate-[5deg]",
+      mobileWrap: "left-[10%] top-[22%] w-[66px] rotate-[5deg]",
+      desktopWrap: "sm:left-[58%] sm:top-[4%] sm:w-[88px] sm:rotate-[5deg]",
       mobileMedia: "aspect-[1/1.12]",
       desktopMedia: "aspect-square",
     },
-
     {
-      mobileWrap: "right-[2%] top-[78%] w-[78px] rotate-[-4deg]",
-      desktopWrap: "left-[82%] top-[48%] w-[102px] rotate-[-4deg]",
-
+      mobileWrap: "right-[-26%] top-[28%] w-[78px] rotate-[-4deg]",
+      desktopWrap: "sm:left-[82%] sm:top-[16%] sm:w-[102px] sm:rotate-[-4deg]",
       mobileMedia: "aspect-square",
       desktopMedia: "aspect-square",
     },
@@ -185,7 +183,7 @@ export default function SocialsSection({
         ].join(" ")}
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
+      <div className="relative mx-auto max-w-6xl px-6 py-2 sm:py-10">
         <h2
           className={[
             "reveal text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-5xl sm:text-6xl md:text-7xl",
@@ -196,7 +194,7 @@ export default function SocialsSection({
         </h2>
 
         {/* ✅ CARDS: sempre “scattered” (mobile top→bottom, desktop left→right) */}
-        <div className="mt-10 relative h-[320px] sm:h-[220px]">
+        <div className="mt-10 relative h-80 sm:h-55">
           {firstFour.map((item, i) => {
             const pos = positions[i] ?? positions[0];
 
@@ -222,7 +220,7 @@ export default function SocialsSection({
                 className={[
                   "reveal social-card group absolute block overflow-hidden rounded-2xl",
                   pos.mobileWrap,
-                  `sm:${pos.desktopWrap}`,
+                  pos.desktopWrap,
                   "sm:right-auto", // ✅ importantissimo
                   visible ? "is-visible" : "",
                   visible ? "sm:float-on" : "",
@@ -264,13 +262,13 @@ export default function SocialsSection({
             - desktop: a sinistra (come chiedi ora) */}
         <div
           className={[
-            "reveal mt-14 text-[#F6E6D4] text-lg sm:text-xl leading-relaxed",
+            "reveal mt-2 md:mt-2 text-[#F6E6D4] text-lg sm:text-xl leading-relaxed",
             "text-right sm:text-left",
             visible ? "is-visible" : "",
           ].join(" ")}
           style={{ transitionDelay: `${160 + firstFour.length * 140}ms` }}
         >
-          <p>Follow us on instagram</p>
+          <p>Follow us on:</p>
           <Link
             href={instagramUrl}
             target="_blank"
