@@ -1,28 +1,62 @@
 // app/loading.tsx
+"use client";
 import Image from "next/image";
 
 export default function Loading() {
   return (
     <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#0F5B63]">
-      {/* Logo watermark */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.08]">
-        <Image
-          src="/logocucciolino.png"
-          alt="Cucciolino"
-          width={900}
-          height={900}
-          priority
-          className="w-[70vw] max-w-105 h-auto"
-        />
+      {/* Contenitore centrale */}
+      <div className="relative flex flex-col items-center">
+        {/* Logo (sopra) */}
+        <div className="opacity-[0.08]">
+          <Image
+            src="/logocucciolino.png"
+            alt="Cucciolino"
+            width={900}
+            height={900}
+            priority
+            className="w-[70vw] max-w-105 h-auto"
+          />
+        </div>
+
+        {/* Puntini (sotto il logo) */}
+        <div className="mt-10 flex gap-3">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span
+              key={i}
+              className="dot"
+              style={{ animationDelay: `${i * 0.15}s` }}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Loader */}
-      <div className="relative z-10 flex flex-col items-center gap-6">
-        <div className="h-10 w-10 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-        <p className="text-white/80 text-sm tracking-widest uppercase">
-          Loading
-        </p>
-      </div>
+      {/* CSS locale */}
+      <style jsx>{`
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 9999px;
+          background: white;
+          opacity: 0.15;
+          animation: wave 1.4s infinite ease-in-out;
+        }
+
+        @keyframes wave {
+          0% {
+            opacity: 0.15;
+          }
+          30% {
+            opacity: 1;
+          }
+          60% {
+            opacity: 0.15;
+          }
+          100% {
+            opacity: 0.15;
+          }
+        }
+      `}</style>
     </div>
   );
 }

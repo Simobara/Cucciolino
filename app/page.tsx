@@ -13,7 +13,7 @@ import MapEmbed from "./components/map/MapEmbed";
 import SocialsSection from "./components/socials/SocialsSection";
 import TopFadeOverlay from "./components/TopFadeOverlay";
 import WhatsOnSection from "./components/whatson/WhatsOnSection";
-import SplashScreen from "./slashScreen";
+import SplashScreen from "./splashScreen";
 
 export default function Home() {
   const [ready, setReady] = useState(false);

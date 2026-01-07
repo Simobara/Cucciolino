@@ -7,6 +7,8 @@ import { useParallax } from "../hooks/useParallax";
 
 export default function FunctionsGroupsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const buttonsRef = useRef<HTMLDivElement | null>(null);
+
   const [visible, setVisible] = useState(false);
   const [buttonsIn, setButtonsIn] = useState(false);
 
@@ -19,6 +21,7 @@ export default function FunctionsGroupsSection() {
     max: 90,
   });
 
+  // ✅ Reveal della sezione quando entra in viewport
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -48,15 +51,29 @@ export default function FunctionsGroupsSection() {
     };
   }, []);
 
-  // ✅ dopo che la sezione è visibile, aspetta 2s e fai entrare i bottoni
+  // ✅ Bottoni: entrano SOLO quando l’utente scrolla fino al loro blocco
+  // (e comunque solo dopo che la sezione è diventata visibile)
   useEffect(() => {
     if (!visible) return;
 
-    const t = window.setTimeout(() => {
-      setButtonsIn(true);
-    }, 2000);
+    const el = buttonsRef.current;
+    if (!el) return;
 
-    return () => window.clearTimeout(t);
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setButtonsIn(true);
+        io.disconnect();
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px",
+      }
+    );
+
+    io.observe(el);
+
+    return () => io.disconnect();
   }, [visible]);
 
   const titleWords = ["FUNCTIONS", "&", "GROUPS"];
@@ -92,7 +109,11 @@ export default function FunctionsGroupsSection() {
                 perfectly to groups of any size.
               </p>
 
-              <div className="mt-12 flex flex-col gap-5 max-w-xs">
+              {/* ✅ Bottoni entrano quando questo blocco entra in viewport */}
+              <div
+                ref={buttonsRef}
+                className="mt-12 flex flex-col gap-5 max-w-xs"
+              >
                 <Link
                   href="/functions"
                   className={[
