@@ -8,8 +8,8 @@ import { useParallax } from "../hooks/useParallax";
 export default function LunchDinnerSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // IMAGE parallax (base)
   const {
     ref: parallaxRef,
     y,
@@ -19,9 +19,19 @@ export default function LunchDinnerSection() {
     max: 90,
   });
 
-  // ✅ TEXT parallax: più “rapido” = stessa y ma moltiplicata (e con clamp)
-  const TEXT_MULT = -5.5; // aumenta se vuoi più veloce (es: 1.8 / 2.0)
-  const TEXT_MAX = 140; // limite per evitare che voli via troppo
+  // ✅ rileva mobile (solo client)
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  // ✅ MOBILE: molto più calmo
+  const TEXT_MULT = isMobile ? -2.0 : -2.2; // prova -1.0 / -1.2 su mobile
+  const TEXT_MAX = isMobile ? 55 : 140; // clamp più basso su mobile
+
   const yTextRaw = y * TEXT_MULT;
   const yText = Math.max(-TEXT_MAX, Math.min(TEXT_MAX, yTextRaw));
 
@@ -93,7 +103,6 @@ export default function LunchDinnerSection() {
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
           >
-            {/* ✅ wrapper parallax del testo (così padding/layout restano stabili) */}
             <div
               className="will-change-transform"
               style={{

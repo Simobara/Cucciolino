@@ -22,19 +22,19 @@ export default function SocialsSection({
     {
       type: "image",
       imageSrc: "/icons/logotwitter.png",
-      imageAlt: "Dish photo",
+      imageAlt: "Twitter",
       href: "https://www.twitter.com/",
     },
     {
       type: "image",
       imageSrc: "/icons/logotictoc.png",
-      imageAlt: "Hummus photo",
+      imageAlt: "TikTok",
       href: "https://www.tictoc.com/",
     },
     {
       type: "image",
       imageSrc: "/icons/logofacebook.png",
-      imageAlt: "Flatbread photo",
+      imageAlt: "Facebook",
       href: "https://www.facebook.com/",
     },
   ] as SocialItem[],
@@ -48,10 +48,10 @@ export default function SocialsSection({
   const [visible, setVisible] = useState(false);
   const firstFour = useMemo(() => items.slice(0, 4), [items]);
 
-  // ✅ NEW: hovered background
+  // hovered background (desktop only, con pointer fine)
   const [hoveredSrc, setHoveredSrc] = useState<string | null>(null);
 
-  // refs per trasformazioni 3D
+  // refs per tilt 3D
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const rafIds = useRef<number[]>([]);
 
@@ -127,22 +127,56 @@ export default function SocialsSection({
     card.style.setProperty("--gy", `50%`);
   }
 
+  /**
+   * ✅ Stesso “stile” su mobile e desktop (NON incolonnate / NON griglia).
+   * - Mobile: disposizione dall’alto al basso (top cresce), un po’ alternate a sx/dx
+   * - Desktop: disposizione da sinistra a destra (left cresce), un po’ alternate in alto/basso
+   *
+   * Nota: puoi ritoccare solo questi valori per cambiare composizione.
+   */
+  const positions = [
+    {
+      mobileWrap: "left-[4%] top-[4%] w-[74px] rotate-[-6deg]",
+      desktopWrap: "left-[6%] top-[12%] w-[96px] rotate-[-6deg]",
+      mobileMedia: "aspect-square",
+      desktopMedia: "aspect-square",
+    },
+    {
+      mobileWrap: "right-[6%] top-[30%] w-[62px] rotate-[7deg]",
+      desktopWrap: "left-[32%] top-[22%] w-[84px] rotate-[7deg]",
+      mobileMedia: "aspect-[1/1.18]",
+      desktopMedia: "aspect-square",
+    },
+    {
+      mobileWrap: "left-[10%] top-[58%] w-[66px] rotate-[5deg]",
+      desktopWrap: "left-[58%] top-[10%] w-[88px] rotate-[5deg]",
+      mobileMedia: "aspect-[1/1.12]",
+      desktopMedia: "aspect-square",
+    },
+
+    {
+      mobileWrap: "right-[2%] top-[78%] w-[78px] rotate-[-4deg]",
+      desktopWrap: "left-[82%] top-[48%] w-[102px] rotate-[-4deg]",
+
+      mobileMedia: "aspect-square",
+      desktopMedia: "aspect-square",
+    },
+  ] as const;
+
   return (
     <section
       ref={ref}
       className="bg-[#0F5B63] relative overflow-hidden"
-      // ✅ CSS variable con l’immagine hovered
       style={
         hoveredSrc
           ? ({
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               "--bg": `url(${hoveredSrc})`,
             } as React.CSSProperties)
           : undefined
       }
     >
-      {/* ✅ Background “hover” */}
+      {/* background hover (solo quando hoveredSrc è settato) */}
       <div
         aria-hidden="true"
         className={[
@@ -151,7 +185,6 @@ export default function SocialsSection({
         ].join(" ")}
       />
 
-      {/* contenuto sopra */}
       <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
         <h2
           className={[
@@ -162,61 +195,77 @@ export default function SocialsSection({
           {title}
         </h2>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {firstFour.map((item, i) => (
-            <Link
-              key={i}
-              ref={(el) => {
-                cardRefs.current[i] = el;
-              }}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open social item ${i + 1}`}
-              onMouseEnter={() => {
-                if (!isFinePointer()) return;
-                setHoveredSrc(item.imageSrc);
-              }}
-              onMouseMove={(e) => onMove(i, e)}
-              onMouseLeave={() => {
-                onLeave(i);
-                setHoveredSrc(null);
-              }}
-              className={[
-                "reveal social-card group relative block overflow-hidden",
-                "mx-auto w-full max-w-30 sm:max-w-35 md:max-w-40",
-                "rounded-2xl",
-                visible ? "is-visible" : "",
-                visible ? "float-on" : "",
-              ].join(" ")}
-              style={{ transitionDelay: `${160 + i * 140}ms` }}
-            >
-              <div className="relative aspect-square social-card__media">
-                <Image
-                  src={item.imageSrc}
-                  alt={item.imageAlt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-[1.04]"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
+        {/* ✅ CARDS: sempre “scattered” (mobile top→bottom, desktop left→right) */}
+        <div className="mt-10 relative h-[320px] sm:h-[220px]">
+          {firstFour.map((item, i) => {
+            const pos = positions[i] ?? positions[0];
 
-              <div className="social-card__glare" aria-hidden="true" />
-
-              {item.type === "video" && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30 transition duration-300 group-hover:bg-white/30">
-                    <div className="w-0 h-0 border-t-10px border-t-transparent border-b-10px border-b-transparent border-l-16px border-l-white/95 translate-x-0.5" />
-                  </div>
+            return (
+              <Link
+                key={i}
+                ref={(el) => {
+                  cardRefs.current[i] = el;
+                }}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open social item ${i + 1}`}
+                onMouseEnter={() => {
+                  if (!isFinePointer()) return;
+                  setHoveredSrc(item.imageSrc);
+                }}
+                onMouseMove={(e) => onMove(i, e)}
+                onMouseLeave={() => {
+                  onLeave(i);
+                  setHoveredSrc(null);
+                }}
+                className={[
+                  "reveal social-card group absolute block overflow-hidden rounded-2xl",
+                  pos.mobileWrap,
+                  `sm:${pos.desktopWrap}`,
+                  "sm:right-auto", // ✅ importantissimo
+                  visible ? "is-visible" : "",
+                  visible ? "sm:float-on" : "",
+                ].join(" ")}
+                style={{ transitionDelay: `${160 + i * 140}ms` }}
+              >
+                <div
+                  className={[
+                    "relative social-card__media",
+                    pos.mobileMedia,
+                    `sm:${pos.desktopMedia}`,
+                  ].join(" ")}
+                >
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                    sizes="160px"
+                  />
                 </div>
-              )}
-            </Link>
-          ))}
+
+                <div className="social-card__glare" aria-hidden="true" />
+
+                {item.type === "video" && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30 transition duration-300 group-hover:bg-white/30">
+                      <div className="w-0 h-0 border-t-8px border-t-transparent border-b-8px border-b-transparent border-l-14px border-l-white/95 translate-x-0.5" />
+                    </div>
+                  </div>
+                )}
+              </Link>
+            );
+          })}
         </div>
 
+        {/* ✅ TESTO:
+            - mobile: a destra (come avevi chiesto prima)
+            - desktop: a sinistra (come chiedi ora) */}
         <div
           className={[
             "reveal mt-14 text-[#F6E6D4] text-lg sm:text-xl leading-relaxed",
+            "text-right sm:text-left",
             visible ? "is-visible" : "",
           ].join(" ")}
           style={{ transitionDelay: `${160 + firstFour.length * 140}ms` }}

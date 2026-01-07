@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://TUO-DOMINIO.vercel.app"),
+  metadataBase: new URL("https://cucciolino.vercel.app/"),
   title: {
     default: "Cucciolino Pizza & Gelato",
     template: "%s | Cucciolino Pizza & Gelato",
