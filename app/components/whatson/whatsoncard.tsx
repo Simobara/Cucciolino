@@ -22,8 +22,8 @@ export default function WhatsOnCard({
       <div
         className="
           relative rounded-2xl overflow-hidden
-          bg-black/5
-          shadow-[0_22px_55px_rgba(0,0,0,0.22)]
+          bg-white
+          shadow-[0_22px_45px_rgba(0,0,0,0.32)]
           ring-1 ring-black/10
           transition-transform duration-300
           group-hover:-translate-y-1

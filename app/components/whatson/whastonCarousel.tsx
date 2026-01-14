@@ -27,7 +27,7 @@ export default function WhatsOnCarousel({
   const [started, setStarted] = useState(false);
   const [visibleCount, setVisibleCount] = useState(0);
 
-  // NEW: active index per dots/line
+  // indice attivo per i puntini
   const [active, setActive] = useState(0);
 
   const total = items.length;
@@ -40,29 +40,41 @@ export default function WhatsOnCarousel({
     );
   };
 
+  // 🔁 helper: quanto scroll equivale a 1 "step" (da un dot al successivo)
+  const getStep = () => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return 0;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    if (maxScroll <= 0 || total <= 1) return 0;
+    return maxScroll / (total - 1);
+  };
+
   const scrollByAmount = (direction: "left" | "right") => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    const cardWidth = getCardWidth();
-    const gap = 24;
+    const step = getStep();
+    if (step <= 0) return;
 
     scroller.scrollBy({
-      left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
+      left: direction === "left" ? -step : step,
       behavior: "smooth",
     });
   };
 
-  // NEW: scroll to index (click dots)
+  // Vai a un indice specifico (click sul puntino)
   const goTo = (index: number) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
 
-    const cardWidth = getCardWidth();
-    const gap = 24;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    if (maxScroll <= 0 || total <= 1) return;
+
+    const clampedIndex = Math.max(0, Math.min(total - 1, index));
+    const target = (clampedIndex / (total - 1)) * maxScroll;
 
     scroller.scrollTo({
-      left: index * (cardWidth + gap),
+      left: target,
       behavior: "smooth",
     });
   };
@@ -114,7 +126,7 @@ export default function WhatsOnCarousel({
     };
   }, [started, total, revealGapMs, initialDelayMs]);
 
-  // NEW: aggiorna active mentre scrolli (perf)
+  // ✅ aggiorna active mentre scrolli, mappando 0 → primo dot, maxScroll → ultimo dot
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -127,11 +139,14 @@ export default function WhatsOnCarousel({
         const el = scrollerRef.current;
         if (!el) return;
 
-        const cardWidth = getCardWidth();
-        const gap = 24;
-        const step = cardWidth + gap;
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (maxScroll <= 0 || total <= 1) {
+          setActive(0);
+          return;
+        }
 
-        const idx = step > 0 ? Math.round(el.scrollLeft / step) : 0;
+        const progress = el.scrollLeft / maxScroll; // 0 → 1
+        const idx = Math.round(progress * (total - 1));
         const clamped = Math.max(0, Math.min(total - 1, idx));
         setActive(clamped);
       });
@@ -157,7 +172,6 @@ export default function WhatsOnCarousel({
           hidden md:flex
           absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
           h-12 w-12 rounded-full
-          
           bg-[#0F5B63] text-white
           items-center justify-center
           shadow-md ring-1 ring-black/5
@@ -184,7 +198,7 @@ export default function WhatsOnCarousel({
         →
       </button>
 
-      {/* fade edges (trasparente -> bianco, NON beige) */}
+      {/* fade edges */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-linear-to-r from-white to-transparent hidden md:block" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-linear-to-l from-white to-transparent hidden md:block" />
 
@@ -192,14 +206,13 @@ export default function WhatsOnCarousel({
       <div
         ref={scrollerRef}
         className="
-    flex gap-6 overflow-x-auto pb-4
-    snap-x snap-mandatory scroll-smooth
-    pr-2
-
-    [-ms-overflow-style:none]
-    [scrollbar-width:none]
-    [&::-webkit-scrollbar]:hidden
-  "
+          flex gap-6 overflow-x-auto pb-4
+          snap-x snap-mandatory scroll-smooth
+          pr-2
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
+        "
       >
         {items.map((item, i) => {
           const isShown = i < visibleCount;
@@ -227,8 +240,17 @@ export default function WhatsOnCarousel({
         {/* spacer finale per respiro */}
         <div className="min-w-1px" />
       </div>
-
-      {/* NEW: DOTS -> LINE pagination */}
+      {/* GRADIENT SOTTO LE CARDS */}
+      <div
+        className="
+          pointer-events-none
+          absolute bottom-0 left-0 right-0
+          h-24
+          bg-linear-to-t from-white to-transparent
+          z-20
+        "
+      />
+      {/* DOTS / LINE pagination */}
       <div className="mt-3 flex items-center justify-center gap-2">
         {items.map((_, i) => {
           const isActive = i === active;

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import BreakfastBrunchSection from "./components/breakfast-brunch/BreakfastBrunchSection";
 import BookingCtaBar from "./components/cta/BookingCtaBar";
+import CursorElasticImage from "./components/cursorImage/cursorImage";
 import FloatingHomeButton from "./components/floating/FloatingHomeButton";
 import FunctionsGroupsSection from "./components/functions-groups/FunctionsGroupsSection";
 import LunchDinnerSection from "./components/lunch-dinner/LunchDinnerSection";
@@ -37,6 +38,7 @@ export default function Home() {
         setReady(false);
       }
     } catch (error) {
+      console.log("error", error);
       // In caso di problemi con sessionStorage, non blocchiamo il sito
       setShowSplash(false);
       setReady(true);
@@ -49,6 +51,7 @@ export default function Home() {
     try {
       sessionStorage.setItem("cucciolino-splash-seen", "true");
     } catch (error) {
+      console.log("error", error);
       // Se fallisce, semplicemente lo rivedrà alla prossima apertura
     }
     setShowSplash(false);
@@ -62,6 +65,13 @@ export default function Home() {
 
   return (
     <>
+      <CursorElasticImage
+        src="/iconsss/cursor.png" // la tua immagine cursore
+        size={130}
+        offsetX={24}
+        offsetY={24}
+      />
+
       {/* Splash: solo se serve in questa sessione */}
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
 
@@ -150,12 +160,12 @@ export default function Home() {
             <div className="flex items-end justify-between gap-6">
               <h2 className="text-2xl sm:text-3xl font-semibold">What’s On</h2>
 
-              <Link
+              {/* <Link
                 href="/menu"
                 className="text-sm font-medium text-zinc-600 hover:text-black hover:underline"
               >
                 See full menu
-              </Link>
+              </Link> */}
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
