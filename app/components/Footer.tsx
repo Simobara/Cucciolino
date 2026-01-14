@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           {/* LOGO */}
           <Image
-            src="/logocucciolino.png"
+            src="/logocucc1.png"
             alt="Cucciolino Pizza & Gelato logo"
             width={140}
             height={140}
