@@ -83,11 +83,11 @@ export default function BreakfastBrunchSection() {
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
           >
-            <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               BREAKFAST <br /> &amp; BRUNCH
             </h2>
 
-            <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+            <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
               Transport yourself to the sun-kissed shores of the Mediterranean
               as you embark on a brunch journey at Cucciolino.
             </p>
@@ -95,14 +95,14 @@ export default function BreakfastBrunchSection() {
             <div className="mt-12 flex flex-col gap-5 max-w-xs">
               <Link
                 href="/menu#brunch"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                className="bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
               >
                 BRUNCH MENU
               </Link>
 
               <Link
                 href="/menu#drinks"
-                className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+                className="bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
               >
                 DRINK MENU
               </Link>

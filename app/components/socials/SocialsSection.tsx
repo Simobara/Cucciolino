@@ -164,7 +164,7 @@ export default function SocialsSection({
   return (
     <section
       ref={ref}
-      className="bg-[#0F5B63] relative overflow-hidden"
+      className="bg-[#76aad8] relative overflow-hidden"
       style={
         hoveredSrc
           ? ({
@@ -179,7 +179,7 @@ export default function SocialsSection({
         aria-hidden="true"
         className={[
           "socials-hover-bg pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300",
-          hoveredSrc ? "opacity-100" : "",
+          hoveredSrc ? "opacity-10" : "",
         ].join(" ")}
       />
 

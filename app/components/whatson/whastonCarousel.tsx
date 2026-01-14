@@ -172,7 +172,7 @@ export default function WhatsOnCarousel({
           hidden md:flex
           absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
           h-12 w-12 rounded-full
-          bg-[#0F5B63] text-white
+          bg-[#76aad8] text-white
           items-center justify-center
           shadow-md ring-1 ring-black/5
           hover:brightness-110 active:scale-95 transition
@@ -189,7 +189,7 @@ export default function WhatsOnCarousel({
           hidden md:flex
           absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 z-10
           h-12 w-12 rounded-full
-          bg-[#0F5B63] text-white
+          bg-[#76aad8] text-white
           items-center justify-center
           shadow-md ring-1 ring-black/5
           hover:brightness-110 active:scale-95 transition

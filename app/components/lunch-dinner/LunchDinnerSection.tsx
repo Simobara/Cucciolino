@@ -111,11 +111,11 @@ export default function LunchDinnerSection() {
                   : `translate3d(0, ${yText}px, 0)`,
               }}
             >
-              <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+              <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
                 LUNCH <br /> &amp; DINNER
               </h2>
 
-              <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
                 From stone-baked pizzas to handcrafted cocktails, our menu is
                 designed to impress any time of day.
               </p>
@@ -123,7 +123,7 @@ export default function LunchDinnerSection() {
               <div className="mt-12">
                 <Link
                   href="/menu"
-                  className="bg-[#0F5B63] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
+                  className="bg-[#76aad8] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
                 >
                   FOOD MENU
                 </Link>

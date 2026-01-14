@@ -9,10 +9,10 @@ export default function WhatsOnSection() {
           Events &amp; Specials
         </h2>
 
-         {/* BOTTONE STILE BRUNCH MENU */}
+        {/* BOTTONE STILE BRUNCH MENU */}
         <Link
           href="/menu"
-          className="bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+          className="bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
         >
           SEE FULL MENU
         </Link>

@@ -24,6 +24,8 @@ export default function Home() {
   // se dobbiamo mostrare lo splash in questa visita
   const [showSplash, setShowSplash] = useState(false);
 
+  const [logoOpacity, setLogoOpacity] = useState(0.05);
+
   useEffect(() => {
     try {
       const alreadySeen = sessionStorage.getItem("cucciolino-splash-seen");
@@ -45,6 +47,28 @@ export default function Home() {
     } finally {
       setHasCheckedSplash(true);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+
+      // Range di visibilità: da 0.05 a 0.18 (puoi modificarlo)
+      const min = 0.05;
+      const max = 0.18;
+
+      // Quanto scroll serve per arrivare al massimo (puoi modificarlo)
+      const revealDistance = 600;
+
+      // Calcola opacità interpolata
+      const progress = Math.min(y / revealDistance, 1);
+      const newOpacity = min + (max - min) * progress;
+
+      setLogoOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSplashFinish = () => {
@@ -86,9 +110,12 @@ export default function Home() {
       >
         {/* BRAND WATERMARK (fixed, behind all sections) */}
         <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
-          <div className="w-70 sm:w-105 md:w-130 opacity-[0.06]">
+          <div
+            className="w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150"
+            style={{ opacity: logoOpacity }}
+          >
             <Image
-              src="/logocucc1.png"
+              src="/logocucc12.png"
               alt="Cucciolino"
               width={900}
               height={900}
@@ -231,17 +258,17 @@ export default function Home() {
 
           {/* ONE-PAGE STACKED SECTIONS (scroll over the watermark) */}
           <div className="snap-y snap-mandatory">
-            <section className="snap-start min-h-screen">
+            <section className="snap-start min-h-screen mb-20">
               <BreakfastBrunchSection />
             </section>
 
-            <section className="snap-start min-h-screen">
+            <section className="snap-start min-h-screen mb-20">
               <LunchDinnerSection />
             </section>
 
             <BookingCtaBar />
 
-            <section className="snap-start min-h-screen">
+            <section className="snap-start min-h-screen mb-20">
               <FunctionsGroupsSection />
             </section>
           </div>

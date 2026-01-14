@@ -10,7 +10,7 @@ export default function BookingCtaBar({
   href?: string;
 }) {
   return (
-    <section className="bg-[#0F5B63]">
+    <section className="bg-[#76aad8]">
       <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-4xl sm:text-5xl md:text-6xl">
@@ -21,7 +21,7 @@ export default function BookingCtaBar({
             href={href}
             className="
               inline-flex items-center justify-center
-              bg-[#F2B8A6] text-[#0F5B63]
+              bg-[#f2c9a6] text-[#76aad8]
               px-10 py-4
               text-lg font-semibold tracking-wide
               hover:brightness-105 transition

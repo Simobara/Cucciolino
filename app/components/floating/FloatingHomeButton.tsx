@@ -51,14 +51,14 @@ export default function FloatingHomeButton({
 
           /* DEFAULT: trasparente ma visibile */
           bg-white/10 backdrop-blur
-          text-[#0F5B63]
-          ring-1 ring-[#0F5B63]/40
+          text-[#76aad8]
+          ring-1 ring-[#76aad8]/40
 
           /* TRANSITIONS */
           transition-all duration-300 ease-out
 
           /* HOVER: pieno + shadow */
-          hover:bg-[#0F5B63]
+          hover:bg-[#76aad8]
           hover:text-[#F6E6D4]
           hover:ring-transparent
           hover:shadow-[0_12px_30px_rgba(15,91,99,0.35)]

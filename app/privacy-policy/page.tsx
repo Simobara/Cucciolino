@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
         Privacy Policy
       </h1>
 
-      <div className="space-y-10 text-[15px] leading-relaxed text-[#0F5B63]">
+      <div className="space-y-10 text-[15px] leading-relaxed text-[#76aad8]">
         {/* INTRO */}
         <p>
           <strong>Cucciolino Pizza &amp; Gelato</strong> respects your right to

@@ -42,7 +42,7 @@ export default function SplashScreen({
       }}
     >
       {/* sfondo verde brand */}
-      <div className="absolute inset-0 bg-[#0F5B63]" />
+      <div className="absolute inset-0 bg-[#76aad8]" />
 
       {/* CONTENUTO CENTRALE */}
       <div className="relative z-10 flex flex-col items-center">

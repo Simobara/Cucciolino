@@ -104,13 +104,13 @@ export default function WhatsOnCard({
 
       {/* TEXT SOTTO (fuori dalla foto, non viene scurito) */}
       <div className="mt-6 text-center">
-        <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#0F5B63] leading-[0.92]">
+        <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#76aad8] leading-[0.92]">
           {title}
         </h3>
 
-        <p className="mt-4 text-sm font-semibold text-[#0F5B63]">{subtitle}</p>
+        <p className="mt-4 text-sm font-semibold text-[#76aad8]">{subtitle}</p>
 
-        <div className="mt-1 text-sm text-[#0F5B63]/80">
+        <div className="mt-1 text-sm text-[#76aad8]/80">
           {meta ? (
             <>
               <span>{meta}</span>

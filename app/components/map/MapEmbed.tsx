@@ -128,7 +128,7 @@ export default function MapEmbed({
               className="
                 inline-flex items-center justify-center
                 rounded-full
-                bg-[#0F5B63] text-[#F6E6D4]
+                bg-[#76aad8] text-[#F6E6D4]
                 px-5 py-2.5
                 text-sm font-semibold
                 hover:brightness-110 active:scale-95 transition

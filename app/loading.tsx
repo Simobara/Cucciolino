@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#0F5B63]">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#76aad8]">
       {/* Contenitore centrale */}
       <div className="relative flex flex-col items-center">
         {/* Logo (sopra) */}
         <div className="opacity-[0.08]">
           <Image
-            src="/logocucc1.png"
+            src="/logocucc12.png"
             alt="Cucciolino"
             width={900}
             height={900}
@@ -38,7 +38,7 @@ export default function Loading() {
           height: 10px;
           border-radius: 9999px;
           background: white;
-          opacity: 0.15;
+          opacity: 0.9;
           animation: wave 1.4s infinite ease-in-out;
         }
 

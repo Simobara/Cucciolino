@@ -84,7 +84,7 @@ export default function FunctionsGroupsSection() {
         <div className="grid md:grid-cols-2">
           {/* TEXT */}
           <div className="px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center">
-            <h2 className="text-[#0F5B63] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               {titleWords.map((word, i) => (
                 <span
                   key={i}
@@ -104,7 +104,7 @@ export default function FunctionsGroupsSection() {
               className={["reveal", visible ? "is-visible" : ""].join(" ")}
               style={{ transitionDelay: "420ms" }}
             >
-              <p className="mt-10 max-w-xl text-[#0F5B63] text-lg sm:text-xl leading-relaxed">
+              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
                 From private celebrations to corporate events, our venue adapts
                 perfectly to groups of any size.
               </p>
@@ -117,7 +117,7 @@ export default function FunctionsGroupsSection() {
                 <Link
                   href="/functions"
                   className={[
-                    "bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
+                    "bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
                     "btn-parallax btn-from-left",
                     buttonsIn ? "is-in" : "",
                   ].join(" ")}
@@ -128,7 +128,7 @@ export default function FunctionsGroupsSection() {
                 <Link
                   href="/contact"
                   className={[
-                    "bg-[#0F5B63] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
+                    "bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
                     "btn-parallax btn-from-right",
                     buttonsIn ? "is-in" : "",
                   ].join(" ")}
