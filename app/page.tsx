@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import BreakfastBrunchSection from "./components/breakfast-brunch/BreakfastBrunchSection";
 import BookingCtaBar from "./components/cta/BookingCtaBar";
@@ -16,15 +16,58 @@ import WhatsOnSection from "./components/whatson/WhatsOnSection";
 import SplashScreen from "./splashScreen";
 
 export default function Home() {
+  // se la pagina è pronta da mostrare
   const [ready, setReady] = useState(false);
+  // se abbiamo già controllato sessionStorage
+  const [hasCheckedSplash, setHasCheckedSplash] = useState(false);
+  // se dobbiamo mostrare lo splash in questa visita
+  const [showSplash, setShowSplash] = useState(false);
+
+  useEffect(() => {
+    try {
+      const alreadySeen = sessionStorage.getItem("cucciolino-splash-seen");
+
+      if (alreadySeen) {
+        // Ha già visto lo splash in questa sessione: niente splash
+        setShowSplash(false);
+        setReady(true);
+      } else {
+        // Prima volta in questa sessione: mostra splash
+        setShowSplash(true);
+        setReady(false);
+      }
+    } catch (error) {
+      // In caso di problemi con sessionStorage, non blocchiamo il sito
+      setShowSplash(false);
+      setReady(true);
+    } finally {
+      setHasCheckedSplash(true);
+    }
+  }, []);
+
+  const handleSplashFinish = () => {
+    try {
+      sessionStorage.setItem("cucciolino-splash-seen", "true");
+    } catch (error) {
+      // Se fallisce, semplicemente lo rivedrà alla prossima apertura
+    }
+    setShowSplash(false);
+    setReady(true);
+  };
+
+  // Finché non abbiamo controllato lo splash, non renderizziamo nulla per evitare flicker
+  if (!hasCheckedSplash) {
+    return null;
+  }
 
   return (
     <>
-      {/* Splash: fade verso nero e poi sblocca la pagina */}
-      <SplashScreen onFinish={() => setReady(true)} />
+      {/* Splash: solo se serve in questa sessione */}
+      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
 
       {/* Nero sotto (così la pagina emerge dal nero) */}
       <TopFadeOverlay heightVh={30} fadeDistancePx={600} />
+
       <main
         className={[
           "relative transition-opacity duration-700",
