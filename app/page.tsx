@@ -89,12 +89,14 @@ export default function Home() {
 
   return (
     <>
-      <CursorElasticImage
-        src="/iconsss/cursor.png" // la tua immagine cursore
-        size={130}
-        offsetX={24}
-        offsetY={24}
-      />
+      {ready && !showSplash && (
+        <CursorElasticImage
+          src="/iconsss/cursor.png"
+          size={130}
+          offsetX={24}
+          offsetY={24}
+        />
+      )}
 
       {/* Splash: solo se serve in questa sessione */}
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}

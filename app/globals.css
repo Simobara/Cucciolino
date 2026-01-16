@@ -11,6 +11,10 @@
   --gy: 50%;
 }
 
+.cursor-hidden {
+  cursor: none;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
