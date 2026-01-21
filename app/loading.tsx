@@ -6,14 +6,14 @@ export default function Loading() {
   return (
     <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#76aad8]">
       {/* Contenitore centrale */}
-      <div className="relative flex flex-col items-center">
+      <div className="relative flex flex-col items-center translate-y-16 sm:translate-y-24">
         {/* Logo (sopra) */}
         <div className="opacity-[0.08]">
           <Image
             src="/logocucc123.png"
             alt="Cucciolino"
-            width={900}
-            height={900}
+            width={1200}
+            height={1200}
             priority
             className="w-[70vw] max-w-105 h-auto"
           />

@@ -45,10 +45,10 @@ export default function SplashScreen({
       <div className="absolute inset-0 bg-[#CADCF2]" />
 
       {/* CONTENUTO CENTRALE */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center translate-y-40 sm:translate-y-52">
         {/* LOGO + LUCE */}
         <div className="relative flex flex-col items-center">
-          {/* LUCE ANIMATA (diagonale) */}
+          {/* LUCE ANIMATA */}
           <div
             aria-hidden
             className="moving-light absolute w-[85%] h-40 blur-3xl opacity-80"
@@ -58,7 +58,7 @@ export default function SplashScreen({
             }}
           />
 
-          {/* CONO PIÙ STRETTO */}
+          {/* LUCE CONO STRETTO */}
           <div
             aria-hidden
             className="moving-light-tight absolute w-[40%] h-35 blur-2xl opacity-70"
@@ -71,17 +71,17 @@ export default function SplashScreen({
           {/* LOGO */}
           <div className="relative z-10">
             <Image
-              src="/logocucc1.png"
+              src="/logocucc123.png"
               alt="Cucciolino"
-              width={900}
-              height={900}
+              width={1200}
+              height={1200}
               priority
-              className="w-[70vw] max-w-120 h-auto"
+              className="w-[70vw] max-w-120 h-auto scale-150"
             />
           </div>
         </div>
 
-        {/* PUNTINI */}
+        {/* PUNTINI SOTTO IL LOGO */}
         <div className="mt-12 flex gap-3">
           {Array.from({ length: 7 }).map((_, i) => (
             <span

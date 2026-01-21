@@ -111,7 +111,7 @@ export default function Home() {
         ].join(" ")}
       >
         {/* BRAND WATERMARK (fixed, behind all sections) */}
-        <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+        <div className="pointer-events-none fixed inset-0 z-0 flex justify-center items-start">
           <div
             className="w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150"
             style={{ opacity: logoOpacity }}
