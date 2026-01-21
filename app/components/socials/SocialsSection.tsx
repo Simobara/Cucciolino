@@ -9,7 +9,7 @@ type SocialItem =
   | { type: "image"; imageSrc: string; imageAlt: string; href: string };
 
 export default function SocialsSection({
-  title = "Follow us ",
+  title = "SOCIALS ",
   instagramHandle = "@cucciolinopizza",
   instagramUrl = "https://www.instagram.com/",
   items = [
@@ -69,7 +69,7 @@ export default function SocialsSection({
           io.disconnect();
         }, 120);
       },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
     );
 
     io.observe(el);

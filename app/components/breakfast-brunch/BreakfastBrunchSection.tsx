@@ -10,9 +10,9 @@ export default function BreakfastBrunchSection() {
   const [visible, setVisible] = useState(false);
   const images = [
     "/img/breakfast.png",
-    "/img/breakfast1.png",
-    "/img/breakfast2.png",
-    "/img/breakfast3.png",
+    // "/img/breakfast1.png",
+    // "/img/breakfast2.png",
+    // "/img/breakfast3.png",
   ];
 
   const [activeImg, setActiveImg] = useState(0);
@@ -60,7 +60,7 @@ export default function BreakfastBrunchSection() {
         // ✅ trigger più tardi: considera "intersecting" solo quando è più dentro
         // (valori più negativi = ancora più tardi)
         rootMargin: "0px 0px -15% 0px",
-      }
+      },
     );
 
     observer.observe(el);
@@ -72,27 +72,29 @@ export default function BreakfastBrunchSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F6E6D4]">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-2">
-          {/* TEXT */}
+    <section ref={sectionRef} className="bg-[#F6E6D4] h-full">
+      <div className="mx-auto h-full">
+        <div className="grid md:grid-cols-2 h-full items-stretch">
+          {/* TEXT LEFT */}
           <div
             className={[
-              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
+              "reveal px-4 ml-24 sm:px-8 py-6 flex flex-col justify-center",
               visible ? "is-visible" : "",
             ].join(" ")}
-            style={{ transitionDelay: "340ms" }}
+            style={{ transitionDelay: "280ms" }}
           >
-            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
-              BREAKFAST <br /> &amp; BRUNCH
+            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-7xl">
+              APPETIZER <br /> & BRUNCH
             </h2>
 
-            <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
+            <p className="mt-10 text-[#76aad8] text-xl leading-relaxed max-w-xl text-justify text-balance pr-12">
               Transport yourself to the sun-kissed shores of the Mediterranean
-              as you embark on a brunch journey at Cucciolino.
+              as you embark on a brunch journey at Cucciolino. Immerse yourself
+              in the vibrant flavours of Mediterranean spices, house-made
+              breads, and freshly brewed hot coffee.
             </p>
 
-            <div className="mt-12 flex flex-col gap-5 max-w-xs">
+            <div className="mt-12 flex flex-col gap-6 max-w-sm">
               <Link
                 href="/menu#brunch"
                 className="bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
@@ -109,11 +111,11 @@ export default function BreakfastBrunchSection() {
             </div>
           </div>
 
-          {/* IMAGE PARALLAX + FADE SLIDESHOW */}
+          {/* IMAGE RIGHT – riempie tutta l'altezza della sezione */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative min-h-95 md:min-h-160 overflow-hidden",
+              "reveal relative h-full w-full overflow-hidden",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -122,10 +124,9 @@ export default function BreakfastBrunchSection() {
               style={{
                 transform: prefersReducedMotion
                   ? "translate3d(0,0,0)"
-                  : `translate3d(0, ${y}px, 0) scale(1.08)`,
+                  : `translate3d(0, ${y}px, 0) scale(1.2)`, // immagine più grande, ma l'altezza la dà il container
               }}
             >
-              {/* immagini sovrapposte */}
               {images.map((src, idx) => {
                 const isActive = idx === activeImg;
 
@@ -138,7 +139,7 @@ export default function BreakfastBrunchSection() {
                     priority={idx === 0}
                     className={[
                       "object-cover absolute inset-0",
-                      "transition-opacity duration-1000 ease-in-out",
+                      "transition-opacity duration-700 ease-in-out",
                       isActive ? "opacity-100" : "opacity-0",
                     ].join(" ")}
                   />

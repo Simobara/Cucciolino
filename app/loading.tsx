@@ -10,7 +10,7 @@ export default function Loading() {
         {/* Logo (sopra) */}
         <div className="opacity-[0.08]">
           <Image
-            src="/logocucc123.png"
+            src="/logocucc12.png"
             alt="Cucciolino"
             width={1200}
             height={1200}

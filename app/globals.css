@@ -54,7 +54,9 @@ h6 {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
   will-change: opacity, transform;
 }
 
@@ -101,10 +103,15 @@ h6 {
   /* entrata + tilt */
   will-change: transform, box-shadow, filter;
   transform: translateZ(0) rotateX(var(--rx)) rotateY(var(--ry));
-  transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    filter 240ms ease;
 
   /* 🔥 SHADOW ESTERNA (più forte) */
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45), 0 6px 12px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.45),
+    0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* 🔥 SHADOW INTERNA + bordo soft (overlay) */
@@ -115,7 +122,8 @@ h6 {
   border-radius: inherit;
   pointer-events: none;
 
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     inset 0 -20px 30px rgba(0, 0, 0, 0.45),
     inset 0 20px 25px rgba(255, 255, 255, 0.06);
 }
@@ -124,7 +132,9 @@ h6 {
 .social-card:hover,
 .social-card.is-tilting {
   transform: translateY(-6px) rotateX(var(--rx)) rotateY(var(--ry));
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65), 0 10px 25px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.65),
+    0 10px 25px rgba(0, 0, 0, 0.45);
 }
 
 /* Media layer (sporge un filo in 3D) */
@@ -139,7 +149,8 @@ h6 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45),
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, 0.45),
     inset 0 -30px 35px rgba(0, 0, 0, 0.55);
 }
 
@@ -210,7 +221,8 @@ h6 {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       60% 60% at 50% 40%,
       rgba(0, 0, 0, 0.08),
       rgba(0, 0, 0, 0.22)
@@ -243,7 +255,9 @@ h6 {
   );
 
   /* mostra solo l’anello (taglia il centro) */
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 
@@ -271,7 +285,9 @@ h6 {
   opacity: 0;
   transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
-  transition: transform 700ms ease, opacity 700ms ease;
+  transition:
+    transform 700ms ease,
+    opacity 700ms ease;
 }
 
 /* direzioni */
@@ -296,4 +312,51 @@ h6 {
     transform: none;
     transition: none;
   }
+}
+
+@font-face {
+  font-family: "bikinis";
+  src: url("/fonts/BikinisRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-bikinis {
+  font-family: "bikinis", sans-serif;
+}
+@font-face {
+  font-family: "couture";
+  src: url("/fonts/coutureBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-couture {
+  font-family: "couture", sans-serif;
+}
+
+@font-face {
+  font-family: "oswald";
+  src: url("/fonts/OswaldSemibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-oswald {
+  font-family: "oswald", sans-serif;
+}
+
+@font-face {
+  font-family: "sofiapro";
+  src: url("/fonts/SofiaProSemibold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-oswald {
+  font-family: "sofiaPro", sans-serif;
 }

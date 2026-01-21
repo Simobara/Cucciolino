@@ -53,7 +53,7 @@ export default function LunchDinnerSection() {
       {
         threshold: 0.25,
         rootMargin: "0px 0px -15% 0px",
-      }
+      },
     );
 
     observer.observe(el);
@@ -65,14 +65,14 @@ export default function LunchDinnerSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F6E6D4]">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-2">
-          {/* IMAGE PARALLAX */}
+    <section ref={sectionRef} className="bg-[#F6E6D4] h-full">
+      <div className="mx-auto h-full">
+        <div className="grid md:grid-cols-2 h-full items-stretch">
+          {/* IMAGE PARALLAX RIGHT (o left se vuoi invertire) */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal cinematic-mask relative min-h-95 md:min-h-160 overflow-hidden",
+              "reveal relative h-full w-full overflow-hidden",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -81,7 +81,7 @@ export default function LunchDinnerSection() {
               style={{
                 transform: prefersReducedMotion
                   ? "translate3d(0,0,0)"
-                  : `translate3d(0, ${y}px, 0) scale(1.08)`,
+                  : `translate3d(0, ${y}px, 0) scale(1.2)`,
               }}
             >
               <Image
@@ -89,8 +89,8 @@ export default function LunchDinnerSection() {
                 alt="Lunch & Dinner"
                 fill
                 priority={false}
-                className="object-cover"
-                sizes="(min-width: 768px) 50vw, 80vw"
+                className="object-cover absolute inset-0"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function LunchDinnerSection() {
           {/* TEXT */}
           <div
             className={[
-              "reveal px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center",
+              "reveal px-6 sm:px-10 py-6 flex flex-col justify-center",
               visible ? "is-visible" : "",
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
@@ -115,9 +115,11 @@ export default function LunchDinnerSection() {
                 LUNCH <br /> &amp; DINNER
               </h2>
 
-              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
+              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed text-justify text-balance">
                 From stone-baked pizzas to handcrafted cocktails, our menu is
-                designed to impress any time of day.
+                designed to impress any time of day. Experience vibrant
+                Mediterranean flavours, thoughtfully crafted dishes, and a
+                dining atmosphere that feels both warm and unforgettable.
               </p>
 
               <div className="mt-12">

@@ -40,7 +40,7 @@ export default function FunctionsGroupsSection() {
       {
         threshold: 0.25,
         rootMargin: "0px 0px -15% 0px",
-      }
+      },
     );
 
     observer.observe(el);
@@ -68,7 +68,7 @@ export default function FunctionsGroupsSection() {
       {
         threshold: 0.2,
         rootMargin: "0px 0px -10% 0px",
-      }
+      },
     );
 
     io.observe(el);
@@ -80,10 +80,10 @@ export default function FunctionsGroupsSection() {
 
   return (
     <section ref={sectionRef} className="bg-[#F6E6D4]">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto">
         <div className="grid md:grid-cols-2">
           {/* TEXT */}
-          <div className="px-6 sm:px-10 py-16 sm:py-20 md:py-24 flex flex-col justify-center">
+          <div className="ml-24 px-4 sm:px-10  sm:py-24 md:pt-0 pt-0 md:mb-28 mb-28  flex flex-col justify-center">
             <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
               {titleWords.map((word, i) => (
                 <span
@@ -104,9 +104,10 @@ export default function FunctionsGroupsSection() {
               className={["reveal", visible ? "is-visible" : ""].join(" ")}
               style={{ transitionDelay: "420ms" }}
             >
-              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed">
+              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed text-justify text-balance pr-12">
                 From private celebrations to corporate events, our venue adapts
-                perfectly to groups of any size.
+                perfectly to groups of any size, offering a flexible and
+                welcoming space designed to elevate every occasion.
               </p>
 
               {/* ✅ Bottoni entrano quando questo blocco entra in viewport */}
@@ -139,11 +140,11 @@ export default function FunctionsGroupsSection() {
             </div>
           </div>
 
-          {/* IMAGE PARALLAX */}
+          {/* IMAGE RIGHT — FULL HEIGHT (110–120%) */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative min-h-95 md:min-h-160 overflow-hidden",
+              "reveal relative h-[120vh] min-h-[110vh] w-full overflow-hidden",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -152,14 +153,16 @@ export default function FunctionsGroupsSection() {
               style={{
                 transform: prefersReducedMotion
                   ? "translate3d(0,0,0)"
-                  : `translate3d(0, ${y}px, 0) scale(1.08)`,
+                  : `translate3d(0, ${y}px, 0) scale(1.2)`,
               }}
             >
               <Image
                 src="/img/functions.png"
                 alt="Functions and Groups"
                 fill
-                className="object-cover"
+                priority={false}
+                className="object-cover absolute inset-0"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
           </div>

@@ -45,39 +45,50 @@ export default function Header({ variant }: HeaderProps) {
           : "bg-transparent",
       ].join(" ")}
     >
-      <nav className="mx-auto max-w-5xl px-6 py-5 flex items-center justify-between">
+      {/* aumentato padding verticale del nav */}
+      <nav className="mx-auto max-w-5xl px-6 py-6 md:py-7 flex items-center justify-between">
         <Link
           href="/"
           className={[
-            "font-semibold tracking-wide transition-colors",
+            // aumentata dimensione del testo del logo
+            "font-semibold tracking-wide md:tracking-[0.2em] uppercase transition-colors",
+            "text-lg md:text-2xl",
             showLight ? "text-black" : "text-white",
           ].join(" ")}
         >
           CUCCIOLINO
+          <p className="text-white/80 text-xs tracking-[0.25em] uppercase">
+            608 Hampton Street · Brighton · Victoria
+          </p>
         </Link>
 
-        <div className="flex items-center gap-6 text-sm font-medium">
-          <Link
-            href="/"
-            className={
-              showLight
-                ? "text-zinc-700 hover:text-black"
-                : "text-white/90 hover:text-white"
-            }
-          >
-            Home
-          </Link>
+        {/* aumentata dimensione e spaziatura delle voci menu */}
+        <div className="flex items-center gap-7 md:gap-10 text-sm md:text-base font-semibold">
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className={[
+                "px-4 py-2 rounded-md border transition-all duration-300 font-medium",
+                showLight
+                  ? "border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-black"
+                  : "border-white/40 text-white hover:bg-white/20",
+              ].join(" ")}
+            >
+              Home
+            </Link>
 
-          <Link
-            href="/menu"
-            className={
-              showLight
-                ? "text-zinc-700 hover:text-black"
-                : "text-white/90 hover:text-white"
-            }
-          >
-            Menu
-          </Link>
+            <Link
+              href="/menu"
+              className={[
+                "px-4 py-2 rounded-md border transition-all duration-300 font-medium",
+                showLight
+                  ? "border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-black"
+                  : "border-white/40 text-white hover:bg-white/20",
+              ].join(" ")}
+            >
+              Menu
+            </Link>
+          </div>
 
           {/* <a
             href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."

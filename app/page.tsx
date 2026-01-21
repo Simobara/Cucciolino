@@ -9,6 +9,7 @@ import BookingCtaBar from "./components/cta/BookingCtaBar";
 import CursorElasticImage from "./components/cursorImage/cursorImage";
 import FloatingHomeButton from "./components/floating/FloatingHomeButton";
 import FunctionsGroupsSection from "./components/functions-groups/FunctionsGroupsSection";
+import IntermezzoHero from "./components/intermezzohero/intermezzohero";
 import LunchDinnerSection from "./components/lunch-dinner/LunchDinnerSection";
 import MapEmbed from "./components/map/MapEmbed";
 import SocialsSection from "./components/socials/SocialsSection";
@@ -111,13 +112,13 @@ export default function Home() {
         ].join(" ")}
       >
         {/* BRAND WATERMARK (fixed, behind all sections) */}
-        <div className="pointer-events-none fixed inset-0 z-0 flex justify-center items-start">
+        <div className="pointer-events-none fixed inset-0 z-0 flex justify-center items-center">
           <div
-            className="w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150"
+            className="w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150 translate-y-20"
             style={{ opacity: logoOpacity }}
           >
             <Image
-              src="/logocucc123.png"
+              src="/logocucc12.png"
               alt="Cucciolino"
               width={900}
               height={900}
@@ -146,15 +147,19 @@ export default function Home() {
 
             {/* content */}
             <div className="relative mx-auto max-w-5xl px-6 pt-32 pb-20 min-h-[90vh] flex flex-col justify-center">
-              <p className="text-white/80 text-xs tracking-[0.25em] uppercase">
+              {/* <p className="text-white/80 text-xs tracking-[0.25em] uppercase">
                 608 Hampton Street · Brighton · Victoria
-              </p>
+              </p> */}
 
-              <h1 className="mt-5 text-white font-bold leading-[0.9] tracking-tight text-5xl sm:text-6xl md:text-7xl">
-                Pizza <br />
-                Gelato <br />
-                Italiano
-              </h1>
+              <div className="py-24 mt-30">
+                <h1 className="text-white font-bold leading-[0.9] tracking-tight text-5xl sm:text-6xl md:text-7xl">
+                  CUCCIOLINO.
+                </h1>
+
+                <p className="mt-4 text-lg md:text-xl font-light tracking-wide text-white">
+                  QUALITY, FRIENDLY NEIGHBOURHOOD PIZZERIA.
+                </p>
+              </div>
 
               <p className="mt-6 max-w-xl text-white/85 text-base sm:text-lg">
                 Hand-stretched pizza, premium Italian ingredients and artisan
@@ -166,35 +171,36 @@ export default function Home() {
                   href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm font-semibold hover:bg-zinc-200 transition"
+                  className="inline-flex items-center justify-center rounded-md bg-white text-black px-8 py-3 text-sm font-semibold hover:bg-zinc-200 transition"
                 >
                   Order Online
                 </a>
 
                 <Link
                   href="/menu"
-                  className="inline-flex items-center justify-center rounded-full border border-white/70 text-white px-8 py-3 text-sm font-semibold hover:bg-white hover:text-black transition"
+                  className="inline-flex items-center justify-center rounded-md border border-white/70 text-white px-8 py-3 text-sm font-semibold hover:bg-white hover:text-black transition"
                 >
                   View Menu
                 </Link>
               </div>
             </div>
           </section>
-
-          {/* WHAT'S ON (custom section) */}
-          <section
-            id="whats-on"
-            className="mx-auto max-w-5xl px-6 py-20 scroll-mt-28"
+          <IntermezzoHero />
+          {/* MOST POPULAR PIZZA  */}
+          {/* { WHAT'S ON (custom section)}
+          {<section
+            id="whats-on "
+            className="mx-auto max-w-5xl px-6 py-20 scroll-mt-28 bg-white"
           >
             <div className="flex items-end justify-between gap-6">
-              <h2 className="text-2xl sm:text-3xl font-semibold">What’s On</h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold">EVE</h2>
 
-              {/* <Link
+              { <Link
                 href="/menu"
                 className="text-sm font-medium text-zinc-600 hover:text-black hover:underline"
               >
                 See full menu
-              </Link> */}
+              </Link> }
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -216,7 +222,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* BOOKINGS */}
+          {} BOOKINGS }
           <section
             id="book"
             className="mx-auto max-w-5xl px-6 pb-24 scroll-mt-28"
@@ -229,7 +235,7 @@ export default function Home() {
                 or contact us directly.
               </p>
 
-              {/* CONTACT */}
+              {CONTACT}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <a
                   href="tel:+61400000000"
@@ -253,24 +259,24 @@ export default function Home() {
                 *Contact details are placeholders and will be updated.
               </p>
             </div>
-          </section>
+          </section>} */}
 
           {/* EXISTING SECTION COMPONENTS */}
           <WhatsOnSection />
 
           {/* ONE-PAGE STACKED SECTIONS (scroll over the watermark) */}
           <div className="snap-y snap-mandatory">
-            <section className="snap-start min-h-screen mb-20">
+            <section className="snap-start h-screen">
               <BreakfastBrunchSection />
             </section>
 
-            <section className="snap-start min-h-screen mb-20">
+            <section className="snap-start h-screen">
               <LunchDinnerSection />
             </section>
 
             <BookingCtaBar />
 
-            <section className="snap-start min-h-screen mb-20">
+            <section className="snap-start h-screen">
               <FunctionsGroupsSection />
             </section>
           </div>

@@ -3,16 +3,19 @@ import WhatsOnCarousel from "./whastonCarousel";
 
 export default function WhatsOnSection() {
   return (
-    <section id="events" className="mx-auto max-w-7xl px-6 py-24 scroll-mt-28">
+    <section
+      id="events"
+      className="mx-auto max-w-7xl px-6 py-24 scroll-mt-28 bg-white"
+    >
       <div className="flex items-end justify-between gap-6">
         <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-          Events &amp; Specials
+          WHAT&apos;S ON
         </h2>
 
         {/* BOTTONE STILE BRUNCH MENU */}
         <Link
           href="/menu"
-          className="bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
+          className="bg-[#394b5b] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
         >
           SEE FULL MENU
         </Link>
@@ -23,8 +26,8 @@ export default function WhatsOnSection() {
           items={[
             {
               imageSrc: "/iconss/pizza.png",
-              imageAlt: "Pita & burgers",
-              title: "20% OFF\nPITA\nBURGERS",
+              imageAlt: "Most Popular",
+              title: "20% OFF\nWOOD-FIRED\nPIZZA",
               subtitle: "Every Tuesday",
               meta: "Member’s Only",
               href: "/menu",
@@ -32,7 +35,7 @@ export default function WhatsOnSection() {
             {
               imageSrc: "/iconss/gelato.png",
               imageAlt: "Mains & pasta",
-              title: "20% OFF\nMAINS &\nPASTA",
+              title: "20% OFF\nSIGNATURE\nPIZZA",
               subtitle: "Every Wednesday",
               meta: "Member’s Only",
               href: "/menu",
@@ -40,7 +43,7 @@ export default function WhatsOnSection() {
             {
               imageSrc: "/iconss/pasta.png",
               imageAlt: "Pizza & sambousek",
-              title: "20% OFF\nPIZZA &\nSAMBOUSEK",
+              title: "20% OFF\nARTISAN\nGELATO",
               subtitle: "Every Thursday",
               meta: "Member’s Only",
               href: "/menu",
@@ -58,7 +61,7 @@ export default function WhatsOnSection() {
             {
               imageSrc: "/iconss/iconsfood2.png",
               imageAlt: "Cocktail night",
-              title: "$14\nCOCKTAIL\nNIGHT",
+              title: "20% OFF\nPIZZA &\nGELATO",
               subtitle: "Every Friday",
               meta: "From 5pm",
               href: "/menu#drinks",

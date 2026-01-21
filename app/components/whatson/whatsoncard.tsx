@@ -8,6 +8,8 @@ export default function WhatsOnCard({
   subtitle,
   meta,
   href = "/menu",
+  isShown = false,
+  textsVisible = false,
 }: {
   imageSrc: string;
   imageAlt: string;
@@ -15,6 +17,8 @@ export default function WhatsOnCard({
   subtitle: string;
   meta?: string;
   href?: string;
+  isShown?: boolean; // controlla ENTRATA IMMAGINE (in sequenza)
+  textsVisible?: boolean; // controlla ENTRATA TESTI (tutti insieme)
 }) {
   return (
     <div className="group" tabIndex={0}>
@@ -45,7 +49,7 @@ export default function WhatsOnCard({
             sizes="(max-width: 640px) 80vw, 360px"
           />
 
-          {/* ✅ DARKEN SOLO LA FOTO (appare su hover) */}
+          {/* oscuramento foto al hover */}
           <div
             className="
               absolute inset-0 z-10
@@ -57,10 +61,10 @@ export default function WhatsOnCard({
             "
           />
 
-          {/* (opzionale) vignette leggero sempre */}
+          {/* vignette */}
           <div className="absolute inset-0 z-20 bg-linear-to-t from-black/20 via-transparent to-transparent" />
 
-          {/* ✅ PANEL che sale: resta chiaro (sopra al dark) */}
+          {/* PANEL basso che sale */}
           <div
             className="
               absolute inset-x-0 bottom-0 z-30
@@ -90,7 +94,7 @@ export default function WhatsOnCard({
             </Link>
           </div>
 
-          {/* shine sopra tutto (facoltativo) */}
+          {/* shine */}
           <div
             className="
               pointer-events-none absolute inset-0 z-40 opacity-0
@@ -102,8 +106,15 @@ export default function WhatsOnCard({
         </div>
       </div>
 
-      {/* TEXT SOTTO (fuori dalla foto, non viene scurito) */}
-      <div className="mt-6 text-center">
+      {/* TEXT SOTTO – entrano TUTTI insieme in base a textsVisible */}
+      <div
+        className={`
+          mt-6 text-center
+          transition-all duration-200 ease-out
+          ${textsVisible ? "opacity-100 translate-y-0" : "opacity-0"}
+        `}
+        style={{ transitionDelay: "100ms" }}
+      >
         <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#76aad8] leading-[0.92]">
           {title}
         </h3>
