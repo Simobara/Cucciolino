@@ -117,7 +117,7 @@ export default function Home() {
             style={{ opacity: logoOpacity }}
           >
             <Image
-              src="/logocucc12.png"
+              src="/logocucc123.png"
               alt="Cucciolino"
               width={900}
               height={900}
