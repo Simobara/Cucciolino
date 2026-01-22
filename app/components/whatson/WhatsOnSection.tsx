@@ -1,15 +1,16 @@
 import Link from "next/link";
+import "../../style/style.css";
 import WhatsOnCarousel from "./whastonCarousel";
 
 export default function WhatsOnSection() {
   return (
     <section
       id="events"
-      className="mx-auto max-w-7xl px-6 py-24 scroll-mt-28 bg-white"
+      className="mx-auto px-10 pt-42 top-32 scroll-mt-14 bg-[#fffae7] "
     >
       <div className="flex items-end justify-between gap-6">
-        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight">
-          WHAT&apos;S ON
+        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight font-bikinis text-shadow-soft">
+          WHAT &apos;S ON
         </h2>
 
         {/* BOTTONE STILE BRUNCH MENU */}

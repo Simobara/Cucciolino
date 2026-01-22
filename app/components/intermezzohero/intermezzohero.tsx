@@ -24,36 +24,41 @@ export default function IntermezzoHero() {
     <section className="bg-[#004A62]">
       <div
         ref={ref}
-        className="mx-auto max-w-5xl px-6 py-28 text-center overflow-hidden"
+        className=" mx-auto max-w-7xl px-3 py-28 text-center overflow-hidden"
       >
         {/* ---- LINEA 1 ---- */}
         <h2
           className={`
-            text-[#F6E6D4]
-            font-serif font-bold
-            tracking-tight leading-[0.9]
+            text-[#ffd07d]
+            font-serif
+            tracking-[0.25em]        
+            leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase font-couture
-            transition-all duration-1100 ease-out
+            uppercase font-bikinis font-semibold
+            text-shadow-soft
+            transition-all duration-1100 ease-out pb-10
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "0ms" }}
+          style={{
+            transitionDelay: "1700ms",
+            wordSpacing: "0.6em" /* spazio TRA le parole */,
+          }}
         >
-          MADE WITH
+          MADE WITH :
         </h2>
 
         {/* ---- LINEA 2 ---- */}
         <h2
           className={`
-            text-[#F6E6D4]
-            font-serif font-bold
+            text-[#ffd07d]
+            font-serif
             tracking-tight leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase font-couture
+            uppercase font-oswald  font-semibold  text-shadow-soft
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "500ms" }}
+          style={{ transitionDelay: "1900ms" }}
         >
           TRADITIONAL METHODS
         </h2>
@@ -61,15 +66,15 @@ export default function IntermezzoHero() {
         {/* ---- LINEA 3 ---- */}
         <h2
           className={`
-            text-[#F6E6D4]
+            text-[#ffd07d]
             font-serif 
             tracking-tight leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase  font-couture font-bold
-            transition-all duration-1100 ease-out
+            uppercase  font-oswald font-bold text-shadow-soft
+            transition-all duration-1100 ease-out pb-10
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "1000ms" }}
+          style={{ transitionDelay: "2000ms" }}
         >
           AND LOVE,
         </h2>
@@ -78,14 +83,14 @@ export default function IntermezzoHero() {
         <p
           className={`
             mt-10
-            text-[#F6E6D4]
+            text-[#fffae7]
             text-xl sm:text-2xl
             tracking-wide uppercase
-            font-oswald
+            font-couture font-bold text-shadow-soft
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "1600ms" }}
+          style={{ transitionDelay: "100ms" }}
         >
           IN A WELCOMING AND MODERN ENVIRONMENT
         </p>

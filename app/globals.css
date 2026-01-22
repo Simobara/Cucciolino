@@ -323,7 +323,7 @@ h6 {
 }
 
 .font-bikinis {
-  font-family: "bikinis", sans-serif;
+  font-family: "bikinis";
 }
 @font-face {
   font-family: "couture";
@@ -334,29 +334,35 @@ h6 {
 }
 
 .font-couture {
-  font-family: "couture", sans-serif;
+  font-family: "couture";
 }
 
 @font-face {
   font-family: "oswald";
-  src: url("/fonts/OswaldSemibold.ttf") format("truetype");
+  src: url("/fonts/oswaldSemibold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 .font-oswald {
-  font-family: "oswald", sans-serif;
+  font-family: "oswald";
 }
 
 @font-face {
   font-family: "sofiapro";
   src: url("/fonts/SofiaProSemibold.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
+.font-sofiapro {
+  font-family: "sofiapro";
+}
 
-.font-oswald {
-  font-family: "sofiaPro", sans-serif;
+.text-shadow-soft {
+  text-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.6),
+    0 10px 20px rgba(0, 0, 0, 0.45),
+    0 20px 40px rgba(0, 0, 0, 0.35);
 }

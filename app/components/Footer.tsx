@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#76aad8] text-[#F6E6D4] mt-32">
+    <footer className="relative z-50 bg-[#cadcf2] text-[#ef4136] mt-20 isolate">
       {/* MAIN FOOTER */}
-      <div className="mx-auto max-w-6xl px-6 py-10 grid gap-14 md:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-6 py-4 grid gap-14 md:grid-cols-4">
         {/* BRAND */}
         <div className="flex flex-col gap-4">
           {/* LOGO */}
@@ -54,7 +54,7 @@ export default function Footer() {
           <h4 className="mb-4 font-semibold tracking-wide">SITELINKS</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/#whats-on" className="hover:underline">
+              <Link href="/#whats-on" className="hover:underline ">
                 What’s On
               </Link>
             </li>
@@ -101,7 +101,7 @@ export default function Footer() {
 
           <p>© {new Date().getFullYear()} Cucciolino Pizza & Gelato</p>
 
-          <p className="text-white/80">
+          <p className="text-[#2e3192]">
             Restaurant Marketing by{" "}
             <a
               href="https://simobaraofficial.vercel.app/"

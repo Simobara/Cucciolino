@@ -53,11 +53,17 @@ export default function Header({ variant }: HeaderProps) {
             // aumentata dimensione del testo del logo
             "font-semibold tracking-wide md:tracking-[0.2em] uppercase transition-colors",
             "text-lg md:text-2xl",
-            showLight ? "text-black" : "text-white",
+            showLight ? "text-[#ef4136]" : "text-[#F79410]",
           ].join(" ")}
         >
           CUCCIOLINO
-          <p className="text-white/80 text-xs tracking-[0.25em] uppercase">
+          <p
+            className={
+              showLight
+                ? "text-[--secondary-red] text-xs tracking-[0.25em] "
+                : "text-[--secondary-orange] text-xs tracking-[0.25em] uppercase"
+            }
+          >
             608 Hampton Street · Brighton · Victoria
           </p>
         </Link>

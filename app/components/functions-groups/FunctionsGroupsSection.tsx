@@ -80,11 +80,11 @@ export default function FunctionsGroupsSection() {
 
   return (
     <section ref={sectionRef} className="bg-[#F6E6D4]">
-      <div className="mx-auto">
+      <div className="mx-auto mt-80">
         <div className="grid md:grid-cols-2">
           {/* TEXT */}
           <div className="ml-24 px-4 sm:px-10  sm:py-24 md:pt-0 pt-0 md:mb-28 mb-28  flex flex-col justify-center">
-            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+            <h2 className="text-[#b42f26] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl text-shadow-soft">
               {titleWords.map((word, i) => (
                 <span
                   key={i}

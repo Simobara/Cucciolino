@@ -111,7 +111,7 @@ export default function LunchDinnerSection() {
                   : `translate3d(0, ${yText}px, 0)`,
               }}
             >
-              <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl">
+              <h2 className="text-[#2e3192] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl text-shadow-soft">
                 LUNCH <br /> &amp; DINNER
               </h2>
 

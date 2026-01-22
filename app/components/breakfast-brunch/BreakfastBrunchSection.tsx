@@ -72,7 +72,7 @@ export default function BreakfastBrunchSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F6E6D4] h-full">
+    <section ref={sectionRef} className="bg-[#F6E6D4] h-full mt-90">
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
           {/* TEXT LEFT */}
@@ -83,7 +83,7 @@ export default function BreakfastBrunchSection() {
             ].join(" ")}
             style={{ transitionDelay: "280ms" }}
           >
-            <h2 className="text-[#76aad8] font-semibold leading-[0.9] text-5xl sm:text-7xl">
+            <h2 className="text-[#b42f26] font-semibold leading-[0.9] text-5xl sm:text-7xl text-shadow-soft">
               APPETIZER <br /> & BRUNCH
             </h2>
 

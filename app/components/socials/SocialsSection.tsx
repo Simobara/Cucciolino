@@ -164,7 +164,7 @@ export default function SocialsSection({
   return (
     <section
       ref={ref}
-      className="bg-[#76aad8] relative overflow-hidden"
+      className="bg-[#2e3192] relative overflow-hidden"
       style={
         hoveredSrc
           ? ({

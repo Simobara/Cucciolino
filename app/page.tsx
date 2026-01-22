@@ -27,6 +27,29 @@ export default function Home() {
 
   const [logoOpacity, setLogoOpacity] = useState(0.05);
 
+  const [showTitle, setShowTitle] = useState(false);
+  const [visibleWords, setVisibleWords] = useState(0);
+
+  useEffect(() => {
+    if (!ready) return;
+
+    // CUCCIOLINO
+    setTimeout(() => setShowTitle(true), 900);
+
+    // PAROLE → partono DOPO una pausa
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        setVisibleWords((v) => {
+          if (v >= 4) {
+            clearInterval(interval);
+            return v;
+          }
+          return v + 1;
+        });
+      }, 1400);
+    }, 800); // 👈 PAUSA DOPO CUCCIOLINO
+  }, [ready]);
+
   useEffect(() => {
     try {
       const alreadySeen = sessionStorage.getItem("cucciolino-splash-seen");
@@ -107,14 +130,14 @@ export default function Home() {
 
       <main
         className={[
-          "relative transition-opacity duration-700",
+          " bg-[#ffffff] relative transition-opacity duration-700",
           ready ? "opacity-100" : "opacity-0",
         ].join(" ")}
       >
         {/* BRAND WATERMARK (fixed, behind all sections) */}
         <div className="pointer-events-none fixed inset-0 z-0 flex justify-center items-center">
           <div
-            className="w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150 translate-y-20"
+            className=" bg-[] w-70 sm:w-105 md:w-130 mix-blend-multiply transition-opacity duration-150 translate-y-0"
             style={{ opacity: logoOpacity }}
           >
             <Image
@@ -135,7 +158,7 @@ export default function Home() {
           {/* HERO */}
           <section className="relative min-h-[90vh]">
             <Image
-              src="/hero.jpg"
+              src="/hero1.png"
               alt="Cucciolino Pizza & Gelato"
               fill
               priority
@@ -151,34 +174,53 @@ export default function Home() {
                 608 Hampton Street · Brighton · Victoria
               </p> */}
 
-              <div className="py-24 mt-30">
-                <h1 className="text-white font-bold leading-[0.9] tracking-tight text-5xl sm:text-6xl md:text-7xl">
+              <div className=" ml-40 mt-42">
+                <h1
+                  className={`
+                  text-[#cadcf2] font-bold leading-[0.9] tracking-tight
+                  text-5xl sm:text-6xl md:text-7xl
+                  transition-all duration-700 ease-out text-shadow-soft 
+                  ${showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
+                `}
+                >
                   CUCCIOLINO.
                 </h1>
 
-                <p className="mt-4 text-lg md:text-xl font-light tracking-wide text-white">
-                  QUALITY, FRIENDLY NEIGHBOURHOOD PIZZERIA.
+                <p className="mt-4 text-lg md:text-xl font-light tracking-wide text-white flex gap-2 flex-wrap">
+                  {["QUALITY,", "FRIENDLY", "NEIGHBOURHOOD", "PIZZERIA."].map(
+                    (word, i) => (
+                      <span
+                        key={word}
+                        className={`
+                          transition-all duration-400 ease-out
+                          ${visibleWords > i ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+                        `}
+                      >
+                        {word}
+                      </span>
+                    ),
+                  )}
+                </p>
+
+                <p className=" mt-14 max-w-xl text-white/85 text-base sm:text-lg leading-relaxed text-balance">
+                  Hand-stretched pizza, premium Italian ingredients and artisan
+                  gelato — made fresh every day.
                 </p>
               </div>
 
-              <p className="mt-6 max-w-xl text-white/85 text-base sm:text-lg">
-                Hand-stretched pizza, premium Italian ingredients and artisan
-                gelato — made fresh every day.
-              </p>
-
-              <div className="mt-12 flex flex-col sm:flex-row gap-4">
+              <div className="ml-40 pt-20 mt-20 flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md bg-white text-black px-8 py-3 text-sm font-semibold hover:bg-zinc-200 transition"
+                  className="inline-flex items-center justify-center rounded-md bg-[#f7941d] text-[#fffae7] hover:text-[#fffae7]  px-8 py-3 text-sm font-semibold hover:bg-[#ef4136] transition"
                 >
                   Order Online
                 </a>
 
                 <Link
                   href="/menu"
-                  className="inline-flex items-center justify-center rounded-md border border-white/70 text-white px-8 py-3 text-sm font-semibold hover:bg-white hover:text-black transition"
+                  className="inline-flex items-center justify-center rounded-md border border-[#ffd07d] text-[#2e3192] bg-white/70 px-8 py-3 text-sm font-semibold hover:bg-white hover:text-[#b42f26] transition"
                 >
                   View Menu
                 </Link>
@@ -312,7 +354,7 @@ export default function Home() {
             ]}
           />
 
-          <section className="mx-auto max-w-5xl px-6 mt-6 pb-8 border-4 border-slate-900 rounded-2xl bg-white/70 backdrop-blur-sm">
+          <section className="mx-auto max-w-7xl px-2 mt-6 mb-90 pb-8 border-4 border-slate-900 rounded-2xl bg-white/70 backdrop-blur-sm">
             <MapEmbed
               title="Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.064800731218!2d145.00173397567923!3d-37.92891657194689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66f280f112605%3A0xa0f894641b7b89ec!2s608%20Hampton%20St%2C%20Brighton%20VIC%203186%2C%20Australia!5e0!3m2!1sit!2spe!4v1767715483594!5m2!1sit!2spe"

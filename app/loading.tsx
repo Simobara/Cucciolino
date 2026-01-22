@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#76aad8]">
       {/* Contenitore centrale */}
-      <div className="relative flex flex-col items-center translate-y-16 sm:translate-y-24">
+      <div className="relative flex flex-col items-center translate-y-18 sm:translate-y-24">
         {/* Logo (sopra) */}
         <div className="opacity-[0.08]">
           <Image
@@ -15,7 +15,7 @@ export default function Loading() {
             width={1200}
             height={1200}
             priority
-            className="w-[70vw] max-w-105 h-auto"
+            className="w-[70vw] max-w-110 h-auto"
           />
         </div>
 
