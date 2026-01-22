@@ -9,7 +9,7 @@ export default function WhatsOnSection() {
       className="mx-auto px-10 pt-42 top-32 scroll-mt-14 bg-[#fffae7] "
     >
       <div className="flex items-end justify-between gap-6">
-        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight font-bikinis text-shadow-soft">
+        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight font- serif text-shadow-soft">
           WHAT &apos;S ON
         </h2>
 
@@ -35,7 +35,7 @@ export default function WhatsOnSection() {
             },
             {
               imageSrc: "/iconss/pizza3.png",
-              imageAlt: "Mains & pasta",
+              imageAlt: "specials..",
               title: "20% OFF\nSIGNATURE\nPIZZA",
               subtitle: "Every Wednesday",
               meta: "Member’s Only",
@@ -43,7 +43,7 @@ export default function WhatsOnSection() {
             },
             {
               imageSrc: "/iconss/gelato1.png",
-              imageAlt: "Pizza & sambousek",
+              imageAlt: "Signatureo",
               title: "20% OFF\nARTISAN\nGELATO",
               subtitle: "Every Thursday",
               meta: "Member’s Only",
@@ -61,7 +61,7 @@ export default function WhatsOnSection() {
             },
             {
               imageSrc: "/iconss/pizza5.png",
-              imageAlt: "Cocktail night",
+              imageAlt: "Pizza night",
               title: "20% OFF\nPIZZA &\nGELATO",
               subtitle: "Every Friday",
               meta: "From 5pm",

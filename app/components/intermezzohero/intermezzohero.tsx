@@ -30,7 +30,7 @@ export default function IntermezzoHero() {
         <h2
           className={`
             text-[#ffd07d]
-            font-serif
+            font-sofiapro
             tracking-[0.25em]        
             leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl

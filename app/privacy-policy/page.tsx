@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
 
         {/* 1 */}
         <section className="space-y-4">
-          <h2 className="text-xl font-semibold">1. We respect your privacy</h2>
+          <h2 className="text-xl font-semibold ">1. We respect your privacy</h2>
           <p>
             1.1. Cucciolino Pizza &amp; Gelato respects your right to privacy
             and is committed to safeguarding the privacy of our customers and
