@@ -8,6 +8,15 @@ type SocialItem =
   | { type: "video"; imageSrc: string; imageAlt: string; href: string }
   | { type: "image"; imageSrc: string; imageAlt: string; href: string };
 
+type CSSVars = React.CSSProperties & Record<`--${string}`, string>;
+
+type Props = {
+  title?: string;
+  instagramHandle?: string;
+  instagramUrl?: string;
+  items?: SocialItem[];
+};
+
 export default function SocialsSection({
   title = "SOCIALS ",
   instagramHandle = "@cucciolinopizza",
@@ -38,20 +47,13 @@ export default function SocialsSection({
       href: "https://www.facebook.com/",
     },
   ] as SocialItem[],
-}: {
-  title?: string;
-  instagramHandle?: string;
-  instagramUrl?: string;
-  items?: SocialItem[];
-}) {
+}: Props) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
   const firstFour = useMemo(() => items.slice(0, 4), [items]);
 
-  // hovered background (desktop only, con pointer fine)
   const [hoveredSrc, setHoveredSrc] = useState<string | null>(null);
 
-  // refs per tilt 3D
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const rafIds = useRef<number[]>([]);
 
@@ -85,13 +87,13 @@ export default function SocialsSection({
   function isFinePointer() {
     if (typeof window === "undefined") return false;
     return (
-      window.matchMedia?.("(hover: hover) and (pointer: fine)")?.matches ??
-      false
+      window.matchMedia?.("(hover: hover) and (pointer: fine)")?.matches ?? false
     );
   }
 
   function onMove(i: number, e: React.MouseEvent) {
     if (!isFinePointer()) return;
+
     const card = cardRefs.current[i];
     if (!card) return;
 
@@ -121,19 +123,12 @@ export default function SocialsSection({
     if (!card) return;
 
     card.classList.remove("is-tilting");
-    card.style.setProperty("--rx", `0deg`);
-    card.style.setProperty("--ry", `0deg`);
-    card.style.setProperty("--gx", `50%`);
-    card.style.setProperty("--gy", `50%`);
+    card.style.setProperty("--rx", "0deg");
+    card.style.setProperty("--ry", "0deg");
+    card.style.setProperty("--gx", "50%");
+    card.style.setProperty("--gy", "50%");
   }
 
-  /**
-   * ✅ Stesso “stile” su mobile e desktop (NON incolonnate / NON griglia).
-   * - Mobile: disposizione dall’alto al basso (top cresce), un po’ alternate a sx/dx
-   * - Desktop: disposizione da sinistra a destra (left cresce), un po’ alternate in alto/basso
-   *
-   * Nota: puoi ritoccare solo questi valori per cambiare composizione.
-   */
   const positions = [
     {
       mobileWrap: "left-[4%] top-[2%] w-[74px] rotate-[-6deg]",
@@ -161,20 +156,16 @@ export default function SocialsSection({
     },
   ] as const;
 
+  const sectionStyle: CSSVars | undefined = hoveredSrc
+    ? { "--bg": `url(${hoveredSrc})` }
+    : undefined;
+
   return (
     <section
       ref={ref}
       className="bg-[#2e3192] relative overflow-hidden"
-      style={
-        hoveredSrc
-          ? ({
-              // @ts-ignore
-              "--bg": `url(${hoveredSrc})`,
-            } as React.CSSProperties)
-          : undefined
-      }
+      style={sectionStyle}
     >
-      {/* background hover (solo quando hoveredSrc è settato) */}
       <div
         aria-hidden="true"
         className={[
@@ -186,14 +177,13 @@ export default function SocialsSection({
       <div className="relative mx-auto max-w-6xl px-6 py-2 sm:py-10">
         <h2
           className={[
-            "reveal text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-5xl sm:text-6xl md:text-7xl",
+            "reveal text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-5xl sm:text-6xl md:text-7xl text-shadow-soft",
             visible ? "is-visible" : "",
           ].join(" ")}
         >
           {title}
         </h2>
 
-        {/* ✅ CARDS: sempre “scattered” (mobile top→bottom, desktop left→right) */}
         <div className="mt-10 relative h-80 sm:h-55">
           {firstFour.map((item, i) => {
             const pos = positions[i] ?? positions[0];
@@ -221,7 +211,7 @@ export default function SocialsSection({
                   "reveal social-card group absolute block overflow-hidden rounded-2xl",
                   pos.mobileWrap,
                   pos.desktopWrap,
-                  "sm:right-auto", // ✅ importantissimo
+                  "sm:right-auto",
                   visible ? "is-visible" : "",
                   visible ? "sm:float-on" : "",
                 ].join(" ")}
@@ -257,9 +247,6 @@ export default function SocialsSection({
           })}
         </div>
 
-        {/* ✅ TESTO:
-            - mobile: a destra (come avevi chiesto prima)
-            - desktop: a sinistra (come chiedi ora) */}
         <div
           className={[
             "reveal mt-2 md:mt-2 text-[#F6E6D4] text-lg sm:text-xl leading-relaxed",
