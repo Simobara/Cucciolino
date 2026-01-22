@@ -9,7 +9,7 @@ export default function BreakfastBrunchSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
   const images = [
-    "/img/breakfast.png",
+    "/img/pizzapizza1.png",
     // "/img/breakfast1.png",
     // "/img/breakfast2.png",
     // "/img/breakfast3.png",

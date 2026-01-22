@@ -30,11 +30,14 @@ export default function IntermezzoHero() {
         <h2
           className={`
             text-[#ffd07d]
-            font-sofiapro
+            
             tracking-[0.25em]        
             leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase font-bikinis font-semibold
+            uppercase 
+            
+            font-bikinis font-semibold font-oswald
+            
             text-shadow-soft
             transition-all duration-1100 ease-out pb-10
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
@@ -51,10 +54,15 @@ export default function IntermezzoHero() {
         <h2
           className={`
             text-[#ffd07d]
-            font-serif
+            
             tracking-tight leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase font-oswald  font-semibold  text-shadow-soft
+            uppercase 
+            
+            
+            font-bikinis font-semibold font-oswald
+            
+            text-shadow-soft
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
@@ -67,10 +75,14 @@ export default function IntermezzoHero() {
         <h2
           className={`
             text-[#ffd07d]
-            font-serif 
+            
             tracking-tight leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
-            uppercase  font-oswald font-bold text-shadow-soft
+            uppercase
+            
+            font-bikinis font-semibold font-oswald
+            
+            text-shadow-soft
             transition-all duration-1100 ease-out pb-10
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
@@ -86,7 +98,11 @@ export default function IntermezzoHero() {
             text-[#fffae7]
             text-xl sm:text-2xl
             tracking-wide uppercase
-            font-couture font-bold text-shadow-soft
+            
+            
+            font-couture
+            
+            text-shadow-soft
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}

@@ -85,7 +85,7 @@ export default function LunchDinnerSection() {
               }}
             >
               <Image
-                src="/img/lunch1.png"
+                src="/img/pizzapizza2.png"
                 alt="Lunch & Dinner"
                 fill
                 priority={false}

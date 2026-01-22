@@ -157,7 +157,7 @@ export default function FunctionsGroupsSection() {
               }}
             >
               <Image
-                src="/img/functions.png"
+                src="/img/pizzapizza3.png"
                 alt="Functions and Groups"
                 fill
                 priority={false}
