@@ -272,7 +272,7 @@ export default function WhatsOnCarousel({
           );
         })}
 
-        <div className="min-w-1px" />
+        <div className="min-w-4px" />
       </div>
 
       {/* GRADIENT SOTTO LE CARDS */}

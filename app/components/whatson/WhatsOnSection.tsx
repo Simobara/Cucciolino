@@ -26,7 +26,7 @@ export default function WhatsOnSection() {
         <WhatsOnCarousel
           items={[
             {
-              imageSrc: "/iconss/pizza.png",
+              imageSrc: "/iconss/pizza1.png",
               imageAlt: "Most Popular",
               title: "20% OFF\nWOOD-FIRED\nPIZZA",
               subtitle: "Every Tuesday",
@@ -34,7 +34,7 @@ export default function WhatsOnSection() {
               href: "/menu",
             },
             {
-              imageSrc: "/iconss/gelato.png",
+              imageSrc: "/iconss/pizza3.png",
               imageAlt: "Mains & pasta",
               title: "20% OFF\nSIGNATURE\nPIZZA",
               subtitle: "Every Wednesday",
@@ -42,7 +42,7 @@ export default function WhatsOnSection() {
               href: "/menu",
             },
             {
-              imageSrc: "/iconss/pasta.png",
+              imageSrc: "/iconss/gelato1.png",
               imageAlt: "Pizza & sambousek",
               title: "20% OFF\nARTISAN\nGELATO",
               subtitle: "Every Thursday",
@@ -52,7 +52,7 @@ export default function WhatsOnSection() {
 
             // extra items per test carousel
             {
-              imageSrc: "/iconss/iconsfood1.png",
+              imageSrc: "/iconss/pizza4.png",
               imageAlt: "Weekend brunch",
               title: "WEEKEND\nBRUNCH\nSPECIAL",
               subtitle: "Saturday & Sunday",
@@ -60,7 +60,7 @@ export default function WhatsOnSection() {
               href: "/menu#brunch",
             },
             {
-              imageSrc: "/iconss/iconsfood2.png",
+              imageSrc: "/iconss/pizza5.png",
               imageAlt: "Cocktail night",
               title: "20% OFF\nPIZZA &\nGELATO",
               subtitle: "Every Friday",
