@@ -29,11 +29,12 @@ export default function LunchDinnerSection() {
   }, []);
 
   // ✅ MOBILE: molto più calmo
-  const TEXT_MULT = isMobile ? -2.0 : -2.2; // prova -1.0 / -1.2 su mobile
-  const TEXT_MAX = isMobile ? 55 : 140; // clamp più basso su mobile
+  const TEXT_MULT = isMobile ? -2.0 : -2.2;
+  const TEXT_MAX = isMobile ? 55 : 140;
 
   const yTextRaw = y * TEXT_MULT;
   const yText = Math.max(-TEXT_MAX, Math.min(TEXT_MAX, yTextRaw));
+  const disableTextParallax = isMobile || prefersReducedMotion;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -68,11 +69,15 @@ export default function LunchDinnerSection() {
     <section ref={sectionRef} className="bg-[#F6E6D4] h-full">
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
-          {/* IMAGE PARALLAX RIGHT (o left se vuoi invertire) */}
+          {/* ✅ IMAGE FIRST ON MOBILE (PC unchanged) */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative h-full w-full overflow-hidden",
+              "reveal relative w-full overflow-hidden",
+              // mobile height so it shows before text
+              "h-[44vh] min-h-[320px] md:h-full",
+              // order: image first on mobile, stays first column on PC (unchanged)
+              "order-1 md:order-1",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -95,10 +100,12 @@ export default function LunchDinnerSection() {
             </div>
           </div>
 
-          {/* TEXT */}
+          {/* ✅ TEXT SECOND ON MOBILE (PC unchanged) */}
           <div
             className={[
               "reveal px-6 sm:px-10 py-6 flex flex-col justify-center",
+              // order: text second on mobile, stays second column on PC (unchanged)
+              "order-2 md:order-2",
               visible ? "is-visible" : "",
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
@@ -106,7 +113,7 @@ export default function LunchDinnerSection() {
             <div
               className="will-change-transform"
               style={{
-                transform: prefersReducedMotion
+                transform: disableTextParallax
                   ? "translate3d(0,0,0)"
                   : `translate3d(0, ${yText}px, 0)`,
               }}

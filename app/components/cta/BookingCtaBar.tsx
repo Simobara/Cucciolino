@@ -11,7 +11,7 @@ export default function BookingCtaBar({
 }) {
   return (
     <section className="bg-[#76aad8]">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
+      <div className="mx-auto md:max-w-6xl  max-w-auto px-6 md:py-16 py-8 sm:py-24">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-[#F6E6D4] font-semibold tracking-tight leading-[0.9] text-4xl sm:text-5xl md:text-6xl">
             {title}

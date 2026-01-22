@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 bg-[#cadcf2] text-[#ef4136] mt-20 isolate">
+    <footer className="relative z-50 bg-[#cadcf2] text-[#ef4136] md:mt-20  mt-8 isolate">
       {/* MAIN FOOTER */}
       <div className="mx-auto max-w-6xl px-6 py-4 grid gap-14 md:grid-cols-4">
         {/* BRAND */}
@@ -51,7 +51,9 @@ export default function Footer() {
 
         {/* SITELINKS */}
         <div>
-          <h4 className="mb-4 font-semibold tracking-wide">SITELINKS</h4>
+          <h4 className="md:mb-4 mb-0 font-semibold tracking-wide">
+            SITELINKS
+          </h4>
           <ul className="space-y-2 text-sm">
             <li>
               <Link href="/#whats-on" className="hover:underline ">
@@ -94,7 +96,7 @@ export default function Footer() {
 
       {/* LEGAL BAR */}
       <div className="border-t border-white/20">
-        <div className="mx-auto max-w-6xl px-6 py-8 text-center text-sm space-y-3">
+        <div className="mx-auto max-w-6xl px-6 py-4 text-center text-sm space-y-3">
           <Link href="/privacy-policy" className="underline underline-offset-4">
             Privacy Policy
           </Link>
@@ -110,6 +112,18 @@ export default function Footer() {
               className="underline"
             >
               #SimoBaraWeb
+            </a>
+          </p>
+
+          <p className="text-[#2e3192]">
+            In association with{" "}
+            <a
+              href="https://davidecolosio.myportfolio.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              #DavideColosioDesign
             </a>
           </p>
         </div>

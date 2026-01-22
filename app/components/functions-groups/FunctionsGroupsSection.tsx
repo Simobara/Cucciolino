@@ -21,7 +21,6 @@ export default function FunctionsGroupsSection() {
     max: 90,
   });
 
-  // ✅ Reveal della sezione quando entra in viewport
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -51,8 +50,6 @@ export default function FunctionsGroupsSection() {
     };
   }, []);
 
-  // ✅ Bottoni: entrano SOLO quando l’utente scrolla fino al loro blocco
-  // (e comunque solo dopo che la sezione è diventata visibile)
   useEffect(() => {
     if (!visible) return;
 
@@ -80,71 +77,18 @@ export default function FunctionsGroupsSection() {
 
   return (
     <section ref={sectionRef} className="bg-[#F6E6D4]">
-      <div className="mx-auto mt-80">
-        <div className="grid md:grid-cols-2">
-          {/* TEXT */}
-          <div className="ml-24 px-4 sm:px-10  sm:py-24 md:pt-0 pt-0 md:mb-28 mb-28  flex flex-col justify-center">
-            <h2 className="text-[#b42f26] font-semibold leading-[0.9] text-5xl sm:text-6xl md:text-7xl text-shadow-soft">
-              {titleWords.map((word, i) => (
-                <span
-                  key={i}
-                  className={[
-                    "inline-block reveal",
-                    visible ? "is-visible" : "",
-                  ].join(" ")}
-                  style={{ transitionDelay: `${i * 120}ms` }}
-                >
-                  {word}
-                  {word !== "&" && <br />}
-                </span>
-              ))}
-            </h2>
-
-            <div
-              className={["reveal", visible ? "is-visible" : ""].join(" ")}
-              style={{ transitionDelay: "420ms" }}
-            >
-              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed text-justify text-balance pr-12">
-                From private celebrations to corporate events, our venue adapts
-                perfectly to groups of any size, offering a flexible and
-                welcoming space designed to elevate every occasion.
-              </p>
-
-              {/* ✅ Bottoni entrano quando questo blocco entra in viewport */}
-              <div
-                ref={buttonsRef}
-                className="mt-12 flex flex-col gap-5 max-w-xs"
-              >
-                <Link
-                  href="/functions"
-                  className={[
-                    "bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
-                    "btn-parallax btn-from-left",
-                    buttonsIn ? "is-in" : "",
-                  ].join(" ")}
-                >
-                  LEARN MORE
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className={[
-                    "bg-[#76aad8] text-white px-10 py-4 text-lg font-semibold hover:brightness-110",
-                    "btn-parallax btn-from-right",
-                    buttonsIn ? "is-in" : "",
-                  ].join(" ")}
-                >
-                  ENQUIRIES
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* IMAGE RIGHT — FULL HEIGHT (110–120%) */}
+      <div className="mx-auto md:mt-80 mt-30">
+        {/* MOBILE: stack (image then text) | MD+: 2 columns like before */}
+        <div className="grid md:grid-cols-2 md:items-stretch">
+          {/* IMAGE — on mobile FIRST */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative h-[120vh] min-h-[110vh] w-full overflow-hidden",
+              "reveal relative w-full overflow-hidden",
+              // ✅ mobile height: stabile e non gigante
+              "h-[44vh] min-h-[320px] md:h-[120vh] md:min-h-[110vh]",
+              // ✅ order: image first on mobile, stays right column on desktop
+              "order-1 md:order-2",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
@@ -164,6 +108,73 @@ export default function FunctionsGroupsSection() {
                 className="object-cover absolute inset-0"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
+            </div>
+          </div>
+
+          {/* TEXT — on mobile SECOND | desktop IDENTICO */}
+          <div
+            className={[
+              "flex flex-col justify-center",
+              // ✅ mobile padding + niente ml-24
+              "px-4 py-10 sm:px-8",
+              // ✅ desktop rimane come prima
+              "md:ml-24 md:px-4 md:sm:px-10 md:pt-0 md:mb-28",
+              "mb-28",
+              "order-2 md:order-1",
+            ].join(" ")}
+          >
+            <h2 className="text-[#b42f26] font-semibold leading-[0.9] text-4xl sm:text-6xl md:text-7xl text-shadow-soft">
+              {titleWords.map((word, i) => (
+                <span
+                  key={i}
+                  className={[
+                    "inline-block reveal",
+                    visible ? "is-visible" : "",
+                  ].join(" ")}
+                  style={{ transitionDelay: `${i * 120}ms` }}
+                >
+                  {word}
+                  {word !== "&" && <br />}
+                </span>
+              ))}
+            </h2>
+
+            <div
+              className={["reveal", visible ? "is-visible" : ""].join(" ")}
+              style={{ transitionDelay: "420ms" }}
+            >
+              <p className="mt-6 md:mt-10 max-w-xl text-[#76aad8] text-base sm:text-lg md:text-xl leading-relaxed text-justify text-balance md:pr-12">
+                From private celebrations to corporate events, our venue adapts
+                perfectly to groups of any size, offering a flexible and
+                welcoming space designed to elevate every occasion.
+              </p>
+
+              <div
+                ref={buttonsRef}
+                className="mt-8 md:mt-12 flex flex-col gap-5 max-w-xs"
+              >
+                <Link
+                  href="/functions"
+                  className={[
+                    "bg-[#76aad8] text-white px-10 py-4 text-base sm:text-lg font-semibold hover:brightness-110",
+                    "btn-parallax btn-from-left",
+                    buttonsIn ? "is-in" : "",
+                  ].join(" ")}
+                >
+                  LEARN MORE
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className={[
+                    "bg-[#76aad8] text-white px-10 py-4 text-base sm:text-lg font-semibold hover:brightness-110",
+                    "btn-parallax btn-from-right",
+                    buttonsIn ? "is-in" : "",
+                  ].join(" ")}
+                >
+                  ENQUIRIES
+                </Link>
+              </div>
             </div>
           </div>
         </div>
