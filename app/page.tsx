@@ -46,7 +46,7 @@ export default function Home() {
           }
           return v + 1;
         });
-      }, 1400);
+      }, 1100);
     }, 800); // 👈 PAUSA DOPO CUCCIOLINO
   }, [ready]);
 
@@ -187,12 +187,12 @@ export default function Home() {
                 </h1>
 
                 <p className="mt-4 text-lg md:text-xl font-light tracking-wide text-white flex gap-2 flex-wrap">
-                  {["QUALITY,", "FRIENDLY", "NEIGHBOURHOOD", "PIZZERIA."].map(
+                  {["QUALITY,", "FRIENDLY,", "NEIGHBOURHOOD PIZZERIA"].map(
                     (word, i) => (
                       <span
                         key={word}
                         className={`
-                          transition-all duration-400 ease-out
+                          transition-all duration-200 ease-out
                           ${visibleWords > i ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
                         `}
                       >

@@ -40,7 +40,7 @@ export default function IntermezzoHero() {
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
           style={{
-            transitionDelay: "1700ms",
+            transitionDelay: "200ms",
             wordSpacing: "0.6em" /* spazio TRA le parole */,
           }}
         >
@@ -58,7 +58,7 @@ export default function IntermezzoHero() {
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "1900ms" }}
+          style={{ transitionDelay: "600ms" }}
         >
           TRADITIONAL METHODS
         </h2>
@@ -74,7 +74,7 @@ export default function IntermezzoHero() {
             transition-all duration-1100 ease-out pb-10
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "2000ms" }}
+          style={{ transitionDelay: "700ms" }}
         >
           AND LOVE,
         </h2>
@@ -90,7 +90,7 @@ export default function IntermezzoHero() {
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
           `}
-          style={{ transitionDelay: "100ms" }}
+          style={{ transitionDelay: "1000ms" }}
         >
           IN A WELCOMING AND MODERN ENVIRONMENT
         </p>
