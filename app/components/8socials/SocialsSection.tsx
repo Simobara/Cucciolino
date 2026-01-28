@@ -46,19 +46,22 @@ export default function SocialsSection({
 
       {/* ===== BOTTOM: BARRA BLU ===== */}
       <div className="bg-[#cadcf2]">
-        <div className="mx-auto w-full pl-35 py-6">
+        <div className="mx-auto w-full py-6">
           <div
-            className="flex items-center justify-start gap-6 font-bold
-           pl-10 md:pl-30"
+            className="
+        flex flex-col items-center text-center gap-4
+        md:flex-row md:items-center md:justify-start md:text-left md:gap-6
+        font-bold pl-0 md:pl-30
+      "
           >
             <span className="text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide">
               Follow Cucciolino on:
             </span>
 
             {/* ICONS */}
-            <div className="flex items-center gap-1 -mt-2">
+            <div className="flex items-center justify-center gap-2">
               <Link href={instagramUrl} target="_blank">
-                <span className="inline-flex items-center justify-center rounded-2xl p-3 md:text-3xl ">
+                <span className="inline-flex items-center justify-center rounded-2xl p-3 md:text-3xl">
                   <Image
                     src="/image/imglogo1.png"
                     alt="Instagram"

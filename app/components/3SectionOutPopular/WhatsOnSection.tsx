@@ -33,78 +33,76 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-10 pt-25 top-0 scroll-mt-14 bg-[#cadcf2] "
+      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
     >
-      <div className="flex items-end justify-between gap-6 pl-60 pb-20">
-        <h2 className="text-3xl sm:text-5xl  font-semibold tracking-tight font-oswald text-shadow -soft scale-x-[1.30] scale-y-[1.85] text-[#ef4136]">
-          {/* WHAT &apos;S ON */}
+      {/* TITLE ROW */}
+      <div
+        className="
+          flex flex-col md:flex-row
+          md:items-end md:justify-between
+          gap-6
+          pb-12 md:pb-20
+          md:pl-60
+        "
+      >
+        <h2
+          className="
+    text-left
+
+    text-4xl sm:text-6xl   /* ⬅️ MOBILE PIÙ GRANDE */
+    font-semibold
+    font-oswald
+    tracking-tight
+    text-[#ef4136]
+
+    md:scale-x-[1.30]
+    md:scale-y-[1.85]
+    text-shadow-soft
+  "
+        >
           {maintoptitle}
         </h2>
 
-        {/* BOTTONE STILE BRUNCH MENU */}
-        {/* <Link
-          href="/menu"
-          className="bg-[#394b5b] text-white px-10 py-4 text-lg font-semibold hover:brightness-110 transition"
-        >
-          SEE FULL MENU
-        </Link> */}
+        {/* eventuale bottone desktop */}
       </div>
 
-      <div className="">
-        <WhatsOnCarousel
-          items={[
-            {
-              imageSrc: image1,
-              imageAlt: "Most Popular",
-              title: smallFirstTitle,
-              subtitle: price1,
-              meta: " ",
-              href: "/menu",
-            },
-            {
-              imageSrc: image2,
-              imageAlt: "specials..",
-              title: smallSecondTitle,
-              subtitle: price2,
-              meta: " ",
-              href: "/menu",
-            },
-            {
-              imageSrc: image3,
-              imageAlt: "Signature",
-              title: smallThirdTitle,
-              subtitle: price3,
-              meta: " ",
-              href: "/menu",
-            },
-            {
-              imageSrc: image4,
-              imageAlt: "Weekend brunch",
-              title: smallFourthTitle,
-              subtitle: price4,
-              meta: " ",
-              href: "/menu#brunch",
-            },
-            // extra items per test carousel
-            // {
-            //   imageSrc: "/iconss/pizza5.png",
-            //   imageAlt: "Pizza night",
-            //   title: "20% OFF\nPIZZA &\nGELATO",
-            //   subtitle: "Every Friday",
-            //   meta: "From 5pm",
-            //   href: "/menu#drinks",
-            // },
-            // {
-            //   imageSrc: "/promo-6.jpg",
-            //   imageAlt: "Family pizza",
-            //   title: "FAMILY\nPIZZA\nDEAL",
-            //   subtitle: "All Week",
-            //   meta: "Dine In Only",
-            //   href: "/menu",
-            // },
-          ]}
-        />
-      </div>
+      {/* CAROUSEL */}
+      <WhatsOnCarousel
+        items={[
+          {
+            imageSrc: image1,
+            imageAlt: "Most Popular",
+            title: smallFirstTitle,
+            subtitle: price1,
+            meta: " ",
+            href: "/menu",
+          },
+          {
+            imageSrc: image2,
+            imageAlt: "specials..",
+            title: smallSecondTitle,
+            subtitle: price2,
+            meta: " ",
+            href: "/menu",
+          },
+          {
+            imageSrc: image3,
+            imageAlt: "Signature",
+            title: smallThirdTitle,
+            subtitle: price3,
+            meta: " ",
+            href: "/menu",
+          },
+          {
+            imageSrc: image4,
+            imageAlt: "Weekend brunch",
+            title: smallFourthTitle,
+            subtitle: price4,
+            meta: " ",
+            href: "/menu#brunch",
+          },
+        ]}
+      />
     </section>
   );
 }

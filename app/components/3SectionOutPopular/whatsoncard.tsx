@@ -34,30 +34,28 @@ export default function WhatsOnCard({
         "
       >
         {/* IMAGE AREA */}
-        <div style={{ aspectRatio: "3 / 4.2" }}>
+        <div className="relative" style={{ aspectRatio: "3 / 4.2" }}>
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
             className="
-              object-cover
-              transition-transform duration-700
-              group-hover:scale-[1.06]
-              group-focus:scale-[1.06]
-            "
+                object-cover
+                transition-transform duration-700
+                group-hover:scale-[1.06]
+                group-focus:scale-[1.06]
+              "
             sizes="(max-width: 640px) 80vw, 360px"
           />
 
           {/* oscuramento foto al hover */}
           <div
             className="
-              absolute inset-0 z-10
-              opacity-0
-              transition-opacity duration-300
-              bg-black/45
+                absolute inset-0 z-10
+                opacity-0
+                transition-opacity duration-300
+                bg-black/45
               "
-            // group-hover:opacity-100
-            // group-focus:opacity-100
           />
 
           {/* vignette */}

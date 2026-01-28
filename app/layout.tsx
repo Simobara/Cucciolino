@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   },
   description:
     "Authentic pizza and artisan gelato. View the menu, opening hours, location, and order via WhatsApp.",
-
   openGraph: {
     title: "Cucciolino Pizza & Gelato",
     description:
@@ -45,7 +44,6 @@ export const metadata: Metadata = {
     locale: "en_AU",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Cucciolino Pizza & Gelato",
@@ -53,7 +51,6 @@ export const metadata: Metadata = {
       "Authentic pizza and artisan gelato in Brighton, VIC. View the menu and order via WhatsApp.",
     images: ["/og-image.jpg"],
   },
-
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -62,7 +59,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <body className="font-sans antialiased">
         <Header />
         {children}

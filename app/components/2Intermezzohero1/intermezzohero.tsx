@@ -13,107 +13,93 @@ export default function IntermezzoHero1({ bg = "" }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.25 },
+      { threshold: 0.2 },
     );
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
+  const anim = visible
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-8";
+
   return (
-    <section className={`${bg}`}>
-      <div
-        ref={ref}
-        className="mx-auto max-w-7xl px-0 py-20 text-start overflow-hidden"
-      >
-        {/* ---- LINEA 1 ---- */}
-        <h2
-          className={`
-            text-[#ffffff]
-            
-            tracking-[0.15em]        
-            leading-[0.9]
-            md:text-5xl text-3xl 
-            uppercase 
-            scale-y-[1.45]
+    <section className={`w-full ${bg}`}>
+      {/* wrapper neutro per neutralizzare bg */}
+      <div className="w-full">
+        <div
+          ref={ref}
+          className="
+            mx-auto w-full max-w-7xl
+            px-4 sm:px-6 lg:px-8
+            py-14 sm:py-20
 
-            font-oswald
-            text-shadow-soft
-            
-            transition-all duration-1100 ease-out pb-4
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-            `}
-          // font-bikinis font-semibold
-          style={{
-            transitionDelay: "200ms",
-            wordSpacing: "0.35em" /* spazio TRA le parole */,
-          }}
-        >
-          TASTE OUR HIGH-QUALITY PIZZA,
-        </h2>
+            text-left sm:text-left md:text-left
 
-        {/* ---- LINEA 2 ---- */}
-        <h2
-          className={`
-            text-[#ffffff]
-            
-            tracking-tight leading-[0.85]
-            md:text-5xl text-3xl             
-            uppercase 
-            scale-y-[1.45]          
-            
-            font-oswald
-            text-shadow-soft
-            
-            transition-all duration-1100 ease-out
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-            `}
-          // font-bikinis font-semibold
-          style={{ transitionDelay: "600ms" }}
+            overflow-hidden
+          "
         >
-          MADE WITH TRADITIONAL METHODS AND LOVE
-        </h2>
+          {/* ---- LINEA 1 ---- */}
+          <h2
+            className={`
+              text-white uppercase font-oswald text-shadow-soft
 
-        {/* ---- LINEA 3 ---- */}
-        <h2
-          className={`
-            text-[#2e3192]
-            
-            tracking-tight leading-[0.9]
-            text-5xl sm:text-6xl md:text-7xl
-            uppercase
-            
-            font-oswald
-            text-shadow-soft
-            
-            transition-all duration-1100 ease-out pb-0
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-            `}
-          // font-bikinis font-semibold
-          style={{ transitionDelay: "700ms" }}
-        >
-          {/* AND LOVE, */}
-        </h2>
+              text-[clamp(1.45rem,5vw,3rem)]
+              leading-[1.08] sm:leading-[0.95] md:leading-[0.9]
 
-        {/* ---- SOTTOTITOLO ---- */}
-        <p
-          className={`
-            mt-8
-            text-[#2e3192]
-             md:text-4xl text-4xl
-            // tracking-wide
-            scale-x-[1.00]          
-            
-            
-            transition-all duration-1100 ease-out
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
+              tracking-[0.05em] sm:tracking-[0.12em] md:tracking-[0.15em]
+              md:scale-y-[1.35]
+
+              transition-all duration-700 ease-out
+              motion-reduce:transition-none motion-reduce:transform-none
+              ${anim}
+              pb-3 sm:pb-4
             `}
-          // font-sans font-medium
-          // text-shadow-soft
-          style={{ transitionDelay: "1000ms" }}
-        >
-          In a welcoming modern environment, where everybody feels at home
-        </p>
+            style={{ transitionDelay: "150ms" }}
+          >
+            TASTE OUR HIGH-QUALITY PIZZA,
+          </h2>
+
+          {/* ---- LINEA 2 ---- */}
+          <h2
+            className={`
+              text-white uppercase font-oswald text-shadow-soft
+
+              text-[clamp(1.35rem,4.6vw,3rem)]
+              leading-[1.1] sm:leading-[0.95] md:leading-[0.85]
+
+              tracking-[0.02em] sm:tracking-tight
+              md:scale-y-[1.35]
+
+              transition-all duration-700 ease-out
+              motion-reduce:transition-none motion-reduce:transform-none
+              ${anim}
+            `}
+            style={{ transitionDelay: "320ms" }}
+          >
+            MADE WITH TRADITIONAL METHODS AND LOVE
+          </h2>
+
+          {/* ---- SOTTOTITOLO ---- */}
+          <p
+            className={`
+              mt-6 sm:mt-8
+              text-[#2e3192]
+
+              text-[clamp(1.1rem,4.2vw,2.25rem)]
+              leading-snug
+              max-w-[36ch]
+
+              transition-all duration-700 ease-out
+              motion-reduce:transition-none motion-reduce:transform-none
+              ${anim}
+            `}
+            style={{ transitionDelay: "520ms" }}
+          >
+            In a welcoming modern environment, where everybody feels at home
+          </p>
+        </div>
       </div>
     </section>
   );

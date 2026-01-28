@@ -2,81 +2,150 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function TradingHours() {
+  const tradingRef = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    );
+
+    if (tradingRef.current) observer.observe(tradingRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* ===== BACKGROUND (con padding) ===== */}
-      <div className="absolute inset-0 px-10 py-10">
+    <section
+      className="
+        relative w-full overflow-hidden
+        h-auto py-16
+        lg:h-screen lg:py-0
+      "
+    >
+      {/* ===== BACKGROUND ===== */}
+      <div className="absolute inset-0 px-4 py-6 lg:px-10 lg:py-10">
         <div className="relative w-full h-full overflow-hidden">
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"
             fill
-            className="object-contain scale-[1.05] origin-top"
             priority
+            className="
+        object-cover scale-110
+        lg:object-contain lg:scale-[1.05]
+        origin-center lg:origin-top
+      "
           />
         </div>
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-full px-6 py-24 lg:pl-16">
+      <div className="relative mx-auto max-w-full px-6 py-16 lg:pl-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* TESTO */}
-          <div className="pt-16 lg:pt-24 lg:pl-10 ml-30">
-            <span className="block text-red-500 uppercase tracking-widest text-3xl font-black mb-4">
+          <div
+            className="
+              pt-8
+              text-center
+              lg:pt-24 lg:pl-10 lg:text-left
+              ml-0 lg:ml-30
+            "
+          >
+            <span className="block text-red-500 uppercase tracking-widest text-2xl lg:text-3xl font-black mb-4">
               Cucciolino
             </span>
 
-            <h1 className="text-white font-oswald font-bold uppercase text-5xl sm:text-6xl md:text-7xl tracking-[0.08em] leading-[1.05] my-12 transform scale-y-[1.45] origin-left">
-              Trading Hours
-            </h1>
+            {/* === TRADING HOURS === */}
+            <div
+              ref={tradingRef}
+              className={`
+                transform transition-all duration-1000 ease-out
+                ${
+                  visible
+                    ? "translate-y-0 opacity-100 delay-300"
+                    : "translate-y-10 opacity-0"
+                }
+                lg:translate-y-0 lg:translate-x-0
+              `}
+            >
+              <h1
+                className="
+                  text-white font-oswald font-bold uppercase
+                  text-4xl sm:text-5xl lg:text-7xl
+                  tracking-[0.08em]
+                  leading-tight
+                  my-8 lg:my-12
+                  transform scale-y-[1.25] lg:scale-y-[1.45]
+                  origin-center lg:origin-left
+                "
+              >
+                Trading Hours
+              </h1>
 
-            <div className="space-y-2 text-white text-lg sm:text-xl font-medium">
-              <p>
-                Monday <span className="font-semibold">CLOSED</span>
-              </p>
-              <p>Tuesday 11.00AM – 9.00PM</p>
-              <p>Wednesday 11.00AM – 9.00PM</p>
-              <p>Thursday 11.00AM – 9.00PM</p>
-              <p>Friday 11.00AM – 10.00PM</p>
-              <p>Saturday 11.00AM – 10.00PM</p>
-              <p>Sunday 11.00AM – 9.00PM</p>
+              <div className="space-y-1 text-white text-base sm:text-lg font-medium">
+                <p>
+                  Monday <span className="font-semibold">CLOSED</span>
+                </p>
+                <p>Tuesday 11.00AM – 9.00PM</p>
+                <p>Wednesday 11.00AM – 9.00PM</p>
+                <p>Thursday 11.00AM – 9.00PM</p>
+                <p>Friday 11.00AM – 10.00PM</p>
+                <p>Saturday 11.00AM – 10.00PM</p>
+                <p>Sunday 11.00AM – 9.00PM</p>
+              </div>
             </div>
 
-            <div className="mt-32 flex flex-nowrap gap-24 font-sofiapro items-center">
+            {/* ===== BOTTONI ===== */}
+            <div
+              className="
+                mt-16
+                flex flex-col items-center gap-6
+                lg:mt-32 lg:flex-row lg:gap-24
+                font-sofiapro
+              "
+            >
               <Link
                 href="/order"
-                className="inline-flex items-center justify-center
-                    rounded-md bg-[#ef4136] text-3xl text-white
-                    px-24 pt-2
-                    min-w-[320px]
-                    whitespace-nowrap
-
-                    w-max
-                    font-semibold
-                    hover:brightness-110 transition"
+                className="
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  text-xl sm:text-2xl lg:text-3xl
+                  px-12 py-3
+                  min-w-[240px] lg:min-w-[320px]
+                  font-semibold
+                  hover:brightness-110 transition
+                "
               >
                 Order Online
               </Link>
 
               <Link
                 href="/menu"
-                className="inline-flex items-center justify-center
-                    rounded-md bg-[#ef4136] text-3xl text-white
-                    px-24 pt-2
-                    min-w-[320px]
-                    whitespace-nowrap
-                    w-max
-                    font-semibold
-                    hover:brightness-110 transition"
+                className="
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  text-xl sm:text-2xl lg:text-3xl
+                  px-12 py-3
+                  min-w-[240px] lg:min-w-[320px]
+                  font-semibold
+                  hover:brightness-110 transition
+                "
               >
                 View Menu
               </Link>
             </div>
           </div>
 
-          {/* COLONNA DESTRA VUOTA (lascia aria all’immagine) */}
+          {/* COLONNA DESTRA VUOTA (desktop) */}
           <div />
         </div>
       </div>
