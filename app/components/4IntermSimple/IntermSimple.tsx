@@ -32,7 +32,7 @@ export default function IntermezzoSimple({
         <div
           ref={ref}
           className={`
-            min-h-45 md:min-h-55
+            min-h-45 md:min-h-35
             flex items-center justify-center
             text-center
           `}

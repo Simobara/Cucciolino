@@ -8,7 +8,7 @@ export default function Loading() {
       {/* Contenitore centrale */}
       <div className="relative flex flex-col items-center translate-y-18 sm:translate-y-24">
         {/* Logo (sopra) */}
-        <div className="opacity-[0.08]">
+        {/* <div className="opacity-[0.08]">
           <Image
             src="/logocucc12.png"
             alt="Cucciolino"
@@ -17,7 +17,7 @@ export default function Loading() {
             priority
             className="w-[70vw] max-w-110 h-auto"
           />
-        </div>
+        </div> */}
 
         {/* Puntini (sotto il logo) */}
         <div className="mt-10 flex gap-3">

@@ -5,9 +5,9 @@ export default function WhatsOnCard({
   imageAlt,
   title,
   subtitle,
-  meta,
-  href = "/menu",
-  isShown = false,
+  // meta,
+  // href = "/menu",
+  // isShown = false,
   textsVisible = false,
 }: {
   imageSrc: string;
@@ -109,18 +109,28 @@ export default function WhatsOnCard({
       {/* TEXT SOTTO – entrano TUTTI insieme in base a textsVisible */}
       <div
         className={`
-          mt-6 text-start items-start
+          mt-24 mb-12 text-start items-start
           transition-all duration-200 ease-out
+          
           ${textsVisible ? "opacity-100 translate-y-0" : "opacity-0"}
         `}
         style={{ transitionDelay: "100ms" }}
       >
-        <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#ef4136] leading-[0.92]">
+        <h3
+          className="
+            whitespace-pre-line
+            text-3xl md:text-4xl
+            font-montserrat uppercase font-bold
+            tracking-[0.08em]
+            text-[#ef4136]
+            leading-[1.08]
+          "
+        >
           {title}
         </h3>
 
         <p className="mt-4 text-xl font-semibold text-[#f7941d]">{subtitle}</p>
-        <div className="mt-5 p-20"></div>
+        {/* <div className="mt-5 p-20"></div> */}
         {/* <div className="mt-1 text-sm text-[#76aad8]/80">
           {meta ? (
             <>

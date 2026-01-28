@@ -29,15 +29,14 @@ export default function WhatsOnSection({
   image2: string;
   image3: string;
   image4: string;
-
 }) {
   return (
     <section
       id="events"
-      className="mx-auto px-10 pt-42 top-32 scroll-mt-14 bg-[#cadcf2] "
+      className="mx-auto px-10 pt-25 top-0 scroll-mt-14 bg-[#cadcf2] "
     >
-      <div className="flex items-end justify-between gap-6">
-        <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight font-oswald text-shadow -soft text-[#ef4136]">
+      <div className="flex items-end justify-between gap-6 pl-60 pb-20">
+        <h2 className="text-3xl sm:text-5xl  font-semibold tracking-tight font-oswald text-shadow -soft scale-x-[1.30] scale-y-[1.85] text-[#ef4136]">
           {/* WHAT &apos;S ON */}
           {maintoptitle}
         </h2>
@@ -51,7 +50,7 @@ export default function WhatsOnSection({
         </Link> */}
       </div>
 
-      <div className="mt-12">
+      <div className="">
         <WhatsOnCarousel
           items={[
             {
@@ -63,7 +62,7 @@ export default function WhatsOnSection({
               href: "/menu",
             },
             {
-              imageSrc:image2,
+              imageSrc: image2,
               imageAlt: "specials..",
               title: smallSecondTitle,
               subtitle: price2,

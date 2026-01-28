@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import HeroPage from "../app/components/1HeroPage/heroPage";
@@ -11,18 +9,20 @@ import LunchDinnerSection from "./components/6lunch-dinner/LunchDinnerSection";
 import BookingCtaBar from "./components/7cta/BookingCtaBar";
 import SocialsSection from "./components/8socials/SocialsSection";
 import CursorElasticImage from "./components/cursorImage/cursorImage";
-import MapEmbed from "./components/map/MapEmbed";
+
 import TopFadeOverlay from "./components/TopFadeOverlay";
 
 import WhatsOnSection from "./components/3SectionOutPopular/WhatsOnSection";
 import IntermezzoSimple from "./components/4IntermSimple/IntermSimple";
+import TradingHours from "./components/9TradingHours/tradingHours";
+import MapEmbed from "./components/map/MapEmbed";
 import SplashScreen from "./splashScreen";
 export default function Home() {
   const [ready, setReady] = useState(false);
   const [hasCheckedSplash, setHasCheckedSplash] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
 
-  const [logoOpacity, setLogoOpacity] = useState(0.05);
+  const [, setLogoOpacity] = useState(0.05);
 
   const [, setShowTitle] = useState(false);
   const [, setVisibleWords] = useState(0);
@@ -100,8 +100,8 @@ export default function Home() {
         <CursorElasticImage
           src="/iconsss/cursor.png"
           size={130}
-          offsetX={24}
-          offsetY={24}
+          offsetX={74}
+          offsetY={44}
         />
       )}
 
@@ -116,7 +116,7 @@ export default function Home() {
         ].join(" ")}
       >
         {/* ✅ WATERMARK FIX (responsive vero, NON rompe PC) */}
-        <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
+        {/* <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center">
           <div
             className="w-[78vw] sm:w-[70vw] md:w-130 lg:w-155 xl:w-180 mix-blend-multiply transition-opacity duration-150"
             style={{ opacity: logoOpacity }}
@@ -130,7 +130,7 @@ export default function Home() {
               className="w-full h-auto"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="relative z-10">
           <Cursor />
@@ -187,7 +187,7 @@ export default function Home() {
             smallFirstTitle={"WEEKEND HAPPY PIZZA"}
             smallSecondTitle={"CUCCIOLINO MIDDAY BREAK"}
             smallThirdTitle={"GELATO HAPPY MOMENT"}
-            smallFourthTitle={"TUESADAY MARGHERITA"}
+            smallFourthTitle={"TUESDAY MARGHERITA"}
             price1={""}
             price2={""}
             price3={""}
@@ -202,13 +202,15 @@ export default function Home() {
           {/* SOCIAL SECTIONS */}
           <SocialsSection />
 
-          <section className="mx-auto max-w-7xl px-2 mt-6 mb-90 pb-8 border-4 border-slate-900 rounded-2xl bg-white/70 backdrop-blur-sm">
-            <MapEmbed
-              title="Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.064800731218!2d145.00173397567923!3d-37.92891657194689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66f280f112605%3A0xa0f894641b7b89ec!2s608%20Hampton%20St%2C%20Brighton%20VIC%203186%2C%20Australia!5e0!3m2!1sit!2spe!4v1767715483594!5m2!1sit!2spe"
-              height={420}
-            />
-          </section>
+          {/* TRADING HOURS */}
+          <TradingHours />
+
+          {/* MAP */}
+          <MapEmbed
+            title="Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.064800731218!2d145.00173397567923!3d-37.92891657194689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66f280f112605%3A0xa0f894641b7b89ec!2s608%20Hampton%20St%2C%20Brighton%20VIC%203186%2C%20Australia!5e0!3m2!1sit!2spe!4v1767715483594!5m2!1sit!2spe"
+            height={420}
+          />
         </div>
       </main>
     </>

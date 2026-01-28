@@ -352,12 +352,35 @@ h6 {
 @font-face {
   font-family: "sofiapro";
   src: url("/fonts/SofiaProSemibold.ttf") format("truetype");
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 .font-sofiapro {
   font-family: "sofiapro";
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("/fonts/montserrat.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+.font-montserrat {
+  font-family: "montserrat";
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserratbold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
 
 .text-shadow-soft {

@@ -24,7 +24,7 @@ export default function IntermezzoHero1({ bg = "" }) {
     <section className={`${bg}`}>
       <div
         ref={ref}
-        className="mx-auto max-w-7xl px-0 py-18 text-start overflow-hidden"
+        className="mx-auto max-w-7xl px-0 py-20 text-start overflow-hidden"
       >
         {/* ---- LINEA 1 ---- */}
         <h2
@@ -33,9 +33,10 @@ export default function IntermezzoHero1({ bg = "" }) {
             
             tracking-[0.15em]        
             leading-[0.9]
-            text-5xl sm:text-6xl md:text-7xl
+            md:text-5xl text-3xl 
             uppercase 
-            
+            scale-y-[1.45]
+
             font-oswald
             text-shadow-soft
             
@@ -57,8 +58,9 @@ export default function IntermezzoHero1({ bg = "" }) {
             text-[#ffffff]
             
             tracking-tight leading-[0.85]
-            text-5xl sm:text-6xl md:text-7xl
+            md:text-5xl text-3xl             
             uppercase 
+            scale-y-[1.45]          
             
             font-oswald
             text-shadow-soft
@@ -100,7 +102,7 @@ export default function IntermezzoHero1({ bg = "" }) {
             text-[#2e3192]
              md:text-4xl text-4xl
             // tracking-wide
-            
+            scale-x-[1.00]          
             
             
             transition-all duration-1100 ease-out

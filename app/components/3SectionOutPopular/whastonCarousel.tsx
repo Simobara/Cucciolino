@@ -29,58 +29,58 @@ export default function WhatsOnCarousel({
   const [textsVisible, setTextsVisible] = useState(false);
 
   // indice attivo per i puntini
-  const [active, setActive] = useState(0);
+  const [, setActive] = useState(0);
 
-  const [canLeft, setCanLeft] = useState(false);
-  const [canRight, setCanRight] = useState(false);
+  const [, setCanLeft] = useState(false);
+  const [, setCanRight] = useState(false);
 
   const total = items.length;
   const edgeSpace = "w-10 sm:w-12 lg:w-16";
 
   // quanto scroll equivale a uno "step" (una card circa)
-  const getStep = () => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return 0;
-    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-    if (maxScroll <= 0 || total <= 1) return 0;
-    return maxScroll / (total - 1);
-  };
+  // const getStep = () => {
+  //   const scroller = scrollerRef.current;
+  //   if (!scroller) return 0;
+  //   const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+  //   if (maxScroll <= 0 || total <= 1) return 0;
+  //   return maxScroll / (total - 1);
+  // };
 
-  const scrollByAmount = (direction: "left" | "right") => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+  // const scrollByAmount = (direction: "left" | "right") => {
+  //   const scroller = scrollerRef.current;
+  //   if (!scroller) return;
 
-    const step = getStep();
-    if (step <= 0) return;
+  //   const step = getStep();
+  //   if (step <= 0) return;
 
-    scroller.scrollBy({
-      left: direction === "left" ? -step : step,
-      behavior: "smooth",
-    });
+  //   scroller.scrollBy({
+  //     left: direction === "left" ? -step : step,
+  //     behavior: "smooth",
+  //   });
 
-    // 🔽 opzionale: forza update frecce
-    requestAnimationFrame(() => {
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      setCanLeft(scroller.scrollLeft > 2);
-      setCanRight(scroller.scrollLeft < maxScroll - 2);
-    });
-  };
+  //   // 🔽 opzionale: forza update frecce
+  //   requestAnimationFrame(() => {
+  //     const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+  //     setCanLeft(scroller.scrollLeft > 2);
+  //     setCanRight(scroller.scrollLeft < maxScroll - 2);
+  //   });
+  // };
 
-  const goTo = (index: number) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+  // const goTo = (index: number) => {
+  //   const scroller = scrollerRef.current;
+  //   if (!scroller) return;
 
-    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-    if (maxScroll <= 0 || total <= 1) return;
+  //   const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+  //   if (maxScroll <= 0 || total <= 1) return;
 
-    const clampedIndex = Math.max(0, Math.min(total - 1, index));
-    const target = (clampedIndex / (total - 1)) * maxScroll;
+  //   const clampedIndex = Math.max(0, Math.min(total - 1, index));
+  //   const target = (clampedIndex / (total - 1)) * maxScroll;
 
-    scroller.scrollTo({
-      left: target,
-      behavior: "smooth",
-    });
-  };
+  //   scroller.scrollTo({
+  //     left: target,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   // trigger una volta quando entra in viewport
   useEffect(() => {
@@ -292,9 +292,9 @@ export default function WhatsOnCarousel({
           pointer-events-none
           absolute bottom-0 left-0 right-0
           h-24
-          bg-linear-to-t from-white to-transparent
           z-20
-        "
+          "
+        // bg-linear-to-t from-white to-transparent
       />
 
       {/* DOTS / LINE pagination */}

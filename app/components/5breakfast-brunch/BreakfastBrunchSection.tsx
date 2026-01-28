@@ -47,7 +47,7 @@ export default function BreakfastBrunchSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#cadcf2] md:h-[50vh] mt-90 mb-0">
+    <section ref={sectionRef} className="bg-[#cadcf2] md:h-[50vh] mt-0 mb-0">
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
           {/* 🔴 RED BLOCK WITH IMAGE INSIDE */}
