@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useParallax } from "../hooks/useParallax";
 
@@ -66,40 +65,44 @@ export default function LunchDinnerSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F6E6D4] h-full">
+    <section ref={sectionRef} className="bg-[#cadcf2] h-[50vh]">
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
           {/* ✅ IMAGE FIRST ON MOBILE (PC unchanged) */}
           <div
             ref={parallaxRef}
             className={[
-              "reveal relative w-full overflow-hidden",
-              // mobile height so it shows before text
-              "h-[44vh] min-h-[320px] md:h-full",
-              // order: image first on mobile, stays first column on PC (unchanged)
-              "order-1 md:order-1",
+              "relative w-full",
+              "h-full", // IMPORTANT: usa h-full (non 20vh/min-h)
+              "order-1 md:order-2",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
-            <div
-              className="absolute inset-0 will-change-transform"
-              style={{
-                transform: prefersReducedMotion
-                  ? "translate3d(0,0,0)"
-                  : `translate3d(0, ${y}px, 0) scale(1.2)`,
-              }}
-            >
-              <Image
-                src="/img/pizzapizza2.png"
-                alt="Lunch & Dinner"
-                fill
-                priority={false}
-                className="object-cover absolute inset-0"
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
+            {/* ✅ CORNICE ROSSA FISSA (sempre visibile) */}
+            <div className="absolute inset-0 bg-white p-10">
+              {/* ✅ BOX IMMAGINE (qui fai overflow hidden) */}
+              <div className="relative w-full h-full overflow-hidden">
+                {/* ✅ PARALLAX SOLO SULL’IMMAGINE (non sulla cornice) */}
+                <div
+                  className="absolute inset-0 will-change-transform"
+                  style={{
+                    transform: prefersReducedMotion
+                      ? "translate3d(0,0,0)"
+                      : `translate3d(0, ${y}px, 0) scale(1.2)`,
+                  }}
+                >
+                  <Image
+                    src="/img/pizzapizza1.png"
+                    alt="Pizza"
+                    fill
+                    priority
+                    className="object-contain p-4"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-
           {/* ✅ TEXT SECOND ON MOBILE (PC unchanged) */}
           <div
             className={[
@@ -111,31 +114,53 @@ export default function LunchDinnerSection() {
             style={{ transitionDelay: "340ms" }}
           >
             <div
-              className="will-change-transform"
+              className="md:max-w-200 ml-20 will-change-transform"
               style={{
                 transform: disableTextParallax
                   ? "translate3d(0,0,0)"
                   : `translate3d(0, ${yText}px, 0)`,
               }}
             >
-              <h2 className="text-[#2e3192] font-semibold font-serif leading-[0.9] text-5xl sm:text-6xl md:text-7xl text-shadow-soft">
-                LUNCH <br /> &amp; DINNER
+              <h2
+                className=" text-[#b42f26]
+                font-oswald
+                uppercase
+                tracking-widest
+                leading-none
+                inline-block
+                origin-center
+                scale-y-[1.25]
+                text-5xl
+                sm:text-6xl
+                md:text-6xl
+                lg:text-6xl"
+              >
+                COMBO
               </h2>
 
-              <p className="mt-10 max-w-xl text-[#76aad8] text-lg sm:text-xl leading-relaxed text-justify text-balance">
-                From stone-baked pizzas to handcrafted cocktails, our menu is
-                designed to impress any time of day. Experience vibrant
-                Mediterranean flavours, thoughtfully crafted dishes, and a
-                dining atmosphere that feels both warm and unforgettable.
+              <p
+                className=" mt-6 md:mt-10
+                  text-[#2e3192]
+                  font-medium
+                  leading-tight
+                  text-lg sm:text-xl md:text-2xl
+                  max-w-[320px]
+                  sm:max-w-105
+                  md:max-w-200"
+              >
+                Get the best tasty <br />
+                food experience <br />
+                with the Combo <br />
+                Pizza + Gelato
               </p>
 
               <div className="mt-12">
-                <Link
+                {/* <Link
                   href="/menu"
                   className="bg-[#76aad8] text-white px-12 py-4 text-lg font-semibold hover:brightness-110 transition"
                 >
                   FOOD MENU
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

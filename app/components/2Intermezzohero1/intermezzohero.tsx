@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export default function IntermezzoHero() {
+export default function IntermezzoHero1({ bg = "" }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -21,94 +21,96 @@ export default function IntermezzoHero() {
   }, []);
 
   return (
-    <section className="bg-[#004A62]">
+    <section className={`${bg}`}>
       <div
         ref={ref}
-        className=" mx-auto max-w-7xl px-3 py-28 text-center overflow-hidden"
+        className="mx-auto max-w-7xl px-0 py-18 text-start overflow-hidden"
       >
         {/* ---- LINEA 1 ---- */}
         <h2
           className={`
-            text-[#ffd07d]
+            text-[#ffffff]
             
-            tracking-[0.25em]        
+            tracking-[0.15em]        
             leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
             uppercase 
             
-            font-bikinis font-semibold font-oswald
-            
+            font-oswald
             text-shadow-soft
-            transition-all duration-1100 ease-out pb-10
+            
+            transition-all duration-1100 ease-out pb-4
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-          `}
+            `}
+          // font-bikinis font-semibold
           style={{
             transitionDelay: "200ms",
-            wordSpacing: "0.6em" /* spazio TRA le parole */,
+            wordSpacing: "0.35em" /* spazio TRA le parole */,
           }}
         >
-          MADE WITH :
+          TASTE OUR HIGH-QUALITY PIZZA,
         </h2>
 
         {/* ---- LINEA 2 ---- */}
         <h2
           className={`
-            text-[#ffd07d]
+            text-[#ffffff]
             
-            tracking-tight leading-[0.9]
+            tracking-tight leading-[0.85]
             text-5xl sm:text-6xl md:text-7xl
             uppercase 
             
-            
-            font-bikinis font-semibold font-oswald
-            
+            font-oswald
             text-shadow-soft
+            
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-          `}
+            `}
+          // font-bikinis font-semibold
           style={{ transitionDelay: "600ms" }}
         >
-          TRADITIONAL METHODS
+          MADE WITH TRADITIONAL METHODS AND LOVE
         </h2>
 
         {/* ---- LINEA 3 ---- */}
         <h2
           className={`
-            text-[#ffd07d]
+            text-[#2e3192]
             
             tracking-tight leading-[0.9]
             text-5xl sm:text-6xl md:text-7xl
             uppercase
             
-            font-bikinis font-semibold font-oswald
-            
+            font-oswald
             text-shadow-soft
-            transition-all duration-1100 ease-out pb-10
+            
+            transition-all duration-1100 ease-out pb-0
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-          `}
+            `}
+          // font-bikinis font-semibold
           style={{ transitionDelay: "700ms" }}
         >
-          AND LOVE,
+          {/* AND LOVE, */}
         </h2>
 
         {/* ---- SOTTOTITOLO ---- */}
         <p
           className={`
-            mt-10
-            text-[#fffae7]
-            text-xl sm:text-2xl
-            tracking-wide uppercase
+            mt-8
+            text-[#2e3192]
+             md:text-4xl text-4xl
+            // tracking-wide
             
             
-            font-couture
             
-            text-shadow-soft
             transition-all duration-1100 ease-out
             ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}
-          `}
+            `}
+          // font-sans font-medium
+          // text-shadow-soft
           style={{ transitionDelay: "1000ms" }}
         >
-          IN A WELCOMING AND MODERN ENVIRONMENT
+          In a welcoming modern environment, where everybody feels at home
         </p>
       </div>
     </section>

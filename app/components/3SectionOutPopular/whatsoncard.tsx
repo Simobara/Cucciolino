@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function WhatsOnCard({
   imageSrc,
@@ -35,7 +34,7 @@ export default function WhatsOnCard({
         "
       >
         {/* IMAGE AREA */}
-        <div className="relative aspect-4/5">
+        <div style={{ aspectRatio: "3 / 4.2" }}>
           <Image
             src={imageSrc}
             alt={imageAlt}
@@ -54,18 +53,18 @@ export default function WhatsOnCard({
             className="
               absolute inset-0 z-10
               opacity-0
-              group-hover:opacity-100
-              group-focus:opacity-100
               transition-opacity duration-300
               bg-black/45
-            "
+              "
+            // group-hover:opacity-100
+            // group-focus:opacity-100
           />
 
           {/* vignette */}
           <div className="absolute inset-0 z-20 bg-linear-to-t from-black/20 via-transparent to-transparent" />
 
           {/* PANEL basso che sale */}
-          <div
+          {/* <div
             className="
               absolute inset-x-0 bottom-0 z-30
               translate-y-full
@@ -94,7 +93,7 @@ export default function WhatsOnCard({
             </Link>
           </div>
 
-          {/* shine */}
+          {/* shine }
           <div
             className="
               pointer-events-none absolute inset-0 z-40 opacity-0
@@ -103,25 +102,26 @@ export default function WhatsOnCard({
               bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.35),transparent_45%)]
             "
           />
+        </div>*/}
         </div>
       </div>
 
       {/* TEXT SOTTO – entrano TUTTI insieme in base a textsVisible */}
       <div
         className={`
-          mt-6 text-center
+          mt-6 text-start items-start
           transition-all duration-200 ease-out
           ${textsVisible ? "opacity-100 translate-y-0" : "opacity-0"}
         `}
         style={{ transitionDelay: "100ms" }}
       >
-        <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#76aad8] leading-[0.92]">
+        <h3 className="whitespace-pre-line text-3xl sm:text-4xl font-semibold tracking-tight text-[#ef4136] leading-[0.92]">
           {title}
         </h3>
 
-        <p className="mt-4 text-sm font-semibold text-[#76aad8]">{subtitle}</p>
-
-        <div className="mt-1 text-sm text-[#76aad8]/80">
+        <p className="mt-4 text-xl font-semibold text-[#f7941d]">{subtitle}</p>
+        <div className="mt-5 p-20"></div>
+        {/* <div className="mt-1 text-sm text-[#76aad8]/80">
           {meta ? (
             <>
               <span>{meta}</span>
@@ -131,7 +131,7 @@ export default function WhatsOnCard({
           <Link href={href} className="underline underline-offset-4">
             Learn More
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

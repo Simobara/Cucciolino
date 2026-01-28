@@ -35,6 +35,7 @@ export default function WhatsOnCarousel({
   const [canRight, setCanRight] = useState(false);
 
   const total = items.length;
+  const edgeSpace = "w-10 sm:w-12 lg:w-16";
 
   // quanto scroll equivale a uno "step" (una card circa)
   const getStep = () => {
@@ -197,7 +198,7 @@ export default function WhatsOnCarousel({
 
   return (
     <div ref={sectionRef} className="relative">
-      {/* FRECCIA SINISTRA */}
+      {/* { FRECCIA SINISTRA }
       {canLeft && (
         <button
           onClick={() => scrollByAmount("left")}
@@ -215,7 +216,7 @@ export default function WhatsOnCarousel({
           ←
         </button>
       )}
-      {/* FRECCIA DESTRA */}
+      { FRECCIA DESTRA }
       {canRight && (
         <button
           onClick={() => scrollByAmount("right")}
@@ -232,19 +233,23 @@ export default function WhatsOnCarousel({
         >
           →
         </button>
-      )}
+      )} */}
       {/* SCROLLER */}
       <div
         ref={scrollerRef}
         className="
-          flex gap-6 overflow-x-auto pb-4
-          snap-x snap-mandatory scroll-smooth
-          pr-2
-          [-ms-overflow-style:none]
-          [scrollbar-width:none]
-          [&::-webkit-scrollbar]:hidden
-        "
+    flex gap-16 lg:gap-20
+    overflow-x-auto lg:overflow-visible
+    px-10 sm:px-12 lg:px-16
+    justify-start lg:justify-center
+    snap-x snap-mandatory
+    pb-4
+    [-ms-overflow-style:none]
+    [scrollbar-width:none]
+    [&::-webkit-scrollbar]:hidden
+  "
       >
+        <div aria-hidden className={`${edgeSpace} shrink-0`} />
         {items.map((item, i) => {
           const isShown = i < visibleCount;
 
@@ -255,8 +260,11 @@ export default function WhatsOnCarousel({
               className="
                 snap-start
                 min-w-[78%]
-                sm:min-w-105
-                md:min-w-85
+                sm:min-w-[45%]
+                lg:min-w-0
+                lg:flex-none
+                lg:w-65
+                xl:w-72.5
               "
             >
               <div
@@ -272,7 +280,10 @@ export default function WhatsOnCarousel({
           );
         })}
 
-        <div className="min-w-4px" />
+        {/* SPAZIO DESTRA (ultima card) */}
+        <div aria-hidden className={`${edgeSpace} shrink-0`} />
+
+        <div className="min-w-4px lg:hidden" />
       </div>
 
       {/* GRADIENT SOTTO LE CARDS */}
@@ -287,7 +298,7 @@ export default function WhatsOnCarousel({
       />
 
       {/* DOTS / LINE pagination */}
-      <div className="mt-3 flex items-center justify-center gap-2">
+      {/* <div className="mt-3 flex items-center justify-center gap-2">
         {items.map((_, i) => {
           const isActive = i === active;
 
@@ -311,7 +322,7 @@ export default function WhatsOnCarousel({
             </button>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }

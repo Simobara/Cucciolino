@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function FloatingHomeButton({
+export default function Cursor({
   href = "/",
   label = "HOME",
   showAfter = 500,

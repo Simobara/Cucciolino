@@ -86,7 +86,7 @@ export default function FunctionsGroupsSection() {
             className={[
               "reveal relative w-full overflow-hidden",
               // ✅ mobile height: stabile e non gigante
-              "h-[44vh] min-h-[320px] md:h-[120vh] md:min-h-[110vh]",
+              "h-[44vh] min-h-80 md:h-[120vh] md:min-h-[110vh]",
               // ✅ order: image first on mobile, stays right column on desktop
               "order-1 md:order-2",
               visible ? "is-visible" : "",
