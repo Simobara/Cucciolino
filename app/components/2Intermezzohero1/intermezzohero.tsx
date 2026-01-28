@@ -84,17 +84,17 @@ export default function IntermezzoHero1({ bg = "" }) {
           {/* ---- SOTTOTITOLO ---- */}
           <p
             className={`
-              mt-6 sm:mt-8
-              text-[#2e3192]
+    mt-6 sm:mt-8
+    text-[#2e3192]
 
-              text-[clamp(1.1rem,4.2vw,2.25rem)]
-              leading-snug
-              max-w-[36ch]
+    text-[clamp(1.1rem,3.2vw,2.25rem)]
+    leading-snug
+    max-w-[36ch] lg:max-w-none
 
-              transition-all duration-700 ease-out
-              motion-reduce:transition-none motion-reduce:transform-none
-              ${anim}
-            `}
+    transition-all duration-700 ease-out
+    motion-reduce:transition-none motion-reduce:transform-none
+    ${anim}
+  `}
             style={{ transitionDelay: "520ms" }}
           >
             In a welcoming modern environment, where everybody feels at home
