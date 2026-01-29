@@ -4,7 +4,7 @@ import Image from "next/image";
 
 type MapEmbedProps = {
   title?: string;
-  src: string; // 🔹 mantenuto per compatibilità col padre
+  src: string; // mantenuto per compatibilità
   height?: number;
   directionsUrl?: string;
   imageSrc?: string;
@@ -12,9 +12,9 @@ type MapEmbedProps = {
 
 export default function MapEmbed({
   title = "Location",
-  src, // ⬅️ non usato ora, ma TENUTO
+  src, // ⬅️ non usato ma TENUTO
   height = 420,
-  directionsUrl = "https://www.google.com/maps",
+  directionsUrl = "https://maps.app.goo.gl/YWBTBTz77hT5jhEf7",
   imageSrc = "/image/map2.png",
 }: MapEmbedProps) {
   return (
@@ -23,19 +23,18 @@ export default function MapEmbed({
       className="
         overflow-hidden h-full
         border border-zinc-200 bg-white
-        transition-shadow duration-700
+        transition-shadow duration-500
         hover:shadow-[0_28px_70px_rgba(0,0,0,0.22)]
-        backdrop-blur-sm
       "
     >
       <a
         href={directionsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative block w-full"
+        className="relative block w-full"
         style={{ height }}
       >
-        {/* IMMAGINE FULL */}
+        {/* IMMAGINE */}
         <Image
           src={imageSrc}
           alt="Open location in Google Maps"
@@ -44,21 +43,20 @@ export default function MapEmbed({
           sizes="100vw"
         />
 
-        {/* overlay leggero */}
-        <div className="absolute inset-0 bg-black/10" />
+        {/* overlay leggero per contrasto */}
+        <div className="absolute inset-0 bg-black/15" />
 
-        {/* CTA hover bottom-right (come prima) */}
+        {/* CTA SEMPRE VISIBILE */}
         <div
           className="
-            absolute right-6 bottom-6
-            opacity-0 group-hover:opacity-100
-            translate-y-2 group-hover:translate-y-0
-            transition
+            absolute right-4 bottom-4 sm:right-6 sm:bottom-6
             rounded-full
-            bg-white text-black
+            bg-white/95 backdrop-blur
+            text-black
             px-5 py-2.5
-            text-sm font-semibold
+            text-sm sm:text-base font-semibold
             shadow-lg
+            pointer-events-none
           "
         >
           Open in Google Maps →

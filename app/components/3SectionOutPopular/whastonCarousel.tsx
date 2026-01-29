@@ -28,59 +28,12 @@ export default function WhatsOnCarousel({
   const [visibleCount, setVisibleCount] = useState(0);
   const [textsVisible, setTextsVisible] = useState(false);
 
-  // indice attivo per i puntini
+  // (tenuti perché li usavi prima; ora non mostri dots/frecce)
   const [, setActive] = useState(0);
-
   const [, setCanLeft] = useState(false);
   const [, setCanRight] = useState(false);
 
   const total = items.length;
-  // const edgeSpace = "w-3 sm:w-4 lg:w-6";
-
-  // quanto scroll equivale a uno "step" (una card circa)
-  // const getStep = () => {
-  //   const scroller = scrollerRef.current;
-  //   if (!scroller) return 0;
-  //   const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-  //   if (maxScroll <= 0 || total <= 1) return 0;
-  //   return maxScroll / (total - 1);
-  // };
-
-  // const scrollByAmount = (direction: "left" | "right") => {
-  //   const scroller = scrollerRef.current;
-  //   if (!scroller) return;
-
-  //   const step = getStep();
-  //   if (step <= 0) return;
-
-  //   scroller.scrollBy({
-  //     left: direction === "left" ? -step : step,
-  //     behavior: "smooth",
-  //   });
-
-  //   // 🔽 opzionale: forza update frecce
-  //   requestAnimationFrame(() => {
-  //     const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-  //     setCanLeft(scroller.scrollLeft > 2);
-  //     setCanRight(scroller.scrollLeft < maxScroll - 2);
-  //   });
-  // };
-
-  // const goTo = (index: number) => {
-  //   const scroller = scrollerRef.current;
-  //   if (!scroller) return;
-
-  //   const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-  //   if (maxScroll <= 0 || total <= 1) return;
-
-  //   const clampedIndex = Math.max(0, Math.min(total - 1, index));
-  //   const target = (clampedIndex / (total - 1)) * maxScroll;
-
-  //   scroller.scrollTo({
-  //     left: target,
-  //     behavior: "smooth",
-  //   });
-  // };
 
   // trigger una volta quando entra in viewport
   useEffect(() => {
@@ -120,8 +73,6 @@ export default function WhatsOnCarousel({
           setVisibleCount(total);
           if (intervalId) window.clearInterval(intervalId);
 
-          // dopo che TUTTE le card sono visibili,
-          // aspetta ancora un po' e poi mostra i testi di tutte insieme
           textsTimeout = window.setTimeout(() => {
             setTextsVisible(true);
           }, 700);
@@ -138,7 +89,7 @@ export default function WhatsOnCarousel({
     };
   }, [started, total, revealGapMs, initialDelayMs]);
 
-  // aggiorna active mentre scrolli
+  // aggiorna active mentre scrolli (anche se dots sono commentati)
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
@@ -181,7 +132,6 @@ export default function WhatsOnCarousel({
     const el = scrollerRef.current;
     if (!el) return;
 
-    // aspetta che il layout sia pronto (dopo reveal/paint)
     const id = requestAnimationFrame(() => {
       const maxScroll = el.scrollWidth - el.clientWidth;
       if (maxScroll <= 0 || total <= 1) {
@@ -198,59 +148,25 @@ export default function WhatsOnCarousel({
 
   return (
     <div ref={sectionRef} className="relative">
-      {/* { FRECCIA SINISTRA }
-      {canLeft && (
-        <button
-          onClick={() => scrollByAmount("left")}
-          aria-label="Scroll left"
-          className="
-          flex
-          absolute left-0 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10
-          h-14 w-16  text-2xl rounded-full
-          bg-[#76aad8] text-white
-          items-center justify-center
-          shadow-md ring-1 ring-black/5
-          hover:brightness-110 active:scale-95 transition
-        "
-        >
-          ←
-        </button>
-      )}
-      { FRECCIA DESTRA }
-      {canRight && (
-        <button
-          onClick={() => scrollByAmount("right")}
-          aria-label="Scroll right"
-          className="
-          flex
-          absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 z-10
-          h-14 w-16  text-2xl rounded-full
-          bg-[#76aad8] text-white
-          items-center justify-center
-          shadow-md ring-1 ring-black/5
-          hover:brightness-110 active:scale-95 transition
-        "
-        >
-          →
-        </button>
-      )} */}
       {/* SCROLLER */}
       <div
         ref={scrollerRef}
         className="
-    flex
-    gap-8 lg:gap-10
-    overflow-x-auto lg:overflow-visible
-    px-4 sm:px-6 lg:px-0
-    justify-start lg:justify-around
-    snap-x snap-mandatory
-    pb-4
-    [-ms-overflow-style:none]
-    [scrollbar-width:none]
-    [&::-webkit-scrollbar]:hidden
-  "
+          flex
+          gap-4 sm:gap-6 lg:gap-10
+          overflow-x-auto lg:overflow-visible
+          px-4 sm:px-6 lg:px-0
+          justify-start lg:justify-around
+          snap-x snap-mandatory
+          [scroll-snap-stop:always]
+          scroll-px-4 sm:scroll-px-6
+          overscroll-x-contain
+          pb-4
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
+        "
       >
-        {/* <div aria-hidden className={`${edgeSpace} shrink-0`} /> */}
         {items.map((item, i) => {
           const isShown = i < visibleCount;
 
@@ -260,8 +176,7 @@ export default function WhatsOnCarousel({
               data-card
               className="
                 snap-start
-                md:min-w-[80%]
-                min-w-[80%]
+                min-w-[86%] sm:min-w-[70%] md:min-w-[55%]
                 lg:min-w-0
                 lg:flex-none
                 lg:w-65
@@ -281,49 +196,12 @@ export default function WhatsOnCarousel({
           );
         })}
 
-        {/* SPAZIO DESTRA (ultima card) */}
-        {/* <div aria-hidden className={`${edgeSpace} shrink-0`} /> */}
-
-        <div className="min-w-4px lg:hidden" />
+        {/* micro spazio a destra su mobile */}
+        <div className="min-w-[12px] lg:hidden" />
       </div>
 
-      {/* GRADIENT SOTTO LE CARDS */}
-      <div
-        className="
-          pointer-events-none
-          absolute bottom-0 left-0 right-0
-          h-24
-          z-20
-          "
-        // bg-linear-to-t from-white to-transparent
-      />
-
-      {/* DOTS / LINE pagination */}
-      {/* <div className="mt-3 flex items-center justify-center gap-2">
-        {items.map((_, i) => {
-          const isActive = i === active;
-
-          return (
-            <button
-              key={`pager-${i}`}
-              type="button"
-              onClick={() => goTo(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              aria-current={isActive ? "true" : "false"}
-              className="p-2"
-            >
-              <span
-                className={[
-                  "block transition-all duration-300",
-                  isActive
-                    ? "h-1 w-10 rounded-full bg-black"
-                    : "h-2 w-2 rounded-full bg-zinc-300 hover:bg-zinc-400",
-                ].join(" ")}
-              />
-            </button>
-          );
-        })}
-      </div> */}
+      {/* GRADIENT SOTTO LE CARDS (ok com’è) */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 z-20" />
     </div>
   );
 }

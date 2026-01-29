@@ -1,158 +1,28 @@
-// HeroSection.jsx (o dentro HomePage)
-// Richiede: next/image, next/link, tailwind
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function HeroPage() {
-  const [showTitle, setShowTitle] = useState(false);
   const [visibleWords, setVisibleWords] = useState(0);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setShowTitle(true), 120);
+    // 1) QUALITY  2) FRIENDLY  3) Neighbourhood Pizzeria
+    const timers = [
+      window.setTimeout(() => setVisibleWords(1), 520), // dopo immagine
+      window.setTimeout(() => setVisibleWords(2), 760),
+      window.setTimeout(() => setVisibleWords(3), 1040),
+    ];
 
-    const wordsCount = 3;
-    const timers = Array.from({ length: wordsCount }, (_, i) =>
-      setTimeout(() => setVisibleWords(i + 1), 260 + i * 160),
-    );
-
-    return () => {
-      clearTimeout(t1);
-      timers.forEach(clearTimeout);
-    };
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
-    // <section className="relative min-h-[90vh] overflow-hidden">
-    //   {/* BG IMAGE */}
-    //   <Image
-    //     src="/hero2.png"
-    //     alt="Cucciolino Pizza & Gelato"
-    //     fill
-    //     priority
-    //     className="object-cover"
-    //   />
-
-    //   {/* OVERLAY */}
-    //   <div className="absolute inset-0 bg-black/50" />
-
-    //   {/* CONTENT WRAPPER */}
-    //   <div className="relative mx-auto max-w-5xl px-6 pt-24 sm:pt-28 md:pt-32 pb-16 md:pb-20 min-h-[90vh] flex flex-col justify-center">
-    //     {/* ===================== */}
-    //     {/* MOBILE / TABLET */}
-    //     {/* ===================== */}
-    //     <div className="md:hidden max-w-xl flex flex-col min-h-[70vh]">
-    //       <h1
-    //         className={[
-    //           "text-[#cadcf2] font-bold leading-[0.9] tracking-tight",
-    //           "text-4xl sm:text-5xl",
-    //           "mt-48 sm:mt-0",
-    //           "transition-all duration-700 ease-out",
-    //           "drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]",
-    //           showTitle
-    //             ? "opacity-100 translate-y-0"
-    //             : "opacity-0 translate-y-6",
-    //         ].join(" ")}
-    //       >
-    //         CUCCIOLINO.
-    //       </h1>
-
-    //       <p className="mt-4 mb-20 text-base sm:text-lg font-light tracking-wide text-white flex gap-2 flex-wrap">
-    //         {["QUALITY,", "FRIENDLY,", "NEIGHBOURHOOD PIZZERIA"].map(
-    //           (word, i) => (
-    //             <span
-    //               key={word}
-    //               className={[
-    //                 "transition-all duration-200 ease-out",
-    //                 visibleWords > i
-    //                   ? "opacity-100 translate-y-0"
-    //                   : "opacity-0 translate-y-4",
-    //               ].join(" ")}
-    //             >
-    //               {word}
-    //             </span>
-    //           ),
-    //         )}
-    //       </p>
-
-    //       <div className="mt-auto pt-10 flex flex-col sm:flex-row gap-4">
-    //         <a
-    //           href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className="inline-flex items-center justify-center rounded-md bg-[#f7941d] text-[#fffae7] px-8 py-3 text-sm font-semibold hover:bg-[#ef4136] hover:text-[#fffae7] transition"
-    //         >
-    //           Order Online
-    //         </a>
-
-    //         <Link
-    //           href="/menu"
-    //           className="inline-flex items-center justify-center rounded-md border border-[#ffd07d] text-[#2e3192] bg-white/70 px-8 py-3 text-sm font-semibold hover:bg-white hover:text-[#b42f26] transition"
-    //         >
-    //           View Menu
-    //         </Link>
-    //       </div>
-    //     </div>
-
-    //     {/* ===================== */}
-    //     {/* DESKTOP (IDENTICO) */}
-    //     {/* ===================== */}
-    //     <div className="hidden md:block">
-    //       <div className="ml-40 mt-42">
-    //         <h1
-    //           className={`
-    //             text-[#cadcf2] font-bold leading-[0.9] tracking-tight
-    //             text-5xl sm:text-6xl md:text-7xl
-    //             transition-all duration-700 ease-out
-    //             drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]
-    //             ${showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-    //           `}
-    //         >
-    //           CUCCIOLINO.
-    //         </h1>
-
-    //         <p className="mt-4 text-lg md:text-xl font-light tracking-wide text-white flex gap-2 flex-wrap">
-    //           {["QUALITY,", "FRIENDLY,", "NEIGHBOURHOOD PIZZERIA"].map(
-    //             (word, i) => (
-    //               <span
-    //                 key={word}
-    //                 className={`
-    //                   transition-all duration-200 ease-out
-    //                   ${visibleWords > i ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-    //                 `}
-    //               >
-    //                 {word}
-    //               </span>
-    //             ),
-    //           )}
-    //         </p>
-    //       </div>
-
-    //       <div className="ml-40 pt-20 mt-20 flex flex-col sm:flex-row gap-4">
-    //         <a
-    //           href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className="inline-flex items-center justify-center rounded-md bg-[#f7941d] text-[#fffae7] px-8 py-3 text-sm font-semibold hover:bg-[#ef4136] hover:text-[#fffae7] transition"
-    //         >
-    //           Order Online
-    //         </a>
-
-    //         <Link
-    //           href="/menu"
-    //           className="inline-flex items-center justify-center rounded-md border border-[#ffd07d] text-[#2e3192] bg-white/70 px-8 py-3 text-sm font-semibold hover:bg-white hover:text-[#b42f26] transition"
-    //         >
-    //           View Menu
-    //         </Link>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
-
     <section className="relative min-h-[95vh] overflow-hidden bg-white">
-      {/* ===== IMMAGINE CON PADDING UNIFORME SU TUTTI I LATI ===== */}
+      {/* ===== IMMAGINE ===== */}
       <div className="absolute inset-0">
-        <div className="absolute inset-[40px] overflow-hidden">
+        <div className="absolute inset-4 sm:inset-6 md:inset-[40px] overflow-hidden">
           <Image
             src="/heroImg.jpg"
             alt="Cucciolino hero"
@@ -166,45 +36,93 @@ export default function HeroPage() {
 
       {/* ===== CONTENUTO ===== */}
       <div className="relative z-10 min-h-[90vh]">
-        <div className="absolute inset-[40px] flex items-end">
-          <div className="max-w-[900px] ml-40 text-left flex flex-col items-start">
-            <p className="text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest md:text-3xl text-3xl pb-34">
+        <div className="absolute inset-4 sm:inset-6 md:inset-[40px] flex items-end">
+          <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-40 text-left flex flex-col items-start">
+            <p className=" md:block hidden text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-xl sm:text-2xl md:text-3xl pb-6 sm:pb-10 md:pb-34">
               Cucciolino
             </p>
 
+            {/* ===== H1: stessa frase, animazione per parole ===== */}
             <h1
               className="
-            mt-3
-            text-white
-            font-oswald
-            uppercase font-bold
-            leading-[0.95]
-            scale-y-[1.45]
-            pb-5
-            text-5xl sm:text-6xl lg:text-7xl
-            drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
-          "
+    mt-3
+    text-white
+    font-oswald
+    uppercase font-bold
+    leading-[0.95]
+    scale-y-[1.45]
+    pb-5
+    drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
+    text-3xl
+    sm:text-4xl
+    md:text-5xl md:sm:text-6xl
+    lg:text-7xl
+  "
             >
-              Your Quality, Friendly,
-              <br />
-              Neighbourhood Pizzeria
+              {/* RIGA 1 */}
+              <span className="block">
+                Your{" "}
+                <span
+                  className={[
+                    "inline-block",
+                    "transition-all duration-[900ms] ease-out",
+                    "motion-reduce:transition-none motion-reduce:transform-none",
+                    visibleWords >= 1
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10",
+                  ].join(" ")}
+                >
+                  Quality,
+                </span>{" "}
+                <span
+                  className={[
+                    "inline-block",
+                    "transition-all duration-[900ms] ease-out",
+                    "motion-reduce:transition-none motion-reduce:transform-none",
+                    visibleWords >= 2
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10",
+                  ].join(" ")}
+                >
+                  Friendly,
+                </span>
+              </span>
+
+              {/* RIGA 2 */}
+              <span
+                className={[
+                  "block",
+                  "transition-all duration-[1000ms] ease-out",
+                  "motion-reduce:transition-none motion-reduce:transform-none",
+                  visibleWords >= 3
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12",
+                ].join(" ")}
+              >
+                Neighbourhood Pizzeria
+              </span>
             </h1>
 
-            <div className="mt-12 flex flex-col sm:flex-row gap-16 pb-10">
+            {/* CTA (tuo codice identico) */}
+            <div className="mt-8 sm:mt-10 md:mt-12 flex w-full flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16 pb-8 md:pb-10">
               <Link
                 href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-    inline-flex items-center justify-center
-    rounded-md bg-[#ef4136] text-white
-    text-xl sm:text-2xl lg:text-4xl font-sofiapro
-    leading-[1.05]
-    px-7 pt-1
-    whitespace-nowrap
-    min-w-70
-    hover:brightness-110 transition
-  "
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  font-sofiapro leading-[1.05]
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-5 py-3
+                  md:px-7 md:pt-1 md:pb-0
+                  text-base
+                  sm:text-2xl
+                  lg:text-4xl
+                  whitespace-nowrap
+                  md:min-w-70
+                "
               >
                 Order Online
               </Link>
@@ -212,18 +130,24 @@ export default function HeroPage() {
               <Link
                 href="/menu"
                 className="
-              inline-flex items-center justify-center
-              rounded-md bg-[#ef4136] text-white
-              text-xl sm:text-2xl lg:text-4xl font-sofiapro
-              leading-[1.05]
-              px-7 pt-1
-              whitespace-nowrap
-              hover:brightness-110 transition
-            "
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  font-sofiapro leading-[1.05]
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-5 py-3
+                  md:px-7 md:pt-1 md:pb-0
+                  text-base
+                  sm:text-2xl
+                  lg:text-4xl
+                  whitespace-nowrap
+                "
               >
                 View Menu
               </Link>
             </div>
+
+            <div className="h-2 md:hidden" />
           </div>
         </div>
       </div>

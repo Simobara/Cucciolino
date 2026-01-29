@@ -5,9 +5,6 @@ export default function WhatsOnCard({
   imageAlt,
   title,
   subtitle,
-  // meta,
-  // href = "/menu",
-  // isShown = false,
   textsVisible = false,
 }: {
   imageSrc: string;
@@ -16,8 +13,8 @@ export default function WhatsOnCard({
   subtitle: string;
   meta?: string;
   href?: string;
-  isShown?: boolean; // controlla ENTRATA IMMAGINE (in sequenza)
-  textsVisible?: boolean; // controlla ENTRATA TESTI (tutti insieme)
+  isShown?: boolean;
+  textsVisible?: boolean;
 }) {
   return (
     <div className="group" tabIndex={0}>
@@ -31,115 +28,54 @@ export default function WhatsOnCard({
           group-hover:-translate-y-1
           group-focus:-translate-y-1
         "
-        // shadow-[0_22px_45px_rgba(0,0,0,0.32)]
       >
         {/* IMAGE AREA */}
-        <div className="relative" style={{ aspectRatio: "3 / 4.2" }}>
+        <div className="relative aspect-[3/4] sm:aspect-[3/4.2]">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
             className="
-                object-cover
-                transition-transform duration-700
-                group-hover:scale-[1.06]
-                group-focus:scale-[1.06]
-              "
-            sizes="(max-width: 640px) 80vw, 360px"
-          />
-
-          {/* oscuramento foto al hover */}
-          <div
-            className="
-                absolute inset-0 z-10
-                
-                "
-            // bg-black/45
-            // transition-opacity duration-300
-          />
-
-          {/* vignette */}
-          <div className="absolute inset-0 z-20 " />
-
-          {/* PANEL basso che sale */}
-          {/* <div
-            className="
-              absolute inset-x-0 bottom-0 z-30
-              translate-y-full
-              group-hover:translate-y-0
-              group-focus:translate-y-0
-              transition-transform duration-300 ease-out
-              bg-white
-              border-t border-black/10
-              p-4 justify-center
+              object-cover
+              transition-transform duration-700
+              group-hover:scale-[1.06]
+              group-focus:scale-[1.06]
             "
-            style={{ height: "28%" }}
-          >
-            <p className="text-xs tracking-widest uppercase text-zinc-600">
-              {subtitle}
-            </p>
-
-            <p className="mt-1 text-sm font-semibold text-zinc-900">
-              {meta ?? "Special"}
-            </p>
-
-            <Link
-              href={href}
-              className="mt-2 inline-block text-sm font-semibold underline underline-offset-4 text-zinc-900"
-            >
-              Learn More
-            </Link>
-          </div>
-
-          {/* shine }
-          <div
-            className="
-              pointer-events-none absolute inset-0 z-40 opacity-0
-              group-hover:opacity-100 group-focus:opacity-100
-              transition-opacity duration-500
-              bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.35),transparent_45%)]
-            "
+            sizes="(max-width: 640px) 86vw, (max-width: 1024px) 55vw, 360px"
           />
-        </div>*/}
+
+          <div className="absolute inset-0 z-10" />
+          <div className="absolute inset-0 z-20" />
         </div>
       </div>
 
-      {/* TEXT SOTTO – entrano TUTTI insieme in base a textsVisible */}
+      {/* TEXT SOTTO */}
       <div
         className={`
-          mt-24 mb-12 text-start items-start
+          mt-5 sm:mt-8 md:mt-24
+          mb-8 sm:mb-10 md:mb-12
+          text-start items-start
           transition-all duration-200 ease-out
-          
-          ${textsVisible ? " translate-y-0" : " "}
+          ${textsVisible ? "translate-y-0 opacity-100" : "opacity-0 translate-y-2"}
         `}
         style={{ transitionDelay: "100ms" }}
       >
         <h3
           className="
-            whitespace-pre-line            
-            text-3xl md:text-4xl
+            whitespace-pre-line
             font-sofiapro uppercase
             tracking-[0.08em]
             text-[#ef4136]
-            leading-[1.08]            
+            leading-[1.08]
+            text-xl sm:text-2xl md:text-4xl
           "
         >
           {title}
         </h3>
 
-        <p className="mt-4 text-2xl font-semibold text-[#f7941d]">{subtitle}</p>
-        {/* <div className="mt-5 p-20"></div> */}
-        {/* <div className="mt-1 text-sm text-[#76aad8]/80">
-          {meta ? (
-            <>
-              <span>{meta}</span>
-              <span className="mx-2">-</span>
-            </>
-          ) : null}
-          <Link href={href} className="underline underline-offset-4">
-            Learn More
-          </Link>
-        </div> */}
+        <p className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-[#f7941d]">
+          {subtitle}
+        </p>
       </div>
     </div>
   );

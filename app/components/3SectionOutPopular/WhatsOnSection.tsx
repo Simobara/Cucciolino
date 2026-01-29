@@ -33,36 +33,30 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-0 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
+      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
     >
       {/* TITLE ROW */}
       <div
         className="
-          ml-50 flex flex-col md:flex-row
+          flex flex-col md:flex-row
           md:items-end md:justify-between
-          gap-6
-          pb-12 md:pb-28          
+          gap-4 sm:gap-6
+          pb-8 sm:pb-12 md:pb-28
+          md:ml-50
         "
       >
         <h2
           className="
             text-left
-
-            md:text-5xl text-4xl   /* ⬅️ MOBILE PIÙ GRANDE */
-            font-semibold
-            font-oswald
-            tracking-tight
+            text-3xl sm:text-4xl md:text-5xl
+            font-semibold font-oswald tracking-tight
             text-[#ef4136]
-
             md:scale-x-[1.30]
             md:scale-y-[1.85]
-            "
-          // text-shadow-soft
+          "
         >
           {maintoptitle}
         </h2>
-
-        {/* eventuale bottone desktop */}
       </div>
 
       {/* CAROUSEL */}

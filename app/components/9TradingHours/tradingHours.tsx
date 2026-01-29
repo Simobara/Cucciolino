@@ -27,13 +27,13 @@ export default function TradingHours() {
     <section
       className="
         relative w-full overflow-hidden
-        h-auto py-16
+        h-auto py-12 sm:py-16
         lg:h-screen lg:py-0
       "
     >
       {/* ===== BACKGROUND ===== */}
-      <div className="absolute inset-5 pointer-events-none p-10">
-        <div className="relative w-full h-full overflow-hidden">
+      <div className="absolute inset-3 sm:inset-5 pointer-events-none p-0 sm:p-6 lg:p-10">
+        <div className="relative w-full h-full overflow-hidden rounded-none sm:rounded-lg">
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"
@@ -41,29 +41,27 @@ export default function TradingHours() {
             priority
             sizes="100vw"
             className="
-        object-cover
-        object-center
-        scale-[1.15]
-        transform
-        origin-center
-      "
+              object-cover object-center
+              scale-[1.08] sm:scale-[1.12] lg:scale-[1.15]
+              transform origin-center
+            "
           />
         </div>
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-full -ml-8  px-0 py-16 lg:pl-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div className="relative mx-auto max-w-full px-4 sm:px-6 py-12 sm:py-16 lg:pl-16 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* TESTO */}
           <div
             className="
-              pt-8
+              pt-4 sm:pt-6
               text-center
               lg:pt-24 lg:pl-10 lg:text-left
               ml-0 lg:ml-30
             "
           >
-            <span className="block text-red-500 uppercase tracking-widest text-2xl lg:text-3xl font-black mb-4">
+            <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black mb-3 sm:mb-4">
               Cucciolino
             </span>
 
@@ -75,7 +73,7 @@ export default function TradingHours() {
                 ${
                   visible
                     ? "translate-y-0 opacity-100 delay-300"
-                    : "translate-y-10 opacity-0"
+                    : "translate-y-8 opacity-0"
                 }
                 lg:translate-y-0 lg:translate-x-0
               `}
@@ -83,36 +81,48 @@ export default function TradingHours() {
               <h1
                 className="
                   text-white font-oswald font-bold uppercase
-                  text-4xl sm:text-5xl lg:text-7xl
+                  text-3xl sm:text-5xl lg:text-7xl
                   tracking-[0.08em]
-                  leading-tight
-                  my-8 lg:my-12
-                  transform scale-y-[1.25] lg:scale-y-[1.45]
+                  leading-[1.05] sm:leading-tight
+                  my-6 sm:my-8 lg:my-12
+                  transform
+                  scale-y-[1.12] sm:scale-y-[1.18]
+                  lg:scale-y-[1.45]
                   origin-center lg:origin-left
                 "
               >
                 Trading Hours
               </h1>
 
-              <div className="space-y-1 text-white text-base sm:text-lg font-medium">
-                <p>
-                  Monday <span className="font-semibold">CLOSED</span>
-                </p>
-                <p>Tuesday 11.00AM – 9.00PM</p>
-                <p>Wednesday 11.00AM – 9.00PM</p>
-                <p>Thursday 11.00AM – 9.00PM</p>
-                <p>Friday 11.00AM – 10.00PM</p>
-                <p>Saturday 11.00AM – 10.00PM</p>
-                <p>Sunday 11.00AM – 9.00PM</p>
+              <div className="flex justify-center">
+                <div
+                  className="
+      space-y-1.5
+      text-[#ffffff]
+      text-lg md:text-3xl
+      text-left
+      w-fit
+    "
+                >
+                  <p>
+                    Monday <span className="font-semibold">CLOSED</span>
+                  </p>
+                  <p>Tuesday 11.00AM – 9.00PM</p>
+                  <p>Wednesday 11.00AM – 9.00PM</p>
+                  <p>Thursday 11.00AM – 9.00PM</p>
+                  <p>Friday 11.00AM – 10.00PM</p>
+                  <p>Saturday 11.00AM – 10.00PM</p>
+                  <p>Sunday 11.00AM – 9.00PM</p>
+                </div>
               </div>
             </div>
 
             {/* ===== BOTTONI ===== */}
             <div
               className="
-                mt-16
-                flex flex-col items-center gap-6
-                lg:mt-32 lg:flex-row lg:gap-24
+                mt-16  md:mt-20
+                flex flex-col items-center gap-4 sm:gap-6
+                lg:flex-row lg:gap-24
                 font-sofiapro
               "
             >
@@ -121,15 +131,17 @@ export default function TradingHours() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-    inline-flex items-center justify-center
-    rounded-md bg-[#ef4136] text-white
-    text-xl sm:text-2xl lg:text-4xl
-    leading-[1.05]
-    px-7 pt-1
-    whitespace-nowrap
-    min-w-70
-    hover:brightness-110 transition
-  "
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-6 sm:px-7
+                  py-3 sm:py-2 lg:py-0
+                  text-base sm:text-2xl lg:text-4xl
+                  leading-[1.05]
+                  whitespace-nowrap
+                  sm:min-w-70
+                "
               >
                 Order Online
               </Link>
@@ -137,15 +149,17 @@ export default function TradingHours() {
               <Link
                 href="/menu"
                 className="
-    inline-flex items-center justify-center
-    rounded-md bg-[#ef4136] text-white
-    text-xl sm:text-2xl lg:text-4xl
-    leading-[1.05]
-    px-7 pt-1
-    whitespace-nowrap
-    min-w-70
-    hover:brightness-110 transition
-  "
+                  inline-flex items-center justify-center
+                  rounded-md bg-[#ef4136] text-white
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-6 sm:px-7
+                  py-3 sm:py-2 lg:py-0
+                  text-base sm:text-2xl lg:text-4xl
+                  leading-[1.05]
+                  whitespace-nowrap
+                  sm:min-w-70
+                "
               >
                 View Menu
               </Link>
