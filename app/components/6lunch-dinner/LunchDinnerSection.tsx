@@ -65,35 +65,35 @@ export default function LunchDinnerSection() {
       ref={sectionRef}
       className={[
         "bg-[#cadcf2]",
-        // ✅ MOBILE: non tagliare tutto con 50vh fisso
+        // ✅ MOBILE: non tagliare con vh fisso
         "h-auto py-8",
-        // ✅ DESKTOP: identico a prima
+        // ✅ DESKTOP: come prima
         "md:h-[50vh] md:py-0",
       ].join(" ")}
     >
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
-          {/* ✅ IMMAGINE: desktop NON cambia ordine */}
+          {/* ✅ IMMAGINE: bordo fisso 10px */}
           <div
             ref={parallaxRef}
             className={[
               "relative w-full",
-              "h-[42vh] min-h-[300px]", // ✅ mobile stabile
-              "md:h-full md:min-h-0", // ✅ desktop come prima (h-full)
-              // ✅ ordine: desktop invariato (nessun md:order che sposta)
+              "h-[42vh] min-h-75", // ✅ mobile stabile
+              "md:h-full md:min-h-0", // ✅ desktop h-full
               "order-1",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
-            {/* ✅ cornice: p-10 su desktop, più piccolo su mobile */}
-            <div className="absolute inset-0 bg-white p-4 sm:p-6 md:p-10">
-              <div className="relative w-full h-full overflow-hidden">
+            {/* ✅ cornice (colore bordo) */}
+            <div className="absolute inset-0 bg-white">
+              {/* ⬇️ bordo SEMPRE 10px */}
+              <div className="absolute inset-[40px] overflow-hidden">
                 <div
                   className="absolute inset-0 will-change-transform"
                   style={{
                     transform: prefersReducedMotion
-                      ? "translate3d(0,0,0)"
-                      : `translate3d(0, ${y}px, 0) scale(1.2)`,
+                      ? "translate3d(0,0,0) scale(1.15)"
+                      : `translate3d(0, ${y}px, 0) scale(1.15)`,
                   }}
                 >
                   <Image
@@ -101,19 +101,18 @@ export default function LunchDinnerSection() {
                     alt="Pizza"
                     fill
                     priority
-                    className="object-contain p-3 sm:p-4"
                     sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-contain object-center"
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ✅ TESTO: desktop NON cambia ordine */}
+          {/* ✅ TESTO */}
           <div
             className={[
               "reveal px-6 sm:px-10 py-6 flex flex-col justify-center",
-              // ✅ ordine: desktop invariato
               "order-2",
               visible ? "is-visible" : "",
             ].join(" ")}
@@ -122,7 +121,6 @@ export default function LunchDinnerSection() {
             <div
               className={[
                 "md:max-w-200 will-change-transform",
-                // ✅ mobile: niente ml-20 (troppo)
                 "ml-0 sm:ml-6 md:ml-20",
               ].join(" ")}
               style={{
@@ -133,35 +131,35 @@ export default function LunchDinnerSection() {
             >
               <h2
                 className="
-                  text-[#ef4136]
-                  font-oswald
-                  font-bold
-                  uppercase
-                  tracking-widest
-                  leading-none
-                  inline-block
-                  origin-center
-                  scale-y-[1.25]
-                  text-5xl
-                  sm:text-6xl
-                  md:text-6xl
-                  lg:text-6xl
-                "
+                text-[#ef4136]
+                font-oswald
+                font-bold
+                uppercase
+                tracking-widest
+                leading-none
+                inline-block
+                origin-center
+                scale-y-[1.25]
+                text-5xl
+                sm:text-6xl
+                md:text-6xl
+                lg:text-6xl
+              "
               >
                 COMBO
               </h2>
 
               <p
                 className="
-                  mt-6 md:mt-10
-                  text-[#2e3192]
-                  font-medium
-                  leading-tight
-                  text-lg sm:text-xl md:text-2xl
-                  max-w-[320px]
-                  sm:max-w-105
-                  md:max-w-200
-                "
+                mt-6 md:mt-10
+                text-[#2e3192]
+                font-medium
+                leading-tight
+                text-lg sm:text-xl md:text-2xl
+                max-w-[320px]
+                sm:max-w-105
+                md:max-w-200
+              "
               >
                 Get the best tasty <br />
                 food experience <br />

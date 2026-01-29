@@ -54,19 +54,19 @@ export default function SocialsSection({
         font-bold pl-0 md:pl-30
       "
           >
-            <span className="text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide">
+            <span className="ml-20 text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide">
               Follow Cucciolino on:
             </span>
 
             {/* ICONS */}
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 md:text-5xl">
               <Link href={instagramUrl} target="_blank">
-                <span className="inline-flex items-center justify-center rounded-2xl p-3 md:text-3xl">
+                <span className="inline-flex items-center justify-center rounded-2xl p-3 ">
                   <Image
                     src="/image/imglogo1.png"
                     alt="Instagram"
-                    width={54}
-                    height={54}
+                    width={60}
+                    height={60}
                   />
                 </span>
               </Link>
@@ -76,8 +76,8 @@ export default function SocialsSection({
                   <Image
                     src="/image/imglogo2.png"
                     alt="Facebook"
-                    width={54}
-                    height={54}
+                    width={60}
+                    height={60}
                   />
                 </span>
               </Link>
@@ -87,8 +87,8 @@ export default function SocialsSection({
                   <Image
                     src="/image/imglogo3.png"
                     alt="TikTok"
-                    width={54}
-                    height={54}
+                    width={60}
+                    height={60}
                   />
                 </span>
               </Link>

@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col self-start lg:text-right">
+          <div className="flex flex-col self-start lg:text-left">
             <h4 className="font-oswald text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">
               CONTACTS
             </h4>
@@ -37,8 +37,11 @@ export default function Footer() {
                 +61 0401 234 567
               </a>
               <br />
-              <a href="mailto:admin@cucciolino.com" className="hover:underline">
-                admin@cucciolino.com
+              <a
+                href="mailto:admin@cucciolino.com.au"
+                className="hover:underline"
+              >
+                admin@cucciolino.com.au
               </a>
             </p>
           </div>

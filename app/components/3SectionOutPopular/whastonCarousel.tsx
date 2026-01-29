@@ -237,17 +237,17 @@ export default function WhatsOnCarousel({
       {/* SCROLLER */}
       <div
         ref={scrollerRef}
-        className="
-    flex gap-16 lg:gap-20
-    overflow-x-auto lg:overflow-visible
-    px-10 sm:px-12 lg:px-16
-    justify-start lg:justify-center
-    snap-x snap-mandatory
-    pb-4
-    [-ms-overflow-style:none]
-    [scrollbar-width:none]
-    [&::-webkit-scrollbar]:hidden
-  "
+        className="          
+          flex gap-16 lg:gap-14
+          overflow-x-auto lg:overflow-visible
+          px-0 sm:px-0 lg:px-0
+          justify-start lg:justify-center
+          snap-x snap-mandatory
+          pb-4
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
+        "
       >
         <div aria-hidden className={`${edgeSpace} shrink-0`} />
         {items.map((item, i) => {

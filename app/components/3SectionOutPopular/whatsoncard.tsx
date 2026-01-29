@@ -116,7 +116,7 @@ export default function WhatsOnCard({
       >
         <h3
           className="
-            whitespace-pre-line
+            whitespace-pre-line            
             text-3xl md:text-4xl
             font-sofiapro uppercase
             tracking-[0.08em]

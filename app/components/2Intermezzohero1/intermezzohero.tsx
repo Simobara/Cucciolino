@@ -31,7 +31,7 @@ export default function IntermezzoHero1({ bg = "" }) {
         <div
           ref={ref}
           className="
-            mx-auto w-full max-w-7xl
+            ml-40 mx-auto w-full max-w-7xl
             px-4 sm:px-6 lg:px-8
             py-14 sm:py-20
 
@@ -43,14 +43,11 @@ export default function IntermezzoHero1({ bg = "" }) {
           {/* ---- LINEA 1 ---- */}
           <h2
             className={`
-              text-white uppercase font-oswald 
-              
-              text-[clamp(1.45rem,5vw,2.68rem)]
-              leading-[1.08] sm:leading-[0.95] md:leading-[0.9]
-              
-              tracking-[0.05em] sm:tracking-[0.12em] md:tracking-[0.15em]
+              text-white uppercase font-oswald font-bold
+               
+              text-[clamp(1.45rem,5vw,2.55rem)]
+              leading-[1.08] sm:leading-[0.95] md:leading-[0.9]                                    
               md:scale-y-[1.35]
-
               transition-all duration-700 ease-out
               motion-reduce:transition-none motion-reduce:transform-none
               ${anim}
@@ -65,12 +62,12 @@ export default function IntermezzoHero1({ bg = "" }) {
           {/* ---- LINEA 2 ---- */}
           <h2
             className={`
-              text-white uppercase font-oswald 
+              text-white uppercase font-oswald font-bold
               
-              text-[clamp(1.35rem,4.6vw,2.65rem)]
-              leading-[1.1] sm:leading-[0.95] md:leading-[0.85]
+              text-[clamp(1.35rem,4.6vw,2.40rem)]
+              leading-[1.1] sm:leading-[0.95] md:leading-[0.85
 
-              tracking-[0.02em] sm:tracking-tight
+
               md:scale-y-[1.35]
 
               transition-all duration-700 ease-out
@@ -89,7 +86,7 @@ export default function IntermezzoHero1({ bg = "" }) {
               mt-6 sm:mt-8
               text-[#2e3192]
               font-sofiapro
-              text-[clamp(1.1rem,3.2vw,2.25rem)]
+              text-[clamp(1.1rem,3.2vw,2rem)]
               leading-snug
               max-w-[36ch] lg:max-w-none
 

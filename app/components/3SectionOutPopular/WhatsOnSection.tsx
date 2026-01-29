@@ -33,16 +33,15 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
+      className="mx-auto px-0 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
     >
       {/* TITLE ROW */}
       <div
         className="
-          flex flex-col md:flex-row
+          ml-50 flex flex-col md:flex-row
           md:items-end md:justify-between
           gap-6
-          pb-12 md:pb-25
-          md:pl-40
+          pb-12 md:pb-28          
         "
       >
         <h2

@@ -32,24 +32,27 @@ export default function TradingHours() {
       "
     >
       {/* ===== BACKGROUND ===== */}
-      <div className="absolute inset-0 px-4 py-6 lg:px-10 lg:py-10">
+      <div className="absolute inset-5 pointer-events-none p-10">
         <div className="relative w-full h-full overflow-hidden">
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"
             fill
             priority
+            sizes="100vw"
             className="
-        object-cover scale-110
-        lg:object-contain lg:scale-[1.05]
-        origin-center lg:origin-top
+        object-cover
+        object-center
+        scale-[1.15]
+        transform
+        origin-center
       "
           />
         </div>
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-full px-6 py-16 lg:pl-16">
+      <div className="relative mx-auto max-w-full -ml-8  px-0 py-16 lg:pl-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* TESTO */}
           <div
@@ -116,29 +119,31 @@ export default function TradingHours() {
               <Link
                 href="/order"
                 className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  text-xl sm:text-2xl lg:text-3xl
-                  px-12 py-3
-                  min-w-[240px] lg:min-w-[320px]
-                  font-semibold
-                  hover:brightness-110 transition
-                "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    text-xl sm:text-2xl lg:text-4xl
+    leading-[1.05]
+    px-7 pt-1
+    whitespace-nowrap
+    min-w-70
+    hover:brightness-110 transition
+  "
               >
                 Order Online
               </Link>
 
               <Link
-                href="/menu"
+                href="/order"
                 className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  text-xl sm:text-2xl lg:text-3xl
-                  px-12 py-3
-                  min-w-[240px] lg:min-w-[320px]
-                  font-semibold
-                  hover:brightness-110 transition
-                "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    text-xl sm:text-2xl lg:text-4xl
+    leading-[1.05]
+    px-7 pt-1
+    whitespace-nowrap
+    min-w-70
+    hover:brightness-110 transition
+  "
               >
                 View Menu
               </Link>

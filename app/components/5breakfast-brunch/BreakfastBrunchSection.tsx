@@ -61,22 +61,22 @@ export default function BreakfastBrunchSection() {
             ref={parallaxRef}
             className={[
               "relative w-full",
-              // ✅ mobile: altezza reale per far funzionare h-full dentro
-              "h-[42vh] min-h-[300px]",
-              // ✅ desktop: come prima
+              "h-[42vh] min-h-75",
               "md:h-full md:min-h-0",
               "order-1 md:order-2",
               visible ? "is-visible" : "",
             ].join(" ")}
           >
-            <div className="absolute inset-0 bg-red-500 p-4 sm:p-6 md:p-10">
-              <div className="relative w-full h-full overflow-hidden">
+            {/* 🔴 contenitore rosso */}
+            <div className="absolute inset-0 bg-red-500">
+              {/* ⬇️ bordo rosso FISSO 10px */}
+              <div className="absolute inset-[40px] overflow-hidden">
                 <div
                   className="absolute inset-0 will-change-transform"
                   style={{
                     transform: prefersReducedMotion
-                      ? "translate3d(0,0,0)"
-                      : `translate3d(0, ${y}px, 0) scale(1.2)`,
+                      ? "translate3d(0,0,0) scale(1.15)"
+                      : `translate3d(0, ${y}px, 0) scale(1.15)`,
                   }}
                 >
                   <Image
@@ -84,8 +84,11 @@ export default function BreakfastBrunchSection() {
                     alt="Pizza"
                     fill
                     priority
-                    className="object-contain p-3 sm:p-4"
                     sizes="(min-width: 768px) 50vw, 100vw"
+                    className="
+                      object-contain
+                      object-center
+                    "
                   />
                 </div>
               </div>
