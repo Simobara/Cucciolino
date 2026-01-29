@@ -121,7 +121,7 @@ export default function WhatsOnCard({
             font-sofiapro uppercase
             tracking-[0.08em]
             text-[#ef4136]
-            leading-[1.08]
+            leading-[1.08]            
           "
         >
           {title}

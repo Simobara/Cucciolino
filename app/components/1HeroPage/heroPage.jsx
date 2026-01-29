@@ -149,57 +149,59 @@ export default function HeroPage() {
     //   </div>
     // </section>
 
-    <section className="relative min-h-[90vh] overflow-hidden bg-black">
-      {/* ===== IMMAGINE FULL SECTION ===== */}
-      <Image
-        src="/heroImg.jpg"
-        alt="Cucciolino hero"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
-      {/* overlay leggibilità */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/10" />
-      {/* ===== CONTENUTO CON INSET FISSO ===== */}
+    <section className="relative min-h-[95vh] overflow-hidden bg-white">
+      {/* ===== IMMAGINE CON PADDING UNIFORME SU TUTTI I LATI ===== */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-[40px] overflow-hidden">
+          <Image
+            src="/heroImg.jpg"
+            alt="Cucciolino hero"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+      </div>
 
+      {/* ===== CONTENUTO ===== */}
       <div className="relative z-10 min-h-[90vh]">
         <div className="absolute inset-[40px] flex items-end">
-          <div className="max-w-[900px] ml-30">
-            <p className="ml-30 text-[#ef4136] font-oswald font-semibold uppercase tracking-widest text-lg sm:text-xl">
+          <div className="max-w-[900px] ml-40 text-left flex flex-col items-start">
+            <p className="text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest md:text-3xl text-3xl pb-34">
               Cucciolino
             </p>
 
             <h1
               className="
-          ml-30
-          mt-3
-          text-white
-          font-oswald
-          uppercase
-          leading-[0.95]
-          tracking-[0.02em]
-          text-5xl sm:text-6xl lg:text-7xl
-          drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
-        "
+            mt-3
+            text-white
+            font-oswald
+            uppercase font-bold
+            leading-[0.95]
+            scale-y-[1.45]
+            pb-5
+            text-5xl sm:text-6xl lg:text-7xl
+            drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
+          "
             >
               Your Quality, Friendly,
               <br />
               Neighbourhood Pizzeria
             </h1>
 
-            <div className="ml-30 mt-12 flex flex-col sm:flex-row gap-6">
+            <div className="mt-12 flex flex-col sm:flex-row gap-16 pb-10">
               <Link
                 href="/order"
                 className="
-            inline-flex items-center justify-center
-            rounded-md bg-[#ef4136] text-white
-            text-xl sm:text-2xl lg:text-4xl
-            leading-[1.05]
-            px-7 pt-1
-            whitespace-nowrap
-            hover:brightness-110 transition
-          "
+              inline-flex items-center justify-center
+              rounded-md bg-[#ef4136] text-white
+              text-xl sm:text-2xl lg:text-4xl
+              leading-[1.05] font-sofiapro
+              px-7 pt-1
+              whitespace-nowrap
+              hover:brightness-110 transition
+            "
               >
                 Order Online
               </Link>
@@ -207,14 +209,14 @@ export default function HeroPage() {
               <Link
                 href="/menu"
                 className="
-            inline-flex items-center justify-center
-            rounded-md bg-[#ef4136] text-white
-            text-xl sm:text-2xl lg:text-4xl
-            leading-[1.05]
-            px-7 pt-1
-            whitespace-nowrap
-            hover:brightness-110 transition
-          "
+              inline-flex items-center justify-center
+              rounded-md bg-[#ef4136] text-white
+              text-xl sm:text-2xl lg:text-4xl font-sofiapro
+              leading-[1.05]
+              px-7 pt-1
+              whitespace-nowrap
+              hover:brightness-110 transition
+            "
               >
                 View Menu
               </Link>

@@ -48,158 +48,71 @@ export default function Header({ variant }: HeaderProps) {
     };
   }, [open]);
 
-  const showLight = effectiveVariant === "light" || scrolled;
+  const showLight = true;
+  // effectiveVariant === "light" || scrolled;
+
+  // ===== MODIFICA (COPY / PASTE) =====
 
   return (
-    <header
-      className={[
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        "pt-[env(safe-area-inset-top)]", // ✅ iPhone notch / Safari
-        showLight
-          ? "bg-white/90 backdrop-blur border-b border-zinc-200"
-          : "bg-transparent",
-      ].join(" ")}
-    >
-      <nav className="mx-auto max-w-5xl px-6  md:py-7 py-8 flex items-center justify-between">
-        {/* LOGO */}
+    <header className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)]">
+      {/* BACKGROUND: azzurro 60% sopra + bianco sotto */}
+      <div className="absolute inset-0">
+        <div className="h-[60%] bg-[#cadcf2]" />
+        <div className="h-[40%] bg-white" />
+      </div>
+
+      <nav className="relative mx-auto w-full px-6 py-5 flex items-center justify-center">
+        {/* LOGO CENTRATO (come immagine) */}
         <Link
           href="/"
-          className={[
-            "font-semibold tracking-wide md:tracking-[0.2em] uppercase transition-colors md:mt-2 mt-0",
-            "text-base sm:text-lg md:text-2xl",
-            showLight ? "text-[#ef4136]" : "text-[#F79410]",
-          ].join(" ")}
+          className="text-center select-none"
+          onClick={() => setOpen(false)}
         >
-          CUCCIOLINO
-          {/* Indirizzo: nascosto su mobile/tablet, visibile su PC */}
-          <p
-            className={[
-              " text-[10px] sm:text-xs tracking-[0.22em] uppercase leading-tight",
-              showLight
-                ? "text-[--secondary-red]"
-                : "text-[--secondary-orange]",
-            ].join(" ")}
-          >
-            {/* PC: una riga */}
-            <span className="hidden md:inline">
-              608 Hampton Street · Brighton · Victoria
-            </span>
-
-            {/* Mobile / Tablet: due righe */}
-            <span className="md:hidden block">608 Hampton Street</span>
-            <span className="md:hidden block">Brighton · Victoria</span>
-          </p>
+          <div className="font-oswald font-bold uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
+            CUCCIOLINO
+          </div>
+          <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
+            PIZZA AND GELATO
+          </div>
         </Link>
 
-        {/* DESKTOP MENU (PC) - IDENTICO A PRIMA, solo spostato su lg */}
-        <div className="hidden lg:flex items-center gap-3 md:gap-0 text-sm md:text-base font-semibold">
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className={[
-                "px-4 py-2 rounded-md border transition-all duration-300 font-medium",
-                showLight
-                  ? "border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-black"
-                  : "border-white/40 text-white hover:bg-white/20",
-              ].join(" ")}
-            >
-              Home
-            </Link>
-
-            <Link
-              href="/menu"
-              onClick={() => setOpen(false)}
-              className={[
-                "px-4 py-2 rounded-md border transition-all duration-300 font-medium",
-                showLight
-                  ? "border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-black"
-                  : "border-white/40 text-white hover:bg-white/20",
-              ].join(" ")}
-            >
-              Menu
-            </Link>
-          </div>
-
-          {/*
-          WhatsApp / Order (se vuoi riattivarlo, rimane qui per desktop)
-          */}
-        </div>
-
-        {/* MOBILE + TABLET (fino a lg): HAMBURGER */}
+        {/* HAMBURGER (se vuoi tenerlo) */}
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className={[
-            "lg:hidden inline-flex items-center justify-center rounded-md border px-3 py-2 transition-all md:mt-0 mt-0 ",
-            showLight
-              ? "border-zinc-300 text-zinc-800 hover:bg-zinc-100"
-              : "border-white/40 text-white hover:bg-white/20",
-          ].join(" ")}
+          className="absolute right-6 top-1/2 -translate-y-1/2 lg:hidden inline-flex items-center justify-center rounded-md border border-[#ef4136]/30 bg-white/70 px-3 py-2 text-[#ef4136] hover:bg-white transition"
         >
           <span className="text-xl leading-none">{open ? "✕" : "☰"}</span>
         </button>
       </nav>
 
-      {/* MOBILE/TABLET MENU PANEL */}
-      {/* Overlay click per chiudere */}
+      {/* MOBILE MENU PANEL (stile coerente) */}
       {open && (
-        <div className="lg:hidden">
+        <div className="lg:hidden relative">
           <button
             aria-label="Close menu overlay"
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-40 bg-black/30"
+            className="fixed inset-0 z-40 bg-black/20"
           />
-          <div
-            className={[
-              "absolute top-full left-0 right-0 z-50 border-b",
-              showLight
-                ? "bg-white/95 backdrop-blur border-zinc-200"
-                : "bg-black/70 backdrop-blur border-white/10",
-            ].join(" ")}
-          >
+          <div className="absolute left-0 right-0 z-50 border-t border-[#ef4136]/15 bg-white/95 backdrop-blur">
             <div className="mx-auto max-w-5xl px-6 py-6">
-              {/* Indirizzo visibile su mobile/tablet dentro menu */}
-              {/* <p
-                className={[
-                  "mb-5 text-xs tracking-[0.25em] uppercase",
-                  showLight ? "text-zinc-600" : "text-white/80",
-                ].join(" ")}
-              >
-                608 Hampton Street · Brighton · Victoria
-              </p> */}
-
               <div className="flex flex-col gap-3">
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className={[
-                    "w-full rounded-md border px-4 py-3 text-base font-semibold transition-all",
-                    showLight
-                      ? "border-zinc-200 text-zinc-800 hover:bg-zinc-100"
-                      : "border-white/20 text-white hover:bg-white/10",
-                  ].join(" ")}
+                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-[#cadcf2]/40 transition"
                 >
                   Home
                 </Link>
-
                 <Link
                   href="/menu"
                   onClick={() => setOpen(false)}
-                  className={[
-                    "w-full rounded-md border px-4 py-3 text-base font-semibold transition-all",
-                    showLight
-                      ? "border-zinc-200 text-zinc-800 hover:bg-zinc-100"
-                      : "border-white/20 text-white hover:bg-white/10",
-                  ].join(" ")}
+                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-[#cadcf2]/40 transition"
                 >
                   Menu
                 </Link>
-
-                {/*
-                Se vuoi, qui puoi rimettere il bottone Order/WhatsApp versione mobile
-                */}
               </div>
             </div>
           </div>
