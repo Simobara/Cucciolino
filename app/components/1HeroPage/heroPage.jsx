@@ -4,6 +4,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const MAINTENANCE = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
+
+if (MAINTENANCE) {
+  return (
+    <section className="min-h-[95vh] flex items-center justify-center bg-white px-6">
+      <div className="max-w-xl text-center">
+        <p className="text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-sm sm:text-base">
+          Cucciolino
+        </p>
+
+        <h1 className="mt-4 text-3xl sm:text-4xl font-oswald uppercase font-bold text-black">
+          Maintenance
+        </h1>
+
+        <p className="mt-4 text-base sm:text-lg text-black/70 font-sofiapro">
+          We&apos;re currently offline. Please check back soon.
+        </p>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20is%20the%20website%20back%20online%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md bg-[#ef4136] text-white font-sofiapro hover:brightness-110 transition px-5 py-3 text-base sm:text-lg"
+          >
+            Contact on WhatsApp
+          </Link>
+
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-black/15 bg-white text-black font-sofiapro hover:bg-black/5 transition px-5 py-3 text-base sm:text-lg"
+          >
+            Refresh
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HeroPage() {
   const [start, setStart] = useState(false);
 
