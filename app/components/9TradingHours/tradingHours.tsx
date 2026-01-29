@@ -55,13 +55,13 @@ export default function TradingHours() {
           {/* TESTO */}
           <div
             className="
-              pt-4 sm:pt-6
+              md:pt-4 pt-6
               text-center
-              lg:pt-24 lg:pl-10 lg:text-left
-              ml-0 lg:ml-30
+              lg:pt-24 lg:text-left
+              md:ml-30 -ml-30 md:pl-0 -pl-10
             "
           >
-            <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black mb-3 sm:mb-4">
+            <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black md:mb-3 :mb-4">
               Cucciolino
             </span>
 
@@ -94,10 +94,11 @@ export default function TradingHours() {
                 Trading Hours
               </h1>
 
-              <div className="flex justify-center">
+              <div className="flex ">
                 <div
                   className="
-      space-y-1.5
+      
+                  space-y-1.5
       text-[#ffffff]
       text-lg md:text-3xl
       text-left

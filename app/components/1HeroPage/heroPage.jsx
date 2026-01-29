@@ -5,18 +5,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function HeroPage() {
-  const [visibleWords, setVisibleWords] = useState(0);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    // 1) QUALITY  2) FRIENDLY  3) Neighbourhood Pizzeria
-    const timers = [
-      window.setTimeout(() => setVisibleWords(1), 520), // dopo immagine
-      window.setTimeout(() => setVisibleWords(2), 760),
-      window.setTimeout(() => setVisibleWords(3), 1040),
-    ];
-
-    return () => timers.forEach(clearTimeout);
+    const t = window.setTimeout(() => setStart(true), 650); // dopo intro immagine
+    return () => clearTimeout(t);
   }, []);
+
+  const wordBase =
+    "inline-block transition-all duration-[900ms] ease-out motion-reduce:transition-none motion-reduce:transform-none";
 
   return (
     <section className="relative min-h-[95vh] overflow-hidden bg-white">
@@ -38,36 +35,25 @@ export default function HeroPage() {
       <div className="relative z-10 min-h-[90vh]">
         <div className="absolute inset-4 sm:inset-6 md:inset-[40px] flex items-end">
           <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-40 text-left flex flex-col items-start">
-            <p className=" md:block hidden text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-xl sm:text-2xl md:text-3xl pb-6 sm:pb-10 md:pb-34">
+            <p className="md:block hidden text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-xl sm:text-2xl md:text-3xl pb-6 sm:pb-10 md:pb-34">
               Cucciolino
             </p>
 
-            {/* ===== H1: stessa frase, animazione per parole ===== */}
             <h1
               className="
-    mt-3
-    text-white
-    font-oswald
-    uppercase font-bold
-    leading-[0.95]
-    scale-y-[1.45]
-    pb-5
-    drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
-    text-3xl
-    sm:text-4xl
-    md:text-5xl md:sm:text-6xl
-    lg:text-7xl
-  "
+                mt-3 text-white font-oswald uppercase font-bold
+                leading-[0.95] scale-y-[1.45] pb-5
+                drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
+                text-3xl sm:text-4xl md:text-5xl md:sm:text-6xl lg:text-7xl
+              "
             >
-              {/* RIGA 1 */}
               <span className="block">
                 Your{" "}
                 <span
                   className={[
-                    "inline-block",
-                    "transition-all duration-[900ms] ease-out",
-                    "motion-reduce:transition-none motion-reduce:transform-none",
-                    visibleWords >= 1
+                    wordBase,
+                    "delay-[200ms]",
+                    start
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10",
                   ].join(" ")}
@@ -76,10 +62,9 @@ export default function HeroPage() {
                 </span>{" "}
                 <span
                   className={[
-                    "inline-block",
-                    "transition-all duration-[900ms] ease-out",
-                    "motion-reduce:transition-none motion-reduce:transform-none",
-                    visibleWords >= 2
+                    wordBase,
+                    "delay-[800ms]", // più lento e leggibile
+                    start
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10",
                   ].join(" ")}
@@ -88,13 +73,12 @@ export default function HeroPage() {
                 </span>
               </span>
 
-              {/* RIGA 2 */}
               <span
                 className={[
-                  "block",
-                  "transition-all duration-[1000ms] ease-out",
+                  "block transition-all duration-[1000ms] ease-out",
+                  "delay-[1400ms]",
                   "motion-reduce:transition-none motion-reduce:transform-none",
-                  visibleWords >= 3
+                  start
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12",
                 ].join(" ")}
@@ -103,7 +87,7 @@ export default function HeroPage() {
               </span>
             </h1>
 
-            {/* CTA (tuo codice identico) */}
+            {/* CTA */}
             <div className="mt-8 sm:mt-10 md:mt-12 flex w-full flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16 pb-8 md:pb-10">
               <Link
                 href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
@@ -115,13 +99,9 @@ export default function HeroPage() {
                   font-sofiapro leading-[1.05]
                   hover:brightness-110 transition
                   w-full sm:w-auto
-                  px-5 py-3
-                  md:px-7 md:pt-1 md:pb-0
-                  text-base
-                  sm:text-2xl
-                  lg:text-4xl
-                  whitespace-nowrap
-                  md:min-w-70
+                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                  text-base sm:text-2xl lg:text-4xl
+                  whitespace-nowrap md:min-w-70
                 "
               >
                 Order Online
@@ -135,11 +115,8 @@ export default function HeroPage() {
                   font-sofiapro leading-[1.05]
                   hover:brightness-110 transition
                   w-full sm:w-auto
-                  px-5 py-3
-                  md:px-7 md:pt-1 md:pb-0
-                  text-base
-                  sm:text-2xl
-                  lg:text-4xl
+                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                  text-base sm:text-2xl lg:text-4xl
                   whitespace-nowrap
                 "
               >
