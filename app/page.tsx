@@ -21,14 +21,6 @@ import SplashScreen from "./splashScreen";
 const MAINTENANCE_MODE = process.env.NEXT_PUBLIC_MAINTENANCE === "true";
 
 export default function Home() {
-  if (process.env.NODE_ENV !== "production") {
-    console.log(
-      "NEXT_PUBLIC_MAINTENANCE =",
-      process.env.NEXT_PUBLIC_MAINTENANCE,
-    );
-    console.log("MAINTENANCE_MODE =", MAINTENANCE_MODE);
-  }
-
   const [ready, setReady] = useState(false);
   const [hasCheckedSplash, setHasCheckedSplash] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
@@ -93,10 +85,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (MAINTENANCE_MODE) {
-    return <SplashScreen infinite />;
-  }
-
   const handleSplashFinish = () => {
     try {
       sessionStorage.setItem("cucciolino-splash-seen", "true");
@@ -109,7 +97,9 @@ export default function Home() {
 
   if (!hasCheckedSplash) return null;
 
-  return (
+  return MAINTENANCE_MODE ? (
+    <SplashScreen infinite />
+  ) : (
     <>
       {ready && !showSplash && (
         <CursorElasticImage
@@ -231,25 +221,3 @@ export default function Home() {
     </>
   );
 }
-
-// function PromoCard({
-//   title,
-//   subtitle,
-//   detail,
-// }: {
-//   title: string;
-//   subtitle: string;
-//   detail: string;
-// }) {
-//   return (
-//     <div className="rounded-2xl border border-zinc-200 p-6 hover:border-zinc-300 transition bg-white/70 backdrop-blur-sm">
-//       <p className="text-xs tracking-widest uppercase text-zinc-500">
-//         {subtitle}
-//       </p>
-
-//       <h3 className="mt-3 text-lg font-semibold">{title}</h3>
-
-//       <p className="mt-2 text-sm text-zinc-600">{detail}</p>
-//     </div>
-//   );
-// }
