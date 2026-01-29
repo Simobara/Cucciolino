@@ -17,7 +17,18 @@ import IntermezzoSimple from "./components/4IntermSimple/IntermSimple";
 import TradingHours from "./components/9TradingHours/tradingHours";
 import MapEmbed from "./components/map/MapEmbed";
 import SplashScreen from "./splashScreen";
+
+const MAINTENANCE_MODE = process.env.NEXT_PUBLIC_MAINTENANCE === "true";
+
 export default function Home() {
+  if (process.env.NODE_ENV !== "production") {
+    console.log(
+      "NEXT_PUBLIC_MAINTENANCE =",
+      process.env.NEXT_PUBLIC_MAINTENANCE,
+    );
+    console.log("MAINTENANCE_MODE =", MAINTENANCE_MODE);
+  }
+
   const [ready, setReady] = useState(false);
   const [hasCheckedSplash, setHasCheckedSplash] = useState(false);
   const [showSplash, setShowSplash] = useState(false);
@@ -81,6 +92,10 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (MAINTENANCE_MODE) {
+    return <SplashScreen infinite />;
+  }
 
   const handleSplashFinish = () => {
     try {
