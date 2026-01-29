@@ -54,7 +54,7 @@ export default function Header({ variant }: HeaderProps) {
   // ===== MODIFICA (COPY / PASTE) =====
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)]">
+    <header className="fixed top-0 left-0 right-0 pt-[env(safe-area-inset-top)] z-9999">
       {/* BACKGROUND: azzurro 60% sopra + bianco sotto */}
       <div className="absolute inset-0">
         <div className="h-[60%] bg-[#cadcf2]" />

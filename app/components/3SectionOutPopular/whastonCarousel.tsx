@@ -35,7 +35,7 @@ export default function WhatsOnCarousel({
   const [, setCanRight] = useState(false);
 
   const total = items.length;
-  const edgeSpace = "w-10 sm:w-12 lg:w-16";
+  // const edgeSpace = "w-3 sm:w-4 lg:w-6";
 
   // quanto scroll equivale a uno "step" (una card circa)
   // const getStep = () => {
@@ -237,19 +237,20 @@ export default function WhatsOnCarousel({
       {/* SCROLLER */}
       <div
         ref={scrollerRef}
-        className="          
-          flex gap-16 lg:gap-14
-          overflow-x-auto lg:overflow-visible
-          px-0 sm:px-0 lg:px-0
-          justify-start lg:justify-center
-          snap-x snap-mandatory
-          pb-4
-          [-ms-overflow-style:none]
-          [scrollbar-width:none]
-          [&::-webkit-scrollbar]:hidden
-        "
+        className="
+    flex
+    gap-8 lg:gap-10
+    overflow-x-auto lg:overflow-visible
+    px-4 sm:px-6 lg:px-0
+    justify-start lg:justify-around
+    snap-x snap-mandatory
+    pb-4
+    [-ms-overflow-style:none]
+    [scrollbar-width:none]
+    [&::-webkit-scrollbar]:hidden
+  "
       >
-        <div aria-hidden className={`${edgeSpace} shrink-0`} />
+        {/* <div aria-hidden className={`${edgeSpace} shrink-0`} /> */}
         {items.map((item, i) => {
           const isShown = i < visibleCount;
 
@@ -281,7 +282,7 @@ export default function WhatsOnCarousel({
         })}
 
         {/* SPAZIO DESTRA (ultima card) */}
-        <div aria-hidden className={`${edgeSpace} shrink-0`} />
+        {/* <div aria-hidden className={`${edgeSpace} shrink-0`} /> */}
 
         <div className="min-w-4px lg:hidden" />
       </div>

@@ -22,6 +22,12 @@
   --font-serif: var(--font-serif);
 }
 
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -366,8 +372,14 @@ h6 {
 }
 /* --------------------------------------------- */
 
+/* ===== MODIFICA (COPY / PASTE) ===== */
 .text-shadow-soft {
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.25),
     0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* DEBUG: evidenzia cosa sfora a destra/sinistra */
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
 }

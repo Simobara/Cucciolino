@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${dmSans.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased overflow-x-hidden">
         <Header />
         {children}
         <Footer />

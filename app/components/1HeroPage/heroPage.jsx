@@ -192,16 +192,19 @@ export default function HeroPage() {
 
             <div className="mt-12 flex flex-col sm:flex-row gap-16 pb-10">
               <Link
-                href="/order"
+                href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-              inline-flex items-center justify-center
-              rounded-md bg-[#ef4136] text-white
-              text-xl sm:text-2xl lg:text-4xl
-              leading-[1.05] font-sofiapro
-              px-7 pt-1
-              whitespace-nowrap
-              hover:brightness-110 transition
-            "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    text-xl sm:text-2xl lg:text-4xl font-sofiapro
+    leading-[1.05]
+    px-7 pt-1
+    whitespace-nowrap
+    min-w-70
+    hover:brightness-110 transition
+  "
               >
                 Order Online
               </Link>

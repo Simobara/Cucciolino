@@ -117,7 +117,9 @@ export default function TradingHours() {
               "
             >
               <Link
-                href="/order"
+                href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
     inline-flex items-center justify-center
     rounded-md bg-[#ef4136] text-white
@@ -133,7 +135,7 @@ export default function TradingHours() {
               </Link>
 
               <Link
-                href="/order"
+                href="/menu"
                 className="
     inline-flex items-center justify-center
     rounded-md bg-[#ef4136] text-white

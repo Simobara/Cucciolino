@@ -1,6 +1,5 @@
 // app/loading.tsx
 "use client";
-import Image from "next/image";
 
 export default function Loading() {
   return (
