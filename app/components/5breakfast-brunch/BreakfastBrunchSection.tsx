@@ -104,11 +104,26 @@ export default function BreakfastBrunchSection() {
             style={{ transitionDelay: "280ms" }}
           >
             <div className="md:max-w-200 ml-0 sm:ml-6 md:ml-20">
-              <h2 className="text-[#b42f26] font-oswald uppercase tracking-widest leading-none scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl">
+              <h2
+                className="text-[#ef4136]
+                  font-oswald
+                  font-bold
+                  uppercase
+                  tracking-widest
+                  leading-none
+                  inline-block
+                  origin-center
+                  scale-y-[1.25]
+                  text-5xl
+                  sm:text-6xl
+                  md:text-6xl
+                  lg:text-6xl
+                "
+              >
                 SPECIALS
               </h2>
 
-              <p className="mt-6 md:mt-10 text-[#2e3192] font-medium leading-tight text-lg sm:text-xl md:text-xl max-w-[320px] sm:max-w-105">
+              <p className="mt-6 md:mt-10 text-[#2e3192] font-sofiapro leading-tight text-lg sm:text-xl md:text-xl max-w-[320px] sm:max-w-105">
                 Transport yourself to the <br />
                 sun-kissed shores of <br />
                 the Mediterranean <br />

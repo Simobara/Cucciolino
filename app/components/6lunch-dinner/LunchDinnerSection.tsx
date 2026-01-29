@@ -133,8 +133,9 @@ export default function LunchDinnerSection() {
             >
               <h2
                 className="
-                  text-[#b42f26]
+                  text-[#ef4136]
                   font-oswald
+                  font-bold
                   uppercase
                   tracking-widest
                   leading-none

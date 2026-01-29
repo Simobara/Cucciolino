@@ -259,8 +259,8 @@ export default function WhatsOnCarousel({
               data-card
               className="
                 snap-start
-                min-w-[78%]
-                sm:min-w-[45%]
+                md:min-w-[80%]
+                min-w-[80%]
                 lg:min-w-0
                 lg:flex-none
                 lg:w-65

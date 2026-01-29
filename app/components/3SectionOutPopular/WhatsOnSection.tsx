@@ -41,24 +41,24 @@ export default function WhatsOnSection({
           flex flex-col md:flex-row
           md:items-end md:justify-between
           gap-6
-          pb-12 md:pb-20
-          md:pl-60
+          pb-12 md:pb-25
+          md:pl-40
         "
       >
         <h2
           className="
-    text-left
+            text-left
 
-    text-4xl sm:text-6xl   /* ⬅️ MOBILE PIÙ GRANDE */
-    font-semibold
-    font-oswald
-    tracking-tight
-    text-[#ef4136]
+            md:text-5xl text-4xl   /* ⬅️ MOBILE PIÙ GRANDE */
+            font-semibold
+            font-oswald
+            tracking-tight
+            text-[#ef4136]
 
-    md:scale-x-[1.30]
-    md:scale-y-[1.85]
-    text-shadow-soft
-  "
+            md:scale-x-[1.30]
+            md:scale-y-[1.85]
+            "
+          // text-shadow-soft
         >
           {maintoptitle}
         </h2>

@@ -26,7 +26,7 @@ export default function HeroPage() {
     <section className="relative min-h-[90vh] overflow-hidden">
       {/* BG IMAGE */}
       <Image
-        src="/hero2.png"
+        src="/heroImg.jpg"
         alt="Cucciolino Pizza & Gelato"
         fill
         priority
@@ -49,7 +49,9 @@ export default function HeroPage() {
               "mt-48 sm:mt-0",
               "transition-all duration-700 ease-out",
               "drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]",
-              showTitle ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+              showTitle
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6",
             ].join(" ")}
           >
             CUCCIOLINO.

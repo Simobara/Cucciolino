@@ -39,18 +39,21 @@ export default function IntermezzoSimple({
         >
           <div
             className={`
-              flex items-center justify-center gap-6
+              flex items-center justify-center gap-10 -ml-10
               transition-all duration-700 ease-out
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
             `}
           >
-            <span className="text-[#2e3192] text-xl md:text-2xl font-medium">
+            <span
+              className="text-[#2e3192] md:text-4xl text-xl font-sofiapro
+            "
+            >
               Look at the entire
             </span>
 
             <Link
               href="/menu"
-              className="inline-flex items-center justify-center rounded-md bg-[#ef4136] text-white px-10 py-3 text-base font-semibold hover:bg-[#d83a30] transition"
+              className="inline-flex items-center justify-center rounded-md bg-[#ef4136] text-white px-14 py-0.5 mb-2  text-3xl font-sofiapro hover:bg-[#d83a30] transition"
             >
               Menu
             </Link>

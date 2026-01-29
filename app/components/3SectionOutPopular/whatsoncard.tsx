@@ -24,14 +24,14 @@ export default function WhatsOnCard({
       {/* CARD FRAME */}
       <div
         className="
-          relative rounded-2xl overflow-hidden
+          relative overflow-hidden
           bg-white
-          shadow-[0_22px_45px_rgba(0,0,0,0.32)]
           ring-1 ring-black/10
           transition-transform duration-300
           group-hover:-translate-y-1
           group-focus:-translate-y-1
         "
+        // shadow-[0_22px_45px_rgba(0,0,0,0.32)]
       >
         {/* IMAGE AREA */}
         <div className="relative" style={{ aspectRatio: "3 / 4.2" }}>
@@ -52,14 +52,14 @@ export default function WhatsOnCard({
           <div
             className="
                 absolute inset-0 z-10
-                opacity-0
-                transition-opacity duration-300
-                bg-black/45
-              "
+                
+                "
+            // bg-black/45
+            // transition-opacity duration-300
           />
 
           {/* vignette */}
-          <div className="absolute inset-0 z-20 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 z-20 " />
 
           {/* PANEL basso che sale */}
           {/* <div
@@ -110,7 +110,7 @@ export default function WhatsOnCard({
           mt-24 mb-12 text-start items-start
           transition-all duration-200 ease-out
           
-          ${textsVisible ? "opacity-100 translate-y-0" : "opacity-0"}
+          ${textsVisible ? " translate-y-0" : " "}
         `}
         style={{ transitionDelay: "100ms" }}
       >
@@ -118,7 +118,7 @@ export default function WhatsOnCard({
           className="
             whitespace-pre-line
             text-3xl md:text-4xl
-            font-montserrat uppercase font-bold
+            font-sofiapro uppercase
             tracking-[0.08em]
             text-[#ef4136]
             leading-[1.08]
@@ -127,7 +127,7 @@ export default function WhatsOnCard({
           {title}
         </h3>
 
-        <p className="mt-4 text-xl font-semibold text-[#f7941d]">{subtitle}</p>
+        <p className="mt-4 text-2xl font-semibold text-[#f7941d]">{subtitle}</p>
         {/* <div className="mt-5 p-20"></div> */}
         {/* <div className="mt-1 text-sm text-[#76aad8]/80">
           {meta ? (

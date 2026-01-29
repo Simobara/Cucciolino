@@ -314,9 +314,10 @@ h6 {
   }
 }
 
+/* --------------------------------------------- */
 @font-face {
   font-family: "bikinis";
-  src: url("/fonts/BikinisRegular.ttf") format("truetype");
+  src: url("/fonts/bikinis.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -325,9 +326,12 @@ h6 {
 .font-bikinis {
   font-family: "bikinis";
 }
+
+/* --------------------------------------------- */
+
 @font-face {
   font-family: "couture";
-  src: url("/fonts/coutureBold.otf") format("opentype");
+  src: url("/fonts/couture_bold.ttf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -337,21 +341,22 @@ h6 {
   font-family: "couture";
 }
 
+/* --------------------------------------------- */
 @font-face {
   font-family: "oswald";
-  src: url("/fonts/oswaldSemibold.ttf") format("truetype");
+  src: url("/fonts/oswald.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 .font-oswald {
   font-family: "oswald";
 }
 
+/* --------------------------------------------- */
 @font-face {
   font-family: "sofiapro";
-  src: url("/fonts/SofiaProSemibold.ttf") format("truetype");
+  src: url("/fonts/sofia_pro_semibold.otf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -359,29 +364,7 @@ h6 {
 .font-sofiapro {
   font-family: "sofiapro";
 }
-
-@font-face {
-  font-family: "montserrat";
-  src: url("/fonts/montserrat.otf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-.font-montserrat {
-  font-family: "montserrat";
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/montserratbold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-.font-montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
+/* --------------------------------------------- */
 
 .text-shadow-soft {
   text-shadow:
