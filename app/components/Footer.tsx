@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 py-8 font-montserrat">
           <div className="flex flex-col items-center gap-4 text-center">
             {/* privacy + copyright */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-3 text-sm font-sofiapro">
+            <div className="flex flex-col items-center gap-4 text-center">
               <Link
                 href="/privacy-policy"
                 className="underline underline-offset-4"
@@ -80,7 +80,7 @@ export default function Footer() {
             </div>
 
             {/* credits */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-2 text-sm font-sofiapro">
+            <div className="flex flex-col items-center gap-2 text-sm font-sofiapro text-center">
               <p className="text-[#2e3192]">
                 Design by{" "}
                 <a

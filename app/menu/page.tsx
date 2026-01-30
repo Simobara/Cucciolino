@@ -1,10 +1,12 @@
+import Image from "next/image";
 import Header from "../components/Header";
 
 /**
- * Sposta SOLO le linee verso sinistra,
- * senza muovere il contenuto
+ * Linee: devono avere margini DX/SX uguali SEMPRE.
+ * Quindi: niente offset “a mano” (-mx-5 ecc).
+ * Le linee si allineano ESATTAMENTE al container (px-5 / sm:px-10).
  */
-const LINE_OFFSET = "-ml-5 sm:-ml-10 pl-5 sm:pl-10";
+const LINE_OFFSET = "md:-mx-4 :-mx-10";
 
 export default function MenuPage() {
   const pizzas = [
@@ -45,25 +47,34 @@ export default function MenuPage() {
     <>
       <Header variant="light" />
 
-      <main className="bg-white px-4 sm:px-6 lg:px-10 py-8 md:py-14">
-        <section className="mx-auto w-full max-w-[1100px]">
+      <main className="p-0 m-0 overflow-hidden">
+        <section className="w-full">
           <div className="bg-[#cfe0f2] relative">
-            {/* CUCCIOLINO */}
+            {/* CUCCIOLINO TOP
             <div className="absolute top-4 left-0 right-0 text-center">
               <span className="font-couture uppercase font-bold text-[#b42f26] tracking-[0.25em] text-sm sm:text-base">
                 CUCCIOLINO
               </span>
-            </div>
+            </div> */}
 
             {/* CONTENUTO */}
-            <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-20 sm:pt-24 pb-14 sm:pb-16">
-              {/* TITOLI */}
+            <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-20 sm:pt-24 pb-10 sm:pb-12">
               <div className="flex flex-col gap-3 sm:gap-4">
-                <h1 className="font-oswald font-bold text-[#ef4136] uppercase -tracking-tighter leading-none text-[74px] sm:text-[120px] lg:text-[150px] scale-y-[1.12] sm:scale-y-[1.2]">
-                  MENU
-                </h1>
+                {/* MENU + CUCCIOLINO */}
+                <div className="flex items-start w-full">
+                  <h1 className="font-oswald font-bold text-[#ef4136] uppercase -tracking-tighter leading-none text-[74px] sm:text-[120px] lg:text-[150px] scale-y-[1.12] sm:scale-y-[1.2]">
+                    MENU
+                  </h1>
 
-                <div className="font-oswald font-bold text-[#b42f26] leading-tight  md:text-5xl text-xl pb-6">
+                  <div className="ml-auto pt-2">
+                    <span className="font-couture uppercase font-bold text-[#b42f26] tracking-[0.25em] md:text-4xl text-3xl  sm:text-base">
+                      CUCCIOLINO
+                    </span>
+                  </div>
+                </div>
+
+                {/* sottotitolo */}
+                <div className="font-oswald font-bold text-[#b42f26] leading-tight md:text-5xl text-xl pb-6">
                   <div>Pizza All Day</div>
                   <div>Gelato For Every Moment</div>
                 </div>
@@ -71,7 +82,7 @@ export default function MenuPage() {
 
               {/* LINEA INTRO */}
               <div
-                className={`md:mt-14 mt-8  border-t-4 border-white ${LINE_OFFSET}`}
+                className={`md:mt-14 mt-8 border-t-4 border-white ${LINE_OFFSET}`}
               />
 
               {/* ===== PIZZE ===== */}
@@ -90,7 +101,7 @@ export default function MenuPage() {
 
               {/* ===== GELATO ===== */}
               <section>
-                <h2 className="font-oswald font-bold text-[#b42f26] text-2xl md:text-5xl mb-6 md:mb-14">
+                <h2 className="font-oswald font-bold text-[#b42f26] text-2xl md:text-5xl mb-6 md:mb-14 md:mt-10 mt-8">
                   Our Gelato flavours
                 </h2>
 
@@ -103,6 +114,34 @@ export default function MenuPage() {
                   <GelatoItem key={g} title={g} />
                 ))}
               </section>
+
+              {/* ===== FOOTER GRAFICO IN BASSO (come immagine) ===== */}
+              <div className="md:mt-20 mt-10 sm:mt-16 pb-8 sm:pb-10">
+                <div className="flex items-end justify-center gap-6 sm:gap-10 md:ml-44 ml-20 mt-8 mb-30">
+                  {/* testo "Made with Love" */}
+                  <div
+                    className="text-[#b42f26] leading-none md:mr-4 mr-2"
+                    style={{
+                      fontFamily: "bikinis",
+                      fontSize: "clamp(28px, 8vw, 54px)",
+                      fontWeight: 600,
+                      letterSpacing: " ", // 👈 più spazio tra le lettere
+                    }}
+                  >
+                    Made with Love
+                  </div>
+                  {/* timbro rotondo */}
+                  <div className="relative w-[110px] h-[110px] ml-8 mt-8 scale-230 sm:w-[140px] sm:h-[140px]  opacity-90">
+                    <Image
+                      src="/iconsss/cursor.png" // <-- cambia qui se il file ha un altro nome/percorso
+                      alt="Cucciolino stamp"
+                      fill
+                      className="object-contain"
+                      priority={false}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -124,7 +163,7 @@ function MenuItem({
   price: string;
 }) {
   return (
-    <div className="md:py-0  md:pb-8 py-3 ">
+    <div className="md:py-0 md:pb-8 py-3">
       <div className="flex items-start justify-between gap-6">
         <h3 className="font-sofiapro font-bold uppercase text-[#ef4136] leading-[0.95] text-[42px] sm:text-[56px] lg:text-[64px] -tracking-tight max-w-[75%]">
           {title}
@@ -150,7 +189,7 @@ function MenuItem({
 ======================= */
 function GelatoItem({ title }: { title: string }) {
   return (
-    <div className={` md:py-2 py-5`}>
+    <div className="md:py-2 py-5">
       <div className="font-sofiapro font-bold uppercase text-[#ef4136] text-[44px] md:text-[65px] leading-none -tracking-tight">
         {title}
       </div>

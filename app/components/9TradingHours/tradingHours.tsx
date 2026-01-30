@@ -27,13 +27,13 @@ export default function TradingHours() {
     <section
       className="
         relative w-full overflow-hidden
-        h-auto py-12 sm:py-16
-        lg:h-screen lg:py-0
+        py-12 sm:py-16
+        md:h-screen h-screen lg:py-0
       "
     >
       {/* ===== BACKGROUND ===== */}
-      <div className="absolute inset-3 sm:inset-5 pointer-events-none p-0 sm:p-6 lg:p-10">
-        <div className="relative w-full h-full overflow-hidden rounded-none sm:rounded-lg">
+      <div className="absolute inset-3 sm:inset-5 pointer-events-none p-0 sm:p-6 lg:p-10 ">
+        <div className="relative w-full h-[99vh] overflow-hidden rounded-none sm:rounded-lg">
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"

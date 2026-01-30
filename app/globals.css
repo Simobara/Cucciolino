@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #cfe0f2;
   --foreground: #171717;
 
   /* Social card vars */
@@ -24,7 +24,9 @@
 
 html,
 body {
-  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #cfe0f2;
   overflow-x: hidden;
 }
 
@@ -379,9 +381,7 @@ h6 {
     0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* DEBUG: evidenzia cosa sfora a destra/sinistra */
-/*
-* {
+/* pippo
+ /* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
-*/
+}  */

@@ -54,11 +54,24 @@ export default function Header({ variant }: HeaderProps) {
   // ===== MODIFICA (COPY / PASTE) =====
 
   return (
-    <header className="fixed top-0 left-0 right-0 pt-[env(safe-area-inset-top)] z-9999">
-      {/* BACKGROUND: azzurro 60% sopra + bianco sotto */}
+    <header
+      className={`fixed top-0 left-0 right-0 pt-[env(safe-area-inset-top)] z-9999 ${
+        pathname === "/menu" ? "py-1" : ""
+      }`}
+    >
+      {/* BACKGROUND: azzurro 60/40 (menu = 70/30) */}
       <div className="absolute inset-0">
-        <div className="h-[60%] bg-[#cadcf2]" />
-        <div className="h-[40%] bg-white" />
+        {pathname === "/menu" ? (
+          <>
+            <div className="h-[60%] bg-[#cadcf2]" />
+            <div className="h-[40%] bg-white" />
+          </>
+        ) : (
+          <>
+            <div className="h-[60%] bg-[#cadcf2]" />
+            <div className="h-[40%] bg-white" />
+          </>
+        )}
       </div>
 
       <nav className="relative mx-auto w-full px-6 py-5 flex items-center justify-center">
@@ -68,12 +81,16 @@ export default function Header({ variant }: HeaderProps) {
           className="text-center select-none"
           onClick={() => setOpen(false)}
         >
-          <div className="font-oswald font-bold uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
+          <div className="font-oswald uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
             CUCCIOLINO
           </div>
-          <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
-            PIZZA AND GELATO
-          </div>
+
+          {/* NASCOSTO SU /menu */}
+          {pathname !== "/menu" && (
+            <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
+              PIZZA AND GELATO
+            </div>
+          )}
         </Link>
 
         {/* HAMBURGER (se vuoi tenerlo) */}
