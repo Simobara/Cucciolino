@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function SocialsSection({
   instagramUrl = "https://www.instagram.com/cucciolinopizza/",
@@ -16,9 +17,29 @@ export default function SocialsSection({
     "/imgg/soc5.png",
   ];
 
+  const iconsRef = useRef<HTMLDivElement | null>(null);
+  const [showIcons, setShowIcons] = useState(false);
+
+  useEffect(() => {
+    if (!iconsRef.current) return;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowIcons(true);
+          obs.disconnect(); // una sola volta
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    obs.observe(iconsRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section className="w-full">
-      {/* ===== TOP: 4 IMMAGINI ===== */}
+      {/* ===== TOP: IMMAGINI ===== */}
       <div className="grid grid-cols-3 md:grid-cols-5">
         {pizzas.map((src, i) => (
           <div key={i} className="relative aspect-[3/4] overflow-hidden">
@@ -49,19 +70,33 @@ export default function SocialsSection({
         <div className="mx-auto w-full py-6">
           <div
             className="
-        flex flex-col items-center text-center gap-4
-        md:flex-row md:items-center md:justify-start md:text-left md:gap-6
-        font-bold pl-0 md:pl-30
-      "
+              flex flex-col items-center text-center gap-4
+              md:flex-row md:items-center md:justify-start md:text-left md:gap-6
+              font-bold pl-0 md:pl-30
+            "
           >
-            <span className="ml-20 text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide">
+            <span className="mx-auto text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide text-center">
               Follow Cucciolino on:
             </span>
 
-            {/* ICONS */}
-            <div className="flex items-center justify-center gap-2 md:text-5xl">
+            {/* ===== ICONE ANIMATE ===== */}
+            <div
+              ref={iconsRef}
+              className="flex items-center justify-center gap-2 md:text-5xl"
+            >
+              {/* Instagram */}
               <Link href={instagramUrl} target="_blank">
-                <span className="inline-flex items-center justify-center rounded-2xl p-3 ">
+                <span
+                  className={`
+                    inline-flex items-center justify-center rounded-2xl p-3
+                    transform transition-all duration-700 ease-out
+                    ${
+                      showIcons
+                        ? "opacity-100 translate-y-0 delay-[100ms]"
+                        : "opacity-0 translate-y-8"
+                    }
+                  `}
+                >
                   <Image
                     src="/image/imglogo1.png"
                     alt="Instagram"
@@ -71,8 +106,19 @@ export default function SocialsSection({
                 </span>
               </Link>
 
+              {/* Facebook */}
               <Link href="https://www.facebook.com/" target="_blank">
-                <span className="inline-flex items-center justify-center rounded-2xl p-3">
+                <span
+                  className={`
+                    inline-flex items-center justify-center rounded-2xl p-3
+                    transform transition-all duration-700 ease-out
+                    ${
+                      showIcons
+                        ? "opacity-100 translate-y-0 delay-[300ms]"
+                        : "opacity-0 translate-y-8"
+                    }
+                  `}
+                >
                   <Image
                     src="/image/imglogo2.png"
                     alt="Facebook"
@@ -82,8 +128,19 @@ export default function SocialsSection({
                 </span>
               </Link>
 
+              {/* TikTok */}
               <Link href="https://www.tiktok.com/" target="_blank">
-                <span className="inline-flex items-center justify-center rounded-2xl p-3">
+                <span
+                  className={`
+                    inline-flex items-center justify-center rounded-2xl p-3
+                    transform transition-all duration-700 ease-out
+                    ${
+                      showIcons
+                        ? "opacity-100 translate-y-0 delay-[500ms]"
+                        : "opacity-0 translate-y-8"
+                    }
+                  `}
+                >
                   <Image
                     src="/image/imglogo3.png"
                     alt="TikTok"
