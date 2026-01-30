@@ -24,10 +24,10 @@ export default function TradingHours() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden min-h-[120vh] mt-4 -mb-28">
+    <section className="relative w-full overflow-hidden min-h-[120vh] mt-4 -mb-28 md:px-0 px-2 md:y-0 -py-8 sm:p-0">
       {/* ===== BACKGROUND ===== */}
-      <div className="absolute inset-4 sm:inset-6 pointer-events-none mx-0 md:-mx-20">
-        <div className="relative w-full h-[100vh] overflow-hidden rounded-none sm:rounded-lg">
+      <div className="absolute md:inset-4 -inset-x-4 pointer-events-none mx-0 md:-mx-20">
+        <div className="relative md:w-full h-[100vh] overflow-hidden rounded-none sm:rounded-lg">
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"
@@ -44,11 +44,11 @@ export default function TradingHours() {
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-full px-4 sm:px-6 lg:pl-16 lg:px-0 h-[90vh]">
+      <div className="relative mx-auto max-w-full  lg:pl-16 lg:px-0 h-[90vh]">
         <div className="h-full flex flex-col justify-between pt-10 sm:pt-12 pb-10 sm:pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* COLONNA SINISTRA */}
-            <div className="md:my-16 my-8 lg:pt-14 text-left">
+            <div className="md:my-16 my-8 md:px-10 px-0 lg:pt-14 text-left">
               <div
                 ref={tradingRef}
                 className={`
@@ -61,7 +61,7 @@ export default function TradingHours() {
                 `}
               >
                 {/* BLOCCO TESTO + BOTTONI (STESSA LEFT) */}
-                <div className="w-fit ml-40">
+                <div className="w-fit md:ml-30 ml-10">
                   <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black pb-4">
                     Cucciolino
                   </span>
@@ -113,14 +113,13 @@ export default function TradingHours() {
                       rel="noopener noreferrer"
                       className="
                         inline-flex items-center justify-center
-                        rounded-md bg-[#ef4136] text-white
-                        font-sofiapro leading-[1.05]
-                        hover:brightness-110 transition
-                        w-full sm:w-auto
-                        md:py-1 py-2
-                        text-base sm:text-2xl lg:text-4xl
-                        whitespace-nowrap
-                        min-w-70
+                  rounded-md bg-[#ef4136] text-white
+                  font-sofiapro leading-[1.05]
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                  text-base sm:text-2xl lg:text-4xl
+                  whitespace-nowrap md:min-w-75 min-w-40 
                       "
                     >
                       Order Online
@@ -130,14 +129,13 @@ export default function TradingHours() {
                       href="/menu"
                       className="
                         inline-flex items-center justify-center
-                        rounded-md bg-[#ef4136] text-white
-                        font-sofiapro leading-[1.05]
-                        hover:brightness-110 transition
-                        w-full sm:w-auto
-                        md:py-1 py-2
-                        text-base sm:text-2xl lg:text-4xl
-                        whitespace-nowrap
-                        min-w-70
+                  rounded-md bg-[#ef4136] text-white
+                  font-sofiapro leading-[1.05]
+                  hover:brightness-110 transition
+                  w-full sm:w-auto
+                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                  text-base sm:text-2xl lg:text-4xl
+                  whitespace-nowrap md:min-w-75 min-w-40 
                       "
                     >
                       View Menu
