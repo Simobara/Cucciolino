@@ -58,10 +58,13 @@ export default function TradingHours() {
               md:pt-4 pt-6
               text-center
               lg:pt-24 lg:text-left
-              md:ml-30 -ml-30 md:pl-0 -pl-10
+              ml-0 pl-0
+              md:ml-30 md:pl-0
+              md:-ml-30 md:-pl-10
             "
           >
-            <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black md:mb-3 :mb-4">
+            {/* FIX: tolto refuso :mb-4 */}
+            <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black md:mb-3 mb-4">
               Cucciolino
             </span>
 
@@ -95,18 +98,17 @@ export default function TradingHours() {
                 Trading Hours
               </h1>
 
-              <div className="flex ">
+              <div className="flex">
                 <div
                   className="
-      
-                  space-y-1.5
-      text-[#ffffff]
-      text-lg md:text-3xl
-      text-left
-      w-fit
-      whitespace-nowrap
-      font-sofiapro
-    "
+                    space-y-1.5
+                    text-[#ffffff]
+                    text-lg md:text-3xl
+                    text-left
+                    w-fit
+                    whitespace-nowrap
+                    font-sofiapro
+                  "
                 >
                   <p>
                     Monday <span className="">CLOSED</span>
@@ -124,7 +126,7 @@ export default function TradingHours() {
             {/* ===== BOTTONI ===== */}
             <div
               className="
-                mt-16  md:mt-20
+                mt-16 md:mt-20
                 flex flex-col items-center gap-4 sm:gap-6
                 lg:flex-row lg:gap-24
                 font-sofiapro
@@ -135,17 +137,23 @@ export default function TradingHours() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  hover:brightness-110 transition
-                  w-full sm:w-auto
-                  px-6 sm:px-7
-                  py-3 sm:py-2 lg:py-0
-                  text-base sm:text-2xl lg:text-4xl
-                  leading-[1.05]
-                  whitespace-nowrap
-                  sm:min-w-70
-                "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    font-sofiapro leading-[1.05]
+    hover:brightness-110 transition
+
+    /* ===== MOBILE (copiato da HeroPage) ===== */
+    w-full
+    px-5 py-3
+    text-base
+
+    /* ===== DESKTOP (tuo, invariato) ===== */
+    sm:w-auto
+    sm:px-7 sm:py-2
+    sm:text-2xl lg:text-4xl
+    whitespace-nowrap
+    sm:min-w-70
+  "
               >
                 Order Online
               </Link>
@@ -153,17 +161,23 @@ export default function TradingHours() {
               <Link
                 href="/menu"
                 className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  hover:brightness-110 transition
-                  w-full sm:w-auto
-                  px-6 sm:px-7
-                  py-3 sm:py-2 lg:py-0
-                  text-base sm:text-2xl lg:text-4xl
-                  leading-[1.05]
-                  whitespace-nowrap
-                  sm:min-w-70
-                "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    font-sofiapro leading-[1.05]
+    hover:brightness-110 transition
+
+    /* ===== MOBILE (copiato da HeroPage) ===== */
+    w-full
+    px-5 py-3
+    text-base
+
+    /* ===== DESKTOP (tuo, invariato) ===== */
+    sm:w-auto
+    sm:px-7 sm:py-2
+    sm:text-2xl lg:text-4xl
+    whitespace-nowrap
+    sm:min-w-70
+  "
               >
                 View Menu
               </Link>
