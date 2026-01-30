@@ -101,7 +101,7 @@ export default function HeroPage() {
                   w-full sm:w-auto
                   px-5 py-3 md:px-7 md:pt-1 md:pb-0
                   text-base sm:text-2xl lg:text-4xl
-                  whitespace-nowrap md:min-w-70
+                  whitespace-nowrap md:min-w-75
                 "
               >
                 Order Online
@@ -117,7 +117,7 @@ export default function HeroPage() {
                   w-full sm:w-auto
                   px-5 py-3 md:px-7 md:pt-1 md:pb-0
                   text-base sm:text-2xl lg:text-4xl
-                  whitespace-nowrap
+                  whitespace-nowrap md:min-w-75
                 "
               >
                 View Menu
