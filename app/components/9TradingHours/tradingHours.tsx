@@ -81,11 +81,12 @@ export default function TradingHours() {
               <h1
                 className="
                   text-white font-oswald font-bold uppercase
-                  text-3xl sm:text-5xl lg:text-7xl
+                  md:text-7xl text-4xl
                   tracking-[0.08em]
                   leading-[1.05] sm:leading-tight
-                  my-6 sm:my-8 lg:my-12
+                  my-6 sm:my-8 md:my-12
                   transform
+                  whitespace-nowrap
                   scale-y-[1.12] sm:scale-y-[1.18]
                   lg:scale-y-[1.45]
                   origin-center lg:origin-left
@@ -103,10 +104,12 @@ export default function TradingHours() {
       text-lg md:text-3xl
       text-left
       w-fit
+      whitespace-nowrap
+      font-sofiapro
     "
                 >
                   <p>
-                    Monday <span className="font-semibold">CLOSED</span>
+                    Monday <span className="">CLOSED</span>
                   </p>
                   <p>Tuesday 11.00AM – 9.00PM</p>
                   <p>Wednesday 11.00AM – 9.00PM</p>
