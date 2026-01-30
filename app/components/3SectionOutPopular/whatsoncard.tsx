@@ -52,7 +52,7 @@ export default function WhatsOnCard({
       {/* TEXT SOTTO */}
       <div
         className={`
-          mt-5 sm:mt-8 md:mt-24
+          mt-5 sm:mt-8 md:mt-16
           mb-8 sm:mb-10 md:mb-12
           text-start items-start
           transition-all duration-200 ease-out

@@ -72,17 +72,25 @@ export default function SocialsSection({
             className="
               flex flex-col items-center text-center gap-4
               md:flex-row md:items-center md:justify-start md:text-left md:gap-6
-              font-bold pl-0 md:pl-30
+              font-bold pl-0 md:pl-40
             "
           >
-            <span className="mx-auto text-[#2e3192] font-sofiapro md:text-3xl text-xl leading-none tracking-wide text-center">
+            <span
+              className="
+  text-[#2e3192] font-sofiapro
+  md:text-3xl text-xl
+  leading-none tracking-wide
+  text-center md:text-left
+  mx-auto md:mx-0
+"
+            >
               Follow Cucciolino on:
             </span>
 
             {/* ===== ICONE ANIMATE ===== */}
             <div
               ref={iconsRef}
-              className="flex items-center justify-center gap-2 md:text-5xl"
+              className="flex items-center md:justify-start justify-center gap-2 md:text-5xl"
             >
               {/* Instagram */}
               <Link href={instagramUrl} target="_blank">
@@ -92,7 +100,7 @@ export default function SocialsSection({
                     transform transition-all duration-700 ease-out
                     ${
                       showIcons
-                        ? "opacity-100 translate-y-0 delay-[100ms]"
+                        ? "opacity-100 translate-y-0 delay-100"
                         : "opacity-0 translate-y-8"
                     }
                   `}
@@ -114,7 +122,7 @@ export default function SocialsSection({
                     transform transition-all duration-700 ease-out
                     ${
                       showIcons
-                        ? "opacity-100 translate-y-0 delay-[300ms]"
+                        ? "opacity-100 translate-y-0 delay-300"
                         : "opacity-0 translate-y-8"
                     }
                   `}
