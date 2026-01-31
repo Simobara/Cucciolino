@@ -87,7 +87,10 @@ export default function Header({ variant }: HeaderProps) {
               <div className="font-oswald uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
                 CUCCIOLINO
               </div>
-              <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
+              <div
+                className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26]
+  tracking-[0.06em] text-[18px] sm:tracking-[0.10em] sm:text-2xl leading-none"
+              >
                 PIZZA AND GELATO
               </div>
             </Link>
@@ -139,7 +142,7 @@ export default function Header({ variant }: HeaderProps) {
             className="fixed inset-0 z-40 bg-black/20"
           />
           <div className="absolute left-0 right-0 z-50 border-t border-[#ef4136]/15 bg-white/95 backdrop-blur">
-            <div className="mx-auto max-w-5xl px-6 py-6">
+            <div className="mx-auto max-w-5xl px-6 py-6 md:-top">
               <div className="flex flex-col gap-3">
                 <Link
                   href="/"

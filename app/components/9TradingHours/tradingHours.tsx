@@ -44,7 +44,7 @@ export default function TradingHours() {
               className="
     absolute inset-y-3 md:inset-y-4 inset-x-0
     origin-center
-    scale-x-[0.82] sm:scale-x-[0.84] lg:scale-x-[0.86]
+    scale-x-100 sm:scale-x-[0.84] lg:scale-x-[0.86]
   "
             >
               <Image
@@ -57,7 +57,7 @@ export default function TradingHours() {
               />
 
               {/* overlay SOLO sull'immagine */}
-              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 bg-black/40" />
             </div>
           </div>
         </div>
