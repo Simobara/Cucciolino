@@ -436,7 +436,7 @@ h6 {
 }
 
 /* CONTENUTI SEMPRE SOPRA */
-.bg-cadcf2 > * {
+.bg-cadcf2-grain > * {
   position: relative;
   z-index: 2;
 }
