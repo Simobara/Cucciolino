@@ -6,6 +6,9 @@ export default function WhatsOnSection({
   maintoptitle,
   maintopimage,
   maintoptitleAlt,
+  titleImgWidth = 600,
+  titleImgHeight = 200,
+  titleImgClassName = "",
   smallFirstTitle,
   smallSecondTitle,
   smallThirdTitle,
@@ -20,8 +23,14 @@ export default function WhatsOnSection({
   image4,
 }: {
   maintoptitle: string;
-  maintopimage?: string; // ✅ opzionale
-  maintoptitleAlt?: string; // ✅ opzionale
+  maintopimage?: string;
+  maintoptitleAlt?: string;
+
+  // ✅ controlli size per immagine titolo
+  titleImgWidth?: number;
+  titleImgHeight?: number;
+  titleImgClassName?: string;
+
   smallFirstTitle: string;
   smallSecondTitle: string;
   smallThirdTitle: string;
@@ -50,17 +59,17 @@ export default function WhatsOnSection({
           md:items-end md:justify-between
           gap-4 sm:gap-6
           pb-8 sm:pb-12 md:pb-28
-          md:ml-50
+          md:ml-32 ml-0
         "
       >
         {hasTitleImage ? (
           <Image
             src={maintopimage}
             alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
-            width={600}
-            height={200}
+            width={titleImgWidth}
+            height={titleImgHeight}
             priority
-            className="w-auto max-w-full h-auto md:-ml-20 "
+            className={`w-auto max-w-full h-auto ${titleImgClassName}`}
           />
         ) : (
           <h2
@@ -69,14 +78,13 @@ export default function WhatsOnSection({
               text-3xl sm:text-4xl md:text-5xl
               font-semibold font-oswald tracking-tight
               text-[#ef4136]
-              "
-            // md:scale-x-[1.30]
-            // md:scale-y-[1.85]
+            "
           >
             {maintoptitle}
           </h2>
         )}
       </div>
+
       {/* CAROUSEL */}
       <WhatsOnCarousel
         items={[

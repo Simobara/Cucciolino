@@ -151,6 +151,8 @@ export default function Home() {
             maintoptitle="OUR POPULAR PIZZAS" // fallback
             maintopimage="/images/ourpopularpizza.png"
             maintoptitleAlt="Our popular pizzas"
+            titleImgWidth={520}
+            titleImgHeight={140}
             smallFirstTitle="MARGHERITA"
             smallSecondTitle="GORGONZOLA & RUCOLA"
             smallThirdTitle="CUCCIOLINO"
@@ -193,6 +195,8 @@ export default function Home() {
             maintoptitle="WHAT'S ON" // fallback testo (opzionale)
             maintopimage="/images/whatson.png" // <-- QUESTA è l’immagine
             maintoptitleAlt="What's On"
+            titleImgWidth={320}
+            titleImgHeight={100}
             smallFirstTitle="WEEKEND HAPPY PIZZA"
             smallSecondTitle="CUCCIOLINO MIDDAY BREAK"
             smallThirdTitle="GELATO HAPPY MOMENT"

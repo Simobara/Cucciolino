@@ -74,24 +74,42 @@ export default function Header({ variant }: HeaderProps) {
         )}
       </div>
 
-      <nav className="relative mx-auto w-full px-6 py-5 flex items-center justify-center">
-        {/* LOGO CENTRATO (come immagine) */}
-        <Link
-          href="/"
-          className="text-center select-none"
-          onClick={() => setOpen(false)}
-        >
-          <div className="font-oswald uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
-            CUCCIOLINO
-          </div>
+      <nav className="relative mx-auto w-full px-6 py-5 h-[92px]">
+        {/* LOGO — SEMPRE PERFETTAMENTE CENTRATO */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
+          <Link href="/" onClick={() => setOpen(false)}>
+            <div className="font-oswald uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
+              CUCCIOLINO
+            </div>
 
-          {/* NASCOSTO SU /menu */}
-          <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
-            PIZZA AND GELATO
-          </div>
+            <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
+              PIZZA AND GELATO
+            </div>
+          </Link>
+        </div>
+
+        {/* MENU BUTTON — NON INFLUISCE SUL CENTRO */}
+        <Link
+          href="/menu"
+          className="
+      hidden lg:flex
+      absolute right-[26%] top-1/2 -translate-y-1/2
+      items-center justify-center
+      px-5 py-2
+      border-4 border-[#b42f26]
+      text-[#b42f26]
+      rounded-xl
+      font-oswald font-semibold uppercase
+      tracking-widest
+      text-sm
+      hover:bg-[#b42f26] hover:text-white
+      transition-all duration-200
+    "
+        >
+          MENU
         </Link>
 
-        {/* HAMBURGER (se vuoi tenerlo) */}
+        {/* HAMBURGER — MOBILE */}
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
