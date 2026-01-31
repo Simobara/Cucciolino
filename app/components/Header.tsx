@@ -93,9 +93,9 @@ export default function Header({ variant }: HeaderProps) {
           href="/menu"
           className="
       hidden lg:flex
-      absolute right-[26%] top-1/2 -translate-y-1/2
+      absolute right-[20%] -translate-y-1/2
       items-center justify-center
-      px-5 py-2
+      px-6 py-2 top-8
       border-4 border-[#b42f26]
       text-[#b42f26]
       rounded-xl
