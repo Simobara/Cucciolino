@@ -148,15 +148,17 @@ export default function Home() {
 
           {/* OUR POPULAR PIZZA */}
           <WhatsOnSection
-            maintoptitle={"OUR POPULAR PIZZAS"}
-            smallFirstTitle={"MARGHERITA"}
-            smallSecondTitle={"GORGONZOLA & RUCOLA"}
-            smallThirdTitle={"CUCCIOLINO"}
-            smallFourthTitle={"FUNGHI & TRUFFLE"}
-            price1={"$ 24,00"}
-            price2={"$ 26,00"}
-            price3={"$ 27,00"}
-            price4={"$ 26,00"}
+            maintoptitle="OUR POPULAR PIZZAS" // fallback
+            maintopimage="/images/ourpopularpizza.png"
+            maintoptitleAlt="Our popular pizzas"
+            smallFirstTitle="MARGHERITA"
+            smallSecondTitle="GORGONZOLA & RUCOLA"
+            smallThirdTitle="CUCCIOLINO"
+            smallFourthTitle="FUNGHI & TRUFFLE"
+            price1="$ 24,00"
+            price2="$ 26,00"
+            price3="$ 27,00"
+            price4="$ 26,00"
             image1="/iconss/pizza1.png"
             image2="/iconss/pizza2.png"
             image3="/iconss/pizza3.png"
@@ -188,15 +190,17 @@ export default function Home() {
 
           {/* WHAT S ON come our popular pizza*/}
           <WhatsOnSection
-            maintoptitle={"WHAT'S ON"}
-            smallFirstTitle={"WEEKEND HAPPY PIZZA"}
-            smallSecondTitle={"CUCCIOLINO MIDDAY BREAK"}
-            smallThirdTitle={"GELATO HAPPY MOMENT"}
-            smallFourthTitle={"TUESDAY MARGHERITA"}
-            price1={""}
-            price2={""}
-            price3={""}
-            price4={""}
+            maintoptitle="WHAT'S ON" // fallback testo (opzionale)
+            maintopimage="/images/whatson.png" // <-- QUESTA è l’immagine
+            maintoptitleAlt="What's On"
+            smallFirstTitle="WEEKEND HAPPY PIZZA"
+            smallSecondTitle="CUCCIOLINO MIDDAY BREAK"
+            smallThirdTitle="GELATO HAPPY MOMENT"
+            smallFourthTitle="TUESDAY MARGHERITA"
+            price1=""
+            price2=""
+            price3=""
+            price4=""
             image1="/iconss/pizza5.png"
             image2="/iconss/pizza6.png"
             image3="/iconss/pizza7.png"

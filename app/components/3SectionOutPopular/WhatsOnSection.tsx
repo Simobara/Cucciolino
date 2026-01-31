@@ -1,8 +1,11 @@
+import Image from "next/image";
 import "../../style/style.css";
 import WhatsOnCarousel from "./whastonCarousel";
 
 export default function WhatsOnSection({
   maintoptitle,
+  maintopimage,
+  maintoptitleAlt,
   smallFirstTitle,
   smallSecondTitle,
   smallThirdTitle,
@@ -17,6 +20,8 @@ export default function WhatsOnSection({
   image4,
 }: {
   maintoptitle: string;
+  maintopimage?: string; // ✅ opzionale
+  maintoptitleAlt?: string; // ✅ opzionale
   smallFirstTitle: string;
   smallSecondTitle: string;
   smallThirdTitle: string;
@@ -30,6 +35,9 @@ export default function WhatsOnSection({
   image3: string;
   image4: string;
 }) {
+  const hasTitleImage =
+    typeof maintopimage === "string" && maintopimage.startsWith("/");
+
   return (
     <section
       id="events"
@@ -45,20 +53,30 @@ export default function WhatsOnSection({
           md:ml-50
         "
       >
-        <h2
-          className="
-            text-left
-            text-3xl sm:text-4xl md:text-5xl
-            font-semibold font-oswald tracking-tight
-            text-[#ef4136]
-            md:scale-x-[1.30]
-            md:scale-y-[1.85]
-          "
-        >
-          {maintoptitle}
-        </h2>
+        {hasTitleImage ? (
+          <Image
+            src={maintopimage}
+            alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
+            width={600}
+            height={200}
+            priority
+            className="w-auto max-w-full h-auto md:-ml-20 "
+          />
+        ) : (
+          <h2
+            className="
+              text-left
+              text-3xl sm:text-4xl md:text-5xl
+              font-semibold font-oswald tracking-tight
+              text-[#ef4136]
+              "
+            // md:scale-x-[1.30]
+            // md:scale-y-[1.85]
+          >
+            {maintoptitle}
+          </h2>
+        )}
       </div>
-
       {/* CAROUSEL */}
       <WhatsOnCarousel
         items={[

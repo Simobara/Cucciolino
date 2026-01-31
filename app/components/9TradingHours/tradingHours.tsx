@@ -28,6 +28,7 @@ export default function TradingHours() {
       {/* ===== BACKGROUND ===== */}
       <div className="absolute md:inset-4 -inset-x-4 pointer-events-none mx-0 md:-mx-20">
         <div className="relative md:w-full h-[100vh] overflow-hidden rounded-none sm:rounded-lg">
+          {/* IMMAGINE */}
           <Image
             src="/imgg/imgTradhourss.png"
             alt="Trading hours background"
@@ -35,11 +36,14 @@ export default function TradingHours() {
             priority
             sizes="100vw"
             className="
-              object-cover object-center
-              transform origin-center
-              scale-x-[0.82] sm:scale-x-[0.84] lg:scale-x-[0.86]
-            "
+          object-cover object-center
+          transform origin-center
+          scale-x-[0.82] sm:scale-x-[0.84] lg:scale-x-[0.86]
+        "
           />
+
+          {/* OVERLAY SCURO */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
       </div>
 

@@ -67,30 +67,24 @@ export default function BreakfastBrunchSection() {
               visible ? "is-visible" : "",
             ].join(" ")}
           >
-            {/* 🔴 contenitore rosso */}
-            <div className="absolute inset-0 bg-red-500">
-              {/* ⬇️ bordo rosso FISSO 10px */}
-              <div className="absolute inset-[40px] overflow-hidden">
-                <div
-                  className="absolute inset-0 will-change-transform"
-                  style={{
-                    transform: prefersReducedMotion
-                      ? "translate3d(0,0,0) scale(1.15)"
-                      : `translate3d(0, ${y}px, 0) scale(1.15)`,
-                  }}
-                >
-                  <Image
-                    src="/img/pizzapizza1.png"
-                    alt="Pizza"
-                    fill
-                    priority
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="
-                      object-contain
-                      object-center
-                    "
-                  />
-                </div>
+            {/* ✅ niente rosso: l'immagine copre tutto */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className="absolute inset-0 will-change-transform"
+                style={{
+                  transform: prefersReducedMotion
+                    ? "translate3d(0,0,0) scale(1.15)"
+                    : `translate3d(0, ${y}px, 0) scale(1.15)`,
+                }}
+              >
+                <Image
+                  src="/img/pizzapizza1.png"
+                  alt="Pizza"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
           </div>

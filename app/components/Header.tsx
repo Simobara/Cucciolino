@@ -86,11 +86,9 @@ export default function Header({ variant }: HeaderProps) {
           </div>
 
           {/* NASCOSTO SU /menu */}
-          {pathname !== "/menu" && (
-            <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
-              PIZZA AND GELATO
-            </div>
-          )}
+          <div className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26] tracking-[0.10em] text-2xl leading-none">
+            PIZZA AND GELATO
+          </div>
         </Link>
 
         {/* HAMBURGER (se vuoi tenerlo) */}
