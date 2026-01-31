@@ -63,12 +63,12 @@ export default function Header({ variant }: HeaderProps) {
       <div className="absolute inset-0">
         {pathname === "/menu" ? (
           <>
-            <div className="h-[60%] bg-[#cadcf2]" />
+            <div className="h-[60%] bg-cadcf2-grain" />
             <div className="h-[40%] bg-white" />
           </>
         ) : (
           <>
-            <div className="h-[60%] bg-[#cadcf2]" />
+            <div className="h-[60%] bg-cadcf2-grain" />
             <div className="h-[40%] bg-white" />
           </>
         )}
@@ -135,14 +135,14 @@ export default function Header({ variant }: HeaderProps) {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-[#cadcf2]/40 transition"
+                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-cadcf2-grain/40 transition"
                 >
                   Home
                 </Link>
                 <Link
                   href="/menu"
                   onClick={() => setOpen(false)}
-                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-[#cadcf2]/40 transition"
+                  className="w-full rounded-md border border-[#ef4136]/20 px-4 py-3 text-base font-semibold text-[#ef4136] hover:bg-cadcf2-grain/40 transition"
                 >
                   Menu
                 </Link>

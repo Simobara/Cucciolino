@@ -47,7 +47,7 @@ export default function BreakfastBrunchSection() {
     <section
       ref={sectionRef}
       className={[
-        "bg-[#cadcf2] mt-0 mb-0",
+        "bg-cadcf2-grain mt-0 mb-0",
         // ✅ mobile: niente altezza fissa che taglia
         "h-auto py-8",
         // ✅ desktop: IDENTICO a prima

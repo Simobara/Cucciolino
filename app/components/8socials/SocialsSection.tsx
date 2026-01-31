@@ -66,7 +66,7 @@ export default function SocialsSection({
       </div>
 
       {/* ===== BOTTOM: BARRA BLU ===== */}
-      <div className="bg-[#cadcf2]">
+      <div className="bg-cadcf2-grain">
         <div className="mx-auto w-full py-6">
           <div
             className="

@@ -50,7 +50,7 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-[#cadcf2]"
+      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-cadcf2-grain"
     >
       {/* TITLE ROW */}
       <div

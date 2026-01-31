@@ -64,7 +64,7 @@ export default function LunchDinnerSection() {
     <section
       ref={sectionRef}
       className={[
-        "bg-[#cadcf2]",
+        "bg-cadcf2-grain",
         // ✅ MOBILE: non tagliare con vh fisso
         "h-auto py-8",
         // ✅ DESKTOP: come prima
@@ -95,7 +95,7 @@ export default function LunchDinnerSection() {
                 }}
               >
                 <Image
-                  src="/img/pizzapizza1.png"
+                  src="/img/pizzapizza2.png"
                   alt="Pizza"
                   fill
                   priority
