@@ -63,13 +63,13 @@ export default function Header({ variant }: HeaderProps) {
       <div className="absolute inset-0">
         {pathname === "/menu" ? (
           <>
-            <div className="h-[60%] bg-[#cadcf2]" />
-            <div className="h-[40%] bg-white" />
+            <div className="h-[100%] bg-[#cadcf2]" />
+            {/* <div className="h-[40%] bg-white" /> */}
           </>
         ) : (
           <>
-            <div className="h-[60%] bg-[#cadcf2]" />
-            <div className="h-[40%] bg-white" />
+            <div className="h-[100%] bg-[#cadcf2]" />
+            {/* <div className="h-[40%] bg-white" /> */}
           </>
         )}
       </div>

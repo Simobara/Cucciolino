@@ -16,9 +16,9 @@ export default function HeroPage() {
     "inline-block transition-all duration-[900ms] ease-out motion-reduce:transition-none motion-reduce:transform-none";
 
   return (
-    <section className="relative min-h-[95vh] overflow-hidden bg-white">
+    <section className="relative min-h-[95vh] overflow-hidden bg-white  ">
       {/* ===== IMMAGINE ===== */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 md:top-24 top-24">
         <div className="absolute inset-4 sm:inset-6 md:inset-[40px] overflow-hidden">
           <Image
             src="/heroImg.jpg"
