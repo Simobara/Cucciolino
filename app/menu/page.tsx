@@ -72,11 +72,11 @@ export default function MenuPage() {
                     height={160}
                     priority
                     className="
-    object-contain
-    scale-y-[1.12] sm:scale-y-[1.2]
-    max-md:w-[260px] max-md:h-[95px]
-    -ml-4 md:-ml-17
-  "
+  object-contain
+  scale-y-[1.12] sm:scale-y-[1.2]
+  max-md:w-[260px] max-md:h-[95px]  
+  -ml-18 md:-ml-17
+"
                   />
 
                   <div className="ml-auto pt-6 max-md:pt-1">
@@ -200,8 +200,9 @@ function MenuItem({ title, description, price }: MenuItemProps) {
 
       <p
         className="mt-1 sm:mt-3 font-sofiapro text-[#b42f26]
-        text-lg md:text-[20px] max-md:text-[16px]
-        leading-relaxed max-w-[620px]"
+  text-lg md:text-[20px] max-md:text-[16px]
+  leading-relaxed md:max-w-[620px] max-w-[260px]
+  text-justify"
       >
         {description}
       </p>
