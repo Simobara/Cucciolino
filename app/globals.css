@@ -431,12 +431,12 @@ h6 {
 
   /* GRAIN VISIBILE MA COLORE FEDELE */
   opacity: 0.38;
-  filter: contrast(50.6);
+  filter: contrast(1.6);
   mix-blend-mode: overlay;
 }
 
 /* CONTENUTI SEMPRE SOPRA */
-.bg-cadcf2-grain > * {
+.bg-cadcf2 > * {
   position: relative;
-  z-index: 50;
+  z-index: 2;
 }
