@@ -26,7 +26,7 @@ export default function TradingHours() {
   return (
     <section
       className="
-        relative isolate w-full overflow-hidden
+        relative isolate w-full overflow-hidden bg-white
         mt-4
         min-h-[120vh] md:min-h-[110vh]
         py-12 md:py-16
@@ -34,27 +34,33 @@ export default function TradingHours() {
       "
     >
       {/* ===== BACKGROUND (non deve collassare) ===== */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* inset/padding estetico */}
-        <div className="absolute inset-y-0 inset-x-0 md:inset-4 md:-mx-20">
-          <div className="relative h-full w-full overflow-hidden rounded-none sm:rounded-lg">
-            <Image
-              src="/imgg/imgTradhourss.png"
-              alt="Trading hours background"
-              fill
-              priority
-              sizes="100vw"
+      <div className="absolute inset-0 pointer-events-none m-4 md:m-4 md:-mx-8">
+        {/* cornice bianca */}
+        <div className="relative h-full w-full bg-white rounded-none md:mb-4 sm:rounded-lg  overflow-hidden">
+          {/* contenitore bianco che NON viene scurito */}
+          <div className="relative h-full w-full bg-white overflow-hidden rounded-none sm:rounded-lg">
+            {/* strato scalato: immagine + overlay */}
+            <div
               className="
-        object-cover object-center
-        transform origin-center
-        scale-x-[1] sm:scale-x-[0.84] lg:scale-x-[0.86]
-      "
-            />
+    absolute inset-y-3 md:inset-y-4 inset-x-0
+    origin-center
+    scale-x-[0.82] sm:scale-x-[0.84] lg:scale-x-[0.86]
+  "
+            >
+              <Image
+                src="/imgg/imgTradhourss.png"
+                alt="Trading hours background"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+
+              {/* overlay SOLO sull'immagine */}
+              <div className="absolute inset-0 bg-black/10" />
+            </div>
           </div>
         </div>
-
-        {/* opzionale: leggero overlay per leggibilità */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       </div>
 
       {/* ===== CONTENUTO ===== */}
