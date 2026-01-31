@@ -63,18 +63,23 @@ export default function MenuPage() {
           <div className="bg-[#cfe0f2] relative">
             <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-20 sm:pt-24 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
               <div className="flex flex-col gap-3 sm:gap-4 max-md:gap-2 md:mt-0 pt-8">
-                {/* MENU + CUCCIOLINO */}
+                {/* MENU LOGO + CUCCIOLINO */}
                 <div className="flex items-start w-full">
-                  <h1
-                    className="font-oswald font-bold text-[#ef4136] uppercase -tracking-tighter leading-none
-                    text-[74px] sm:text-[120px] lg:text-[150px]
-                    scale-y-[1.12] sm:scale-y-[1.2]
-                    max-md:text-[58px] max-md:scale-y-[1.08]"
-                  >
-                    MENU
-                  </h1>
+                  <Image
+                    src="/images/menulogo.png"
+                    alt="Menu"
+                    width={460}
+                    height={160}
+                    priority
+                    className="
+    object-contain
+    scale-y-[1.12] sm:scale-y-[1.2]
+    max-md:w-[260px] max-md:h-[95px]
+    -ml-4 md:-ml-17
+  "
+                  />
 
-                  <div className="ml-auto pt-2 max-md:pt-1">
+                  <div className="ml-auto pt-6 max-md:pt-1">
                     <span
                       className="font-couture uppercase font-bold text-[#b42f26] tracking-[0.25em]
                       md:text-4xl text-3xl sm:text-base
@@ -172,9 +177,7 @@ export default function MenuPage() {
 /* =======================
    PIZZA ITEM
 ======================= */
-function MenuItem(props: MenuItemProps) {
-  const { title, description, price } = props;
-
+function MenuItem({ title, description, price }: MenuItemProps) {
   return (
     <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
       <div className="flex items-start justify-between gap-6">
@@ -213,9 +216,7 @@ function MenuItem(props: MenuItemProps) {
 /* =======================
    GELATO ITEM
 ======================= */
-function GelatoItem(props: GelatoItemProps) {
-  const { title } = props;
-
+function GelatoItem({ title }: GelatoItemProps) {
   return (
     <div className="md:py-2 py-5 max-md:py-4">
       <div
