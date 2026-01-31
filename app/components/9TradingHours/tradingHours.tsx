@@ -36,7 +36,7 @@ export default function TradingHours() {
       {/* ===== BACKGROUND (non deve collassare) ===== */}
       <div className="absolute inset-0 pointer-events-none">
         {/* inset/padding estetico */}
-        <div className="absolute md:inset-4 -inset-x-4 md:-mx-20">
+        <div className="absolute inset-y-0 inset-x-0 md:inset-4 md:-mx-20">
           <div className="relative h-full w-full overflow-hidden rounded-none sm:rounded-lg">
             <Image
               src="/imgg/imgTradhourss.png"
@@ -45,16 +45,16 @@ export default function TradingHours() {
               priority
               sizes="100vw"
               className="
-                object-cover object-center
-                transform origin-center
-                scale-x-[0.82] sm:scale-x-[0.84] lg:scale-x-[0.86]
-              "
+        object-cover object-center
+        transform origin-center
+        scale-x-[1] sm:scale-x-[0.84] lg:scale-x-[0.86]
+      "
             />
           </div>
         </div>
 
         {/* opzionale: leggero overlay per leggibilità */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/50" />
       </div>
 
       {/* ===== CONTENUTO ===== */}

@@ -47,7 +47,7 @@ export default function SplashScreen({
       }}
     >
       {/* sfondo brand */}
-      <div className="absolute inset-0 bg-cadcf2-grain" />
+      <div className="absolute inset-0 bg-[#cadcf2]" />
 
       {/* CONTENUTO CENTRALE */}
       <div className="relative z-10 flex flex-col items-center translate-y-40 sm:translate-y-52">

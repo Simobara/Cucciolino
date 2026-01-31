@@ -152,7 +152,7 @@ export default function Home() {
             maintopimage="/images/ourpopularpizza.png"
             maintoptitleAlt="Our popular pizzas"
             titleImgWidth={600}
-            titleImgHeight={200}
+            titleImgHeight={100}
             smallFirstTitle="MARGHERITA"
             smallSecondTitle="GORGONZOLA & RUCOLA"
             smallThirdTitle="CUCCIOLINO"
@@ -196,7 +196,7 @@ export default function Home() {
             maintopimage="/images/whatsonnn.png" // <-- QUESTA è l’immagine
             maintoptitleAlt="What's On"
             titleImgWidth={320}
-            titleImgHeight={100}
+            titleImgHeight={50}
             smallFirstTitle="WEEKEND HAPPY PIZZA"
             smallSecondTitle="CUCCIOLINO MIDDAY BREAK"
             smallThirdTitle="GELATO HAPPY MOMENT"

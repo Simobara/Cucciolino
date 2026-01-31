@@ -394,12 +394,12 @@ h6 {
    ========================================================= */
 /* =========================================================
    #cadcf2 + GRAIN VISIBILE (NO SVG, FUNZIONA SICURO)
-   usa: className="bg-cadcf2-grain"
+   usa: className="bg-[#cadcf2]"
    ========================================================= */
 
 /* =========================================================
    #cadcf2 + GRAIN VISIBILE (NO SVG, FUNZIONA SICURO)
-   usa: className="bg-cadcf2-grain"
+   usa: className="bg-[#cadcf2]"
    ========================================================= */
 /* =========================================================
    AZZURRO CUCCIOLINO (#cadcf2) + GRAIN FINE PUNTINATO
@@ -408,35 +408,34 @@ h6 {
    - applicata ovunque usi .bg-cadcf2
    ========================================================= */
 
-/* COLORE BASE */
-.bg-cadcf2-grain {
+/* COLORE BASE .bg-[#cadcf2] {
   position: relative;
   background-color: #cadcf2;
   overflow: hidden;
 }
 
-/* GRAIN */
-.bg-cadcf2-grain::after {
+/* GRAIN 
+.bg-[#cadcf2]::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 1;
 
-  /* Noise fine, monocromatico, puntinato */
+  /* Noise fine, monocromatico, puntinato 
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27100%27%20height%3D%27100%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%271.8%27%20numOctaves%3D%271%27%20seed%3D%271%27/%3E%3CfeColorMatrix%20type%3D%27saturate%27%20values%3D%270%27/%3E%3C/filter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url(%23n)%27/%3E%3C/svg%3E");
 
   background-repeat: repeat;
   background-size: 70px 70px;
 
-  /* GRAIN VISIBILE MA COLORE FEDELE */
+  /* GRAIN VISIBILE MA COLORE FEDELE *
   opacity: 0.38;
   filter: contrast(1.6);
   mix-blend-mode: overlay;
 }
 
-/* CONTENUTI SEMPRE SOPRA */
-.bg-cadcf2-grain > * {
+/* CONTENUTI SEMPRE SOPRA 
+.bg-[#cadcf2] > * {
   position: relative;
   z-index: 2;
-}
+} */

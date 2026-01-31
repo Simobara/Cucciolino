@@ -64,7 +64,7 @@ export default function LunchDinnerSection() {
     <section
       ref={sectionRef}
       className={[
-        "bg-cadcf2-grain",
+        "bg-[#cadcf2]",
         // ✅ MOBILE: non tagliare con vh fisso
         "h-auto py-8",
         // ✅ DESKTOP: come prima

@@ -6,9 +6,9 @@ export default function WhatsOnSection({
   maintoptitle,
   maintopimage,
   maintoptitleAlt,
-  titleImgWidth = 600,
-  titleImgHeight = 200,
-  titleImgClassName = "",
+  titleImgWidth,
+  titleImgHeight,
+  titleImgClassName,
   smallFirstTitle,
   smallSecondTitle,
   smallThirdTitle,
@@ -50,7 +50,7 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-4 sm:px-6 lg:px-10 pt-25 scroll-mt-14 bg-cadcf2-grain"
+      className="mx-auto px-4 sm:px-6 lg:px-10 pt-15 scroll-mt-14 bg-[#cadcf2]"
     >
       {/* TITLE ROW */}
       <div
@@ -58,19 +58,23 @@ export default function WhatsOnSection({
           flex flex-col md:flex-row
           md:items-end md:justify-between
           gap-4 sm:gap-6
-          pb-8 sm:pb-12 md:pb-28
+          pb-8 sm:pb-12 md:pb-18
           md:ml-32 ml-0
         "
       >
         {hasTitleImage ? (
-          <Image
-            src={maintopimage}
-            alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
-            width={titleImgWidth}
-            height={titleImgHeight}
-            priority
-            className={`w-auto max-w-full h-auto ${titleImgClassName}`}
-          />
+          <div
+            className={`relative w-full max-w-[600px] h-[140px] sm:h-[180px] md:h-[240px] ${titleImgClassName ?? ""}`}
+          >
+            <Image
+              src={maintopimage}
+              alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
+              fill
+              priority
+              sizes="(max-width: 768px) 90vw, 600px"
+              className="object-contain"
+            />
+          </div>
         ) : (
           <h2
             className="
