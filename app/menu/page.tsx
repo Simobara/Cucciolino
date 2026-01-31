@@ -92,7 +92,7 @@ export default function MenuPage() {
 
                 {/* sottotitolo */}
                 <div
-                  className="font-oswald font-bold text-[#b42f26] leading-tight
+                  className="font-oswald font-bold text-[#7983c0] leading-tight
                   md:text-5xl text-xl pb-6
                   max-md:text-[18px] max-md:pb-4"
                 >
