@@ -182,7 +182,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
     <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
       <div className="flex items-start justify-between gap-6">
         <h3
-          className="font-sofiapro font-bold uppercase text-[#ef4136] leading-[0.95]
+          className="font-sofiapro font-normal uppercase text-[#ef4136] leading-[0.95]
           text-[42px] sm:text-[56px] lg:text-[64px]
           max-md:text-[34px] max-w-[75%]"
         >
@@ -221,7 +221,7 @@ function GelatoItem({ title }: GelatoItemProps) {
   return (
     <div className="md:py-2 py-5 max-md:py-4">
       <div
-        className="font-sofcuccioapro font-bold uppercase text-[#ef4136]
+        className="font-sofiapro font-normal  uppercase text-[#ef4136]
         text-[44px] md:text-[65px] max-md:text-[34px]
         leading-none -tracking-tight"
       >
