@@ -202,7 +202,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
         <div
           className="font-sofiapro font-bold text-[#ef4136]
   text-[28px] sm:text-[34px] lg:text-[38px] max-md:text-[24px]
-  whitespace-nowrap pt-0 sm:pt-0 max-md:pt-0"
+  whitespace-nowrap leading-none"
         >
           {price}
         </div>
