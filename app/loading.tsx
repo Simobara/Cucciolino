@@ -3,7 +3,7 @@
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#76aad8]">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#76aad8]">
       {/* Contenitore centrale */}
       <div className="relative flex flex-col items-center translate-y-18 sm:translate-y-24">
         {/* Logo (sopra) */}

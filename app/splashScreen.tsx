@@ -37,7 +37,7 @@ export default function SplashScreen({
   return (
     <div
       className={[
-        "fixed inset-0 z-9999 flex items-center justify-center",
+        "fixed inset-0 z-[9999] flex items-center justify-center",
         "transition-opacity",
         phase === "fade" ? "opacity-0" : "opacity-100",
       ].join(" ")}

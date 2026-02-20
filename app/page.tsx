@@ -95,7 +95,8 @@ export default function Home() {
     setReady(true);
   };
 
-  if (!hasCheckedSplash) return null;
+  // ✅ evita il flash di Header/Footer mentre controlli sessionStorage
+  if (!hasCheckedSplash) return <SplashScreen infinite />; // oppure <Loading />
 
   return MAINTENANCE_MODE ? (
     <SplashScreen infinite />
