@@ -46,8 +46,18 @@ export default function SplashScreen({
         backgroundColor: "#000",
       }}
     >
-      {/* sfondo brand */}
-      <div className="absolute inset-0 bg-[#cadcf2]" />
+      {/* sfondo brand (pattern meno luminoso) */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+            url('/iconsss/picsAzzurra2.png')
+          `,
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
+        }}
+      />
 
       {/* CONTENUTO CENTRALE */}
       <div className="relative z-10 flex flex-col items-center translate-y-40 sm:translate-y-52">

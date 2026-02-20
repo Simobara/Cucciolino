@@ -152,13 +152,14 @@ export default function LunchDinnerSection() {
                 className="
                 mt-6 md:mt-10
                 text-[#2e3192]
-                font-medium
+                font-sofiapro
                 leading-tight
                 text-lg sm:text-xl md:text-2xl
                 max-w-[320px]
                 sm:max-w-105
                 md:max-w-200
-              "
+                "
+                // font-medium
               >
                 Get the best tasty <br />
                 food experience <br />

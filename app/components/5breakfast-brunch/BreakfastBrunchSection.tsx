@@ -122,7 +122,11 @@ export default function BreakfastBrunchSection() {
                 SPECIALS
               </h2>
 
-              <p className="mt-6 md:mt-10 text-[#2e3192] font-sofiapro leading-tight text-lg sm:text-xl md:text-xl max-w-[320px] sm:max-w-105">
+              <p
+                className="mt-6 md:mt-10 text-[#2e3192] font-sofiapro 
+              leading-tight text-lg sm:text-xl md:text-2xl max-w-[320px] sm:max-w-105  md:max-w-200"
+              >
+                {/* font-medium  */}
                 Transport yourself to the <br />
                 sun-kissed shores of <br />
                 the Mediterranean <br />

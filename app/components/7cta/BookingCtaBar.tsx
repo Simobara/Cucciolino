@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MembershipCtaBar({
   eyebrow = "MEMBERSHIP",
   title = "BECOME PART OF THE CUCCIOLINO COMMUNITY",
-  subtitle = "Get a discount every time we visit us",
+  subtitle = "Get a discount every time you visit us",
   buttonLabel = "Join Us",
   href = "/membership",
 }: {
@@ -20,7 +20,7 @@ export default function MembershipCtaBar({
           mx-auto max-w-7xl
           px-4 sm:px-6 lg:px-8
           py-10 md:py-10
-          md:ml-50
+          md:ml-40 ml-0
         "
       >
         <div className="flex flex-col gap-6 lg:flex-row">
@@ -31,14 +31,14 @@ export default function MembershipCtaBar({
             </span>
 
             {/* H2 + CTA */}
-            <div className="flex flex-col md:flex-row md:items-center md:gap-6">
+            <div className="flex flex-col md:flex-row md:items-center items-start md:gap-6">
               <h2
                 className="
                   text-white font-oswald font-bold uppercase
                   leading-[1.05]
                   text-2xl sm:text-3xl md:text-[3rem]
                   md:scale-y-[1.25]
-                  md:mr-20
+                  md:ml-0 ml-0
                 "
               >
                 {title}
@@ -47,20 +47,21 @@ export default function MembershipCtaBar({
               <Link
                 href={href}
                 className="
-                  mt-5 md:mt-0
-                  inline-flex items-center justify-center
-                  rounded-md
-                  border-4 border-white
-                  text-white
-                  px-6 sm:px-10 md:px-12
-                  py-3 md:py-2
-                  font-sofiapro
-                  text-xl sm:text-2xl md:text-3xl
-                  hover:bg-white hover:text-[#ef4136]
-                  transition
-                  whitespace-nowrap
-                  w-full sm:w-auto
-                "
+    mt-5 md:mt-0
+    flex items-center justify-center
+    rounded-md
+    border-4 border-white
+    text-white
+    px-6 sm:px-10 md:px-12
+    py-3 md:py-2
+    font-sofiapro
+    text-xl sm:text-2xl md:text-3xl
+    hover:bg-white hover:text-[#ef4136]
+    transition
+    w-[72%]      /* 👈 CAMBIA QUESTO NUMERO */
+    mr-auto      /* ✅ attaccato a sinistra su mobile */
+    md:w-auto
+  "
               >
                 {buttonLabel}
               </Link>

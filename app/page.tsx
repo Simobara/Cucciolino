@@ -212,6 +212,7 @@ export default function Home() {
             image4="/iconss/pizza8.png"
           />
           {/* MEMBERSHIP */}
+          
           <BookingCtaBar />
           {/* SOCIAL SECTIONS */}
           <SocialsSection />
