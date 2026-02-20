@@ -190,7 +190,7 @@ export default function MenuPage() {
 function MenuItem({ title, description, price }: MenuItemProps) {
   return (
     <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
-      <div className="flex items-start justify-between gap-6">
+      <div className="flex items-baseline justify-between gap-6">
         <h3
           className="font-sofiapro font-normal uppercase text-[#ef4136] leading-[0.95]
           text-[42px] sm:text-[56px] lg:text-[64px]
