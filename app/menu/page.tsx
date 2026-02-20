@@ -60,7 +60,17 @@ export default function MenuPage() {
 
       <main className="p-0 m-0 overflow-hidden">
         <section className="w-full">
-          <div className="bg-[#cfe0f2] relative">
+          <div
+            className="relative"
+            style={{
+              backgroundImage: `
+      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+      url('/iconsss/picsAzzurra2.png')
+    `,
+              backgroundRepeat: "repeat",
+              backgroundSize: "auto",
+            }}
+          >
             <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-20 sm:pt-24 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
               <div className="flex flex-col gap-3 sm:gap-4 max-md:gap-2 md:mt-0 pt-8">
                 {/* MENU LOGO + CUCCIOLINO */}
@@ -191,8 +201,8 @@ function MenuItem({ title, description, price }: MenuItemProps) {
 
         <div
           className="font-sofiapro font-bold text-[#ef4136]
-          text-xl sm:text-2xl max-md:text-[18px]
-          whitespace-nowrap pt-1 sm:pt-3 max-md:pt-1"
+  text-[28px] sm:text-[34px] lg:text-[38px] max-md:text-[24px]
+  whitespace-nowrap pt-0 sm:pt-0 max-md:pt-0"
         >
           {price}
         </div>

@@ -65,8 +65,17 @@ export default function SocialsSection({
         ))}
       </div>
 
-      {/* ===== BOTTOM: BARRA BLU ===== */}
-      <div className="bg-[#cadcf2]">
+      {/* ===== BOTTOM: BARRA PATTERN ===== */}
+      <div
+        style={{
+          backgroundImage: `
+      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+      url('/iconsss/picsAzzurra2.png')
+    `,
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
+        }}
+      >
         <div className="mx-auto w-full py-6">
           <div
             className="

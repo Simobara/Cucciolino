@@ -46,13 +46,15 @@ export default function BreakfastBrunchSection() {
   return (
     <section
       ref={sectionRef}
-      className={[
-        "bg-[#cadcf2] mt-0 mb-0",
-        // ✅ mobile: niente altezza fissa che taglia
-        "h-auto py-8",
-        // ✅ desktop: IDENTICO a prima
-        "md:h-[50vh] md:py-0",
-      ].join(" ")}
+      className={["mt-0 mb-0", "h-auto py-8", "md:h-[50vh] md:py-0"].join(" ")}
+      style={{
+        backgroundImage: `
+      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+      url('/iconsss/picsAzzurra2.png')
+    `,
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+      }}
     >
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">

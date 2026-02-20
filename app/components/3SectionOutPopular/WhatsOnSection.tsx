@@ -50,7 +50,15 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-4 sm:px-6 lg:px-10 pt-15 scroll-mt-14 bg-[#cadcf2]"
+      className="mx-auto px-4 sm:px-6 lg:px-10 pt-15 scroll-mt-14"
+      style={{
+        backgroundImage: `
+      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+      url('/iconsss/picsAzzurra2.png')
+    `,
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+      }}
     >
       {/* TITLE ROW */}
       <div

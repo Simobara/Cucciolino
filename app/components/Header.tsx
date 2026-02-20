@@ -60,18 +60,19 @@ export default function Header({ variant }: HeaderProps) {
       }`}
     >
       {/* BACKGROUND: azzurro 60/40 (menu = 70/30) */}
+      {/* BACKGROUND con immagine pattern meno luminosa */}
       <div className="absolute inset-0">
-        {pathname === "/menu" ? (
-          <>
-            <div className="h-[100%] bg-[#cadcf2]" />
-            {/* <div className="h-[40%] bg-white" /> */}
-          </>
-        ) : (
-          <>
-            <div className="h-[100%] bg-[#cadcf2]" />
-            {/* <div className="h-[40%] bg-white" /> */}
-          </>
-        )}
+        <div
+          className="h-[100%]"
+          style={{
+            backgroundImage: `
+        linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+        url('/iconsss/picsAzzurra2.png')
+      `,
+            backgroundRepeat: "repeat",
+            backgroundSize: "auto",
+          }}
+        />
       </div>
 
       <nav className="relative mx-auto w-full px-6 py-5 h-[92px]">

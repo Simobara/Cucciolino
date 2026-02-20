@@ -3,7 +3,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative z-50 isolate bg-[#cadcf2] text-[#b42f26]">
+    <footer
+      className="relative z-50 isolate text-[#b42f26]"
+      style={{
+        backgroundImage: `
+      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+      url('/iconsss/picsAzzurra2.png')
+    `,
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+      }}
+    >
       {/* TOP */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-24 items-start">
@@ -11,7 +21,7 @@ export default function Footer() {
           <div className="flex justify-center lg:justify-start">
             <div className="relative w-44 h-44 sm:w-52 sm:h-52 lg:w-60 lg:h-60">
               <Image
-                src="/logocucc1.png"
+                src="/logocucc1x.png"
                 alt="Cucciolino Pizza & Gelato logo"
                 fill
                 sizes="(max-width: 640px) 176px, (max-width: 1024px) 208px, 240px"
