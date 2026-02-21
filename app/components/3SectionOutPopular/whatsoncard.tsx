@@ -53,7 +53,7 @@ export default function WhatsOnCard({
       <div
         className={`
           mt-5 sm:mt-8 md:mt-16
-          mb-8 sm:mb-10 md:mb-12
+          mb-4 sm:mb-5 md:mb-6
           text-start items-start
           transition-all duration-200 ease-out
           ${textsVisible ? "translate-y-0 opacity-100" : "opacity-0 translate-y-2"}

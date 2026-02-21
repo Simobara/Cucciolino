@@ -18,8 +18,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-24 items-start">
           {/* LOGO */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 lg:w-60 lg:h-60">
+          <div className="flex items-start justify-center lg:justify-start">
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 lg:w-60 lg:h-60 self-start lg:-mt-5">
               <Image
                 src="/logocucc1x.png"
                 alt="Cucciolino Pizza & Gelato logo"
@@ -30,7 +30,6 @@ export default function Footer() {
               />
             </div>
           </div>
-
           {/* INFO: 2 COLONNE SU MOBILE, 1 COLONNA SU LG (per restare coerente col grid a 3) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-2 lg:gap-16">
             {/* LOCATION */}
@@ -73,48 +72,42 @@ export default function Footer() {
 
       {/* BOTTOM */}
       <div className="border-t border-[#b42f26]">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-8 font-montserrat">
-          <div className="flex flex-col items-center gap-4 text-center">
-            {/* privacy + copyright */}
-            <div className="flex flex-col items-center gap-4 text-center">
-              <Link
-                href="/privacy-policy"
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 py-4 font-montserrat">
+          <div className="flex flex-col items-center text-center space-y-1 leading-tight">
+            <Link
+              href="/privacy-policy"
+              className="underline underline-offset-4"
+            >
+              Privacy Policy
+            </Link>
+
+            <p suppressHydrationWarning>
+              © {new Date().getFullYear()} Cucciolino Pizza &amp; Gelato
+            </p>
+
+            <p className="text-[#2e3192] text-sm font-sofiapro">
+              Design by{" "}
+              <a
+                href="https://davidecolosio.myportfolio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-4"
               >
-                Privacy Policy
-              </Link>
+                Davide Colosio
+              </a>
+            </p>
 
-              <p suppressHydrationWarning>
-                © {new Date().getFullYear()} Cucciolino Pizza &amp; Gelato
-              </p>
-            </div>
-
-            {/* credits */}
-            <div className="flex flex-col items-center gap-2 text-sm font-sofiapro text-center">
-              <p className="text-[#2e3192]">
-                Design by{" "}
-                <a
-                  href="https://davidecolosio.myportfolio.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  Davide Colosio
-                </a>
-              </p>
-
-              <p className="text-[#2e3192]">
-                Developed by{" "}
-                <a
-                  href="https://simobaraofficial.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  Simone Baravelli
-                </a>
-              </p>
-            </div>
+            <p className="text-[#2e3192] text-sm font-sofiapro">
+              Develop{" "}
+              <a
+                href="https://simobaraofficial.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4"
+              >
+                Simone Baravelli
+              </a>
+            </p>
           </div>
         </div>
       </div>

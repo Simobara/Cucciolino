@@ -166,6 +166,7 @@ export default function Home() {
             image2="/iconss/pizza2.png"
             image3="/iconss/pizza3.png"
             image4="/iconss/pizza4.png"
+            bottomPaddingClassName="pb-4 sm:pb-5 md:pb-6"
           />
 
           <section className="">
@@ -210,9 +211,10 @@ export default function Home() {
             image2="/iconss/pizza6.png"
             image3="/iconss/pizza7.png"
             image4="/iconss/pizza8.png"
+            bottomPaddingClassName="pb-4 sm:pb-5 md:pb-6"
           />
           {/* MEMBERSHIP */}
-          
+
           <BookingCtaBar />
           {/* SOCIAL SECTIONS */}
           <SocialsSection />

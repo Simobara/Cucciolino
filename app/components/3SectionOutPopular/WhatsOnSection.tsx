@@ -21,6 +21,7 @@ export default function WhatsOnSection({
   image2,
   image3,
   image4,
+  bottomPaddingClassName,
 }: {
   maintoptitle: string;
   maintopimage?: string;
@@ -43,6 +44,7 @@ export default function WhatsOnSection({
   image2: string;
   image3: string;
   image4: string;
+  bottomPaddingClassName?: string;
 }) {
   const hasTitleImage =
     typeof maintopimage === "string" && maintopimage.startsWith("/");
@@ -50,7 +52,10 @@ export default function WhatsOnSection({
   return (
     <section
       id="events"
-      className="mx-auto px-4 sm:px-6 lg:px-10 pt-15 scroll-mt-14"
+      className={[
+        "mx-auto px-4 sm:px-6 lg:px-10 pt-20 sm:pt-24 md:pt-28 scroll-mt-14",
+        bottomPaddingClassName ?? "pb-8 sm:pb-10 md:pb-12",
+      ].join(" ")}
       style={{
         backgroundImage: `
       linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
@@ -66,13 +71,13 @@ export default function WhatsOnSection({
           flex flex-col md:flex-row
           md:items-end md:justify-between
           gap-4 sm:gap-6
-          pb-8 sm:pb-12 md:pb-18
+          pb-4 sm:pb-6 md:pb-9
           md:ml-32 ml-0
         "
       >
         {hasTitleImage ? (
           <div
-            className={`relative w-full max-w-[600px] h-[140px] sm:h-[180px] md:h-[240px] ${titleImgClassName ?? ""}`}
+            className={`relative w-full max-w-[600px] h-[95px] sm:h-[120px] md:h-[150px] ${titleImgClassName ?? ""}`}
           >
             <Image
               src={maintopimage}

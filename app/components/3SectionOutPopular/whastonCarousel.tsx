@@ -159,7 +159,7 @@ export default function WhatsOnCarousel({
           justify-start lg:justify-around
           snap-x snap-mandatory
           [scroll-snap-stop:always]
-          scroll-px-4 sm:scroll-px-6
+          scroll-px-2 sm:scroll-px-6
           overscroll-x-contain
           pb-4
           [-ms-overflow-style:none]
