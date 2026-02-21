@@ -60,6 +60,9 @@ export default function MenuPage() {
 
       <main className="p-0 m-0 overflow-hidden">
         <section className="w-full">
+          {/* FASCIA BIANCA SUPERIORE */}
+          <div className="w-full bg-white h-24 sm:h-24 md:h-34" />
+
           <div
             className="relative"
             style={{
@@ -71,10 +74,10 @@ export default function MenuPage() {
               backgroundSize: "auto",
             }}
           >
-            <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-20 sm:pt-24 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
-              <div className="flex flex-col gap-3 sm:gap-4 max-md:gap-2 md:mt-0 pt-8">
+            <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-10 sm:pt-14 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
+              <div className="flex flex-col gap-0 md:mt-0 pt-0">
                 {/* MENU LOGO + CUCCIOLINO */}
-                <div className="flex items-start w-full">
+                <div className="flex items-start w-full mt-6 sm:mt-8 md:mt-10">
                   <Image
                     src="/images/menulogo.png"
                     alt="Menu"
@@ -91,8 +94,8 @@ export default function MenuPage() {
 
                   <div className="ml-auto pt-6 max-md:pt-1">
                     <span
-                      className="font-couture uppercase font-bold text-[#b42f26] tracking-[0.25em]
-                      md:text-4xl text-3xl sm:text-base
+                      className="font-couture uppercase font-bold text-[#b42f26] tracking-[0]
+                      md:text-5xl text-4xl sm:text-base
                       max-md:text-[14px] max-md:tracking-[0.2em]"
                     >
                       CUCCIOLINO
@@ -102,9 +105,10 @@ export default function MenuPage() {
 
                 {/* sottotitolo */}
                 <div
-                  className="font-oswald font-bold text-[#7983c0] leading-tight
-                  md:text-5xl text-xl pb-6
-                  max-md:text-[18px] max-md:pb-4"
+                  className="font-oswald font-black text-[#7983c0] leading-tight
+  md:text-5xl text-5xl pb-6
+  max-md:text-[18px] max-md:pb-4
+  -mt-4 sm:-mt-6"
                 >
                   <div>Pizza All Day</div>
                   <div>Gelato For Every Moment</div>
@@ -128,16 +132,16 @@ export default function MenuPage() {
               {/* ===== GELATO ===== */}
               <section>
                 <h2
-                  className="font-oswald font-bold text-[#b42f26]
-                  text-2xl md:text-5xl
-                  mb-6 md:mb-14 md:mt-10 mt-10
-                  max-md:text-[24px] max-md:mb-6"
+                  className="font-oswald font-black text-[#7983c0] leading-tight
+  md:text-5xl text-5xl pb-6
+  max-md:text-[18px] max-md:pb-4
+  -mt-4 sm:-mt-6"
                 >
                   Our Gelato flavours
                 </h2>
 
                 <div
-                  className={`border-t-4 border-white mb-4 ${LINE_OFFSET}`}
+                  className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
                 />
 
                 {gelatos.map((g) => (
@@ -190,7 +194,7 @@ export default function MenuPage() {
 function MenuItem({ title, description, price }: MenuItemProps) {
   return (
     <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
-      <div className="flex items-baseline justify-between gap-6">
+      <div className="flex items-start justify-between gap-6">
         <h3
           className="font-sofiapro font-normal uppercase text-[#ef4136] leading-[0.95]
           text-[42px] sm:text-[56px] lg:text-[64px]
@@ -200,18 +204,18 @@ function MenuItem({ title, description, price }: MenuItemProps) {
         </h3>
 
         <div
-          className="font-sofiapro font-bold text-[#ef4136]
-  text-[28px] sm:text-[34px] lg:text-[38px] max-md:text-[24px]
-  whitespace-nowrap leading-none"
+          className="font-sofiapro font-black text-[#ef4136]
+  text-[20px] sm:text-[24px] lg:text-[30px] max-md:text-[20px]
+  whitespace-nowrap leading-none md:-mt-2 -mt-1"
         >
           {price}
         </div>
       </div>
 
       <p
-        className="mt-1 sm:mt-3 font-sofiapro text-[#b42f26]
-  text-lg md:text-[20px] max-md:text-[16px]
-  leading-relaxed md:max-w-[620px] max-w-[260px]
+        className="-mt-1 sm:-mt-2 font-sofiapro font-black text-[#b42f26]
+  text-lg md:text-[20px] max-md:text-[16px] md:pl-1 pl-1
+  leading-snug md:max-w-[620px] max-w-[260px]
   text-justify"
       >
         {description}
@@ -229,7 +233,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
 ======================= */
 function GelatoItem({ title }: GelatoItemProps) {
   return (
-    <div className="md:py-2 py-5 max-md:py-4">
+    <div className="md:py-6 py-6 max-md:py-5">
       <div
         className="font-sofiapro font-normal  uppercase text-[#ef4136]
         text-[44px] md:text-[65px] max-md:text-[34px]

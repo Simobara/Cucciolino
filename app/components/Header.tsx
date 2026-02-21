@@ -85,12 +85,26 @@ export default function Header({ variant }: HeaderProps) {
               onClick={() => setOpen(false)}
               className="block text-center"
             >
-              <div className="font-oswald uppercase text-[#b42f26] tracking-[0.11em] text-3xl sm:text-4xl leading-none font-sofiapro font-bold">
+              <div
+                className="
+    font-couture uppercase font-bold text-[#b42f26]
+    tracking-[0.18em] md:tracking-[0.04em]
+    md:text-4xl text-3xl sm:text-base
+    max-md:text-[14px] max-md:tracking-[0.24em]
+  "
+              >
                 CUCCIOLINO
               </div>
+
               <div
-                className="mt-1 font-sofiapro font-bold uppercase text-[#b42f26]
-  tracking-[0.06em] text-[18px] sm:tracking-[0.10em] sm:text-2xl leading-none"
+                className="
+      font-couture uppercase font-bold text-[#b42f26]
+      tracking-[0]
+      md:text-2xl text-xl
+      max-md:text-[12px] max-md:tracking-[0.2em]
+      leading-none
+      mt-1
+    "
               >
                 PIZZA AND GELATO
               </div>
