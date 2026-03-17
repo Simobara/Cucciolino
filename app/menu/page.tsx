@@ -344,7 +344,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
   text-[24px] md:text-[18px] 
-  md:-mt-14 -mt-12 pt-0 pb-10 leading-none"
+  md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   The classics that started it all.
                 </h2>
