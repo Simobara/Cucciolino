@@ -167,7 +167,7 @@ export default function MenuPage() {
       <main className="p-0 m-0 overflow-hidden">
         <section className="w-full">
           {/* FASCIA BIANCA SUPERIORE */}
-          <div className="w-full bg-white h-24 sm:h-24 md:h-34" />
+          <div className="w-full bg-white max-md:h-32 sm:h-24 md:h-34" />
 
           <div
             className="relative"
@@ -211,7 +211,7 @@ export default function MenuPage() {
     leading-none
     text-[110px] sm:text-[140px] md:text-[180px]
     scale-y-[1.2]
-    ml-2 md:-ml-2
+    ml-0 md:-ml-2
   "
                   >
                     MENU
@@ -232,7 +232,7 @@ export default function MenuPage() {
                 <div
                   className="font-oswald font-black text-[#7983c0] leading-tight
   md:text-5xl text-5xl pb-6
-  max-md:text-[18px] max-md:pb-4
+  max-md:text-[26px] max-md:pb-4
   mt-4 sm:mt-6"
                 >
                   <div>Pizza All Day</div>
@@ -249,7 +249,7 @@ export default function MenuPage() {
                 <div className="grid grid-cols-2 gap-6 items-start">
                   {/* LEFT */}
                   <div>
-                    <div className="mb-4 flex justify-start md:-ml-6 -ml-8">
+                    <div className="mb-4 flex justify-start md:-ml-6 -ml-7">
                       <Image
                         src="/imag/menu2.png"
                         alt="Slice menu"
@@ -277,26 +277,26 @@ export default function MenuPage() {
                   </div>
 
                   {/* RIGHT */}
-                  <div className="flex flex-col gap-4 mt-8 md:mt-12">
+                  <div className="flex flex-col gap-3 mt-6 md:mt-12 max-md:mt-4">
                     <div>
                       <div className="flex justify-between items-center">
                         <div
                           className="font-sofiapro font-black uppercase text-[#ef4136]
-text-[28px] md:text-[38px] max-md:text-[22px] leading-none"
+text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
                         >
                           SLICE & DRINK
                         </div>
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
+text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
                           10,5
                         </div>
                       </div>
 
                       <div
-                        className={`mt-2 border-b-4 border-white ${LINE_OFFSET}`}
+                        className={`mt-2 max-md:mt-1 border-b-4 border-white ${LINE_OFFSET}`}
                       />
                     </div>
 
@@ -304,14 +304,14 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                       <div className="flex justify-between items-center">
                         <div
                           className="font-sofiapro font-black uppercase text-[#ef4136]
-text-[28px] md:text-[38px] max-md:text-[22px] leading-none"
+text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
                         >
                           SLICE & GELATO
                         </div>
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
+text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
                           13
                         </div>
@@ -392,8 +392,8 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[22px] md:text-[18px] 
-  md:-mt-14 -mt-12 pt-0 pb-10 leading-none"
+  text-[24px] md:text-[18px] 
+  md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   Crafted with care, topped with passion.
                 </h2>
@@ -437,7 +437,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[22px] md:text-[18px] 
+  text-[24px] md:text-[18px] 
   -mt-14 pt-0 pb-10 leading-none"
                 >
                   Pure ingredients, pure joy.
@@ -507,7 +507,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[22px] md:text-[18px] 
+  text-[24px] md:text-[18px] 
   -mt-13 pt-0 pb-10 leading-none"
                 >
                   Good things come in great combs.
