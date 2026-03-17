@@ -249,13 +249,13 @@ export default function MenuPage() {
                 <div className="grid grid-cols-2 gap-6 items-start">
                   {/* LEFT */}
                   <div>
-                    <div className="mb-4 flex justify-start -ml-6">
+                    <div className="mb-4 flex justify-start md:-ml-6 -ml-8">
                       <Image
                         src="/imag/menu2.png"
                         alt="Slice menu"
                         width={700}
                         height={250}
-                        className="object-contain w-[90%] md:w-[500px]"
+                        className="object-contain max-md:scale-y-[1.0] max-md:w-[120%] max-md:ml-4 w-[90%] md:w-[500px]"
                       />
                     </div>
 
@@ -335,7 +335,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                       src="/imag/menu2222.png"
                       alt="Slice menu"
                       fill
-                      className="object-contain scale-[1.2]"
+                      className="object-contain max-md:scale-[0.9] md:scale-[1.2]"
                     />
                   </div>
                 </div>
@@ -343,8 +343,8 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  max-md:text-[18px]
-  -mt-14 pt-0 pb-10 leading-none"
+  text-[24px] md:text-[18px] 
+  md:-mt-14 -mt-12 pt-0 pb-10 leading-none"
                 >
                   The classics that started it all.
                 </h2>
@@ -363,7 +363,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                       <div className="mt-1 mb-0">
                         <div
                           className="font-oswald font-black text-[#7983c0]
-  text-[22px] md:text-[32px] max-md:text-[18px]
+  text-[24px] md:text-[32px]
   leading-none tracking-tight mb-18"
                         >
                           Gluten free base 5
@@ -378,13 +378,13 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
               </section>
               <section className="mt-8 sm:mt-10 max-md:mt-6">
                 {/* IMAGE */}
-                <div className="flex justify-start -ml-8 md:ml-15">
+                <div className="flex justify-start -ml-9 md:ml-15">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
                       src="/imag/menu3.png"
                       alt="Slice menu"
                       fill
-                      className="object-contain scale-[1.3]"
+                      className="object-contain max-md:scale-[0.9] md:scale-[1.3]"
                     />
                   </div>
                 </div>
@@ -392,8 +392,8 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  max-md:text-[18px]
-  -mt-14 pt-0 pb-10 leading-none"
+  text-[22px] md:text-[18px] 
+  md:-mt-14 -mt-12 pt-0 pb-10 leading-none"
                 >
                   Crafted with care, topped with passion.
                 </h2>
@@ -409,7 +409,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <div className="mt-1 mb-0">
                   <div
                     className="font-oswald font-black text-[#7983c0]
-  text-[22px] md:text-[32px] max-md:text-[18px]
+  text-[24px] md:text-[32px] 
   leading-none tracking-tight mb-18"
                   >
                     Gluten free base 5
@@ -423,13 +423,13 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
               <section>
                 {/* IMAGE */}
 
-                <div className="flex justify-start -ml-8 md:-ml-10">
+                <div className="flex justify-start -ml-4 md:-ml-10">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
                       src="/imag/menu4444.png"
                       alt="Slice menu"
                       fill
-                      className="object-contain scale-[0.95]"
+                      className="object-contain max-md:scale-y-[0.7] md:scale-[0.95]"
                     />
                   </div>
                 </div>
@@ -437,8 +437,8 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  max-md:text-[18px]
-  -mt-12 pt-0 pb-10 leading-none"
+  text-[22px] md:text-[18px] 
+  -mt-14 pt-0 pb-10 leading-none"
                 >
                   Pure ingredients, pure joy.
                 </h2>
@@ -493,13 +493,13 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
               {/* ===== COMBOS ===== */}
               <section className="mt-10 sm:mt-12 max-md:mt-8">
                 {/* IMAGE */}
-                <div className="flex justify-start -ml-8 md:ml-4">
+                <div className="flex justify-start md:ml-6 -ml-2">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
                       src="/imag/menu5.png"
                       alt="Slice menu"
                       fill
-                      className="object-contain scale-[1.1]"
+                      className="object-contain max-md:scale-y-[1.0] md:scale-[0.95]"
                     />
                   </div>
                 </div>
@@ -507,7 +507,7 @@ text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  max-md:text-[18px]
+  text-[22px] md:text-[18px] 
   -mt-13 pt-0 pb-10 leading-none"
                 >
                   Good things come in great combs.

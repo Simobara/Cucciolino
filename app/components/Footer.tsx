@@ -80,6 +80,12 @@ export default function Footer() {
             >
               Privacy Policy
             </Link>
+            <Link
+              href="/terms-conditions"
+              className="underline underline-offset-4"
+            >
+              Terms & Conditions
+            </Link>
 
             <p suppressHydrationWarning>
               © {new Date().getFullYear()} Cucciolino Pizza &amp; Gelato
