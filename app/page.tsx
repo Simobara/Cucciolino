@@ -158,10 +158,10 @@ export default function Home() {
             smallSecondTitle="GORGONZOLA & RUCOLA"
             smallThirdTitle="CUCCIOLINO"
             smallFourthTitle="FUNGHI & TRUFFLE"
-            price1="$ 24,00"
-            price2="$ 26,00"
-            price3="$ 27,00"
-            price4="$ 26,00"
+            price1="24"
+            price2="26"
+            price3="27"
+            price4="26"
             image1="/iconss/pizza1.png"
             image2="/iconss/pizza2.png"
             image3="/iconss/pizza3.png"
@@ -176,12 +176,67 @@ export default function Home() {
           {/* PAGE SPECIALS AND COMBO */}
           {/* ✅ SNAP: su mobile/tablet disattivo (evita bug/sfasamenti), su PC lo tieni */}
           <div className="snap-none md:snap-y md:snap-mandatory">
+            {/* PAGE SPECIALS AND COMBO */}
             <section className="md:snap-start">
-              <BreakfastBrunchSection />
+              <BreakfastBrunchSection
+                title="Old School"
+                description={
+                  <>
+                    The timeless classics everyone loves. Margherita, Pepperoni,
+                    and all your favorite traditional toppings done right.
+                  </>
+                }
+                imageSrc="/img/pizzapizza1.png"
+                imageAlt="Pizza"
+                imagePriority
+              />
             </section>
 
             <section className="md:snap-start">
-              <LunchDinnerSection />
+              <LunchDinnerSection
+                title="Cucciolino Artisan"
+                description={
+                  <>
+                    Our signature creations. Bold flavor combinations and
+                    premium ingredients for those who want a truly unique pizza
+                    experience.
+                  </>
+                }
+                imageSrc="/img/pizzapizza2.png"
+                imageAlt="Combo Pizza and Gelato"
+                imagePriority
+              />
+            </section>
+
+            <section className="md:snap-start">
+              <BreakfastBrunchSection
+                title="Combos"
+                description={
+                  <>
+                    Whether you need a quick fix with a slice and a drink, or a
+                    family feast with garlic bread and refreshments to share,
+                    we’ve got the perfect combo for you.
+                  </>
+                }
+                imageSrc="/img/pizzapizza1.png"
+                imageAlt="Pizza"
+                imagePriority
+              />
+            </section>
+
+            <section className="md:snap-start">
+              <LunchDinnerSection
+                title="Gelato"
+                description={
+                  <>
+                    Authentic Italian gelato--silky, rich, and delicious. Enjoy
+                    a scoop here or take a tub home to share.
+                  </>
+                }
+                imageSrc="/img/pizzapizza2.png"
+                imageAlt="Pizza combo"
+                imagePriority
+              />
             </section>
           </div>
 

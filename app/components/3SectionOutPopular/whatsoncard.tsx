@@ -73,7 +73,7 @@ export default function WhatsOnCard({
           {title}
         </h3>
 
-        <p className="mt-3 sm:mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-[#f7941d]">
+        <p className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold text-[#f7941d] leading-none">
           {subtitle}
         </p>
       </div>

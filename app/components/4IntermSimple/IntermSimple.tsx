@@ -31,7 +31,7 @@ export default function IntermezzoSimple({
         <div
           ref={ref}
           className="
-            min-h-[140px] sm:min-h-[160px] md:min-h-[140px]
+            min-h-[220px] sm:min-h-[260px] md:min-h-[300px]
             flex items-center justify-center
             text-center
           "
@@ -47,7 +47,8 @@ export default function IntermezzoSimple({
             `}
           >
             <span className="text-[#2e3192] font-sofiapro text-lg sm:text-xl md:text-4xl">
-              Look at the entire
+              {/* Look at the entire */}
+              Slice &...
             </span>
 
             <Link
@@ -63,7 +64,7 @@ export default function IntermezzoSimple({
                 text-xl sm:text-2xl md:text-3xl
               "
             >
-              Menu
+              ...
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "../components/Header";
 
-const LINE_OFFSET = "md:-mx-4 :-mx-10";
+const LINE_OFFSET = "md:-mx-4 -mx-10";
 
 /* =======================
    TYPES
@@ -22,36 +22,142 @@ type GelatoItemProps = {
 export default function MenuPage() {
   const pizzas: MenuItemProps[] = [
     {
+      title: "GARLIC & MOZZARELLA",
+      description: "Mozzarella, garlic, chilli pepper.",
+      price: "19",
+    },
+    {
       title: "MARGHERITA",
-      description:
-        "San Marzano tomato, Mozzarella, basil, EVO olive oil, oregano",
-      price: "$ 24,00",
+      description: "Tomato sauce, mozzarella. Burrata +$5.",
+      price: "19",
     },
     {
-      title: "CAPRICCIOSA",
+      title: "THE GREEK",
       description:
-        "San Marzano Tomato, Mozzarella, Italian ham, field mushrooms, kalamata olives",
-      price: "$ 24,00",
+        "Tomato sauce, mozzarella, onion, kalamata olives, cherry tomatoes, and feta cheese.",
+      price: "22",
     },
     {
-      title: "DIAVOLA",
-      description:
-        "San Marzano tomato, Mozzarella, your choice of Tuscan style hot or mild salami",
-      price: "$ 24,00",
+      title: "HAWAIIAN",
+      description: "Tomato sauce, mozzarella, pineapple and ham.",
+      price: "22",
     },
     {
-      title: "PROSCIUTTO, ROCKET & BUFALA",
+      title: "PEPPERONI",
+      description: "Tomato sauce, mozzarella, pepperoni.",
+      price: "23",
+    },
+    {
+      title: "PORTOBELLO & ROCKET",
       description:
-        "San Marzano tomato, Mozzarella, Rocket leaves, Prosciutto di Parma, Bufala",
-      price: "$ 24,00",
+        "Tomato sauce, mozzarella, portobello mushrooms, rocket, and parmesan.",
+      price: "23",
+    },
+    {
+      title: "EXTREMELY VEGAN",
+      description:
+        "Tomato sauce, olives, zucchini, burnt cherry tomatoes, garlic confit, portobello mushrooms, and rocket.",
+      price: "23",
+    },
+    {
+      title: "MEAT LOVERS",
+      description:
+        "Tomato sauce, mozzarella, pepperoni, bacon and barbecue chicken.",
+      price: "24",
+    },
+    {
+      title: "GARLIC BREAD",
+      description: "Garlic herbs butter.",
+      price: "5",
     },
   ];
 
-  const gelatos: string[] = [
-    "VANILLA BEAN",
-    "COOKIES AND CREAM",
-    "MINT CHOC CHIP",
-    "BLOOD ORANGE",
+  const craftedPizzas: MenuItemProps[] = [
+    {
+      title: "GIARDINI DI PARMA",
+      description:
+        "Mozzarella, zucchini, burnt cherry tomatoes, garlic confit, thyme and parmesan.",
+      price: "24",
+    },
+    {
+      title: "TRE FUNGHI",
+      description: "Champignon, portobello mushroom, truffle, and basil.",
+      price: "24",
+    },
+    {
+      title: "GOAT & SWEET",
+      description: "Mozzarella, sweet onion and goat cheese, roasted walnuts.",
+      price: "24",
+    },
+    {
+      title: "CHEESE MATE",
+      description:
+        "Mozzarella, gorgonzola, parmesan, goat cheese, spinach, and honey.",
+      price: "24",
+    },
+    {
+      title: "98",
+      description: "Mozzarella, sweet onion, sausages. Gorgonzola + $5.",
+      price: "26",
+    },
+    {
+      title: "MELBOURNE PIZZA",
+      description:
+        "Tomato sauce, mozzarella, olives, champignon mushrooms, ham, and anchovy.",
+      price: "26",
+    },
+    {
+      title: "NONNA’S",
+      description: "Tomato sauce, mozzarella, roasted lamb and onion.",
+      price: "26",
+    },
+    {
+      title: "THE FISHERMAN",
+      description: "Prawns, grilled cherry tomatoes, fresh chilli.",
+      price: "27",
+    },
+    {
+      title: "PROSCIUTTO!",
+      description: "Tomato sauce, mozzarella, prosciutto, burrata, and basil.",
+      price: "30",
+    },
+  ];
+
+  const gelatoSizes = [
+    { title: "1 SCOOP", price: "7" },
+    { title: "2 SCOOPS", price: "9,5" },
+    { title: "0.5 L TUB", price: "23" },
+    { title: "1 L TUB", price: "35" },
+  ];
+
+  const gelatoFlavours = [
+    "STRAWBERRY",
+    "PISTACCHIO",
+    "CHOCOLATE",
+    "FERRERO ROCHER",
+    "OREO & CREAM",
+    "SALTED CARAMEL",
+  ];
+
+  const combos = [
+    {
+      title: "2 PIZZAS",
+      description: "Free garlic bread - all day.",
+    },
+    {
+      title: "3 PIZZAS",
+      description:
+        "Free garlic bread and a large bottle of soft drink - all day.",
+    },
+    {
+      title: "4 PIZZAS",
+      description:
+        "Free garlic bread and a large bottle of soft drink - all day.",
+    },
+    {
+      title: "5 PIZZAS",
+      description: "10% Discount on all pizzas - all day.",
+    },
   ];
 
   return (
@@ -78,25 +184,44 @@ export default function MenuPage() {
               <div className="flex flex-col gap-0 md:mt-0 pt-0">
                 {/* MENU LOGO + CUCCIOLINO */}
                 <div className="flex items-start w-full mt-6 sm:mt-8 md:mt-10">
-                  <Image
-                    src="/images/menulogo.png"
-                    alt="Menu"
-                    width={460}
-                    height={160}
-                    priority
+                  {/*
+  <Image
+    src="/images/menulogo.png"
+    alt="Menu"
+    width={460}
+    height={160}
+    priority
+    style={{
+      filter:
+        "brightness(0) saturate(100%) invert(21%) sepia(84%) saturate(1862%) hue-rotate(345deg) brightness(92%) contrast(95%)",
+    }}
+    className="
+      object-contain
+      scale-y-[1.12] sm:scale-y-[1.2]
+      max-md:w-[260px] max-md:h-[95px]
+      -ml-18 md:-ml-17
+      filter brightness-0 saturate-100 invert-[17%] sepia-[90%] saturate-[4000%] hue-rotate-[350deg] brightness-[90%] contrast-[110%]
+    "
+  />
+  */}
+
+                  <div
                     className="
-  object-contain
-  scale-y-[1.12] sm:scale-y-[1.2]
-  max-md:w-[260px] max-md:h-[95px]  
-  -ml-18 md:-ml-17
-"
-                  />
+    font-oswald font-black uppercase text-[#ef4136]
+    leading-none
+    text-[110px] sm:text-[140px] md:text-[180px]
+    scale-y-[1.2]
+    ml-2 md:-ml-2
+  "
+                  >
+                    MENU
+                  </div>
 
                   <div className="ml-auto pt-6 max-md:pt-1">
                     <span
                       className="font-couture uppercase font-bold text-[#b42f26] tracking-[0]
-                      md:text-5xl text-4xl sm:text-base
-                      max-md:text-[14px] max-md:tracking-[0.2em]"
+      md:text-5xl text-4xl sm:text-base
+      max-md:text-[14px] max-md:tracking-[0.2em]"
                     >
                       CUCCIOLINO
                     </span>
@@ -108,7 +233,7 @@ export default function MenuPage() {
                   className="font-oswald font-black text-[#7983c0] leading-tight
   md:text-5xl text-5xl pb-6
   max-md:text-[18px] max-md:pb-4
-  -mt-4 sm:-mt-6"
+  mt-4 sm:mt-6"
                 >
                   <div>Pizza All Day</div>
                   <div>Gelato For Every Moment</div>
@@ -119,36 +244,303 @@ export default function MenuPage() {
               <div
                 className={`md:mt-14 mt-8 max-md:mt-6 border-t-4 border-white ${LINE_OFFSET}`}
               />
-
-              {/* ===== PIZZE ===== */}
+              {/* ===== SLICE SECTION ===== */}
               <section className="mt-8 sm:mt-10 max-md:mt-6">
+                <div className="grid grid-cols-2 gap-6 items-start">
+                  {/* LEFT */}
+                  <div>
+                    <div className="mb-4 flex justify-start -ml-6">
+                      <Image
+                        src="/imag/menu2.png"
+                        alt="Slice menu"
+                        width={700}
+                        height={250}
+                        className="object-contain w-[90%] md:w-[500px]"
+                      />
+                    </div>
+
+                    {/* <div
+                      className="font-oswald font-black uppercase text-[#ef4136]
+        leading-none -mt-2
+        text-[48px] sm:text-[64px] md:text-[80px]
+        max-md:text-[40px]"
+                    ></div> */}
+
+                    <div
+                      className="mt-2 font-sofiapro font-black text-[#b42f26]
+    text-[26px] md:text-[38px] max-md:text-[20px]
+    leading-tight tracking-tight"
+                    >
+                      Every day between <br />
+                      3PM and 6PM.
+                    </div>
+                  </div>
+
+                  {/* RIGHT */}
+                  <div className="flex flex-col gap-4 mt-8 md:mt-12">
+                    <div>
+                      <div className="flex justify-between items-center">
+                        <div
+                          className="font-sofiapro font-black uppercase text-[#ef4136]
+text-[28px] md:text-[38px] max-md:text-[22px] leading-none"
+                        >
+                          SLICE & DRINK
+                        </div>
+
+                        <div
+                          className="font-sofiapro font-black text-[#ef4136]
+text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
+                        >
+                          10,5
+                        </div>
+                      </div>
+
+                      <div
+                        className={`mt-2 border-b-4 border-white ${LINE_OFFSET}`}
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between items-center">
+                        <div
+                          className="font-sofiapro font-black uppercase text-[#ef4136]
+text-[28px] md:text-[38px] max-md:text-[22px] leading-none"
+                        >
+                          SLICE & GELATO
+                        </div>
+
+                        <div
+                          className="font-sofiapro font-black text-[#ef4136]
+text-[24px] md:text-[34px] max-md:text-[20px] leading-none"
+                        >
+                          13
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* LINEA sotto come tutte le sezioni */}
+                <div
+                  className={`mt-6 border-b-4 border-white ${LINE_OFFSET}`}
+                />
+              </section>
+              {/* ===== PIZZE ===== */}
+              <section className="mt-20 sm:mt-24 max-md:mt-12">
+                {/* IMAGE */}
+
+                <div className="flex justify-start -ml-8 md:ml-8">
+                  <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
+                    <Image
+                      src="/imag/menu2222.png"
+                      alt="Slice menu"
+                      fill
+                      className="object-contain scale-[1.2]"
+                    />
+                  </div>
+                </div>
+
+                <h2
+                  className="font-oswald font-black text-[#7983c0]
+  md:text-5xl text-5xl
+  max-md:text-[18px]
+  -mt-14 pt-0 pb-10 leading-none"
+                >
+                  The classics that started it all.
+                </h2>
+
+                {/* LINEA */}
+                <div
+                  className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
+                />
+
+                {/* ITEMS */}
                 {pizzas.map((p) => (
-                  <MenuItem key={p.title} {...p} />
+                  <div key={p.title}>
+                    <MenuItem {...p} />
+
+                    {p.title === "MEAT LOVERS" && (
+                      <div className="mt-1 mb-0">
+                        <div
+                          className="font-oswald font-black text-[#7983c0]
+  text-[22px] md:text-[32px] max-md:text-[18px]
+  leading-none tracking-tight mb-18"
+                        >
+                          Gluten free base 5
+                        </div>
+                        <div
+                          className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
+                        />
+                      </div>
+                    )}
+                  </div>
                 ))}
               </section>
+              <section className="mt-8 sm:mt-10 max-md:mt-6">
+                {/* IMAGE */}
+                <div className="flex justify-start -ml-8 md:ml-15">
+                  <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
+                    <Image
+                      src="/imag/menu3.png"
+                      alt="Slice menu"
+                      fill
+                      className="object-contain scale-[1.3]"
+                    />
+                  </div>
+                </div>
 
-              <div className="h-14 sm:h-20 max-md:h-10" />
-
-              {/* ===== GELATO ===== */}
-              <section>
                 <h2
-                  className="font-oswald font-black text-[#7983c0] leading-tight
-  md:text-5xl text-5xl pb-6
-  max-md:text-[18px] max-md:pb-4
-  -mt-4 sm:-mt-6"
+                  className="font-oswald font-black text-[#7983c0]
+  md:text-5xl text-5xl
+  max-md:text-[18px]
+  -mt-14 pt-0 pb-10 leading-none"
                 >
-                  Our Gelato flavours
+                  Crafted with care, topped with passion.
                 </h2>
 
                 <div
                   className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
                 />
 
-                {gelatos.map((g) => (
-                  <GelatoItem key={g} title={g} />
+                {craftedPizzas.map((p) => (
+                  <MenuItem key={p.title} {...p} />
+                ))}
+
+                <div className="mt-1 mb-0">
+                  <div
+                    className="font-oswald font-black text-[#7983c0]
+  text-[22px] md:text-[32px] max-md:text-[18px]
+  leading-none tracking-tight mb-18"
+                  >
+                    Gluten free base 5
+                  </div>
+                  {/* <div
+                    className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
+                  /> */}
+                </div>
+              </section>
+              {/* ===== GELATO ===== */}
+              <section>
+                {/* IMAGE */}
+
+                <div className="flex justify-start -ml-8 md:-ml-10">
+                  <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
+                    <Image
+                      src="/imag/menu4444.png"
+                      alt="Slice menu"
+                      fill
+                      className="object-contain scale-[0.95]"
+                    />
+                  </div>
+                </div>
+
+                <h2
+                  className="font-oswald font-black text-[#7983c0]
+  md:text-5xl text-5xl
+  max-md:text-[18px]
+  -mt-12 pt-0 pb-10 leading-none"
+                >
+                  Pure ingredients, pure joy.
+                </h2>
+
+                <div
+                  className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
+                />
+
+                {/* SIZES */}
+                {gelatoSizes.map((item) => (
+                  <div key={item.title} className="py-2">
+                    <div className="flex justify-between items-center">
+                      <div
+                        className="font-sofiapro font-black text-[#ef4136]
+          text-[20px] md:text-[28px] max-md:text-[16px]"
+                      >
+                        {item.title}
+                      </div>
+
+                      <div
+                        className="font-sofiapro font-black text-[#ef4136]
+          text-[18px] md:text-[24px]"
+                      >
+                        {item.price}
+                      </div>
+                    </div>
+
+                    <div
+                      className={`mt-2 border-b-4 border-white ${LINE_OFFSET}`}
+                    />
+                  </div>
+                ))}
+
+                {/* FLAVOURS */}
+                <div className="mt-6">
+                  {gelatoFlavours.map((g) => (
+                    <div key={g} className="py-2">
+                      <div
+                        className="font-sofiapro font-black uppercase text-[#ef4136]
+          text-[24px] md:text-[40px] max-md:text-[20px]"
+                      >
+                        {g}
+                      </div>
+
+                      <div
+                        className={`mt-2 border-b-4 border-white ${LINE_OFFSET}`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+              {/* ===== COMBOS ===== */}
+              <section className="mt-10 sm:mt-12 max-md:mt-8">
+                {/* IMAGE */}
+                <div className="flex justify-start -ml-8 md:ml-4">
+                  <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
+                    <Image
+                      src="/imag/menu5.png"
+                      alt="Slice menu"
+                      fill
+                      className="object-contain scale-[1.1]"
+                    />
+                  </div>
+                </div>
+
+                <h2
+                  className="font-oswald font-black text-[#7983c0]
+  md:text-5xl text-5xl
+  max-md:text-[18px]
+  -mt-13 pt-0 pb-10 leading-none"
+                >
+                  Good things come in great combs.
+                </h2>
+
+                <div
+                  className={`border-t-4 border-white mb-6 mt-2 ${LINE_OFFSET}`}
+                />
+
+                {combos.map((combo) => (
+                  <div key={combo.title} className="md:py-3 py-3 max-md:py-2">
+                    <div
+                      className="font-sofiapro font-black uppercase text-[#ef4136]
+        text-[34px] sm:text-[40px] md:text-[52px]
+        max-md:text-[28px] leading-none"
+                    >
+                      {combo.title}
+                    </div>
+
+                    <p
+                      className="mt-1 font-sofiapro font-black text-[#b42f26]
+        text-[14px] md:text-[18px] max-md:text-[12px]
+        leading-snug"
+                    >
+                      {combo.description}
+                    </p>
+
+                    <div
+                      className={`mt-4 border-b-4 border-white ${LINE_OFFSET}`}
+                    />
+                  </div>
                 ))}
               </section>
-
               {/* ===== FOOTER ===== */}
               <div className="md:mt-20 mt-10 sm:mt-16 pb-8 sm:pb-10 max-md:mt-12">
                 <div
@@ -196,9 +588,10 @@ function MenuItem({ title, description, price }: MenuItemProps) {
     <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
       <div className="flex items-start justify-between gap-6">
         <h3
-          className="font-sofiapro font-normal uppercase text-[#ef4136] leading-[0.95]
-          text-[42px] sm:text-[56px] lg:text-[64px]
-          max-md:text-[34px] max-w-[75%]"
+          className={`font-sofiapro uppercase text-[#ef4136] leading-[0.95]
+  text-[42px] sm:text-[56px] lg:text-[64px]
+  max-md:text-[34px] max-w-[75%]
+  ${title === "98" ? "font-semibold" : "font-normal"}`}
         >
           {title}
         </h3>

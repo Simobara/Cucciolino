@@ -99,21 +99,34 @@ export default function TradingHours() {
                 <div className="pt-8">
                   <div
                     className="
-                      space-y-1.5 text-white
-                      text-lg md:text-3xl
-                      whitespace-nowrap
-                      font-sofiapro
-                    "
+      grid grid-cols-[150px_170px] md:grid-cols-[220px_320px]
+      gap-y-1.5 gap-x-0 md:gap-x-0
+      text-white
+      text-lg md:text-3xl
+      whitespace-nowrap
+      font-sofiapro
+    "
                   >
-                    <p>
-                      Monday <span>CLOSED</span>
-                    </p>
-                    <p>Tuesday 11.00AM – 9.00PM</p>
-                    <p>Wednesday 11.00AM – 9.00PM</p>
-                    <p>Thursday 11.00AM – 9.00PM</p>
-                    <p>Friday 11.00AM – 10.00PM</p>
-                    <p>Saturday 11.00AM – 10.00PM</p>
-                    <p>Sunday 11.00AM – 9.00PM</p>
+                    <span>Monday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Tuesday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Wednesday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Thursday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Friday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Saturday</span>
+                    <span>3:00PM – 9:30PM</span>
+
+                    <span>Sunday</span>
+                    <span>3:00PM – 9:30PM</span>
                   </div>
                 </div>
 

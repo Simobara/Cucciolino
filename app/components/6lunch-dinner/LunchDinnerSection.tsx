@@ -1,10 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { useParallax } from "../hooks/useParallax";
 
-export default function LunchDinnerSection() {
+type LunchDinnerSectionProps = {
+  title: string;
+  description: ReactNode;
+  imageSrc: string;
+  imageAlt: string;
+  sectionClassName?: string;
+  titleClassName?: string;
+  textClassName?: string;
+  imageClassName?: string;
+  contentWrapperClassName?: string;
+  imagePriority?: boolean;
+};
+
+export default function LunchDinnerSection({
+  title,
+  description,
+  imageSrc,
+  imageAlt,
+  sectionClassName = "",
+  titleClassName = "",
+  textClassName = "",
+  imageClassName = "",
+  contentWrapperClassName = "",
+  imagePriority = false,
+}: LunchDinnerSectionProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -26,7 +50,6 @@ export default function LunchDinnerSection() {
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  // ✅ MOBILE: molto più calmo
   const TEXT_MULT = isMobile ? -2.0 : -2.2;
   const TEXT_MAX = isMobile ? 55 : 140;
 
@@ -63,30 +86,29 @@ export default function LunchDinnerSection() {
   return (
     <section
       ref={sectionRef}
-      className={["h-auto py-8", "md:h-[50vh] md:py-0"].join(" ")}
+      className={["h-auto py-8 md:h-[50vh] md:py-0", sectionClassName].join(
+        " ",
+      )}
       style={{
         backgroundImage: `
-      linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
-      url('/iconsss/picsAzzurra2.png')
-    `,
+          linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
+          url('/iconsss/picsAzzurra2.png')
+        `,
         backgroundRepeat: "repeat",
         backgroundSize: "auto",
       }}
     >
       <div className="mx-auto h-full">
         <div className="grid md:grid-cols-2 h-full items-stretch">
-          {/* ✅ IMMAGINE: bordo fisso 10px */}
+          {/* IMAGE LEFT */}
           <div
             ref={parallaxRef}
             className={[
-              "relative w-full",
-              "h-[42vh] min-h-75", // ✅ mobile stabile
-              "md:h-full md:min-h-0", // ✅ desktop h-full
-              "order-1",
+              "relative w-full h-[42vh] min-h-75 md:h-full md:min-h-0 order-1 md:order-1",
               visible ? "is-visible" : "",
+              imageClassName,
             ].join(" ")}
           >
-            {/* ✅ niente bianco: l'immagine copre tutto */}
             <div className="absolute inset-0 overflow-hidden">
               <div
                 className="absolute inset-0 will-change-transform"
@@ -97,10 +119,10 @@ export default function LunchDinnerSection() {
                 }}
               >
                 <Image
-                  src="/img/pizzapizza2.png"
-                  alt="Pizza"
+                  src={imageSrc}
+                  alt={imageAlt}
                   fill
-                  priority
+                  priority={imagePriority}
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover object-center"
                 />
@@ -108,12 +130,12 @@ export default function LunchDinnerSection() {
             </div>
           </div>
 
-          {/* ✅ TESTO */}
+          {/* TEXT RIGHT */}
           <div
             className={[
-              "reveal px-6 sm:px-10 py-6 flex flex-col justify-center",
-              "order-2",
+              "reveal flex flex-col justify-center px-6 sm:px-8 md:px-16 pr-8 sm:pr-10 md:pr-28 order-2 md:order-2",
               visible ? "is-visible" : "",
+              contentWrapperClassName,
             ].join(" ")}
             style={{ transitionDelay: "340ms" }}
           >
@@ -129,45 +151,25 @@ export default function LunchDinnerSection() {
               }}
             >
               <h2
-                className="
-                text-[#ef4136]
-                font-oswald
-                font-bold
-                uppercase
-                tracking-widest
-                leading-none
-                inline-block
-                origin-center
-                scale-y-[1.25]
-                text-5xl
-                sm:text-6xl
-                md:text-6xl
-                lg:text-6xl
-              "
+                className={[
+                  "text-[#ef4136] font-oswald font-bold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
+                  titleClassName,
+                ].join(" ")}
               >
-                COMBO
+                {title}
               </h2>
 
-              <p
-                className="
-                mt-6 md:mt-10
-                text-[#2e3192]
-                font-sofiapro
-                leading-tight
-                text-lg sm:text-xl md:text-2xl
-                max-w-[320px]
-                sm:max-w-105
-                md:max-w-200
-                "
-                // font-medium
+              <div
+                className={[
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro text-justify leading-relaxed text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
+                  textClassName,
+                ].join(" ")}
+                style={{ textAlignLast: "justify" }}
               >
-                Get the best tasty <br />
-                food experience <br />
-                with the Combo <br />
-                Pizza + Gelato
-              </p>
+                {description}
+              </div>
 
-              <div className="mt-12">{/* CTA */}</div>
+              <div className="mt-12"></div>
             </div>
           </div>
         </div>

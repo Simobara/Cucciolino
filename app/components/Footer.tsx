@@ -38,8 +38,8 @@ export default function Footer() {
                 LOCATION
               </h4>
               <p className="font-sofiapro mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl leading-relaxed">
-                608 Hampton Street <br />
-                Brighton VIC 3186 <br />
+                <span className="font-bold">608</span> Hampton Street <br />
+                Brighton VIC <span className="font-bold">3186</span> <br />
                 Australia
               </p>
             </div>
@@ -52,10 +52,10 @@ export default function Footer() {
 
               <div className="font-sofiapro mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl leading-relaxed">
                 <a
-                  href="tel:+610401234567"
-                  className="hover:underline underline-offset-4"
+                  href="tel:(03) 9121 6598"
+                  className="hover:underline underline-offset-4 font-bold"
                 >
-                  +61 0401 234 567
+                  (03) 9121 6598
                 </a>
                 <br />
                 <a
