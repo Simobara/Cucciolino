@@ -453,8 +453,8 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                     <div className="flex justify-between items-center">
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
-  text-[28px] md:text-[48px]
-  max-md:text-[20px] leading-none"
+  text-[20px] sm:text-[24px] md:text-[30px]
+  leading-none"
                       >
                         {item.title}
                       </div>
@@ -592,7 +592,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
           className={`font-sofiapro uppercase text-[#ef4136] leading-[0.95]
   text-[42px] sm:text-[56px] lg:text-[64px]
   max-md:text-[34px] max-w-[75%]
-  ${title === "98" ? "font-semibold" : "font-normal"}`}
+  ${title === "98" ? "font-semibold" : "font-semibold"}`}
         >
           {title}
         </h3>
