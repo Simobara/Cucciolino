@@ -344,7 +344,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[18px] 
+  text-[24px] md:text-[56px] 
   md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   The classics that started it all.
@@ -361,7 +361,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                     <MenuItem {...p} />
 
                     {p.title === "MEAT LOVERS" && (
-                      <div className="mt-1 mb-0">
+                      <div className="-mt-6 mb-0">
                         <div
                           className="font-oswald font-black text-[#7983c0]
   text-[24px] md:text-[32px]
@@ -407,7 +407,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                   <MenuItem key={p.title} {...p} />
                 ))}
 
-                <div className="mt-1 mb-0">
+                <div className="-mt-6 mb-0">
                   <div
                     className="font-oswald font-black text-[#7983c0]
   text-[24px] md:text-[32px] 
@@ -453,7 +453,8 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                     <div className="flex justify-between items-center">
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
-          text-[20px] md:text-[28px] max-md:text-[16px]"
+  text-[28px] md:text-[48px]
+  max-md:text-[20px] leading-none"
                       >
                         {item.title}
                       </div>
