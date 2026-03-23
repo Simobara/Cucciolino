@@ -127,7 +127,10 @@ export default function BreakfastBrunchSection({
             <div className="md:max-w-200 ml-0 sm:ml-6 md:ml-20">
               <h2
                 className={[
-                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
+                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl transition-all duration-900 ease-out",
+                  visible
+                    ? "opacity-100 max-md:translate-x-0"
+                    : "opacity-0 max-md:-translate-x-24",
                   titleClassName,
                 ].join(" ")}
               >
@@ -136,7 +139,10 @@ export default function BreakfastBrunchSection({
 
               <div
                 className={[
-                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left md:text-justify leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left md:text-justify leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px] transition-all duration-900 ease-out delay-200",
+                  visible
+                    ? "opacity-100 max-md:translate-y-0"
+                    : "opacity-0 max-md:translate-y-20",
                   textClassName,
                 ].join(" ")}
                 style={{ textAlignLast: "auto" }}

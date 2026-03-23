@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png?v=2",
   },
   title: {
-    default: "Cucciolino | Pizza Restaurant Melbourne",
+    default: "Cucciolino | Pizza & Gelato Restaurant Melbourne",
     template: "%s | Cucciolino",
   },
   description:
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Cucciolino | Pizza Restaurant Melbourne",
+    title: "Cucciolino | Pizza & Gelato Restaurant Melbourne",
     description:
       "Taste our high-quality pizza in Melbourne, made with traditional methods and love. Visit Cucciolino for artisan pizza, dine-in and takeaway.",
     url: "https://www.cucciolino.com.au",
