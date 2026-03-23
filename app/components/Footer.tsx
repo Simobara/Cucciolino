@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="relative z-50 isolate text-[#b42f26]"
+      className="relative z-10 isolate text-[#b42f26]"
       style={{
         backgroundImage: `
       linear-gradient(rgba(202,220,242,0.45), rgba(202,220,242,0.45)),
