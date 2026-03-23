@@ -345,7 +345,7 @@ export default function MenuPage() {
                         </div>
                       </div>
                       {/* EXTRA INFO */}
-                      <div className="mt-8 md:mt-6 ml-1 md:ml-1">
+                      <div className="mt-8 md:mt-6 ml-0 md:ml-1">
                         <div
                           className="font-oswald font-black text-[#7983c0]
     text-[22px] md:text-[30px]
