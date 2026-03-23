@@ -253,7 +253,7 @@ export default function Home() {
             maintoptitle="WHAT'S ON" // fallback testo (opzionale)
             maintopimage="/images/whatsonnn.png" // <-- QUESTA è l’immagine
             maintoptitleAlt="What's On"
-            subtitle="From 6.00 PM to 9.00 PM "
+            subtitle="From 6 PM to 9 PM "
             titleImgWidth={320}
             titleImgHeight={50}
             smallFirstTitle="MONDAY CUCCIOLINO"

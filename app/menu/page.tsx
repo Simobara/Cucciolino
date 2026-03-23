@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "../components/Header";
 
-const LINE_OFFSET = "md:-mx-4 -mx-10";
+const LINE_OFFSET = "md:-mx-8 -mx-4";
 
 /* =======================
    TYPES
@@ -126,7 +126,7 @@ export default function MenuPage() {
 
   const gelatoSizes = [
     { title: "1 SCOOP", price: "7" },
-    { title: "2 SCOOPS", price: "9,5" },
+    { title: "2 SCOOPS", price: "9.5" },
     { title: "0.5 L TUB", price: "23" },
     { title: "1 L TUB", price: "35" },
   ];
@@ -181,7 +181,7 @@ export default function MenuPage() {
               backgroundSize: "auto",
             }}
           >
-            <div className="mx-auto max-w-[880px] px-5 sm:px-10 pt-10 sm:pt-14 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
+            <div className="mx-auto max-w-[1180px] px-3 sm:px-5 md:px-6 pt-10 sm:pt-14 pb-10 sm:pb-12 max-md:pt-16 max-md:pb-8">
               <div className="flex flex-col gap-0 md:mt-0 pt-0">
                 {/* MENU LOGO + CUCCIOLINO */}
                 <div className="flex items-start w-full mt-6 sm:mt-8 md:mt-10">
@@ -250,9 +250,9 @@ export default function MenuPage() {
                 <div className="grid grid-cols-2 gap-6 items-start">
                   {/* LEFT */}
                   <div>
-                    <div className="mb-4 flex justify-start md:-ml-6 -ml-7">
+                    <div className="mb-2 flex justify-start md:-ml-6 -ml-7">
                       <Image
-                        src="/imag/menu0.png"
+                        src="/imag/menu1.png"
                         alt="Slice menu"
                         width={700}
                         height={250}
@@ -272,47 +272,68 @@ export default function MenuPage() {
                                   text-[26px] md:text-[38px] max-md:text-[20px]
                                   leading-tight tracking-tight"
                     >
-                      Every day between <br />
-                      3PM and 6PM.
+                      Every day between <br />3 PM and 6 PM
                     </div>
                   </div>
 
                   {/* RIGHT */}
-                  <div className="flex flex-col gap-3 mt-6 md:mt-12 max-md:mt-4">
+                  <div className="flex flex-col gap-1 mt-6 md:mt-9 max-md:mt-4">
+                    {/* SLICE */}
                     <div>
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center gap-16 md:gap-24">
                         <div
                           className="font-sofiapro font-black uppercase text-[#ef4136]
-                            text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+                        >
+                          SLICE
+                        </div>
+
+                        <div
+                          className="font-sofiapro font-black text-[#ef4136]
+        text-[26px] md:text-[38px] max-md:text-[18px]
+        leading-none"
+                        >
+                          7
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SLICE & DRINK */}
+                    <div>
+                      <div className="mt-2 max-md:mt-2 border-b-4 border-white" />
+
+                      <div className="flex justify-between items-center gap-16 md:gap-24 mt-2">
+                        <div
+                          className="font-sofiapro font-black uppercase text-[#ef4136]
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
                         >
                           SLICE & DRINK
                         </div>
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-                            text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
-                          10,5
+                          10.5
                         </div>
                       </div>
-
-                      <div
-                        className={`mt-2 max-md:mt-1 border-b-4 border-white ${LINE_OFFSET}`}
-                      />
                     </div>
 
+                    {/* SLICE & GELATO */}
                     <div>
-                      <div className="flex justify-between items-center">
+                      <div className="mt-2 max-md:mt-1 border-b-4 border-white" />
+
+                      <div className="flex justify-between items-center gap-16 md:gap-24 mt-2">
                         <div
                           className="font-sofiapro font-black uppercase text-[#ef4136]
-text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
                         >
                           SLICE & GELATO
                         </div>
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
                           13
                         </div>
@@ -344,7 +365,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[56px] 
+  text-[24px] md:text-[42px] 
   md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   The classics that started it all.
@@ -361,10 +382,10 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                     <MenuItem {...p} />
 
                     {p.title === "MEAT LOVERS" && (
-                      <div className="-mt-6 mb-0">
+                      <div className="-mt-2 mb-0">
                         <div
                           className="font-oswald font-black text-[#7983c0]
-  text-[24px] md:text-[32px]
+  text-[24px] md:text-[36px]
   leading-none tracking-tight mb-18"
                         >
                           Gluten free base 5
@@ -407,10 +428,10 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                   <MenuItem key={p.title} {...p} />
                 ))}
 
-                <div className="-mt-6 mb-0">
+                <div className="-mt-2 mb-0">
                   <div
                     className="font-oswald font-black text-[#7983c0]
-  text-[24px] md:text-[32px] 
+  text-[24px] md:text-[36px] 
   leading-none tracking-tight mb-18"
                   >
                     Gluten free base 5
@@ -437,7 +458,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 
                 <h2
                   className="font-oswald font-black text-[#7983c0]
-  text-[24px] md:text-[56px]
+  text-[24px] md:text-[42px] 
   -mt-14 pt-0 pb-10 leading-none"
                 >
                   Pure ingredients, pure joy.
@@ -461,7 +482,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
-  text-[20px] sm:text-[24px] md:text-[30px]"
+  text-[24px] sm:text-[28px] md:text-[34px]"
                       >
                         {item.price}
                       </div>
@@ -508,7 +529,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[56px] 
+  text-[24px] md:text-[42px] 
   -mt-13 pt-0 pb-10 leading-none"
                 >
                   Good things come in great combs.
@@ -530,8 +551,8 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 
                     <p
                       className="mt-1 font-sofiapro font-black text-[#b42f26]
-        text-[14px] md:text-[18px] max-md:text-[12px]
-        leading-snug"
+  text-[18px] md:text-[22px] max-md:text-[17px]
+  leading-[1.2]"
                     >
                       {combo.description}
                     </p>
@@ -586,12 +607,12 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 ======================= */
 function MenuItem({ title, description, price }: MenuItemProps) {
   return (
-    <div className="md:py-0 md:pb-8 py-3 max-md:pb-5">
-      <div className="flex items-start justify-between gap-6">
+    <div className="md:py-0 md:pb-4 py-2 max-md:pb-3">
+      <div className="flex items-start justify-between gap-12 md:gap-20">
         <h3
           className={`font-sofiapro uppercase text-[#ef4136] leading-[0.95]
   text-[42px] sm:text-[56px] lg:text-[64px]
-  max-md:text-[34px] max-w-[75%]
+  max-md:text-[34px] max-w-[65%]
   ${title === "98" ? "font-semibold" : "font-semibold"}`}
         >
           {title}
@@ -599,7 +620,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
 
         <div
           className="font-sofiapro font-black text-[#ef4136]
-  text-[20px] sm:text-[24px] lg:text-[30px] max-md:text-[20px]
+  text-[22px] sm:text-[26px] lg:text-[34px] max-md:text-[22px]
   whitespace-nowrap leading-none md:-mt-2 -mt-1"
         >
           {price}
@@ -607,8 +628,8 @@ function MenuItem({ title, description, price }: MenuItemProps) {
       </div>
 
       <p
-        className="-mt-1 sm:-mt-2 font-sofiapro font-black text-[#b42f26]
-  text-lg md:text-[20px] max-md:text-[16px] md:pl-1 pl-1
+        className="-mt-2 sm:-mt-3 font-sofiapro font-black text-[#b42f26]
+  text-[18px] md:text-[22px] max-md:text-[17px] md:pl-1 pl-1
   leading-snug md:max-w-[620px] max-w-[260px]
   text-justify"
       >
@@ -616,7 +637,7 @@ function MenuItem({ title, description, price }: MenuItemProps) {
       </p>
 
       <div
-        className={`mt-6 max-md:mt-4 border-b-4 border-white ${LINE_OFFSET}`}
+        className={`mt-3 max-md:mt-2 border-b-4 border-white ${LINE_OFFSET}`}
       />
     </div>
   );
