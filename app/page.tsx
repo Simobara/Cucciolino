@@ -186,7 +186,7 @@ export default function Home() {
                     and all your favorite traditional toppings done right.
                   </>
                 }
-                imageSrc="/img/pizzapizza1.png"
+                imageSrc="/img/pizzapizza3.jpg"
                 imageAlt="Pizza"
                 imagePriority
               />
@@ -202,7 +202,7 @@ export default function Home() {
                     experience.
                   </>
                 }
-                imageSrc="/img/pizzapizza2.png"
+                imageSrc="/img/pizzapizza2.jpg"
                 imageAlt="Combo Pizza and Gelato"
                 imagePriority
               />
@@ -218,7 +218,7 @@ export default function Home() {
                     we’ve got the perfect combo for you.
                   </>
                 }
-                imageSrc="/img/pizzapizza1.png"
+                imageSrc="/img/pizzapizza4.png"
                 imageAlt="Pizza"
                 imagePriority
               />
@@ -229,11 +229,11 @@ export default function Home() {
                 title="Gelato"
                 description={
                   <>
-                    Authentic Italian gelato--silky, rich, and delicious. Enjoy
-                    a scoop here or take a tub home to share.
+                    Authentic Italian gelato-silky, rich, and delicious. Enjoy a
+                    scoop here or take a tub home to share.
                   </>
                 }
-                imageSrc="/img/pizzapizza2.png"
+                imageSrc="/img/pizzapizzagel1.jpg"
                 imageAlt="Pizza combo"
                 imagePriority
               />

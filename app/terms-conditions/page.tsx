@@ -5,7 +5,7 @@ export default function TermsAndConditions() {
         Terms & Conditions
       </h1>
 
-      <div className="space-y-10 text-[15px] leading-relaxed text-[#76aad8]">
+      <div className="space-y-10 text-[15px] leading-relaxed text-[#2e3192]">
         {/* INTRO */}
         <p>
           Welcome to <strong>Cucciolino Pizza &amp; Gelato</strong>. By
@@ -153,7 +153,7 @@ export default function TermsAndConditions() {
             <br />
             608 Hampton Street
             <br />
-            Brighton VIC 3186
+            Brighton, VIC 3186
             <br />
             Email:{" "}
             <a href="mailto:admin@cucciolino.com.au" className="underline">

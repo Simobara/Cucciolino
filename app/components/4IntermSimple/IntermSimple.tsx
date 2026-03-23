@@ -52,19 +52,24 @@ export default function IntermezzoSimple({
             </span>
 
             <Link
-              href="/menu"
+              href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                console.log("Tabit Order Clicked");
+              }}
               className="
-                inline-flex items-center justify-center
-                rounded-md bg-[#ef4136] text-white
-                font-sofiapro
-                hover:bg-[#d83a30] transition
-                w-full sm:w-auto
-                px-8 sm:px-12 md:px-14
-                py-3 sm:py-2 md:py-0.5
-                text-xl sm:text-2xl md:text-3xl
-              "
+    inline-flex items-center justify-center
+    rounded-md bg-[#ef4136] text-white
+    font-sofiapro
+    hover:bg-[#d83a30] transition
+    w-full sm:w-auto
+    px-8 sm:px-12 md:px-14
+    py-3 sm:py-2 md:py-0.5
+    text-xl sm:text-2xl md:text-3xl
+  "
             >
-              ...
+              Order Now
             </Link>
           </div>
         </div>

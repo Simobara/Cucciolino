@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
         Privacy Policy
       </h1>
 
-      <div className="space-y-10 text-[15px] leading-relaxed text-[#76aad8]">
+      <div className="space-y-10 text-[15px] leading-relaxed text-[#2e3192]">
         {/* INTRO */}
         <p>
           <strong>Cucciolino Pizza &amp; Gelato</strong> respects your right to
@@ -154,9 +154,9 @@ export default function PrivacyPolicy() {
           <p className="pl-4">
             Cucciolino Pizza &amp; Gelato
             <br />
-            204 Barkly Street
+            608 Hampton Street
             <br />
-            St Kilda, VIC 3182
+            Brighton, VIC 3186
           </p>
           <p>
             We take complaints seriously and will respond within a reasonable
