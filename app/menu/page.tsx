@@ -1,8 +1,15 @@
 import Image from "next/image";
 import Header from "../components/Header";
 
-const LINE_OFFSET = "md:-mx-8 -mx-4";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Best Pizza Restaurant Melbourne | Cucciolino",
+  description:
+    "Taste our high-quality pizza in Melbourne, made with traditional methods and love. Welcome to Cucciolino in Brighton for artisan pizza, dine-in and takeaway.",
+};
+
+const LINE_OFFSET = "md:-mx-8 -mx-4";
 /* =======================
    TYPES
 ======================= */
@@ -336,6 +343,24 @@ export default function MenuPage() {
         text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
                           13
+                        </div>
+                      </div>
+                      {/* EXTRA INFO */}
+                      <div className="mt-4 md:mt-6 ml-2 md:ml-1">
+                        <div
+                          className="font-oswald font-black text-[#7983c0]
+    text-[22px] md:text-[30px]
+    leading-tight tracking-tight"
+                        >
+                          Extra topping $ 0.5 .
+                        </div>
+
+                        <div
+                          className="font-oswald font-black text-[#7983c0]
+    text-[22px] md:text-[30px]
+    leading-tight tracking-tight"
+                        >
+                          Ice tea $ 1.
                         </div>
                       </div>
                     </div>

@@ -1,12 +1,9 @@
-"use client";
-
+import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import "./globals.css";
+import LayoutShell from "./LayoutShell";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -22,12 +19,38 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.cucciolino.com.au"),
+  title: {
+    default: "Cucciolino | Pizza Restaurant Melbourne",
+    template: "%s | Cucciolino",
+  },
+  description:
+    "Taste our high-quality pizza in Melbourne, made with traditional methods and love. Visit Cucciolino for artisan pizza, dine-in and takeaway in a welcoming modern environment.",
+  keywords: [
+    "pizza Melbourne",
+    "pizza restaurant Melbourne",
+    "artisan pizza Melbourne",
+    "Cucciolino Melbourne",
+    "best pizza Melbourne",
+    "takeaway pizza Melbourne",
+    "dine in pizza Melbourne",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Cucciolino | Pizza Restaurant Melbourne",
+    description:
+      "Taste our high-quality pizza in Melbourne, made with traditional methods and love. Visit Cucciolino for artisan pizza, dine-in and takeaway.",
+    url: "https://www.cucciolino.com.au",
+    siteName: "Cucciolino",
+    locale: "en_AU",
+    type: "website",
+  },
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-
-  // 👉 true quando sei nella pagina menu
-  const isMenuPage = pathname.startsWith("/menu");
-
   return (
     <html
       lang="en"
@@ -35,12 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       suppressHydrationWarning
     >
       <body className="font-sans antialiased overflow-x-hidden">
-        <Header />
-
-        {children}
-
-        {/* Footer nascosto solo nel menu */}
-        {!isMenuPage && <Footer />}
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
