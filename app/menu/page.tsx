@@ -453,15 +453,15 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                     <div className="flex justify-between items-center">
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
-  text-[20px] sm:text-[24px] md:text-[30px]
-  leading-none"
+  text-[28px] md:text-[48px]
+  max-md:text-[20px] leading-none"
                       >
                         {item.title}
                       </div>
 
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
-          text-[18px] md:text-[24px]"
+  text-[20px] sm:text-[24px] md:text-[30px]"
                       >
                         {item.price}
                       </div>
