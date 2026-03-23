@@ -161,7 +161,7 @@ export default function LunchDinnerSection({
 
               <div
                 className={[
-                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro text-justify leading-relaxed text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro leading-relaxed text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
                   textClassName,
                 ].join(" ")}
                 style={{ textAlignLast: "justify" }}
