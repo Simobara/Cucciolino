@@ -104,7 +104,7 @@ export default function TradingHours() {
       text-white
       text-lg md:text-3xl
       whitespace-nowrap
-      font-sofiapro 
+      font-sofiapro
     "
                   >
                     <span>Monday</span>
