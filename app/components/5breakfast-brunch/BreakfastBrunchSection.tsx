@@ -127,7 +127,7 @@ export default function BreakfastBrunchSection({
             <div className="md:max-w-200 ml-0 sm:ml-6 md:ml-20">
               <h2
                 className={[
-                  "text-[#ef4136] font-oswald font-bold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
+                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
                   titleClassName,
                 ].join(" ")}
               >

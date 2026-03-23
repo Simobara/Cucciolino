@@ -152,7 +152,7 @@ export default function LunchDinnerSection({
             >
               <h2
                 className={[
-                  "text-[#ef4136] font-oswald font-bold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
+                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
                   titleClassName,
                 ].join(" ")}
               >
