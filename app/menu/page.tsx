@@ -15,7 +15,6 @@ type MenuItemProps = {
 type GelatoItemProps = {
   title: string;
 };
-
 /* =======================
    PAGE
 ======================= */
@@ -28,7 +27,7 @@ export default function MenuPage() {
     },
     {
       title: "MARGHERITA",
-      description: "Tomato sauce, mozzarella. Burrata +$5.",
+      description: "Tomato sauce, mozzarella. Burrata +3$.",
       price: "19",
     },
     {
@@ -81,7 +80,8 @@ export default function MenuPage() {
     },
     {
       title: "TRE FUNGHI",
-      description: "Champignon, portobello mushroom, truffle, and basil.",
+      description:
+        "Mozzarella,Champignon, portobello mushroom, truffle, and basil.",
       price: "24",
     },
     {
@@ -113,7 +113,8 @@ export default function MenuPage() {
     },
     {
       title: "THE FISHERMAN",
-      description: "Prawns, grilled cherry tomatoes, fresh chilli.",
+      description:
+        "Tomato sauce, mozzarella, prawns, grilled cherry tomatoes, fresh chilli.",
       price: "27",
     },
     {
@@ -130,14 +131,14 @@ export default function MenuPage() {
     { title: "1 L TUB", price: "35" },
   ];
 
-  const gelatoFlavours = [
-    "STRAWBERRY",
-    "PISTACCHIO",
-    "CHOCOLATE",
-    "FERRERO ROCHER",
-    "OREO & CREAM",
-    "SALTED CARAMEL",
-  ];
+  // const gelatoFlavours = [
+  // "STRAWBERRY",
+  // "PISTACCHIO",
+  // "CHOCOLATE",
+  // "FERRERO ROCHER",
+  // "OREO & CREAM",
+  // "SALTED CARAMEL",
+  // ];
 
   const combos = [
     {
@@ -207,12 +208,12 @@ export default function MenuPage() {
 
                   <div
                     className="
-    font-oswald font-black uppercase text-[#ef4136]
-    leading-none
-    text-[110px] sm:text-[140px] md:text-[180px]
-    scale-y-[1.2]
-    ml-0 md:-ml-2
-  "
+                      font-oswald font-black uppercase text-[#ef4136]
+                      leading-none
+                      text-[110px] sm:text-[140px] md:text-[180px]
+                      scale-y-[1.2]
+                      ml-0 md:-ml-2
+                    "
                   >
                     MENU
                   </div>
@@ -220,8 +221,8 @@ export default function MenuPage() {
                   <div className="ml-auto pt-6 max-md:pt-1">
                     <span
                       className="font-couture uppercase font-bold text-[#b42f26] tracking-[0]
-      md:text-5xl text-4xl sm:text-base
-      max-md:text-[14px] max-md:tracking-[0.2em]"
+                                  md:text-5xl text-4xl sm:text-base
+                                  max-md:text-[14px] max-md:tracking-[0.2em]"
                     >
                       CUCCIOLINO
                     </span>
@@ -231,9 +232,9 @@ export default function MenuPage() {
                 {/* sottotitolo */}
                 <div
                   className="font-oswald font-black text-[#7983c0] leading-tight
-  md:text-5xl text-5xl pb-6
-  max-md:text-[26px] max-md:pb-4
-  mt-4 sm:mt-6"
+                              md:text-5xl text-5xl pb-6
+                              max-md:text-[26px] max-md:pb-4
+                              mt-4 sm:mt-6"
                 >
                   <div>Pizza All Day</div>
                   <div>Gelato For Every Moment</div>
@@ -268,8 +269,8 @@ export default function MenuPage() {
 
                     <div
                       className="mt-2 font-sofiapro font-black text-[#b42f26]
-    text-[26px] md:text-[38px] max-md:text-[20px]
-    leading-tight tracking-tight"
+                                  text-[26px] md:text-[38px] max-md:text-[20px]
+                                  leading-tight tracking-tight"
                     >
                       Every day between <br />
                       3PM and 6PM.
@@ -282,14 +283,14 @@ export default function MenuPage() {
                       <div className="flex justify-between items-center">
                         <div
                           className="font-sofiapro font-black uppercase text-[#ef4136]
-text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+                            text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
                         >
                           SLICE & DRINK
                         </div>
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+                            text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         >
                           10,5
                         </div>
@@ -392,7 +393,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[18px] 
+  text-[24px] md:text-[56px] 
   md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   Crafted with care, topped with passion.
@@ -436,8 +437,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 
                 <h2
                   className="font-oswald font-black text-[#7983c0]
-  md:text-5xl text-5xl
-  text-[24px] md:text-[18px] 
+  text-[24px] md:text-[56px]
   -mt-14 pt-0 pb-10 leading-none"
                 >
                   Pure ingredients, pure joy.
@@ -452,14 +452,14 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                   <div key={item.title} className="py-2">
                     <div className="flex justify-between items-center">
                       <div
-                        className="font-sofiapro font-black text-[#ef4136]
+                        className="font-sofiapro font-black text-[#b42f26]
           text-[20px] md:text-[28px] max-md:text-[16px]"
                       >
                         {item.title}
                       </div>
 
                       <div
-                        className="font-sofiapro font-black text-[#ef4136]
+                        className="font-sofiapro font-black text-[#b42f26]
           text-[18px] md:text-[24px]"
                       >
                         {item.price}
@@ -474,7 +474,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
 
                 {/* FLAVOURS */}
                 <div className="mt-6">
-                  {gelatoFlavours.map((g) => (
+                  {/* {gelatoFlavours.map((g) => (
                     <div key={g} className="py-2">
                       <div
                         className="font-sofiapro font-black uppercase text-[#ef4136]
@@ -487,7 +487,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                         className={`mt-2 border-b-4 border-white ${LINE_OFFSET}`}
                       />
                     </div>
-                  ))}
+                  ))} */}
                 </div>
               </section>
               {/* ===== COMBOS ===== */}
@@ -507,7 +507,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[18px] 
+  text-[24px] md:text-[56px] 
   -mt-13 pt-0 pb-10 leading-none"
                 >
                   Good things come in great combs.
