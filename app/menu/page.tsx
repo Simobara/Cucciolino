@@ -393,7 +393,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[56px] 
+  text-[24px] md:text-[42px] 
   md:-mt-14 -mt-14 pt-0 pb-10 leading-none"
                 >
                   Crafted with care, topped with passion.

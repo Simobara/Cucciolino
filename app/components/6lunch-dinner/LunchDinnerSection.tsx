@@ -164,7 +164,7 @@ export default function LunchDinnerSection({
                   "mt-6 md:mt-10 text-[#2e3192] font-sofiapro leading-none text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
                   textClassName,
                 ].join(" ")}
-                style={{ textAlignLast: "justify" }}
+                style={{ textAlignLast: "ju" }}
               >
                 {description}
               </div>
