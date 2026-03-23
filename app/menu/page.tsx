@@ -542,10 +542,10 @@ export default function MenuPage() {
                 <div className="flex justify-start -ml-2 md:-ml-6 ">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
-                      src="/imag/menu5555.png"
+                      src="/imag/menu5.png"
                       alt="Slice menu"
                       fill
-                      className="object-contain max-md:scale-y-[1.0] md:scale-[0.95]"
+                      className="object-contain max-md:scale-y-[0.8] md:scale-[0.95]"
                     />
                   </div>
                 </div>
