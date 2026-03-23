@@ -90,7 +90,7 @@ export default function HeroPage() {
             {/* CTA */}
             <div className="mt-8 sm:mt-10 md:mt-12 flex w-full flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16 pb-8 md:pb-10">
               <Link
-                href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
+                href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="

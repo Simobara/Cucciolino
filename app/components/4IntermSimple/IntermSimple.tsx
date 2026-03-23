@@ -69,7 +69,7 @@ export default function IntermezzoSimple({
     text-xl sm:text-2xl md:text-3xl
   "
             >
-              Order Now
+              (slices vedi menu)
             </Link>
           </div>
         </div>
