@@ -104,14 +104,14 @@ export default function TradingHours() {
       text-white
       text-lg md:text-3xl
       whitespace-nowrap
-      font-sofiapro
+      font-sofiapro 
     "
                   >
                     <span>Monday</span>
                     <span>3:00PM – 9:30PM</span>
 
                     <span>Tuesday</span>
-                    <span>3:00PM – 9:30PM</span>
+                    <span>Closed</span>
 
                     <span>Wednesday</span>
                     <span>3:00PM – 9:30PM</span>
@@ -133,7 +133,7 @@ export default function TradingHours() {
                 {/* BOTTONI */}
                 <div className="pt-16 md:pt-24 flex flex-col lg:flex-row gap-6 md:gap-24">
                   <Link
-                    href="https://wa.me/61XXXXXXXXX?text=Hello%20Cucciolino,%20I%20would%20like%20to%20place%20an%20order."
+                    href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function IntermezzoSimple({
@@ -51,7 +50,7 @@ export default function IntermezzoSimple({
               Slice &...
             </span>
 
-            <Link
+            {/* <Link
               href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,7 +69,7 @@ export default function IntermezzoSimple({
   "
             >
               (slices vedi menu)
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

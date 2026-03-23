@@ -6,6 +6,7 @@ export default function WhatsOnSection({
   maintoptitle,
   maintopimage,
   maintoptitleAlt,
+  subtitle,
   titleImgWidth,
   titleImgHeight,
   titleImgClassName,
@@ -26,6 +27,7 @@ export default function WhatsOnSection({
   maintoptitle: string;
   maintopimage?: string;
   maintoptitleAlt?: string;
+  subtitle?: string;
 
   // ✅ controlli size per immagine titolo
   titleImgWidth?: number;
@@ -68,37 +70,48 @@ export default function WhatsOnSection({
       {/* TITLE ROW */}
       <div
         className="
-          flex flex-col md:flex-row
-          md:items-end md:justify-between
-          gap-4 sm:gap-6
-          pb-4 sm:pb-6 md:pb-9
-          md:ml-32 ml-0
-        "
+    md:ml-32 ml-0
+    pb-4 sm:pb-6 md:pb-9
+  "
       >
         {hasTitleImage ? (
-          <div
-            className={`relative w-full max-w-[600px] h-[95px] sm:h-[120px] md:h-[150px] ${titleImgClassName ?? ""}`}
-          >
-            <Image
-              src={maintopimage}
-              alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
-              fill
-              priority
-              sizes="(max-width: 768px) 90vw, 600px"
-              className="object-contain"
-            />
-          </div>
+          <>
+            <div
+              className={`relative w-full max-w-[600px] h-[95px] sm:h-[120px] md:h-[150px] ${titleImgClassName ?? ""}`}
+            >
+              <Image
+                src={maintopimage}
+                alt={maintoptitleAlt ?? maintoptitle ?? "Section title"}
+                fill
+                priority
+                sizes="(max-width: 768px) 90vw, 600px"
+                className="object-contain"
+              />
+            </div>
+
+            {subtitle && (
+              <p className="-mt-4 ml-2 md:ml-6 text-[#2e3192] font-sofiapro font-bold text-lg sm:text-xl md:text-2xl leading-snug">
+                {subtitle}
+              </p>
+            )}
+          </>
         ) : (
-          <h2
-            className="
-              text-left
-              text-3xl sm:text-4xl md:text-5xl
-              font-semibold font-oswald tracking-tight
-              text-[#ef4136]
-            "
-          >
-            {maintoptitle}
-          </h2>
+          <>
+            <h2
+              className="
+          text-left
+          text-3xl sm:text-4xl md:text-5xl
+          font-semibold font-oswald tracking-tight
+          text-[#ef4136]
+        "
+            >
+              {maintoptitle}
+            </h2>
+
+            <p className="mt-2 text-[#2e3192] font-sofiapro text-lg sm:text-xl md:text-2xl leading-snug">
+              from 6 to 9
+            </p>
+          </>
         )}
       </div>
 
