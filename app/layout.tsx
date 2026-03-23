@@ -19,14 +19,12 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cucciolino.com.au"),
   icons: {
-    icon: "/favicon2.ico",
-    shortcut: "/favicon2.ico",
-    apple: "/apple-icon.png",
+    icon: "/favicon2.ico?v=2",
+    shortcut: "/favicon2.ico?v=2",
+    apple: "/apple-icon.png?v=2",
   },
   title: {
     default: "Cucciolino | Pizza Restaurant Melbourne",
