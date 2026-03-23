@@ -118,7 +118,7 @@ export default function BreakfastBrunchSection({
           {/* TEXT LEFT */}
           <div
             className={[
-              "reveal flex flex-col justify-center mr-2 md:mr-12 px-6 sm:px-8 md:px-16",
+              "reveal flex flex-col justify-center items-start text-left mr-2 md:mr-12 px-6 sm:px-8 md:px-16",
               visible ? "is-visible" : "",
               contentWrapperClassName,
             ].join(" ")}
@@ -136,10 +136,10 @@ export default function BreakfastBrunchSection({
 
               <div
                 className={[
-                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-justify leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left md:text-justify leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px]",
                   textClassName,
                 ].join(" ")}
-                style={{ textAlignLast: "justify" }}
+                style={{ textAlignLast: "auto" }}
               >
                 {description}
               </div>

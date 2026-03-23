@@ -87,7 +87,7 @@ export default function SocialsSection({
             <span
               className="
   text-[#2e3192] font-sofiapro
-  md:text-3xl text-xl
+  md:text-3xl text-xl md:ml-8 ml-4 
   leading-none tracking-wide
   text-center md:text-left
   mx-auto md:mx-0

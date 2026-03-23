@@ -133,7 +133,7 @@ export default function LunchDinnerSection({
           {/* TEXT RIGHT */}
           <div
             className={[
-              "reveal flex flex-col justify-center px-6 sm:px-8 md:px-16 pr-8 sm:pr-10 md:pr-28 order-2 md:order-2",
+              "reveal flex flex-col justify-center items-start text-left px-6 sm:px-8 md:px-16 pr-8 sm:pr-10 md:pr-28 order-2 md:order-2",
               visible ? "is-visible" : "",
               contentWrapperClassName,
             ].join(" ")}
@@ -142,7 +142,7 @@ export default function LunchDinnerSection({
             <div
               className={[
                 "md:max-w-200 will-change-transform",
-                "ml-0 sm:ml-6 md:ml-20",
+                "ml-0 md:ml-20",
               ].join(" ")}
               style={{
                 transform: disableTextParallax
@@ -152,7 +152,7 @@ export default function LunchDinnerSection({
             >
               <h2
                 className={[
-                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
+                  "max-md:mt-6 text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
                   titleClassName,
                 ].join(" ")}
               >

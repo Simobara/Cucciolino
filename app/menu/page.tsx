@@ -261,22 +261,22 @@ export default function MenuPage() {
               <section className="mt-8 sm:mt-10 max-md:mt-6">
                 <div className="grid grid-cols-2 gap-6 items-start">
                   {/* LEFT */}
-                  <div className="relative">
-                    <div className="flex justify-start -ml-6 md:ml-12">
+                  <div className="relative ml-0 md:ml-12">
+                    <div className="flex justify-start ">
                       <div className="relative w-full h-[180px] md:h-[240px]">
-                        <div className="absolute -left-10 md:-left-16 -top-16 md:-top-14 w-[180%] md:w-[800px] h-[260px] md:h-[360px] z-10">
+                        <div className="absolute left-0 md:-left-16 -top-16 md:-top-14 w-[180%] md:w-[800px] h-[260px] md:h-[360px] z-10">
                           <Image
                             src="/imag/menu1.png"
                             alt="Slice menu"
                             fill
-                            className="object-contain"
+                            className="object-contain max-md:scale-y-[1.5]"
                           />
                         </div>
                       </div>
                     </div>
 
                     <div
-                      className="mt-2 md:-mt-8 font-sofiapro font-black text-[#b42f26]
+                      className="md:-ml-12  ml-0 mt-2 md:-mt-8 font-sofiapro font-black text-[#b42f26]
                 text-[26px] md:text-[38px] max-md:text-[20px]
                 leading-tight tracking-tight"
                     >
@@ -297,8 +297,7 @@ export default function MenuPage() {
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-        text-[26px] md:text-[38px] max-md:text-[18px]
-        leading-none"
+  text-[26px] md:text-[38px] max-md:text-[22px] leading-none"
                         >
                           7
                         </div>
@@ -319,7 +318,7 @@ export default function MenuPage() {
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+  text-[24px] md:text-[34px] max-md:text-[22px] leading-none"
                         >
                           10.5
                         </div>
@@ -340,13 +339,13 @@ export default function MenuPage() {
 
                         <div
                           className="font-sofiapro font-black text-[#ef4136]
-        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+  text-[24px] md:text-[34px] max-md:text-[22px] leading-none"
                         >
                           13
                         </div>
                       </div>
                       {/* EXTRA INFO */}
-                      <div className="mt-4 md:mt-6 ml-2 md:ml-1">
+                      <div className="mt-8 md:mt-6 ml-2 md:ml-1">
                         <div
                           className="font-oswald font-black text-[#7983c0]
     text-[22px] md:text-[30px]
@@ -390,8 +389,8 @@ export default function MenuPage() {
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[42px] 
-  md:-mt-10 -mt-14 pt-0 pb-10 leading-none"
+  text-[32px] md:text-[42px] 
+  md:-mt-10 -mt-10 pt-0 pb-10 leading-none"
                 >
                   The classics that started it all.
                 </h2>
@@ -425,7 +424,7 @@ export default function MenuPage() {
               </section>
               <section className="mt-8 sm:mt-10 max-md:mt-6">
                 {/* IMAGE */}
-                <div className="flex justify-start -ml-9 md:ml-18">
+                <div className="flex justify-start -ml-7 md:ml-18">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
                       src="/imag/menu3.png"
@@ -439,8 +438,8 @@ export default function MenuPage() {
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[42px] 
-  md:-mt-10 -mt-14 pt-0 pb-10 leading-none"
+  text-[28px] md:text-[42px] 
+  md:-mt-10 -mt-10 pt-0 pb-10 leading-none"
                 >
                   Crafted with care, topped with passion.
                 </h2>
@@ -470,7 +469,7 @@ export default function MenuPage() {
               <section>
                 {/* IMAGE */}
 
-                <div className="flex justify-start -ml-4 md:-ml-6">
+                <div className="flex justify-start -ml-1 md:-ml-6">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
                       src="/imag/menu4.png"
@@ -483,7 +482,7 @@ export default function MenuPage() {
 
                 <h2
                   className="font-oswald font-semibold text-[#7983c0]
-  text-[24px] md:text-[42px] 
+  text-[32px] md:text-[42px] 
   -mt-10 pt-0 pb-10 leading-none"
                 >
                   Pure ingredients, pure joy.
@@ -495,7 +494,7 @@ export default function MenuPage() {
 
                 {/* SIZES */}
                 {gelatoSizes.map((item) => (
-                  <div key={item.title} className="py-2">
+                  <div key={item.title} className="py-2 max-md:pt-0">
                     <div className="flex justify-between items-center">
                       <div
                         className="font-sofiapro font-black text-[#b42f26]
@@ -554,8 +553,8 @@ export default function MenuPage() {
                 <h2
                   className="font-oswald font-black text-[#7983c0]
   md:text-5xl text-5xl
-  text-[24px] md:text-[42px] 
-  -mt-13 pt-0 pb-10 leading-none"
+  text-[32px] md:text-[42px] 
+  -mt-8 pt-0 pb-10 leading-none"
                 >
                   Good things come in great combs.
                 </h2>
@@ -624,9 +623,9 @@ export default function MenuPage() {
                       </div>
 
                       <div
-                        className="font-sofiapro font-black text-[#ef4136]
-          text-[22px] sm:text-[26px] md:text-[34px]
-          max-md:text-[22px] leading-none"
+                        className="font-sofiapro font-black text-[#b42f26]
+text-[24px] sm:text-[28px] md:text-[34px]
+max-md:text-[22px] leading-none"
                       >
                         {item.price}
                       </div>
@@ -643,7 +642,7 @@ export default function MenuPage() {
               <div className="md:mt-20 mt-10 sm:mt-16 pb-8 sm:pb-10 max-md:mt-12">
                 <div
                   className="flex items-end justify-center gap-6 sm:gap-10 md:ml-84 ml-2 mt-8 mb-30
-max-md:ml-2 max-md:justify-start max-md:gap-4 md:mr-2 mr-4"
+max-md:ml-8 max-md:justify-start max-md:gap-4 md:mr-2 mr-4"
                 >
                   <div
                     className="text-[#b42f26] leading-none"

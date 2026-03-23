@@ -51,13 +51,13 @@ export default function IntermezzoSimple({
               <div className="grid grid-cols-2 gap-10 md:gap-16 items-start">
                 {/* LEFT */}
                 <div>
-                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:-ml-4 -ml-5">
+                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:ml-8 -ml-2">
                     <Image
                       src="/imag/menu0.png"
                       alt="Slice menu"
                       width={700}
                       height={250}
-                      className="object-contain max-md:scale-y-[1.0] max-md:w-[120%] max-md:ml-4 w-[90%] md:w-[500px]"
+                      className="object-contain max-md:scale-y-[1.0] max-md:w-[120%]   max-md:mt-4  max-md:ml-4 w-[90%] md:w-[500px]"
                     />
                   </div>
 
@@ -69,8 +69,8 @@ export default function IntermezzoSimple({
                                ></div> */}
 
                   <div
-                    className="-mt-2 font-sofiapro font-bold text-[#b42f26]
-  text-[26px] md:text-[38px] max-md:text-[20px]
+                    className="-mt-2  max-md:mt-12  font-sofiapro font-bold text-[#b42f26]
+  text-[26px] md:text-[38px] max-md:text-[20px] md:ml-12 ml-2
   leading-tight tracking-tight text-left mb-0 md:mb-8 whitespace-nowrap"
                   >
                     Every day between 3 PM and 6 PM.
