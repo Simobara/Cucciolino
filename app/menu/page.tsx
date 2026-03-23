@@ -252,7 +252,7 @@ export default function MenuPage() {
                   <div>
                     <div className="mb-4 flex justify-start md:-ml-6 -ml-7">
                       <Image
-                        src="/imag/menu1.png"
+                        src="/imag/menu0.png"
                         alt="Slice menu"
                         width={700}
                         height={250}

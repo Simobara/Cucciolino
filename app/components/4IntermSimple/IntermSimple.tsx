@@ -48,10 +48,10 @@ export default function IntermezzoSimple({
           >
             {/* ===== SLICE SECTION ===== */}
             <section className="mt-8 max-md:mt-4">
-              <div className="grid grid-cols-2 gap-6 items-start">
+              <div className="grid grid-cols-2 gap-10 md:gap-16 items-start">
                 {/* LEFT */}
                 <div>
-                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:-ml-6 -ml-7">
+                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:-ml-4 -ml-5">
                     <Image
                       src="/imag/menu0.png"
                       alt="Slice menu"
@@ -71,10 +71,9 @@ export default function IntermezzoSimple({
                   <div
                     className="-mt-2 font-sofiapro font-bold text-[#b42f26]
   text-[26px] md:text-[38px] max-md:text-[20px]
-  leading-tight tracking-tight text-left mb-0 md:mb-8"
+  leading-tight tracking-tight text-left mb-0 md:mb-8 whitespace-nowrap"
                   >
-                    Every day between <br />
-                    3PM and 6PM.
+                    Every day between 3 PM and 6 PM.
                   </div>
                 </div>
 
