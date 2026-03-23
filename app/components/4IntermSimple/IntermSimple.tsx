@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function IntermezzoSimple({
@@ -45,10 +46,103 @@ export default function IntermezzoSimple({
               ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
             `}
           >
-            <span className="text-[#2e3192] font-sofiapro text-lg sm:text-xl md:text-4xl">
-              {/* Look at the entire */}
-              Slice &...
-            </span>
+            {/* ===== SLICE SECTION ===== */}
+            <section className="mt-8 max-md:mt-4">
+              <div className="grid grid-cols-2 gap-6 items-start">
+                {/* LEFT */}
+                <div>
+                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:-ml-6 -ml-7">
+                    <Image
+                      src="/imag/menu0.png"
+                      alt="Slice menu"
+                      width={700}
+                      height={250}
+                      className="object-contain max-md:scale-y-[1.0] max-md:w-[120%] max-md:ml-4 w-[90%] md:w-[500px]"
+                    />
+                  </div>
+
+                  {/* <div
+                                 className="font-oswald font-black uppercase text-[#ef4136]
+                   leading-none -mt-2
+                   text-[48px] sm:text-[64px] md:text-[80px]
+                   max-md:text-[40px]"
+                               ></div> */}
+
+                  <div
+                    className="-mt-2 font-sofiapro font-bold text-[#b42f26]
+  text-[26px] md:text-[38px] max-md:text-[20px]
+  leading-tight tracking-tight text-left mb-0 md:mb-8"
+                  >
+                    Every day between <br />
+                    3PM and 6PM.
+                  </div>
+                </div>
+
+                {/* RIGHT */}
+                <div className="flex flex-col gap-1 mt-6 md:mt-9 max-md:mt-4">
+                  {/* SLICE */}
+                  <div>
+                    <div className="flex justify-between items-center">
+                      <div
+                        className="font-sofiapro font-black uppercase text-[#ef4136]
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+                      >
+                        SLICE
+                      </div>
+
+                      <div
+                        className="font-sofiapro font-black text-[#ef4136]
+        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+                      >
+                        7
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SLICE & DRINK */}
+                  <div>
+                    <div className="mt-2 max-md:mt-1 border-b-4 border-white" />
+
+                    <div className="flex justify-between items-center mt-2">
+                      <div
+                        className="font-sofiapro font-black uppercase text-[#ef4136]
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+                      >
+                        SLICE & DRINK
+                      </div>
+
+                      <div
+                        className="font-sofiapro font-black text-[#ef4136]
+        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+                      >
+                        10.5
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SLICE & GELATO */}
+                  <div>
+                    <div className="mt-2 max-md:mt-1 border-b-4 border-white" />
+
+                    <div className="flex justify-between items-center mt-2">
+                      <div
+                        className="font-sofiapro font-black uppercase text-[#ef4136]
+        text-[28px] md:text-[38px] max-md:text-[18px] leading-none"
+                      >
+                        SLICE & GELATO
+                      </div>
+
+                      <div
+                        className="font-sofiapro font-black text-[#ef4136]
+        text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
+                      >
+                        13
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
             {/* <Link
               href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"

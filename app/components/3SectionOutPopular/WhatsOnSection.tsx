@@ -90,7 +90,7 @@ export default function WhatsOnSection({
             </div>
 
             {subtitle && (
-              <p className="-mt-4 ml-2 md:ml-6 text-[#2e3192] font-sofiapro font-bold text-lg sm:text-xl md:text-2xl leading-snug">
+              <p className="-mt-4 ml-2 md:ml-7 text-[#2e3192] font-sofiapro font-bold text-lg sm:text-xl md:text-2xl leading-snug">
                 {subtitle}
               </p>
             )}
@@ -109,7 +109,7 @@ export default function WhatsOnSection({
             </h2>
 
             <p className="mt-2 text-[#2e3192] font-sofiapro text-lg sm:text-xl md:text-2xl leading-snug">
-              from 6 to 9
+              {subtitle}
             </p>
           </>
         )}
