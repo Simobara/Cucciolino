@@ -251,7 +251,7 @@ export default function MenuPage() {
                   <div>
                     <div className="mb-4 flex justify-start md:-ml-6 -ml-7">
                       <Image
-                        src="/imag/menu2.png"
+                        src="/imag/menu1.png"
                         alt="Slice menu"
                         width={700}
                         height={250}
@@ -426,7 +426,7 @@ text-[24px] md:text-[34px] max-md:text-[16px] leading-none"
                 <div className="flex justify-start -ml-4 md:-ml-10">
                   <div className="relative w-[140%] md:w-[600px] h-[185px] md:h-[240px]">
                     <Image
-                      src="/imag/menu4444.png"
+                      src="/imag/menu4.png"
                       alt="Slice menu"
                       fill
                       className="object-contain max-md:scale-y-[0.7] md:scale-[0.95]"
