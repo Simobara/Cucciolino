@@ -11,32 +11,6 @@
   --gy: 50%;
 }
 
-/* --------------------------------------------- */
-/* Base */
-/* --------------------------------------------- */
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background);
-  overflow-x: hidden;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family:
-    var(--font-sans),
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .cursor-hidden {
   cursor: none;
 }
@@ -48,10 +22,21 @@ body {
   --font-serif: var(--font-serif);
 }
 
-/* --------------------------------------------- */
-/* Titoli globali */
-/* --------------------------------------------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #cfe0f2;
+  overflow-x: hidden;
+}
 
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* === TITOLI GLOBALI === */
 h1,
 h2,
 h3,
@@ -73,16 +58,14 @@ h6 {
   }
 }
 
-/* --------------------------------------------- */
 /* Reveal animation */
-/* --------------------------------------------- */
-
 .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
     opacity 700ms ease,
     transform 700ms ease;
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
@@ -92,31 +75,23 @@ h6 {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
-    opacity: 1;
-    transform: none;
     transition: opacity 200ms ease;
+    transform: none;
   }
 }
 
-/* --------------------------------------------- */
 /* Helpers */
-/* --------------------------------------------- */
-
 .preserve-3d {
   transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
 }
 
 .backface-hidden {
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
-/* --------------------------------------------- */
-/* 3D Social Cards */
-/* --------------------------------------------- */
-
+/* --- 3D Social Cards --- */
 .social-card {
+  /* fallback variabili (se non settate inline) */
   --rx: 0deg;
   --ry: 0deg;
   --gx: 50%;
@@ -125,51 +100,58 @@ h6 {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
+
+  /* look */
   background: rgba(255, 255, 255, 0.08);
 
-  /* Safari-friendly */
-  transform: translate3d(0, 0, 0) rotateX(var(--rx)) rotateY(var(--ry));
+  /* 3D */
   transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
+  perspective: 900px;
 
+  /* entrata + tilt */
+  will-change: transform, box-shadow, filter;
+  transform: translateZ(0) rotateX(var(--rx)) rotateY(var(--ry));
   transition:
     transform 240ms ease,
     box-shadow 240ms ease,
-    opacity 240ms ease;
+    filter 240ms ease;
 
+  /* 🔥 SHADOW ESTERNA (più forte) */
   box-shadow:
     0 18px 35px rgba(0, 0, 0, 0.45),
     0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
+/* 🔥 SHADOW INTERNA + bordo soft (overlay) */
 .social-card::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  z-index: 2;
+
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     inset 0 -20px 30px rgba(0, 0, 0, 0.45),
     inset 0 20px 25px rgba(255, 255, 255, 0.06);
 }
 
+/* Hover / Tilt boost */
 .social-card:hover,
 .social-card.is-tilting {
-  transform: translate3d(0, -6px, 0) rotateX(var(--rx)) rotateY(var(--ry));
+  transform: translateY(-6px) rotateX(var(--rx)) rotateY(var(--ry));
   box-shadow:
     0 30px 60px rgba(0, 0, 0, 0.65),
     0 10px 25px rgba(0, 0, 0, 0.45);
 }
 
+/* Media layer (sporge un filo in 3D) */
 .social-card__media {
+  transform: translateZ(24px);
   position: relative;
-  z-index: 1;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
 }
 
+/* 🔥 Extra: shadow interna direttamente sull’immagine */
 .social-card__media::after {
   content: "";
   position: absolute;
@@ -180,46 +162,41 @@ h6 {
     inset 0 -30px 35px rgba(0, 0, 0, 0.55);
 }
 
-/* --------------------------------------------- */
-/* Glare */
-/* mix-blend-mode è più fragile su Safari,
-   quindi qui uso un overlay normale più stabile */
-/* --------------------------------------------- */
-
+/* Glare / shine */
 .social-card__glare {
   position: absolute;
   inset: 0;
-  z-index: 3;
   pointer-events: none;
+
   opacity: 0;
   transition: opacity 250ms ease;
 
   background: radial-gradient(
     circle at var(--gx) var(--gy),
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 255, 255, 0.12) 18%,
-    rgba(255, 255, 255, 0) 58%
+    rgba(255, 255, 255, 0.45),
+    rgba(255, 255, 255, 0) 55%
   );
+
+  mix-blend-mode: overlay;
 }
 
+/* show glare on hover/tilt */
 .social-card.is-tilting .social-card__glare,
 .social-card:hover .social-card__glare {
   opacity: 1;
 }
 
-/* --------------------------------------------- */
-/* Float animation */
-/* --------------------------------------------- */
-
+/* micro “float” quando visibile */
 @keyframes socialFloat {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateZ(0) translateY(0) rotateX(var(--rx)) rotateY(var(--ry));
   }
   50% {
-    transform: translate3d(0, -4px, 0);
+    transform: translateZ(0) translateY(-4px) rotateX(var(--rx))
+      rotateY(var(--ry));
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translateZ(0) translateY(0) rotateX(var(--rx)) rotateY(var(--ry));
   }
 }
 
@@ -227,33 +204,27 @@ h6 {
   animation: socialFloat 5.2s ease-in-out infinite;
 }
 
+/* accessibilità: riduci motion */
 @media (prefers-reduced-motion: reduce) {
   .social-card {
     transition: none;
   }
-
   .float-on {
     animation: none;
   }
 }
 
-/* --------------------------------------------- */
-/* Background dinamico hover */
-/* --------------------------------------------- */
-
+/* Background dinamico quando hoveri una card */
 .socials-hover-bg {
   background-image: var(--bg);
   background-size: cover;
   background-position: center;
+  filter: blur(6px); /* ⬅️ prima era 18px */
+  transform: scale(1.03);
   opacity: 1;
-
-  /* blur leggero, ma più stabile */
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
-
-  transform: scale(1.02);
 }
 
+/* overlay molto più leggero */
 .socials-hover-bg::after {
   content: "";
   position: absolute;
@@ -264,20 +235,12 @@ h6 {
       rgba(0, 0, 0, 0.08),
       rgba(0, 0, 0, 0.22)
     ),
-    rgba(15, 91, 99, 0.35);
-  pointer-events: none;
+    rgba(15, 91, 99, 0.35); /* ⬅️ prima 0.55 */
 }
 
-/* --------------------------------------------- */
-/* Animated border */
-/* Tolto mask-composite / -webkit-mask-composite
-   perché è una delle cose più instabili cross-browser.
-   Qui uso un bordo animato più robusto. */
-/* --------------------------------------------- */
-
+/* --- Animated border that rotates slowly around the card --- */
 .animated-border {
   position: relative;
-  border-radius: inherit;
 }
 
 .animated-border::before {
@@ -285,27 +248,34 @@ h6 {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  padding: 2px; /* spessore del bordo animato */
   pointer-events: none;
-  z-index: 4;
-  opacity: 0;
-  transition: opacity 300ms ease;
+  z-index: 50;
 
-  border: 2px solid transparent;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) padding-box,
-    conic-gradient(
-        from 0deg,
-        rgba(255, 255, 255, 0) 0deg,
-        rgba(255, 255, 255, 0) 260deg,
-        rgba(15, 91, 99, 0.95) 300deg,
-        rgba(246, 230, 212, 0.9) 330deg,
-        rgba(255, 255, 255, 0) 360deg
-      )
-      border-box;
+  /* bordo “che gira” */
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0) 0deg,
+    rgba(255, 255, 255, 0) 260deg,
+    rgba(15, 91, 99, 0.95) 300deg,
+    rgba(246, 230, 212, 0.9) 330deg,
+    rgba(255, 255, 255, 0) 360deg
+  );
 
+  /* mostra solo l’anello (taglia il centro) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* animazione lenta */
   animation: border-rotate 6.5s linear infinite;
+  opacity: 0; /* di default invisibile */
+  transition: opacity 300ms ease;
 }
 
+/* attivo solo su hover/focus (desktop + tastiera) */
 .group:hover .animated-border::before,
 .group:focus-within .animated-border::before {
   opacity: 1;
@@ -317,18 +287,18 @@ h6 {
   }
 }
 
-/* --------------------------------------------- */
-/* Buttons parallax */
-/* --------------------------------------------- */
-
+/* stato iniziale: fuori + invisibile */
+/* base: invisibile + transizione */
 .btn-parallax {
   opacity: 0;
   transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
   transition:
     transform 700ms ease,
     opacity 700ms ease;
 }
 
+/* direzioni */
 .btn-from-left {
   transform: translate3d(-40px, 0, 0);
 }
@@ -337,11 +307,13 @@ h6 {
   transform: translate3d(40px, 0, 0);
 }
 
+/* stato finale */
 .btn-parallax.is-in {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
+/* opzionale: accessibilità */
 @media (prefers-reduced-motion: reduce) {
   .btn-parallax {
     opacity: 1;
@@ -351,62 +323,49 @@ h6 {
 }
 
 /* --------------------------------------------- */
-/* Fonts */
-/* Meglio usare woff2/woff se li hai.
-   Qui ti lascio compatibile anche con i file attuali. */
-/* --------------------------------------------- */
-
 @font-face {
   font-family: "bikinis";
-  src:
-    url("/fonts/bikinis.woff2") format("woff2"),
-    url("/fonts/bikinis.woff") format("woff"),
-    url("/fonts/bikinis.ttf") format("truetype");
-  font-weight: 400;
+  src: url("/fonts/bikinis.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 .font-bikinis {
-  font-family: "bikinis", cursive;
+  font-family: "bikinis";
 }
+
+/* --------------------------------------------- */
 
 @font-face {
   font-family: "couture";
-  src:
-    url("/fonts/couture_bold.woff2") format("woff2"),
-    url("/fonts/couture_bold.woff") format("woff"),
-    url("/fonts/couture_bold.ttf") format("truetype");
+  src: url("/fonts/couture_bold.ttf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 .font-couture {
-  font-family: "couture", sans-serif;
+  font-family: "couture";
 }
 
+/* --------------------------------------------- */
 @font-face {
   font-family: "oswald";
-  src:
-    url("/fonts/oswald.woff2") format("woff2"),
-    url("/fonts/oswald.woff") format("woff"),
-    url("/fonts/oswald.ttf") format("truetype");
-  font-weight: 400;
+  src: url("/fonts/oswald.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 .font-oswald {
-  font-family: "oswald", sans-serif;
+  font-family: "oswald";
 }
 
+/* --------------------------------------------- */
+/* Nota: con i file .otf il format giusto è opentype, non truetype. */
 @font-face {
   font-family: "sofiapro";
-  src:
-    url("/fonts/sofia_pro_regular.woff2") format("woff2"),
-    url("/fonts/sofia_pro_regular.woff") format("woff"),
-    url("/fonts/sofia_pro_regular.otf") format("opentype");
+  src: url("/fonts/sofia_pro_regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -414,25 +373,79 @@ h6 {
 
 @font-face {
   font-family: "sofiapro";
-  src:
-    url("/fonts/sofia_pro_semibold.woff2") format("woff2"),
-    url("/fonts/sofia_pro_semibold.woff") format("woff"),
-    url("/fonts/sofia_pro_semibold.otf") format("opentype");
+  src: url("/fonts/sofia_pro_semibold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 .font-sofiapro {
-  font-family: "sofiapro", system-ui, sans-serif;
+  font-family: "sofiapro";
 }
-
-/* --------------------------------------------- */
-/* Utilities */
 /* --------------------------------------------- */
 
+/* ===== MODIFICA (COPY / PASTE) ===== */
 .text-shadow-soft {
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.25),
     0 3px 8px rgba(0, 0, 0, 0.15);
 }
+
+/* pippo
+ /* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}  */
+
+/* =========================================================
+   #cadcf2 + GRAIN / NOISE (NO FILE, SVG URL-ENCODED - SAFE)
+   Funziona in Next.js + PostCSS + Tailwind
+   - intensity: 40-55% (qui 0.55)
+   - contrast: +50% (1.5)
+   ========================================================= */
+/* =========================================================
+   #cadcf2 + GRAIN VISIBILE (NO SVG, FUNZIONA SICURO)
+   usa: className="bg-[#cadcf2]"
+   ========================================================= */
+
+/* =========================================================
+   #cadcf2 + GRAIN VISIBILE (NO SVG, FUNZIONA SICURO)
+   usa: className="bg-[#cadcf2]"
+   ========================================================= */
+/* =========================================================
+   AZZURRO CUCCIOLINO (#cadcf2) + GRAIN FINE PUNTINATO
+   - colore invariato
+   - grana tipo carta / pellicola
+   - applicata ovunque usi .bg-cadcf2
+   ========================================================= */
+
+/* COLORE BASE .bg-[#cadcf2] {
+  position: relative;
+  background-color: #cadcf2;
+  overflow: hidden;
+}
+
+/* GRAIN 
+.bg-[#cadcf2]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  /* Noise fine, monocromatico, puntinato 
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27100%27%20height%3D%27100%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%271.8%27%20numOctaves%3D%271%27%20seed%3D%271%27/%3E%3CfeColorMatrix%20type%3D%27saturate%27%20values%3D%270%27/%3E%3C/filter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url(%23n)%27/%3E%3C/svg%3E");
+
+  background-repeat: repeat;
+  background-size: 70px 70px;
+
+  /* GRAIN VISIBILE MA COLORE FEDELE *
+  opacity: 0.38;
+  filter: contrast(1.6);
+  mix-blend-mode: overlay;
+}
+
+/* CONTENUTI SEMPRE SOPRA 
+.bg-[#cadcf2] > * {
+  position: relative;
+  z-index: 2;
+} */
