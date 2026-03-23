@@ -276,7 +276,7 @@ export default function MenuPage() {
                     </div>
 
                     <div
-                      className="md:-ml-12  ml-0 mt-2 md:-mt-8 font-sofiapro font-black text-[#b42f26]
+                      className="md:-ml-12  ml-1 mt-2 md:-mt-8 font-sofiapro font-black text-[#b42f26]
                 text-[26px] md:text-[38px] max-md:text-[20px]
                 leading-tight tracking-tight"
                     >
