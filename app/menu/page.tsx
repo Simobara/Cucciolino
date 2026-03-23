@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Pizza Restaurant Melbourne | Cucciolino",
+  title: "CUCCIOLINO | Pizza & Gelato",
   description:
     "Taste our high-quality pizza in Melbourne, made with traditional methods and love. Welcome to Cucciolino in Brighton for artisan pizza, dine-in and takeaway.",
 };
