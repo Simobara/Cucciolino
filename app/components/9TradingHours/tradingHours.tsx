@@ -53,7 +53,7 @@ export default function TradingHours() {
                 ${visible ? "translate-y-0 opacity-100 delay-300" : "translate-y-8 opacity-0"}
               `}
             >
-              <div className="w-fit ml-10 md:ml-6 lg:ml-21">
+              <div className="w-fit ml-6 sm:ml-8 md:ml-6 lg:ml-21">
                 <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black pb-4">
                   Cucciolino
                 </span>

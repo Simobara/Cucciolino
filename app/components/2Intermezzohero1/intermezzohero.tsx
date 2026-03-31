@@ -56,7 +56,7 @@ export default function IntermezzoHero1({ bg = "" }) {
           "
         >
           {/* BLOCCO TITOLI */}
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-2">
+          <div className="flex flex-col gap-3 sm:gap-4 md:gap-2 pl-2 sm:pl-4 md:pl-0">
             {/* ---- LINEA 1 ---- */}
             <h2
               className={`
@@ -99,6 +99,7 @@ export default function IntermezzoHero1({ bg = "" }) {
           <p
             className={`
               mt-5 sm:mt-7 md:mt-8
+    pl-2 sm:pl-4 md:pl-0
               text-[#2e3192]
               font-sofiapro
               text-[clamp(1.05rem,3.6vw,2rem)]

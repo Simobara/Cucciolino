@@ -69,11 +69,11 @@ export default function BreakfastBrunchSection({
           {/* TEXT LEFT */}
           <div
             className={[
-              "order-2 flex w-full min-w-0 flex-col items-start justify-center px-4 sm:px-5 md:px-10 lg:px-16 text-left",
+              "order-2 flex w-full min-w-0 flex-col items-start justify-center px-6 sm:px-8 md:px-16 text-left",
               contentWrapperClassName,
             ].join(" ")}
           >
-            <div className="w-full min-w-0 max-w-full ml-0 md:ml-8 lg:ml-16">
+            <div className="w-full min-w-0 max-w-full ml-0 md:ml-12 lg:ml-20">
               <h2
                 className={[
                   "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
