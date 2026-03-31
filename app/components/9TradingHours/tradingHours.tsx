@@ -24,42 +24,20 @@ export default function TradingHours() {
   }, []);
 
   return (
-    <section
-      className="
-        relative isolate w-full overflow-hidden bg-white
-        mt-4
-        min-h-[120vh] md:min-h-[110vh]
-        py-12 md:py-16
-        px-2 md:px-0
-      "
-    >
+    <section className="relative isolate w-full overflow-hidden bg-white min-h-[120vh] md:min-h-[110vh]">
       {/* ===== BACKGROUND (non deve collassare) ===== */}
-      <div className="absolute inset-0 pointer-events-none m-4 md:m-4 md:-mx-8">
-        {/* cornice bianca */}
-        <div className="relative h-full w-full bg-white rounded-none md:mb-4 sm:rounded-lg  overflow-hidden">
-          {/* contenitore bianco che NON viene scurito */}
-          <div className="relative h-full w-full bg-white overflow-hidden rounded-none sm:rounded-lg">
-            {/* strato scalato: immagine + overlay */}
-            <div
-              className="
-    absolute inset-y-3 md:inset-y-4 inset-x-0
-    origin-center
-    scale-x-100 sm:scale-x-[0.84] lg:scale-x-[0.86]
-  "
-            >
-              <Image
-                src="/imgg/imgTradhourss.png"
-                alt="Trading hours background"
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover object-center"
-              />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/imgg/imgTradhourss.png"
+            alt="Trading hours background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
 
-              {/* overlay SOLO sull'immagine */}
-              <div className="absolute inset-0 bg-black/40" />
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-black/40" />
         </div>
       </div>
 
@@ -108,10 +86,10 @@ export default function TradingHours() {
     "
                   >
                     <span>Monday</span>
-                    <span>3:00PM – 9:30PM</span>
+                    <span>Closed</span>
 
                     <span>Tuesday</span>
-                    <span>Closed</span>
+                    <span>3:00PM – 9:30PM</span>
 
                     <span>Wednesday</span>
                     <span>3:00PM – 9:30PM</span>

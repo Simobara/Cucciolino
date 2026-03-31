@@ -17,6 +17,25 @@ export default function Cursor({
   const isHome = pathname === "/";
 
   const [visible, setVisible] = useState(false);
+  const [showOnDesktop, setShowOnDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const desktopPointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+      ).matches;
+
+      const desktopWidth = window.innerWidth >= 1024;
+
+      setShowOnDesktop(desktopPointer && desktopWidth);
+    };
+
+    checkDevice();
+
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,13 +48,13 @@ export default function Cursor({
     return () => window.removeEventListener("scroll", onScroll);
   }, [showAfter]);
 
-  const onClickIfHome = (e: React.MouseEvent) => {
+  const onClickIfHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isHome) return;
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (!visible) return null;
+  if (!visible || !showOnDesktop) return null;
 
   return (
     <div className="fixed right-4 bottom-24 z-[9999]">
@@ -48,29 +67,19 @@ export default function Cursor({
           inline-flex items-center justify-center
           h-12 w-12 sm:h-14 sm:w-14
           rounded-full
-
-          /* DEFAULT: trasparente ma visibile */
           bg-white/10 backdrop-blur
           text-[#76aad8]
           ring-1 ring-[#76aad8]/40
-
-          /* TRANSITIONS */
           transition-all duration-300 ease-out
-
-          /* HOVER: pieno + shadow */
           hover:bg-[#76aad8]
           hover:text-[#F6E6D4]
           hover:ring-transparent
           hover:shadow-[0_12px_30px_rgba(15,91,99,0.35)]
-
-          /* ACTIVE */
           active:scale-95
         "
       >
-        {/* freccia su */}
         <span className="text-xl leading-none translate-y-px">↑</span>
 
-        {/* tooltip */}
         <span
           className="
             pointer-events-none

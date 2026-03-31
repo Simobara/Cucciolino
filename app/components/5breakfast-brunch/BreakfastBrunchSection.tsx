@@ -139,7 +139,7 @@ export default function BreakfastBrunchSection({
 
               <div
                 className={[
-                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left md:text-justify leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px] transition-all duration-900 ease-out delay-200",
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px] transition-all duration-900 ease-out delay-200",
                   visible
                     ? "opacity-100 max-md:translate-y-0"
                     : "opacity-0 max-md:translate-y-20",

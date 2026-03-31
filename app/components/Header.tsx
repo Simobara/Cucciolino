@@ -106,12 +106,12 @@ export default function Header({ variant }: HeaderProps) {
       mt-1
     "
               >
-                PIZZA AND GELATO
+                {/* PIZZA AND GELATO */}
               </div>
             </Link>
 
             {/* BOTTONE DESKTOP — si muove SOLO in orizzontale */}
-            <Link
+            {/* <Link
               href={pathname === "/menu" ? "/" : "/menu"}
               onClick={() => setOpen(false)}
               className="
@@ -130,14 +130,14 @@ export default function Header({ variant }: HeaderProps) {
         transition-all duration-200
         whitespace-nowrap
       "
-            >
-              {pathname === "/menu" ? "HOME" : "MENU"}
-            </Link>
+            > */}
+            {/* {pathname === "/menu" ? "HOME" : "MENU"} */}
+            {/* </Link> */}
           </div>
         </div>
 
         {/* HAMBURGER — MOBILE */}
-        <button
+        {/* <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -145,7 +145,7 @@ export default function Header({ variant }: HeaderProps) {
           className="absolute right-6 top-1/2 -translate-y-1/2 lg:hidden inline-flex items-center justify-center rounded-md border border-[#ef4136]/30 bg-white/70 px-3 py-2 text-[#ef4136] hover:bg-white transition"
         >
           <span className="text-xl leading-none">{open ? "✕" : "☰"}</span>
-        </button>
+        </button> */}
       </nav>
 
       {/* MOBILE MENU PANEL (stile coerente) */}

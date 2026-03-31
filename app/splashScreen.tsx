@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function SplashScreen({
   onFinish,
-  minShowMs = 4000,
+  minShowMs = 2000,
   fadeMs = 900,
   infinite = false,
 }: {

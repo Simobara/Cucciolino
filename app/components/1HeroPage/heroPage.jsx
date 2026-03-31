@@ -18,8 +18,8 @@ export default function HeroPage() {
   return (
     <section className="relative min-h-[95vh] overflow-hidden bg-white  ">
       {/* ===== IMMAGINE ===== */}
-      <div className="absolute inset-0 md:top-24 top-24">
-        <div className="absolute inset-4 sm:inset-6 md:inset-[40px] overflow-hidden">
+      <div className="absolute inset-0 md:top-8 top-6">
+        <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden">
           <Image
             src="/heroImg.jpg"
             alt="Cucciolino hero"
@@ -33,7 +33,7 @@ export default function HeroPage() {
 
       {/* ===== CONTENUTO ===== */}
       <div className="relative z-10 min-h-[90vh]">
-        <div className="absolute inset-4 sm:inset-6 md:inset-[40px] flex items-end">
+        <div className="absolute inset-x-0 top-24 bottom-0 flex items-end px-4 md:px-10">
           <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-40 text-left flex flex-col items-start">
             <p className="md:block hidden text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-xl sm:text-2xl md:text-3xl pb-6 sm:pb-10 md:pb-34">
               Cucciolino

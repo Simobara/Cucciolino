@@ -31,6 +31,8 @@ export default function Home() {
   const [, setShowTitle] = useState(false);
   const [, setVisibleWords] = useState(0);
 
+  const [showCursorImage, setShowCursorImage] = useState(false);
+
   useEffect(() => {
     if (!ready) return;
 
@@ -86,6 +88,24 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const checkDevice = () => {
+      const desktopPointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+      ).matches;
+
+      const desktopWidth = window.innerWidth >= 1024;
+
+      setShowCursorImage(desktopPointer && desktopWidth);
+    };
+
+    checkDevice();
+
+    window.addEventListener("resize", checkDevice);
+
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
   const handleSplashFinish = () => {
     try {
       sessionStorage.setItem("cucciolino-splash-seen", "true");
@@ -103,7 +123,7 @@ export default function Home() {
     <SplashScreen infinite />
   ) : (
     <>
-      {ready && !showSplash && (
+      {ready && !showSplash && showCursorImage && (
         <CursorElasticImage
           src="/iconsss/cursor.png"
           size={130}
@@ -253,17 +273,17 @@ export default function Home() {
             maintoptitle="WHAT'S ON" // fallback testo (opzionale)
             maintopimage="/images/whatsonnn.png" // <-- QUESTA è l’immagine
             maintoptitleAlt="What's On"
-            subtitle="From 6 PM to 9 PM "
+            subtitle="" // From 6 PM to 9 PM
             titleImgWidth={320}
             titleImgHeight={50}
-            smallFirstTitle="MONDAY CUCCIOLINO"
+            smallFirstTitle="TUESDAY CUCCIOLINO"
             smallSecondTitle="FROZEN WEDNESDAY"
             smallThirdTitle="THURSDAY MARGHE-NIGHT"
             smallFourthTitle="SUNDAY FAMILY"
-            price1="Order of 3 pizza … you get 500 ml gelato 50% off"
+            price1="Buy 3 pizzas , get 4"
             price2="Package gelato 20% off "
             price3="Margherita pizza 15$ "
-            price4="Buy 3 pizzas , get 4"
+            price4="Order of 3 pizza and you get 500 ml gelato 50% off"
             image1="/iconss/pizza5.png"
             image2="/iconss/pizza6.png"
             image3="/iconss/pizza7.png"

@@ -15,7 +15,7 @@ export default function MapEmbed({
   src, // ⬅️ non usato ma TENUTO
   height = 420,
   directionsUrl = "https://maps.app.goo.gl/YWBTBTz77hT5jhEf7",
-  imageSrc = "/image/map2.png",
+  imageSrc = "/image/map22.jpg",
 }: MapEmbedProps) {
   return (
     <section

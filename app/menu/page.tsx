@@ -104,7 +104,7 @@ export default function MenuPage() {
     },
     {
       title: "98",
-      description: "Mozzarella, sweet onion, sausages. Gorgonzola + $5.",
+      description: "Mozzarella, sweet onion, sausages. Gorgonzola + $3.",
       price: "26",
     },
     {
