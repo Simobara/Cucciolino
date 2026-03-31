@@ -15,29 +15,30 @@ export default function Footer() {
       }}
     >
       {/* TOP */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-14 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-24 items-start">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 py-14 sm:py-16 md:py-14 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 lg:gap-24 items-start">
           {/* LOGO */}
-          <div className="flex items-start justify-center lg:justify-start">
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 lg:w-60 lg:h-60 self-start lg:-mt-5">
+          <div className="flex items-start justify-center md:justify-start lg:justify-start">
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-44 md:h-44 lg:w-60 lg:h-60 self-start md:-mt-1 lg:-mt-5">
               <Image
                 src="/logocucc1x.png"
                 alt="Cucciolino Pizza & Gelato logo"
                 fill
-                sizes="(max-width: 640px) 176px, (max-width: 1024px) 208px, 240px"
+                sizes="(max-width: 640px) 176px, (max-width: 1024px) 176px, 240px"
                 className="object-contain"
                 priority
               />
             </div>
           </div>
-          {/* INFO: 2 COLONNE SU MOBILE, 1 COLONNA SU LG (per restare coerente col grid a 3) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-2 lg:gap-16">
+
+          {/* INFO */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:col-span-2 md:grid-cols-2 gap-10 md:gap-10 lg:gap-16">
             {/* LOCATION */}
             <div className="flex flex-col text-center sm:text-left">
-              <h4 className="font-oswald text-2xl sm:text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">
+              <h4 className="font-oswald text-2xl sm:text-3xl md:text-[1.7rem] lg:text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">
                 LOCATION
               </h4>
-              <p className="font-sofiapro mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+              <p className="font-sofiapro mt-6 sm:mt-8 md:mt-7 text-lg sm:text-xl md:text-[1.12rem] lg:text-2xl leading-relaxed">
                 <span className="font-bold">608</span> Hampton Street <br />
                 Brighton VIC <span className="font-bold">3186</span> <br />
                 Australia
@@ -46,11 +47,11 @@ export default function Footer() {
 
             {/* CONTACTS */}
             <div className="flex flex-col text-center sm:text-left">
-              <h4 className="font-oswald text-2xl sm:text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">
+              <h4 className="font-oswald text-2xl sm:text-3xl md:text-[1.7rem] lg:text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">
                 CONTACTS
               </h4>
 
-              <div className="font-sofiapro mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+              <div className="font-sofiapro mt-6 sm:mt-8 md:mt-7 text-lg sm:text-xl md:text-[1.12rem] lg:text-2xl leading-relaxed">
                 <a
                   href="tel:(03) 9121 6598"
                   className="hover:underline underline-offset-4 font-bold"

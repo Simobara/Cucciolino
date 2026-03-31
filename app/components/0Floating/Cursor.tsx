@@ -21,13 +21,8 @@ export default function Cursor({
 
   useEffect(() => {
     const checkDevice = () => {
-      const desktopPointer = window.matchMedia(
-        "(hover: hover) and (pointer: fine)",
-      ).matches;
-
-      const desktopWidth = window.innerWidth >= 1024;
-
-      setShowOnDesktop(desktopPointer && desktopWidth);
+      const isDesktop = window.innerWidth >= 1024;
+      setShowOnDesktop(isDesktop);
     };
 
     checkDevice();

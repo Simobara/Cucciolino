@@ -53,7 +53,7 @@ export default function TradingHours() {
                 ${visible ? "translate-y-0 opacity-100 delay-300" : "translate-y-8 opacity-0"}
               `}
             >
-              <div className="w-fit md:ml-21 ml-10">
+              <div className="w-fit ml-10 md:ml-6 lg:ml-21">
                 <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black pb-4">
                   Cucciolino
                 </span>
@@ -109,7 +109,7 @@ export default function TradingHours() {
                 </div>
 
                 {/* BOTTONI */}
-                <div className="pt-16 md:pt-24 flex flex-col lg:flex-row gap-6 md:gap-24">
+                <div className="pt-16 md:pt-24 flex flex-col md:flex-row gap-6 md:gap-16">
                   <Link
                     href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
                     target="_blank"

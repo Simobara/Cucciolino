@@ -8,7 +8,7 @@ export default function HeroPage() {
   const [start, setStart] = useState(false);
 
   useEffect(() => {
-    const t = window.setTimeout(() => setStart(true), 650); // dopo intro immagine
+    const t = window.setTimeout(() => setStart(true), 650);
     return () => clearTimeout(t);
   }, []);
 
@@ -16,116 +16,111 @@ export default function HeroPage() {
     "inline-block transition-all duration-[900ms] ease-out motion-reduce:transition-none motion-reduce:transform-none";
 
   return (
-    <section className="relative min-h-[95vh] overflow-hidden bg-white  ">
+    <section className="relative min-h-[95vh] overflow-hidden bg-white">
       {/* ===== IMMAGINE ===== */}
-      <div className="absolute inset-0 md:top-8 top-6">
-        <div className="absolute inset-x-0 top-24 bottom-0 overflow-hidden">
-          <Image
-            src="/heroImg.jpg"
-            alt="Cucciolino hero"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </div>
+      <div className="absolute inset-0">
+        <Image
+          src="/heroImg.jpg"
+          alt="Cucciolino hero"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative z-10 min-h-[90vh]">
-        <div className="absolute inset-x-0 top-24 bottom-0 flex items-end px-4 md:px-10">
-          <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-40 text-left flex flex-col items-start">
-            <p className="md:block hidden text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-xl sm:text-2xl md:text-3xl pb-6 sm:pb-10 md:pb-34">
-              Cucciolino
-            </p>
+      <div className="relative z-10 min-h-[95vh] flex items-end px-4 md:px-10">
+        <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-10 lg:ml-16 xl:ml-28 text-left flex flex-col items-start pb-8 md:pb-10">
+          <p className="block text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-lg sm:text-2xl md:text-3xl pb-4 sm:pb-10 md:pb-34">
+            Cucciolino
+          </p>
 
-            <h1
-              className="
-                mt-3 text-white font-oswald uppercase font-bold
-                leading-[0.95] scale-y-[1.45] pb-5
-                drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
-                text-3xl sm:text-4xl md:text-5xl md:sm:text-6xl lg:text-7xl
-              "
-            >
-              <span className="block">
-                Your{" "}
-                <span
-                  className={[
-                    wordBase,
-                    "delay-[200ms]",
-                    start
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10",
-                  ].join(" ")}
-                >
-                  Quality,
-                </span>{" "}
-                <span
-                  className={[
-                    wordBase,
-                    "delay-[800ms]", // più lento e leggibile
-                    start
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10",
-                  ].join(" ")}
-                >
-                  Friendly,
-                </span>
-              </span>
-
+          <h1
+            className="
+              mt-3 text-white font-oswald uppercase font-bold
+              leading-[0.95] scale-y-[1.45] pb-5
+              drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]
+              text-3xl sm:text-4xl md:text-5xl md:sm:text-6xl lg:text-7xl
+            "
+          >
+            <span className="block">
+              Your{" "}
               <span
                 className={[
-                  "block transition-all duration-[1000ms] ease-out",
-                  "delay-[1400ms]",
-                  "motion-reduce:transition-none motion-reduce:transform-none",
+                  wordBase,
+                  "delay-[200ms]",
                   start
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12",
+                    : "opacity-0 translate-y-10",
                 ].join(" ")}
               >
-                Neighbourhood Pizzeria
+                Quality,
+              </span>{" "}
+              <span
+                className={[
+                  wordBase,
+                  "delay-[800ms]",
+                  start
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10",
+                ].join(" ")}
+              >
+                Friendly,
               </span>
-            </h1>
+            </span>
 
-            {/* CTA */}
-            <div className="mt-8 sm:mt-10 md:mt-12 flex w-full flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16 pb-8 md:pb-10">
-              <Link
-                href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  font-sofiapro leading-[1.05]
-                  hover:brightness-110 transition
-                  w-full sm:w-auto
-                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                  text-base sm:text-2xl lg:text-4xl
-                  whitespace-nowrap md:min-w-75
-                "
-              >
-                Order Online
-              </Link>
+            <span
+              className={[
+                "block transition-all duration-[1000ms] ease-out",
+                "delay-[1400ms]",
+                "motion-reduce:transition-none motion-reduce:transform-none",
+                start
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12",
+              ].join(" ")}
+            >
+              Neighbourhood Pizzeria
+            </span>
+          </h1>
 
-              <Link
-                href="/menu"
-                className="
-                  inline-flex items-center justify-center
-                  rounded-md bg-[#ef4136] text-white
-                  font-sofiapro leading-[1.05]
-                  hover:brightness-110 transition
-                  w-full sm:w-auto
-                  px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                  text-base sm:text-2xl lg:text-4xl
-                  whitespace-nowrap md:min-w-75
-                "
-              >
-                View Menu
-              </Link>
-            </div>
+          <div className="mt-8 sm:mt-10 md:mt-12 flex w-full flex-col sm:flex-row gap-4 sm:gap-8 md:gap-16">
+            <Link
+              href="https://tabit.au/tabit-order?site=699d2a0b104d88c062a8b271"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center justify-center
+                rounded-md bg-[#ef4136] text-white
+                font-sofiapro leading-[1.05]
+                hover:brightness-110 transition
+                w-full sm:w-auto
+                px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                text-base sm:text-2xl lg:text-4xl
+                whitespace-nowrap md:min-w-75
+              "
+            >
+              Order Online
+            </Link>
 
-            <div className="h-2 md:hidden" />
+            <Link
+              href="/menu"
+              className="
+                inline-flex items-center justify-center
+                rounded-md bg-[#ef4136] text-white
+                font-sofiapro leading-[1.05]
+                hover:brightness-110 transition
+                w-full sm:w-auto
+                px-5 py-3 md:px-7 md:pt-1 md:pb-0
+                text-base sm:text-2xl lg:text-4xl
+                whitespace-nowrap md:min-w-75
+              "
+            >
+              View Menu
+            </Link>
           </div>
+
+          <div className="h-2 md:hidden" />
         </div>
       </div>
     </section>

@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ReactNode, useEffect, useRef, useState } from "react";
-import { useParallax } from "../hooks/useParallax";
+import { ReactNode } from "react";
 
 type BreakfastBrunchSectionProps = {
   title: string;
@@ -29,47 +28,8 @@ export default function BreakfastBrunchSection({
   contentWrapperClassName = "",
   imagePriority = false,
 }: BreakfastBrunchSectionProps) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
-
-  const {
-    ref: parallaxRef,
-    y,
-    prefersReducedMotion,
-  } = useParallax<HTMLDivElement>({
-    strength: 70,
-    max: 90,
-  });
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    let timeout: number | null = null;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-
-        timeout = window.setTimeout(() => {
-          setVisible(true);
-          observer.disconnect();
-        }, 150);
-      },
-      { threshold: 0.25, rootMargin: "0px 0px -15% 0px" },
-    );
-
-    observer.observe(el);
-
-    return () => {
-      observer.disconnect();
-      if (timeout) window.clearTimeout(timeout);
-    };
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className={[
         "mt-0 mb-0 h-auto py-8 md:h-[50vh] md:py-0",
         sectionClassName,
@@ -84,25 +44,16 @@ export default function BreakfastBrunchSection({
       }}
     >
       <div className="mx-auto h-full">
-        <div className="grid md:grid-cols-2 h-full items-stretch">
+        <div className="grid h-full items-stretch md:grid-cols-2">
           {/* IMAGE RIGHT */}
           <div
-            ref={parallaxRef}
             className={[
-              "relative w-full h-[42vh] min-h-75 md:h-full md:min-h-0 order-1 md:order-2",
-              visible ? "is-visible" : "",
+              "relative order-1 w-full h-[42vh] min-h-75 md:order-2 md:h-full md:min-h-0",
               imageClassName,
             ].join(" ")}
           >
             <div className="absolute inset-0 overflow-hidden">
-              <div
-                className="absolute inset-0 will-change-transform"
-                style={{
-                  transform: prefersReducedMotion
-                    ? "translate3d(0,0,0) scale(1.15)"
-                    : `translate3d(0, ${y}px, 0) scale(1.15)`,
-                }}
-              >
+              <div className="absolute inset-0">
                 <Image
                   src={imageSrc}
                   alt={imageAlt}
@@ -118,19 +69,14 @@ export default function BreakfastBrunchSection({
           {/* TEXT LEFT */}
           <div
             className={[
-              "reveal flex flex-col justify-center items-start text-left mr-2 md:mr-12 px-6 sm:px-8 md:px-16",
-              visible ? "is-visible" : "",
+              "flex flex-col items-start justify-center text-left mr-2 md:mr-12 px-6 sm:px-8 md:px-16",
               contentWrapperClassName,
             ].join(" ")}
-            style={{ transitionDelay: "280ms" }}
           >
-            <div className="md:max-w-200 ml-0 sm:ml-6 md:ml-20">
+            <div className="w-full max-w-full md:max-w-[800px] ml-0 md:ml-12 lg:ml-20">
               <h2
                 className={[
-                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block origin-center scale-y-[1.25] text-5xl sm:text-6xl md:text-6xl lg:text-6xl transition-all duration-900 ease-out",
-                  visible
-                    ? "opacity-100 max-md:translate-x-0"
-                    : "opacity-0 max-md:-translate-x-24",
+                  "text-[#ef4136] font-oswald font-semibold uppercase tracking-widest leading-none inline-block text-5xl sm:text-6xl md:text-6xl lg:text-6xl",
                   titleClassName,
                 ].join(" ")}
               >
@@ -139,10 +85,7 @@ export default function BreakfastBrunchSection({
 
               <div
                 className={[
-                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left leading-snug text-lg sm:text-xl md:text-2xl w-[260px] sm:w-[320px] md:w-[420px] transition-all duration-900 ease-out delay-200",
-                  visible
-                    ? "opacity-100 max-md:translate-y-0"
-                    : "opacity-0 max-md:translate-y-20",
+                  "mt-6 md:mt-10 text-[#2e3192] font-sofiapro font-semibold text-left leading-snug text-lg sm:text-xl md:text-2xl w-full max-w-[420px]",
                   textClassName,
                 ].join(" ")}
                 style={{ textAlignLast: "auto" }}

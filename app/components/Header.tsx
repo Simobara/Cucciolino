@@ -75,7 +75,7 @@ export default function Header({ variant }: HeaderProps) {
         />
       </div>
 
-      <nav className="relative mx-auto w-full px-6 py-5 h-[92px]">
+      <nav className="relative mx-auto w-full px-6 py-2 h-[70px]">
         {/* LOGO — SEMPRE CENTRATO + BOTTONE AGGANCIATO A DESTRA (solo X) */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none">
           <div className="relative">
@@ -103,7 +103,7 @@ export default function Header({ variant }: HeaderProps) {
       md:text-2xl text-xl
       max-md:text-[12px] max-md:tracking-[0.2em]
       leading-none
-      mt-1
+      mt-[2px]
     "
               >
                 {/* PIZZA AND GELATO */}

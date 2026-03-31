@@ -220,16 +220,15 @@ export default function MenuPage() {
 
                   <div
                     className="
-                      font-oswald font-black uppercase text-[#ef4136]
-                      leading-none
-                      text-[110px] sm:text-[140px] md:text-[180px]
-                      scale-y-[1.2]
-                      ml-0 md:-ml-2
-                    "
+    font-oswald font-black uppercase text-[#ef4136]
+    leading-none
+    text-[90px] sm:text-[140px] md:text-[180px]
+    scale-y-[1.2]
+    ml-0 md:-ml-2
+  "
                   >
                     MENU
                   </div>
-
                   <div className="ml-auto pt-6 max-md:pt-1">
                     <span
                       className="font-couture uppercase font-bold text-[#b42f26] tracking-[0]
@@ -641,7 +640,7 @@ max-md:text-[22px] leading-none"
               {/* ===== FOOTER ===== */}
               <div className="md:mt-20 mt-10 sm:mt-16 pb-8 sm:pb-10 max-md:mt-12">
                 <div
-                  className="flex items-end justify-center gap-6 sm:gap-10 md:ml-84 ml-2 mt-8 mb-30
+                  className="flex items-end justify-center gap-6 sm:gap-10 md:ml-24 ml-2 mt-8 mb-30
 max-md:ml-8 max-md:justify-start max-md:gap-4 md:mr-2 mr-4"
                 >
                   <div
@@ -657,8 +656,8 @@ max-md:ml-8 max-md:justify-start max-md:gap-4 md:mr-2 mr-4"
 
                   <div
                     className="top-6 relative w-[110px] h-[110px] md:ml-14 ml-4 mt-4
-                    sm:w-[140px] sm:h-[140px]
-                    md:scale-180 scale-100 max-md:scale-[1.8] max-md:ml-4 max-md:mt-4 opacity-90"
+  sm:w-[140px] sm:h-[140px]
+  md:scale-180 scale-100 max-md:scale-[1.2] max-md:ml-4 max-md:mt-4 opacity-90"
                   >
                     <Image
                       src="/iconsss/cursor.png"
@@ -685,9 +684,11 @@ function MenuItem({ title, description, price }: MenuItemProps) {
     <div className="md:py-0 md:pb-4 py-2 max-md:pb-3">
       <div className="flex items-start justify-between gap-12 md:gap-20">
         <h3
-          className={`font-sofiapro uppercase text-[#ef4136] leading-[0.95]
+          className={`font-sofiapro uppercase text-[#ef4136]
+  leading-[0.95]
   text-[42px] sm:text-[56px] lg:text-[64px]
   max-md:text-[34px] max-w-[65%]
+  mb-2 md:mb-3   /* 👈 PIÙ SPAZIO SOTTO TITLE */
   ${title === "98" ? "font-semibold" : "font-semibold"}`}
         >
           {title}
@@ -703,10 +704,12 @@ function MenuItem({ title, description, price }: MenuItemProps) {
       </div>
 
       <p
-        className="-mt-2 sm:-mt-3 font-sofiapro font-black text-[#b42f26]
-  text-[18px] md:text-[22px] max-md:text-[17px] md:pl-1 pl-1
-  leading-snug md:max-w-[620px] max-w-[260px]
-  text-justify"
+        className="font-sofiapro font-black text-[#b42f26]
+  text-[18px] md:text-[22px] max-md:text-[17px]
+  md:pl-1 pl-1
+  leading-[1.15]   /* 👈 INTERLINEA PIÙ STRETTA */
+  md:max-w-[620px] max-w-[260px]
+      "
       >
         {description}
       </p>

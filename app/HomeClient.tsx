@@ -159,7 +159,7 @@ export default function Home() {
           </div>
         </div> */}
 
-        <Cursor />
+        {showCursorImage && <Cursor />}
         <div className="relative z-10">
           {/* MAIN PAGE */}
           <HeroPage />
