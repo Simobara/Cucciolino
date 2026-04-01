@@ -42,7 +42,7 @@ export default function TradingHours() {
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ml-4 sm:ml-6 md:ml-6 lg:ml-20">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ml-4 sm:ml-6 md:ml- lg:ml-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* COLONNA SINISTRA */}
           <div className="md:my-16 my-8 md:px-8 px-0 lg:pt-14 text-left">
@@ -119,10 +119,11 @@ export default function TradingHours() {
   rounded-md bg-[#ef4136] text-white
   font-sofiapro leading-[1.05]
   hover:brightness-110 transition
-  w-full sm:w-auto
+
+  w-[calc(100vw-48px)] self-center sm:w-auto   /* 👈 MOBILE FIX */
 
   px-5 py-3
-  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+  md:px-10 md:pt-5 md:pb-2
 
   text-base sm:text-2xl md:text-3xl lg:text-4xl
 
@@ -140,10 +141,11 @@ export default function TradingHours() {
   rounded-md bg-[#ef4136] text-white
   font-sofiapro leading-[1.05]
   hover:brightness-110 transition
-  w-full sm:w-auto
+
+  w-[calc(100vw-48px)] self-center sm:w-auto   /* 👈 MOBILE FIX */
 
   px-5 py-3
-  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+  md:px-10 md:pt-5 md:pb-2
 
   text-base sm:text-2xl md:text-3xl lg:text-4xl
 

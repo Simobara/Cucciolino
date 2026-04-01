@@ -50,7 +50,7 @@ export default function IntermezzoHero1({ bg = "" }) {
             mx-auto w-full max-w-7xl
             px-4 sm:px-6 lg:px-8
             py-10 sm:py-14 md:py-20
-            ml-4 sm:ml-6 md:ml-8 lg:ml-30
+            ml-6 sm:ml-6 md:ml-8 lg:ml-30
             text-left
             overflow-hidden
           "
@@ -107,7 +107,7 @@ export default function IntermezzoHero1({ bg = "" }) {
             `}
           >
             In a welcoming modern environment,
-            <br className="hidden md:block lg:hidden" />
+            <br className="block lg:hidden" />
             where everybody feels at home
           </p>
         </div>
