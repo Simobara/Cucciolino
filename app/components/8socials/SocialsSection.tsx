@@ -79,15 +79,15 @@ export default function SocialsSection({
         <div className="mx-auto w-full py-6">
           <div
             className="
-              flex flex-col items-center text-center gap-4
-              md:flex-row md:items-center md:justify-start md:text-left md:gap-6
-              font-bold pl-0 md:pl-10 lg:pl-40
-            "
+  flex flex-col items-center text-center gap-4
+  md:flex-row md:items-center md:justify-start md:text-left md:gap-6
+  font-bold pl-0 md:pl-10 lg:pl-36
+"
           >
             <span
               className="
   text-[#2e3192] font-sofiapro
-  md:text-3xl text-xl md:ml-6 ml-4 
+  md:text-3xl text-xl md:ml-4 ml-4 lg:ml-4
   leading-none tracking-wide
   text-center md:text-left
   mx-auto md:mx-0

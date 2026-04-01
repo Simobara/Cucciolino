@@ -31,7 +31,7 @@ export default function HeroPage() {
 
       {/* ===== CONTENUTO ===== */}
       <div className="relative z-10 min-h-[95vh] flex items-end px-4 md:px-10">
-        <div className="w-full px-2 sm:px-4 md:px-0 md:max-w-[900px] md:ml-10 lg:ml-16 xl:ml-28 text-left flex flex-col items-start pb-8 md:pb-10">
+        <div className="w-full px-2 sm:px-4 md:px-0 max-w-7xl ml-4 sm:ml-6 md:ml-6 lg:ml-28 text-left flex flex-col items-start pb-8 md:pb-10">
           <p className="block text-[#ef4136] font-sofiapro font-bold uppercase tracking-widest text-lg sm:text-2xl md:text-3xl pb-4 sm:pb-10 md:pb-34">
             Cucciolino
           </p>
@@ -90,15 +90,20 @@ export default function HeroPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                inline-flex items-center justify-center
-                rounded-md bg-[#ef4136] text-white
-                font-sofiapro leading-[1.05]
-                hover:brightness-110 transition
-                w-full sm:w-auto
-                px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                text-base sm:text-2xl lg:text-4xl
-                whitespace-nowrap md:min-w-75
-              "
+  inline-flex items-center justify-center
+  rounded-md bg-[#ef4136] text-white
+  font-sofiapro leading-[1.05]
+  hover:brightness-110 transition
+  w-full sm:w-auto
+
+  px-5 py-3
+  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+
+  text-base sm:text-2xl md:text-3xl lg:text-4xl
+
+  whitespace-nowrap
+  md:min-w-[260px]
+"
             >
               Order Online
             </Link>
@@ -106,15 +111,20 @@ export default function HeroPage() {
             <Link
               href="/menu"
               className="
-                inline-flex items-center justify-center
-                rounded-md bg-[#ef4136] text-white
-                font-sofiapro leading-[1.05]
-                hover:brightness-110 transition
-                w-full sm:w-auto
-                px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                text-base sm:text-2xl lg:text-4xl
-                whitespace-nowrap md:min-w-75
-              "
+  inline-flex items-center justify-center
+  rounded-md bg-[#ef4136] text-white
+  font-sofiapro leading-[1.05]
+  hover:brightness-110 transition
+  w-full sm:w-auto
+
+  px-5 py-3
+  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+
+  text-base sm:text-2xl md:text-3xl lg:text-4xl
+
+  whitespace-nowrap
+  md:min-w-[260px]
+"
             >
               View Menu
             </Link>

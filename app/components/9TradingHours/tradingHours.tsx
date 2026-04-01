@@ -42,7 +42,7 @@ export default function TradingHours() {
       </div>
 
       {/* ===== CONTENUTO ===== */}
-      <div className="relative mx-auto max-w-full lg:pl-16 lg:px-0">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ml-4 sm:ml-6 md:ml-6 lg:ml-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* COLONNA SINISTRA */}
           <div className="md:my-16 my-8 md:px-10 px-0 lg:pt-14 text-left">
@@ -53,7 +53,7 @@ export default function TradingHours() {
                 ${visible ? "translate-y-0 opacity-100 delay-300" : "translate-y-8 opacity-0"}
               `}
             >
-              <div className="w-fit ml-6 sm:ml-8 md:ml-6 lg:ml-21">
+              <div className="w-fit">
                 <span className="block text-red-500 uppercase tracking-widest text-lg sm:text-xl lg:text-3xl font-black pb-4">
                   Cucciolino
                 </span>
@@ -115,15 +115,20 @@ export default function TradingHours() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-                      inline-flex items-center justify-center
-                      rounded-md bg-[#ef4136] text-white
-                      font-sofiapro leading-[1.05]
-                      hover:brightness-110 transition
-                      w-full sm:w-auto
-                      px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                      text-base sm:text-2xl lg:text-4xl
-                      whitespace-nowrap md:min-w-75 min-w-40
-                    "
+  inline-flex items-center justify-center
+  rounded-md bg-[#ef4136] text-white
+  font-sofiapro leading-[1.05]
+  hover:brightness-110 transition
+  w-full sm:w-auto
+
+  px-5 py-3
+  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+
+  text-base sm:text-2xl md:text-3xl lg:text-4xl
+
+  whitespace-nowrap
+  md:min-w-[260px]
+"
                   >
                     Order Online
                   </Link>
@@ -131,15 +136,20 @@ export default function TradingHours() {
                   <Link
                     href="/menu"
                     className="
-                      inline-flex items-center justify-center
-                      rounded-md bg-[#ef4136] text-white
-                      font-sofiapro leading-[1.05]
-                      hover:brightness-110 transition
-                      w-full sm:w-auto
-                      px-5 py-3 md:px-7 md:pt-1 md:pb-0
-                      text-base sm:text-2xl lg:text-4xl
-                      whitespace-nowrap md:min-w-75 min-w-40
-                    "
+  inline-flex items-center justify-center
+  rounded-md bg-[#ef4136] text-white
+  font-sofiapro leading-[1.05]
+  hover:brightness-110 transition
+  w-full sm:w-auto
+
+  px-5 py-3
+  md:px-10 md:pt-5 md:pb-2   /* SOLO tablet */
+
+  text-base sm:text-2xl md:text-3xl lg:text-4xl
+
+  whitespace-nowrap
+  md:min-w-[260px]
+"
                   >
                     View Menu
                   </Link>

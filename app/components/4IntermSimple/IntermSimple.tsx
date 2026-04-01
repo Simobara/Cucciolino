@@ -27,7 +27,7 @@ export default function IntermezzoSimple({
 
   return (
     <section className={`${bg} relative overflow-hidden`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ml-4 sm:ml-6 md:ml-0 lg:ml-24">
         <div
           ref={ref}
           className="
@@ -50,7 +50,7 @@ export default function IntermezzoSimple({
               <div className="grid grid-cols-2 gap-10 md:gap-16 items-start">
                 {/* LEFT */}
                 <div>
-                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:ml-4 ml-2">
+                  <div className="mt-0 md:mt-3 mb-4 flex justify-start md:ml-4 ml-2 lg:-ml-1">
                     <Image
                       src="/imag/menu0.png"
                       alt="Slice menu"
@@ -65,7 +65,7 @@ export default function IntermezzoSimple({
     mt-22 sm:mt-18 md:mt-20 lg:-mt-2
                       font-sofiapro font-bold text-[#b42f26]
                       text-[26px] md:text-[38px] max-md:text-[20px]
-                      md:ml-6 ml-3
+                      md:ml-6 ml-3 lg:ml-4
                       leading-tight tracking-tight text-left
                       mb-0 md:mb-8 whitespace-nowrap
                     "

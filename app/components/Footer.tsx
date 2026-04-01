@@ -16,7 +16,7 @@ export default function Footer() {
     >
       {/* TOP */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-14 sm:py-16 md:py-14 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 lg:gap-70 items-start">
           {/* LOGO */}
           <div className="flex items-start justify-center md:justify-start lg:justify-start">
             <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-44 md:h-44 lg:w-60 lg:h-60 self-start md:-mt-1 lg:-mt-5">
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           {/* INFO */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:col-span-2 md:grid-cols-2 gap-10 md:gap-10 lg:gap-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:col-span-2 md:grid-cols-2 gap-10 md:gap-10 lg:gap-70">
             {/* LOCATION */}
             <div className="flex flex-col text-center sm:text-left">
               <h4 className="font-oswald text-2xl sm:text-3xl md:text-[1.7rem] lg:text-3xl scale-y-[1.45] tracking-[0.16em] uppercase">

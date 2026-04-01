@@ -70,9 +70,9 @@ export default function WhatsOnSection({
       {/* TITLE ROW */}
       <div
         className="
- ml-0 md:ml-0 xl:ml-22
-  pb-4 sm:pb-6 md:pb-9
-"
+    ml-0 md:ml-4 xl:ml-22
+    pb-4 sm:pb-6 md:pb-9
+  "
       >
         {hasTitleImage ? (
           <>
