@@ -45,7 +45,7 @@ export default function TradingHours() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ml-4 sm:ml-6 md:ml-6 lg:ml-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* COLONNA SINISTRA */}
-          <div className="md:my-16 my-8 md:px-10 px-0 lg:pt-14 text-left">
+          <div className="md:my-16 my-8 md:px-8 px-0 lg:pt-14 text-left">
             <div
               ref={tradingRef}
               className={`
