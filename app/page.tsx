@@ -31,7 +31,7 @@ export default function Page() {
           Website under maintenance
         </h1>
         <p style={{ color: "#666" }}>
-          Our website is currently undergoing updates. Thank you for your
+          The website is currently undergoing updates. Thank you for your
           patience.
         </p>
       </div>
