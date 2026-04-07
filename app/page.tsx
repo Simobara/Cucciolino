@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 
-const SITE_ON_HOLD = true; // 👈 cambia a false per riattivare tutto
+const SITE_ON_HOLD = false; // 👈 cambia a false per riattivare tutto
 
 export const metadata: Metadata = {
   title: SITE_ON_HOLD
