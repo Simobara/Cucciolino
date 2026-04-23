@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 
-const SITE_ON_HOLD = false; // 👈 cambia a false per riattivare tutto
+const SITE_ON_HOLD = false; 
+// they do not pay put on hold
 
 export const metadata: Metadata = {
   title: SITE_ON_HOLD
